@@ -34,16 +34,23 @@ _To pull all changes from the online GitHub_
 -> Do this every time _before_ you start working on some new code (again, to prevent merge conflicts later)
 {
 
-1.  In VS Code, make sure to have your decided repository clone folder open. This can be done by clicking File->Open Folder->[repository folder]
+1.  In VS Code, make sure to have your decided repository clone folder open. This can be done by clicking File->Open Folder->[repository-folder]
+
 2.  Open a terminal: Either press (Ctrl + J), or click Terminal->New Terminal
-3.  In terminal, type: git checkout main
+
+3.  In terminal, type:
+    git switch main
     -> to switch to the main branch, where all the up-to-date files are, or should be
     -> you should see a message/response saying successfully switched to main branch, or something like that
-4.  In terminal, type: git pull
+
+4.  In terminal, type:
+    git pull
     -> terminal will load for a bit, then you should see some files in your local VS Code change somehow, if some updates have been made
+
 5.  _If you already have your own branch_:
     -> To merge these files from the main branch to _your own_ branch, switch to your branch with: git switch [your-branch-name]
-    -> Merge to your branch with: git merge main
+    -> Merge to your branch with:
+    git merge main
     -> Voila! Now you should have all the up-to-date files in _your own_ branch
     }
 
@@ -93,3 +100,37 @@ Now, to do your own work on the code or any of the files in _your branch_.
 
 And now, for real, you are done! Thank you for your time :D
 }
+
+_TL:DR_
+
+_Initialise git repository_
+
+1. git init
+
+_To create your own branch_
+
+1. git checkout -b [branch-name]
+
+_To switch branches_
+
+1. git switch [branch-name]
+
+_To add your branch changes to the stage_
+
+1. git add . (for all files)
+2. git add [file-name] (for single/specific file)
+
+_To commit your changes from stage to repo_
+
+1. git commit -m "[your-very-useful-message-here]"
+
+_To merge branches_
+
+1. git merge [branch-name] (after pulling from online repo, on your branch, use [git merge main] to update all main changes to your branch)
+2. To merge to main before pushing: be on main branch
+   git merge [your-branch-name]
+
+_Push from local to online repo_
+
+1. git push
+   -> push both your branch after commits, as well as main branch after merge
