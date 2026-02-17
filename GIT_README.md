@@ -105,7 +105,7 @@ _TL:DR_
 
 _Initialise git repository_
 
-1. git init
+1. git init ->> Don' need to use this for this project; we already have a repository
 
 _To create your own branch_
 
@@ -113,8 +113,11 @@ _To create your own branch_
 
 _To switch branches_
 
-1. git switch [branch-name]
+1. git switch [branch-name] ->> we have the main branch, and [your-name] branch
 
+===========================================================================================================================================
+_Now for adding your changes to the code_
+---->> Read this if you don't read anything else <<----
 _To add your branch changes to the stage_
 
 1. git add . (for all files)
@@ -124,13 +127,15 @@ _To commit your changes from stage to repo_
 
 1. git commit -m "[your-very-useful-message-here]"
 
+_Push from local to online repo_
+
+1. git push
+   -> push both your branch after commits, as well as main branch after merge
+
 _To merge branches_
 
 1. git merge [branch-name] (after pulling from online repo, on your branch, use [git merge main] to update all main changes to your branch)
 2. To merge to main before pushing: be on main branch
    git merge [your-branch-name]
 
-_Push from local to online repo_
-
-1. git push
-   -> push both your branch after commits, as well as main branch after merge
+===========================================================================================================================================
