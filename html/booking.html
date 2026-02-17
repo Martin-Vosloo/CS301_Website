@@ -4,26 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book a Wedding</title>
-    <!-- This is our plugin-->
+    <!-- This is our plug in-->
     <embed src="venue.jpeg" width="200" />
   </head>
   <body>
     <!-- CODE -->
-    <!-- header at top of page -->
     <header>
-      <!-- dic container for logo and nav bar -->
       <div class="header-container">
         <img src="logo" alt="Image of Logo" />
         <nav>
-          <a href="/html/index.html">Home</a>
-          <a href="/html/about.html">About Us</a>
-          <a href="/html/contact.html">Contact Us</a>
-          <a href="/html/booking.html">Book</a>
+          <a href="booking.html">Book</a>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
         </nav>
       </div>
     </header>
 
-    <!-- section for main content of the page -->
     <section>
       <h1>See our venue</h1>
       <article>
@@ -33,13 +30,11 @@
         <img src="WeddingVenue3" alt="Photo" />
       </article>
       <article>
-        <!-- unordered list -->
         <ul>
           <li>Pretty</li>
           <li>Nice</li>
           <li>Happy</li>
         </ul>
-        <!-- ordered list -->
         <ol>
           <li>Book a venue</li>
           <li>Get married</li>
@@ -48,22 +43,88 @@
       </article>
     </section>
 
-    <!-- footer at bottom of the page -->
+    <form>
+      <!-- Contact details -->
+      <h2>Contact Information</h2>
+
+      <label for="couple-names">Couple Names</label>
+      <input type="text" id="couple-names" name="couple-names" required />
+      <br /><br />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+      <br /><br />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+      <br /><br />
+
+      <!-- Lodging start and end dates -->
+      <h2>Booking Dates</h2>
+
+      <label for="start-date">Check-in / Start Date</label>
+      <input type="date" id="start-date" name="start-date" required />
+      <br /><br />
+
+      <label for="end-date">Check-out / End Date</label>
+      <input type="date" id="end-date" name="end-date" required />
+      <br /><br />
+
+      <!-- Tick all services needed -->
+      <h2>Services Required</h2>
+
+      <input type="checkbox" id="catering" name="services" value="catering" />
+      <label for="catering">Full Catering Services</label>
+      <br />
+
+      <input
+        type="checkbox"
+        id="photographer"
+        name="services"
+        value="photographer"
+      />
+      <label for="photographer">Photographer</label>
+      <br />
+
+      <input type="checkbox" id="lodging" name="services" value="lodging" />
+      <label for="lodging">Lodging for Guests and Couple</label>
+      <br />
+
+      <input type="checkbox" id="breakfast" name="services" value="breakfast" />
+      <label for="breakfast">Breakfast</label>
+      <br /><br />
+
+      <!-- Free text for wedding preferences -->
+      <h2>Wedding Preferences</h2>
+
+      <label for="preferences"
+        >Tell us about your vision (food types, color scheme, time of day,
+        itinerary, special requests)</label
+      >
+      <br />
+      <textarea
+        id="preferences"
+        name="preferences"
+        rows="6"
+        cols="50"
+        placeholder="Example: Vegetarian menu, pastel pink and gold colors, afternoon ceremony at 3pm, outdoor reception..."
+      ></textarea>
+      <br /><br />
+
+      <button type="submit">Submit Booking Request</button>
+    </form>
+
     <footer>
+      <p>Author: Dylan McDonogh</p>
       <p>
-        <small>&#169; Copyright 2026 <i>Relationship Advice</i>&trade;</small
-        ><br />
-        <small
-          >Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma
-          Modze</small
-        >
+        Email: <a href="mailto:dcmcdonogh@gmail.com">dcmcdonogh@gmail.com</a>
       </p>
 
+      <p><small>&#169; Copyright 2026 Weddings.co</small></p>
       <nav>
-        <a href="/html/index.html">Home</a>
-        <a href="/html/about.html">About Us</a>
-        <a href="/html/contact.html">Contact Us</a>
-        <a href="/html/booking.html">Book</a>
+        <a id="home" href="index.html">Home</a>
+        <a id="about" href="about.html">About Us</a>
+        <a id="contact" href="contact.html">Contact Us</a>
       </nav>
     </footer>
   </body>
