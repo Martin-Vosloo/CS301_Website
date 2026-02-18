@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+  </head>
+  <body>
+    <header>
+      <!-- div container for logo and nav bar -->
+      <div class="header-container">
+        <img src="logo" alt="Image of Logo" />
+        <nav>
+          <a href="/html/administrator.html">Admin</a>
+          <a href="/html/index.html">Home</a>
+          <a href="/html/about.html">About Us</a>
+          <a href="/html/contact.html">Contact Us</a>
+          <a href="/html/reviews.html">Write a Review</a>
+          <a href="/html/booking.html">Book</a>
+          <button onclick="location.href = '/html/signIn.html'">
+            Login/Signup
+          </button>
+        </nav>
+      </div>
+    </header>
+    <section>
+      <h1>Welcome Mr(s)/Ms Administrator</h1>
+      <!-- 
+        the section is essentail to make it easier to add styling and reusing the code for the section across the entire page
+        it will also be to implements good heuristics in the long run
+        -->
+      <div class="heading">
+        <h2>Current Bookings</h2>
+      </div>
+      <!-- 
+        this will be all the current bookings taken into this format hopefully using php
+        
+        -->
+      <table>
+        <!-- the table is prefered to a list due to its scaling and predefined rows that i want to take advantage of-->
+        <tr>
+          <th>Full name</th>
+          <th>Date</th>
+        </tr>
+
+        <tr>
+          <td>John Smith</td>
+          <td><time datetime="12-09-2026">12-09-2026</time></td>
+        </tr>
+
+        <tr>
+          <td>Samuel Ntlonti</td>
+          <td><time datetime="12-04-2026">12-04-2026</time></td>
+        </tr>
+
+        <tr>
+          <td>Onalo Maliwa</td>
+          <td><time datetime="13-09-2026">13-09-2026</time></td>
+        </tr>
+
+        <tr>
+          <td>Asemahle Sinqe</td>
+          <td><time datetime="12-06-2026">12-06-2026</time></td>
+        </tr>
+      </table>
+    </section>
+
+    <table>
+      <!-- 
+            Using the table to keep the structure closer to the mockup of the website by the team
+        -->
+      <tr>
+        <td><button>Order by date</button></td>
+        <td><button>Order by name</button></td>
+        <td><button>search</button></td>
+      </tr>
+    </table>
+
+    <section>
+      <div class="heading">
+        <h2>Modify a booking</h2>
+      </div>
+
+      <aside class="left">
+        <!-- this will be on the left and will be a section to display all the information of the selected record from the table above-->
+        <p>
+          <b>For: </b>Samuel Onako
+          <br />
+          <b>On: </b> <time datetime="12-04-2026">12-04-2026</time>
+          <br />
+          <b>Extra services: </b> C, P, ...
+          <br />
+          <b>Amount paid: </b> None
+        </p>
+      </aside>
+
+      <aside class="right">
+        <!-- to make the buttons behave the way i want them to  they are fitted into a table for now until we get the css-->
+        <table width="30%">
+          <tr>
+            <button>Change Date</button>
+          </tr>
+
+          <tr>
+            <button>Cancel Booking</button>
+          </tr>
+
+          <tr>
+            <button>...</button>
+          </tr>
+        </table>
+      </aside>
+    </section>
+
+    <section>
+      <!-- this is to contain all the successful boo9kings in the system -->
+
+      <div class="heading">
+        <h2>successful bookings</h2>
+      </div>
+
+      <!--table with all the detaild for successul bookings-->
+      <table>
+        <tr>
+          <td>J. Smith</td>
+          <td>
+            <time datetime="12-09-2026">12-09-2026</time>
+          </td>
+          <td>
+            <!-- still need to figure out how to format money without using css or JS-->
+            R50 000
+          </td>
+        </tr>
+
+        <tr>
+          <td>S. Ntlonti</td>
+          <td>
+            <time datetime="12-04-2026">12-04-2026</time>
+          </td>
+          <td>
+            <!-- still need to figure out how to format money without using css or JS-->
+            R49 000
+          </td>
+        </tr>
+
+        <tr>
+          <td>O. Maliwa</td>
+          <td>
+            <time datetime="13-09-2026">13-09-2026</time>
+          </td>
+          <td>
+            <!-- still need to figure out how to format money without using css or JS-->
+            R37 000
+          </td>
+        </tr>
+
+        <tr>
+          <td>A. Sinqe</td>
+          <td>
+            <time datetime="12-06-2026">12-06-2026</time>
+          </td>
+          <td>
+            <!-- still need to figure out how to format money without using css or JS-->
+            R50 000
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- now we get the buttons to help deal with the data from the abovetable-->
+    <div class="buttons">
+      <!-- making this a table to fit them nicely-->
+      <table>
+        <tr>
+          <td><button>Totals</button></td>
+          <td><button>120 bookings</button></td>
+          <td><button>R129 000 000</button></td>
+        </tr>
+
+        <tr>
+          <td><button>Filter Dates</button></td>
+          <td><button>Filter Amounts</button></td>
+          <td><button>Search</button></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <!-- Footer to hold copyright, author and contact details -->
+  <footer>
+    <p>
+      <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small
+      ><br />
+      <small
+        >Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze
+        <br />
+        Authors: <a href="/html/about.html">Contact Details</a></small
+      >
+    </p>
+
+    <nav>
+      <a href="/html/index.html">Home</a>
+      <a href="/html/about.html">About Us</a>
+      <a href="/html/contact.html">Contact Us</a>
+      <a href="/html/reviews.html">Write a Review</a>
+      <a href="/html/booking.html">Book</a>
+    </nav>
+  </footer>
+</html>
