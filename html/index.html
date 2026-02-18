@@ -4,19 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Booking</title>
+    <!-- This is our plug in-->
+    <embed src="venue.jpeg" width="200" />
   </head>
-  <body>
-    <!-- CODE -->
-
+  <!-- Body with inline styling to colour & text alignment -->
+  <body style="background-color: #f5f5f5; text-align: center">
     <!-- Header to be displayed at the top of the page -->
     <header>
-      <!-- container to store the nav bar and logo in one space -->
+      <!-- div container for logo and nav bar -->
       <div class="header-container">
         <img src="logo" alt="Image of Logo" />
         <nav>
           <a href="/html/index.html">Home</a>
           <a href="/html/about.html">About Us</a>
           <a href="/html/contact.html">Contact Us</a>
+          <a href="/html/reviews.html">Write a Review</a>
           <a href="/html/booking.html">Book</a>
         </nav>
       </div>
@@ -24,10 +26,10 @@
 
     <!-- Create a section container for the main content of the main page -->
     <section>
-      <h1>Wedding Venue Booking</h1>
+      <h1 style="color: lightpink">Wedding Venue Booking</h1>
       <!-- Create article for a smaller container within the section container -->
       <article>
-        <p>
+        <p style="color: darkslategray">
           Hello! This is our website costructed to book this wedding venue
           <br />
           We are a <-- HUMBLE GARNDEN AREA located in PRETORIA --> with great
@@ -39,12 +41,12 @@
         </p>
       </article>
       <article>
-        <p>This here is our venue</p>
+        <p style="color: blue; font-size: 120%">This here is our venue</p>
         <img src="WeddingVenue1" alt="Photo" />
         <img src="WeddingVenue2" alt="Photo" />
         <img src="WeddingVenue3" alt="Photo" />
       </article>
-      <article>
+      <article style="color: gray; list-style-position: inside">
         <p>What we offer:</p>
         <ul>
           <li>Full catering</li>
@@ -53,7 +55,7 @@
           <li>Wedding Band</li>
         </ul>
         <ol>
-          <li>Book a venue</li>
+          <p>Need advice?</p>
           <li>Get married</li>
           <li>Live happily ever after</li>
         </ol>
@@ -76,6 +78,7 @@
         <a href="/html/index.html">Home</a>
         <a href="/html/about.html">About Us</a>
         <a href="/html/contact.html">Contact Us</a>
+        <a href="/html/reviews.html">Write a Review</a>
         <a href="/html/booking.html">Book</a>
       </nav>
     </footer>
