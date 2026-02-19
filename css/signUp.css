@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+
+form{
+
+    width: 30vw;
+    position: relative;
+    display: block;
+    margin: auto;
+    top:auto;
+    align-items: center;
+    justify-content: center;
+    /*justify-items: center;*/
+    align-self: auto;
+    border: 1px solid palevioletred;
+    border-radius: 5%;
+    padding:12px;
+}
+
+.input_box{
+    margin: 12px;
+    justify-items: start;
+    transition:0.75s ease-in-out;
+}
+
+.input_box label{
+    padding: 12px;
+    color:gray;
+
+}
+
+.input_box input{
+    width:90%;
+    height: 34px;
+    border: 1px solid pink;
+    border-radius: 10px;
+    color: grey;
+}
+
+.input_box:hover{
+    size:105%;
+    color: black;
+}
