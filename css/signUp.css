@@ -1,3 +1,6 @@
+/* 
+all of the body is to keep the form centered and give it the background
+*/
 body{
     display: flex;
     height: 100vh;
@@ -16,19 +19,24 @@ form{
     position: relative;
     display: block;
     margin: auto;
-    top:auto;
+    top: auto;
     align-items: center;
     justify-content: center;
-    /*justify-items: center;*/
     align-self: auto;
     border: 1px solid palevioletred;
     border-radius: 5%;
-    padding:12px;
-    background-color: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
     max-width: fit-content;
-    min-width: none;/* will add a number after appropriate trial and error*/
+}
+/* this would be beautiful and wow if we had the colours in variables but that will be added when i have time
+*/
+
+form h1{
+    font-family: 'Dancing Script', cursive;/*change this to the font used by Kago on the logo*/
+    font-weight: 600;
+    text-align: center;
 }
 
 .input_box{
@@ -37,30 +45,88 @@ form{
     transition:0.75s ease-in-out;
 }
 
-.input_box label{
-    padding: 12px;
-    width: 70%;
-    margin: auto;
-}
-
 .input_box input[type=text], input[type=password] {
-    width:80%;
+    width:90%;
     margin:auto;
     display: block;
     background-color: transparent;
     border:none;
-
-    border-bottom: 1px solid black ;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+    transition: 0.75s;
 }
-.input_box input[type=text]:focus-visible{
+
+
+.input_box input[type=text]:focus, input[type=password]:focus {
     width:100%;
     height:3vh;
     border: none;
+    color: black;
+    font-size: 120%;
+    text-decoration: none;
+    outline: none !important;
+    border-bottom: 2px solid rgb(39, 156, 3) !important;
 }
 .input_box input:focus{
     border:none;
 }
 
  .input_box input:hover{
-    height: 100%;
+    font-size: 105%;
+    width: 95%;
+    border-bottom: 4px solid rgb(39, 156, 3) !important;
  }
+
+ form .formButtons{
+    display: flex;
+    justify-content: space-between;
+    padding:2px;
+    width:90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin:0px;
+ }
+form .formButtons button{
+    background: none;
+    border: 1px solid rgb(51, 51, 51);
+    border-radius: 7px;
+    height: 100%;
+    width: 40%;
+    transition:0.75s
+    /* i must add the image as the background of the buttoms so that they glow on hover*/
+  }
+
+  form .formButtons button:hover{
+    font-size: 103%;
+    width:45%;
+    border-color: rgb(39, 156, 3);
+  }
+
+form p a{
+    font-size: small;
+    display: flex;
+    text-align: center;
+    justify-items: center;
+    padding: 0px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-decoration: none;
+    transition: 0.75s;
+}
+
+form p a:hover{
+    font-size: 105%;
+    text-decoration: solid;
+    color: black;
+    font-weight: 200;
+}
+
+ /* to do:
+ # cater for the surface pro 7:912x1368 and ipad pro:1024x1366
+ # deal with everything after the input boxes
+ #add the font used in logo to h1
+ #add icons to the screen
+
+ !remember!:
+ *you tested this on: chrome and edge both have the same issues with the responsaive of those two phones 
+ */
