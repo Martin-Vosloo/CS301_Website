@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style_ab.css" />
+    <title>Write a Review</title>
+  </head>
+  <body>
+    <!-- Updated navigation bar/header part -->
+  <nav class="navbar">  
+    <div class="logo"><img src="../images/logo1.png" alt="Logo"></div>
+
+    <!--menu toggle-->
+    <input type="checkbox" id="menu-toggle" class = "menu-toggle"/>
+
+    <!--Side bars(Hamburger)-->
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <!--off-canvas Menu-->
+    <div class = "nav-links">
+
+      <!--closs button-->
+      <label for = "menu-toggle" class="close-btn">x</label>
+
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="about.html">About</a>
+      <a href="reviews.html">Write a Review</a>
+      <a href="signUp.html">Sign Up</a>
+      <a href="signIn.html">Log in</a>
+
+      <!--Booking dropdown section-->
+      <input type = "checkbox" id="booking-toggle" class = "submenu-toggle"/>
+
+      <label for="booking-toggle" class="submenu-label">Booking &#9662;</label>
+      
+      <div class="submenu">
+        <a href="booking.html">Book a Wedding</a>
+        <a href="eventBooking.html">Book an Event</a>
+    </div>
+  </div>
+  </nav>
+
+
+    <form>
+      <h2>Write a review</h2>
+
+      <label for="reviewer-name">Your name</label><br /><br />
+      <input type="text" name="reviewer-name" id="reviewer-name" required />
+      <br /><br />
+      <label for="review-text">What do you have to say for yourself?<br /><br /></label>
+      <textarea
+        id="review-text"
+        name="review"
+        placeholder="Write your review here"
+        rows="4"
+        cols="50"
+        required
+      ></textarea>
+      <br /><br />
+      <button type="submit">Submit Review</button>
+    </form>
+
+    <footer>
+      <p>
+        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
+        <small>
+          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze<br />
+          Authors: <a href="about.html">Contact Details</a>
+        </small>
+      </p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="reviews.html">Write a Review</a>
+        <a href="booking.html">Book</a>
+      </nav>
+    </footer>
+  </body>
+</html>

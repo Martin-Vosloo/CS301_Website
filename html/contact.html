@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< Updated upstream
     <title>Contact Us</title>
   </head>
   <body>
@@ -20,12 +21,55 @@
         </nav>
       </div>
     </header>
+=======
+    <link rel="stylesheet" href="../css/style_ab.css" />
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <!-- Updated navigation bar/header part -->
+  <nav class="navbar">  
+    <div class="logo"><img src="../images/logo1.png" alt="Logo"></div>
 
-    <!-- section container for the main content of the page -->
+    <!--menu toggle-->
+    <input type="checkbox" id="menu-toggle" class = "menu-toggle"/>
+
+    <!--Side bars(Hamburger)-->
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <!--off-canvas Menu-->
+    <div class = "nav-links">
+
+      <!--closs button-->
+      <label for = "menu-toggle" class="close-btn">x</label>
+
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="about.html">About</a>
+      <a href="reviews.html">Write a Review</a>
+      <a href="signUp.html">Sign Up</a>
+      <a href="signIn.html">Log in</a>
+
+      <!--Booking dropdown section-->
+      <input type = "checkbox" id="booking-toggle" class = "submenu-toggle"/>
+
+      <label for="booking-toggle" class="submenu-label">Booking &#9662;</label>
+      
+      <div class="submenu">
+        <a href="booking.html">Book a Wedding</a>
+        <a href="eventBooking.html">Book an Event</a>
+    </div>
+  </div>
+  </nav>
+  <!--End of navigation bar/header part -->
+>>>>>>> Stashed changes
+
     <section>
       <h1>Wedding Venue Booking</h1>
       <p id="contactUs">Contact us!<br /></p>
-      <!-- articles for a container within the section -->
       <article>
         <p class="contactPageHeading">General Enquiries</p>
         <a class="contactLink" href="tel:0123456789">Tel: 012 345 6789<br /></a>
@@ -33,32 +77,23 @@
       </article>
       <article>
         <p class="contactPageHeading">General Email:</p>
-        <a class="contactLink" href="mailto:generalmail@gmail.com"
-          >generalmail@gmail.com</a
-        >
+        <a class="contactLink" href="mailto:generalmail@gmail.com">generalmail@gmail.com</a>
         <p class="contactPageHeading">Accounts Email:</p>
-        <a class="contactLink" href="mailto:accountsmail@gmail.com"
-          >accountsmail@gmail.com</a
-        >
+        <a class="contactLink" href="mailto:accountsmail@gmail.com">accountsmail@gmail.com</a>
         <p class="contactPageHeading">Fax:</p>
-        <a class="contactLink" href="fax:0123459876"
-          >No one uses this anymore seriously...</a
-        >
+        <a class="contactLink" href="fax:0123459876">No one uses this anymore seriously...</a>
       </article>
       <article>
         <p class="contactPageHeading">Physical Address</p>
-        <p class="addressLine">
-          ThirtyFour Palace<br />5 Sixths Lane<br />Makhanda Town
-        </p>
+        <p class="addressLine">ThirtyFour Palace<br />5 Sixths Lane<br />Makhanda Town</p>
       </article>
       <article>
         <p class="contactPageHeading">Postal Address</p>
-        <p class="addressLine">
-          ThirtyFour Palace<br />5 Sixths Lane<br />Makhanda Town
-        </p>
+        <p class="addressLine">ThirtyFour Palace<br />5 Sixths Lane<br />Makhanda Town</p>
       </article>
     </section>
 
+<<<<<<< Updated upstream
     <!-- footer at bottom of the page -->
     <footer>
       <p>Author: Dylan McDonogh</p>
@@ -67,6 +102,22 @@
         <a id="home" href="index.html">Home</a>
         <a id="about" href="about.html">About Us</a>
         <a id="contact" href="contact.html">Contact Us</a>
+=======
+    <footer>
+      <p>
+        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
+        <small>
+          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze<br />
+          Authors: <a href="about.html">Contact Details</a>
+        </small>
+      </p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="reviews.html">Write a Review</a>
+        <a href="booking.html">Book</a>
+>>>>>>> Stashed changes
       </nav>
     </footer>
   </body>

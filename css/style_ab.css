@@ -1,0 +1,155 @@
+/*Font type for the rest of the document currently. This can be edited by anyone!!*/
+
+body,h1 {
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
+  Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.logo {
+display: block;
+margin: 0 auto;
+}
+
+/*---------------------------------------------------------------------------------------*/
+/* Navbar section and all the details thereof */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 15px;
+  color: white;
+  text-align: left;
+}
+
+/* Hide checkboxes */
+.menu-toggle,
+.submenu-toggle {
+  display: none;
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+/* Off-canvas menu */
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+/* Show menu */
+.menu-toggle:checked ~ .nav-links {
+  transform: translateX(0);
+}
+
+/* Links */
+.nav-links a,
+.submenu-label {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.nav-links a:hover,
+.submenu-label:hover {
+  background: #A8C0A2;
+}
+
+/* Close button */
+.close-btn {
+  font-size: 22px;
+  padding: 15px 20px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+/* Submenu (Booking dropdown) */
+.submenu {
+  display: none;
+  flex-direction: column;
+  background: #333;
+}
+
+.submenu a {
+  padding-left: 40px;
+}
+
+/* Show submenu when clicked */
+.submenu-toggle:checked + .submenu-label + .submenu {
+  display: flex;
+}
+
+/*needs adjustment*/
+/*
+.background-image {
+  background-image: url('image4.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+}*/
+
+/*--------------------------------------------------------------------------------*/
+/*All the extra things that will be put onto the Footer and contact us*/
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #333;
+  color: white;
+}
+
+
+.social-icons a {
+  color: black;
+  font-size: 28px;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/*social media icons will change color when you hover over them*/
+.social-icons a:hover {
+  color: #A8C0A2;
+}
+
+.contact-icon {
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+}
+
+.contact-icon:hover {
+  color: #A8C0A2;
+}
+
+/*Sets all hyperlinks to be green color as an accent*/
+a{
+  color: #A8C0A2;
+}
+
+/*--------------------------------------------------------------------------------*/
