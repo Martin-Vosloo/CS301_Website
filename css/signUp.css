@@ -1,6 +1,20 @@
+/*
+the following code iS partially AI, i modified it to add and use the font i downloaded sice it is not in browsers 
+*/
+@font-face {
+  font-family: 'Amsterdam';
+  src: url('/font/Amsterdam.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 /* 
 all of the body is to keep the form centered and give it the background
 */
+
+
 body{
     display: flex;
     height: 100vh;
@@ -12,7 +26,6 @@ body{
     background-size: cover;
 
 }
-
 
 form{
     color: black;
@@ -28,13 +41,13 @@ form{
     padding: 12px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(6px);
-    max-width: fit-content;
+    width: auto;
 }
 /* this would be beautiful and wow if we had the colours in variables but that will be added when i have time
 */
 
 form h1{
-    font-family: 'Dancing Script', cursive;/*change this to the font used by Kago on the logo*/
+    font-family: 'Amsterdam', cursive;
     font-weight: 600;
     text-align: center;
 }
@@ -102,6 +115,14 @@ form .formButtons button{
     border-color: rgb(39, 156, 3);
   }
 
+form p{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
 form p a{
     font-size: small;
     display: flex;
@@ -112,6 +133,7 @@ form p a{
     padding-right: 12px;
     text-decoration: none;
     transition: 0.75s;
+    margin: auto;
 }
 
 form p a:hover{
