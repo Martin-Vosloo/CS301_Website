@@ -1,9 +1,9 @@
 /*
-the following code iS partially AI, i modified it to add and use the font i downloaded sice it is not in browsers 
+the following code is to use the downloaded font sice it is not in browsers by default
 */
 @font-face {
-  font-family: 'Amsterdam';
-  src: url('/font/Amsterdam.woff2') format('woff2');
+  font-family: 'AmsterdamOne';
+  src: url('/font/AmsterdamOne.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -47,7 +47,7 @@ form{
 */
 
 form h1{
-    font-family: 'Amsterdam', cursive;
+    font-family: 'AmsterdamOne', cursive;
     font-weight: 600;
     text-align: center;
 }
@@ -144,11 +144,10 @@ form p a:hover{
 }
 
  /* to do:
- # cater for the surface pro 7:912x1368 and ipad pro:1024x1366
- # deal with everything after the input boxes
- #add the font used in logo to h1
- #add icons to the screen
+        # cater for the surface pro 7:912x1368 and ipad pro:1024x1366
+        #add icons to the screen
 
  !remember!:
- *you tested this on: chrome and edge both have the same issues with the responsaive of those two phones 
+    *you tested this on: chrome and edge 
+    *both have the same issues with the responsaive of those two phones 
  */
