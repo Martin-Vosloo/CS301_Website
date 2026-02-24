@@ -1,150 +1,124 @@
+/*Font type for the rest of the document currently. This can be edited by anyone!!*/
 
-* {
-  box-sizing: border-box;
+body,h1 {
   margin: 0;
-  padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
+  Geneva, Verdana, sans-serif;
+  text-align: center;
 }
 
+<<<<<<< HEAD
 body {
   font-family: Verdana;
   margin: 0;
   text-align: center;
+=======
+.logo {
+display: block;
+margin: 0 auto;
+>>>>>>> Martin
 }
 
+/*---------------------------------------------------------------------------------------*/
+/* Navbar section and all the details thereof */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 15px;
+  color: white;
+  text-align: left;
+}
+
+/* Hide checkboxes */
+.menu-toggle,
+.submenu-toggle {
+  display: none;
+}
+
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+/* Off-canvas menu */
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+/* Show menu */
+.menu-toggle:checked ~ .nav-links {
+  transform: translateX(0);
+}
+
+/* Links */
+.nav-links a,
+.submenu-label {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.nav-links a:hover,
+.submenu-label:hover {
+  background: #A8C0A2;
+}
+
+/* Close button */
+.close-btn {
+  font-size: 22px;
+  padding: 15px 20px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+/* Submenu (Booking dropdown) */
+.submenu {
+  display: none;
+  flex-direction: column;
+  background: #333;
+}
+
+.submenu a {
+  padding-left: 40px;
+}
+
+/* Show submenu when clicked */
+.submenu-toggle:checked + .submenu-label + .submenu {
+  display: flex;
+}
+
+/*needs adjustment*/
+/*
 .background-image {
-  background-image: url('cover2.png');
+  background-image: url('image4.jpg');
   background-size: cover;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   background-repeat: no-repeat;
-}
-
-/* Header */
-header {
-  padding: 20px;
-  text-align: center;
-  background: #A8C79D;
-  position: sticky;
-}
-/*--------------------------------------------------------------------------------*/
-/* New navigation bar */
-.navbar a {
-  float: left;
-  font-size: 50px;
-  color: white;
-  text-align: center;
-  padding: 50px 16px;
-  text-decoration: none;
-}
-
-.dropdown {
-  float: center;
-  overflow: hidden;
-}
-
-/*influences the appearance of the button and controls the color and how to be 
-  interacted with*/
-/*The getting started button*/
-.dropdown .dropbtn {
-  font-size: 25px;  
-  border: none;
-  outline: none;
-  color: black;
-  padding: 14px 16px;
-  background-color: #B59A78;
-  font-family: inherit;
-  margin: 0;
-  float: left;
-
-  /*New additions to the button to change where positioned on the page*/
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 700%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-
-}
-
-/*this is the menu button to access other links*/
-.dropdown .menubtn {
-  font-size: 25px;  
-  border: none;
-  outline: none;
-  color: black;
-  padding: 14px 16px;
-  background-color: #B59A78;
-  font-family: inherit;
-  margin: 0;
-  float: left;
-}
-
-/*Hovering function and its change of colour*/
-.navbar a:hover, .dropdown:hover .menubtn {
-  background-color: #ACC2A3;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/*Content of the dropdown menu*/
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 20px 24px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  font-weight: bold;
-
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/*Customoising the shape of the block*/
-button {
-  border-radius: 10rem;
-}
-
-/*----------------------------------------------------------------------------------*/
-/* Column container */
-.container {  
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* Sidebar/left column */
-.side {
-  flex: 30%;
-  background-color: #f1f1f1;
-  padding: 20px;
-}
-
-/* Main column */
-.main {
-  flex: 70%;
-  background-color: white;
-  padding: 20px;
-}
-
-/* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
+}*/
 
 /*--------------------------------------------------------------------------------*/
 /*All the extra things that will be put onto the Footer and contact us*/
@@ -152,7 +126,8 @@ button {
 footer {
   padding: 20px;
   text-align: center;
-  background: #A8C79D;
+  background: #333;
+  color: white;
 }
 
 
@@ -166,90 +141,22 @@ footer {
 
 /*social media icons will change color when you hover over them*/
 .social-icons a:hover {
-  color: #A08A6A;
+  color: #A8C0A2;
 }
 
 .contact-icon {
-  color: black;
+  color: white;
   font-size: 28px;
   text-decoration: none;
 }
 
 .contact-icon:hover {
-  color: #A08A6A;
+  color: #A8C0A2;
+}
+
+/*Sets all hyperlinks to be green color as an accent*/
+a{
+  color: #A8C0A2;
 }
 
 /*--------------------------------------------------------------------------------*/
-
-h2,h1 {
-    text-align: center;
-    font-size: 40px;
-
-}
-
-/*Customising our URL links*/
-a{
-  color: black;
-}
-
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 900px) {
-  .container, .navbar, .background-image {   
-    flex-direction: column;
-  }
-}
-
-/* Header and Footer information for each site. Only background image will change
-
-<!-- Header -->
-<header>
-  <!--Our logo-->
-    <img src = "logo1.png" alt = "Our logo" height = 200>
-
-  <!--Drop down menu-->
-    <div class= "dropdown">
-      <button class = "menubtn"> Menu </button>
- 
-      <div class="dropdown-content">
-        <a href="index.html">Home</a>
-        <a href="booking.html">Book</a>
-        <a href="about.html">About</a>
-        <a href="signUp.html">Sign Up</a>
-        <a href="signIn.html">Log in</a>
-
-      </div>
-    </div>
-    
-</header>
-
-<!-- Navigation Bar with a singular dropdown  -->
-<div class="dropdown">
-
-<!--Button will now be linked to another site--> 
-    <button class="dropbtn"><b><a href = "booking.html">Book Now!</a>
-    </button>
-  </div> 
-</div>
-
-<!-- Content Container -->
-
-<div class = "background-image"></div>
-
-  <div class="main"> Content </div>
-
-<!-- Footer and Contact information -->
-<footer>
-  <h1>Contact us</h1>
-
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="tel:+27123456789" class="contact-icon">
-    <i class="fa-solid fa-phone"></i>
-    </a>
-  </div>
-</footer>
-
-*/
-

@@ -3,43 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/style_ab.css" />
     <title>Document</title>
     <!-- This is our plug in-->
     <embed src="venue.jpeg" width="200" />
+=======
+    <title>Write a Review</title>
+    <link rel="stylesheet" href="../css/style_ab.css" />
+>>>>>>> Martin
   </head>
-  <!-- Body with inline styling to colour & text alignment -->
-  <body style="background-color: #f5f5f5; text-align: center">
-    <!-- Header to be displayed at the top of the page -->
-    <header>
-      <!-- div container for logo and nav bar -->
-      <div class="header-container">
-        <img src="logo" alt="Image of Logo" />
-        <nav>
-          <a href="/html/administrator.html">Admin</a>
-          <a href="/html/index.html">Home</a>
-          <a href="/html/about.html">About Us</a>
-          <a href="/html/contact.html">Contact Us</a>
-          <a href="/html/reviews.html">Write a Review</a>
-          <a href="/html/booking.html">Book</a>
-          <button onclick="location.href = '/html/signIn.html'">
-            Login/Signup
-          </button>
-        </nav>
+  <body>
+
+    <nav class="navbar">
+      <div class="logo"><img src="../images/logo1.png" height="200" width="300" alt="Logo"></div>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="hamburger">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="nav-links">
+        <label for="menu-toggle" class="close-btn">&#10005;</label>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="signIn.html">Sign in</a>
+        <a href="signUp.html">Sign Up</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html">About Us</a>
+        <input type="checkbox" id="booking-toggle" class="submenu-toggle">
+        <label for="booking-toggle" class="submenu-label">Booking &#9662;</label>
+        <div class="submenu">
+          <a href="booking.html">Book a Wedding</a>
+          <a href="eventBooking.html">Book an event</a>
+        </div>
       </div>
-    </header>
+    </nav>
+
     <form>
-      <!-- Contact details -->
       <h2>Write a review</h2>
 
       <label for="reviewer-name">Your name</label><br /><br />
       <input type="text" name="reviewer-name" id="reviewer-name" required />
       <br /><br />
-      <label for="review-text"
-        >What do you have to say for yourself?<br /><br
-      /></label>
+
+      <label for="review-text">What do you have to say for yourself?<br /><br /></label>
       <textarea
-        type="text-area"
         id="review-text"
         name="review"
         placeholder="Write your review here"
@@ -50,24 +57,21 @@
       <br /><br />
       <button type="submit">Submit Review</button>
     </form>
-    <!-- Footer to hold copyright, author and contact details -->
+
     <footer>
       <p>
-        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small
-        ><br />
-        <small
-          >Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze
-          <br />
-          Authors: <a href="/html/about.html">Contact Details</a></small
-        >
+        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
+        <small>
+          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze<br />
+          Authors: <a href="about.html">Contact Details</a>
+        </small>
       </p>
-
       <nav>
-        <a href="/html/index.html">Home</a>
-        <a href="/html/about.html">About Us</a>
-        <a href="/html/contact.html">Contact Us</a>
-        <a href="/html/reviews.html">Write a Review</a>
-        <a href="/html/booking.html">Book</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="reviews.html">Write a Review</a>
+        <a href="booking.html">Book</a>
       </nav>
     </footer>
   </body>
