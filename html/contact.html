@@ -4,33 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us</title>
-    <!-- This is our plug in-->
-    <embed src="venue.jpeg" width="200" />
+    <link rel="stylesheet" href="../css/style_ab.css" />
   </head>
-  <!-- Body with inline styling to colour & text alignment -->
-  <body style="background-color: #f5f5f5; text-align: center">
-    <!-- Header to be displayed at the top of the page -->
-    <header>
-      <!-- div container for logo and nav bar -->
-      <div class="header-container">
-        <img src="logo" alt="Image of Logo" />
-        <nav>
-          <a href="/html/administrator.html">Admin</a>
-          <a href="/html/index.html">Home</a>
-          <a href="/html/about.html">About Us</a>
-          <a href="/html/contact.html">Contact Us</a>
-          <a href="/html/reviews.html">Write a Review</a>
-          <a href="/html/booking.html">Book</a>
-          <button onclick="location.href = '/html/signIn.html'">
-            Login/Signup
-          </button>
-        </nav>
+  <body>
+
+    <nav class="navbar">
+      <div class="logo"><img src="../images/logo1.png" height="200" width="300" alt="Logo"></div>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="hamburger">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="nav-links">
+        <label for="menu-toggle" class="close-btn">&#10005;</label>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="signIn.html">Sign in</a>
+        <a href="signUp.html">Sign Up</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html">About Us</a>
+        <input type="checkbox" id="booking-toggle" class="submenu-toggle">
+        <label for="booking-toggle" class="submenu-label">Booking &#9662;</label>
+        <div class="submenu">
+          <a href="booking.html">Book a Wedding</a>
+          <a href="eventBooking.html">Book an event</a>
+        </div>
       </div>
-    </header>
+    </nav>
 
     <section>
       <h1>Wedding Venue Booking</h1>
-      <p id="contactUs">Contact us!<br /></p>
+      <p id="contactUs">Contact us!</p>
       <article>
         <p class="contactPageHeading">General Enquiries</p>
         <a class="contactLink" href="tel:0123456789">Tel: 012 345 6789<br /></a>
@@ -54,29 +57,6 @@
       </article>
     </section>
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    <!-- footer at bottom of the page -->
-=======
-    <!-- Footer to hold copyright, author and contact details -->
->>>>>>> 642bc0fa55611cb4518d48a3b7ff85db4f5855d1
-    <footer>
-      <p>
-        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small
-        ><br />
-        <small
-          >Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze
-          <br />
-          Authors: <a href="/html/about.html">Contact Details</a></small
-        >
-      </p>
-
-      <nav>
-<<<<<<< HEAD
-        <a id="home" href="index.html">Home</a>
-        <a id="about" href="about.html">About Us</a>
-        <a id="contact" href="contact.html">Contact Us</a>
-=======
     <footer>
       <p>
         <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
@@ -91,15 +71,8 @@
         <a href="contact.html">Contact Us</a>
         <a href="reviews.html">Write a Review</a>
         <a href="booking.html">Book</a>
->>>>>>> Stashed changes
-=======
-        <a href="/html/index.html">Home</a>
-        <a href="/html/about.html">About Us</a>
-        <a href="/html/contact.html">Contact Us</a>
-        <a href="/html/reviews.html">Write a Review</a>
-        <a href="/html/booking.html">Book</a>
->>>>>>> 642bc0fa55611cb4518d48a3b7ff85db4f5855d1
       </nav>
     </footer>
+
   </body>
 </html>
