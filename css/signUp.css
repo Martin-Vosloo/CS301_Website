@@ -18,6 +18,7 @@ and these are the only colours to use for the pages
     --tertiary:#444444;
     --text-color: black;
     --borders: #444444;
+    --font: 'Courier New', Courier, monospace;
 }
 
 /* 
@@ -30,6 +31,7 @@ body{
     justify-items: center;
     background-image: url('/images/venue1.jpg');
     background-position: centre;
+    overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -47,7 +49,7 @@ form{
     border: 1px solid var(--secondary);
     border-radius: 5%;
     padding: 12px;
-    background-color: rgba(255, 255, 255, 0.664);/* this is white but not using the predefined colours*/
+    background-color: rgba(216, 216, 216, 0.664);/* this is white but not using the predefined colours*/
     backdrop-filter: blur(6px);
     width: auto;
 }
@@ -61,74 +63,98 @@ form h1{
 }
 
 .input_box{
-    margin: 12px;
+    margin: 15px;
     justify-items: start;
-    transition:0.95s ease-in-out;
+    transition: 0.95s ease-in-out;
+    background-color: #44444409;
+    border-radius: 5px;
+    box-shadow: 0px 9px 12px rgb(0, 0, 0, 0.5);
+    height: 30px;
+    margin-top: 0px;
+    padding: 0px 12px 0px 12px;
+}
+/*
+this will only display after the person has selected it asssuming the placeholders will be vanished by then
+*/
+label{
+    display: block;
+    height: 27px;
+    width: 100%;
+    padding-left: 22px;
+    margin-bottom: 0px;
+    transition: 0.97s ease-in-out;
+    font-family: var(--font);
+    
+}
+.input_box input:focus{
+    font-family: var(--font);
+    display: block;
+    font-size: 0.9em ;
+    padding-left:0px;
 }
 
+
 .input_box input[type=text], input[type=password] {
-    width:85%;
-    margin:auto;
+    width: 87%;
+    margin-left: auto;
+    right: 0px;
+    position: relative;
     display: block;
     background-color: transparent;
-    border:none;
+    border: none;
     text-decoration: none;
     border-bottom: 1px solid var(--text-color);
-    transition: 0.95s ease-in-out;
-    padding-left: 20px;
-
+    transition: 0.97s ease-in-out;
 }
 
 
 .input_box input[type=text]:focus, input[type=password]:focus {
-    margin: auto;
-    height:3vh;
-    border: none;
-    color: var(--borders);
-    font-size: 120%;
+    color: var(--text-color);
+    font-size: 105%;
     text-decoration: none;
+    width:87%;
     outline: none !important;
-    border-bottom: 2px solid var(--borders) !important;
+    border-bottom: 1px solid var(--borders) !important;
 }
+
 .input_box input:focus{
     border:none;
 }
 
  .input_box input:hover{
-    font-size: 105%;
-    width: 95%;
-    border-bottom: 4px solid var(--borders) !important;
+    font-size: 101%;
+    width: 90%;
+    border-bottom: 2px solid var(--borders) !important;
  }
 
  .input_box i{
     width:14px;
     position: absolute;
     padding-right: 12px;
+    font-size: 20px;
  }
 
  form .formButtons{
     display: flex;
     justify-content: space-between;
-    padding:2px;
-    width:90%;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin:0px;
+    padding: 2px;
+    margin: 20px;
+    height: auto;
  }
 form .formButtons button{
     background: none;
     border: 1px solid var(--borders);
     border-radius: 7px;
-    height: 100%;
+    height: 27px;
     width: 40%;
-    transition:0.95s ease-in-out;
-    /* i must add the image as the background of the buttoms so that they glow on hover*/
+    transition: 0.97s ease-in-out;
   }
 
   form .formButtons button:hover{
     font-size: 103%;
     width:45%;
-    border-color: var(--borders);
+    border-color: var(--secondary);
+    background-color: var(--primary-colour);
   }
 
 form p{
@@ -141,7 +167,10 @@ form p{
 
 form p a{
     font-size: small;
+    text-decoration: none;
+    color: var(--font);
     display: flex;
+    font-family: var(--font);
     text-align: center;
     justify-items: center;
     padding: 0px;
@@ -159,11 +188,8 @@ form p a:hover{
     font-weight: 200;
 }
 
- /* to do:
-        # cater for the surface pro 7:912x1368 and ipad pro:1024x1366
-        #add icons to the screen
-
+/*
  !remember!:
-    *you tested this on: chrome and edge 
+    *tested this on: chrome and edge 
     *both have the same issues with the responsaive of those two phones 
  */
