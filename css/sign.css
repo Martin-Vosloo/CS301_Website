@@ -95,7 +95,7 @@ label{
 
 
 .input_box input[type=text], input[type=password] {
-    width: 87%;
+    width: 80%;
     margin-left: auto;
     right: 0px;
     position: relative;
@@ -112,7 +112,7 @@ label{
     color: var(--text-color);
     font-size: 105%;
     text-decoration: none;
-    width:87%;
+    width:85%;
     outline: none !important;
     border-bottom: 1px solid var(--borders) !important;
 }
@@ -123,7 +123,7 @@ label{
 
  .input_box input:hover{
     font-size: 101%;
-    width: 90%;
+    width: 85%;
     border-bottom: 2px solid var(--borders) !important;
  }
 
@@ -147,12 +147,15 @@ form .formButtons button{
     border-radius: 7px;
     height: 27px;
     width: 40%;
+    padding-bottom: 0px;
     transition: 0.97s ease-in-out;
+
   }
 
   form .formButtons button:hover{
-    font-size: 103%;
-    width:45%;
+    font-size: 101%;
+    width:47%;
+    font-weight: 400;
     border-color: var(--secondary);
     background-color: var(--primary-colour);
   }
@@ -186,6 +189,18 @@ form p a:hover{
     text-decoration: solid;
     color: var(--text-color);
     font-weight: 200;
+}
+
+button{
+    display: flex;
+    justify-content: space-around;
+    padding: auto;
+    margin: auto;
+    width: 70%;
+    border-radius: 5px;
+    border-color: red;
+    background-color: rgba(255, 255, 255, 0.548);
+    font-family: var(--font);
 }
 
 /*
