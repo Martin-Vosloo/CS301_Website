@@ -131,6 +131,9 @@ footer {
   text-decoration: none;
   transition: 0.3s ease;
 }
+.social-icons{
+  margin-top: 20px;
+}
 
 /*social media icons will change color when you hover over them*/
 .social-icons a:hover {

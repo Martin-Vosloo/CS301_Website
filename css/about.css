@@ -1,0 +1,51 @@
+
+.about-us {
+    display: flex;
+    padding: 80px;
+    gap: 100px;
+    text-align: left;
+    
+}
+.about-heading{
+    text-align: left;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    margin-bottom: 40px;
+    font: bold;
+
+}
+.team{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+hr{
+    margin-top: 0;
+    margin-bottom: 70px;
+    width: 600px;
+    
+}
+.para{
+    font-size: 20px;
+}
+.about-para{
+    margin-top: 60px;
+}
+.venue img {
+    border-radius: 20px;
+}
+.about-btn {
+    padding: 13px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.images{
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 60px;
+}
+.image img{
+    border-radius: 100%;
+}
