@@ -7,16 +7,9 @@ body,h1 {
   text-align: center;
 }
 
-<<<<<<< HEAD
-body {
-  font-family: Verdana;
-  margin: 0;
-  text-align: center;
-=======
 .logo {
 display: block;
 margin: 0 auto;
->>>>>>> Martin
 }
 
 /*---------------------------------------------------------------------------------------*/
