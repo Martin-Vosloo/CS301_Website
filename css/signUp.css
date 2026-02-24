@@ -8,13 +8,21 @@ the following code is to use the downloaded font sice it is not in browsers by d
   font-style: normal;
 }
 
-
+/*
+this is only for the colour to make it easier to change them upon request
+and these are the only colours to use for the pages
+*/
+:root{
+    --primary-colour: #a8c0a2;
+    --secondary: #f4c6c6;
+    --tertiary:#444444;
+    --text-color: black;
+    --borders: #444444;
+}
 
 /* 
 all of the body is to keep the form centered and give it the background
 */
-
-
 body{
     display: flex;
     height: 100vh;
@@ -28,7 +36,7 @@ body{
 }
 
 form{
-    color: black;
+    color: var(--text-color);
     position: relative;
     display: block;
     margin: auto;
@@ -36,10 +44,10 @@ form{
     align-items: center;
     justify-content: center;
     align-self: auto;
-    border: 1px solid palevioletred;
+    border: 1px solid var(--secondary);
     border-radius: 5%;
     padding: 12px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.664);/* this is white but not using the predefined colours*/
     backdrop-filter: blur(6px);
     width: auto;
 }
@@ -65,8 +73,9 @@ form h1{
     background-color: transparent;
     border:none;
     text-decoration: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--text-color);
     transition: 0.75s;
+    padding-left: 15px;
 }
 
 
@@ -78,7 +87,7 @@ form h1{
     font-size: 120%;
     text-decoration: none;
     outline: none !important;
-    border-bottom: 2px solid rgb(39, 156, 3) !important;
+    border-bottom: 2px solid var(--borders) !important;
 }
 .input_box input:focus{
     border:none;
@@ -87,7 +96,12 @@ form h1{
  .input_box input:hover{
     font-size: 105%;
     width: 95%;
-    border-bottom: 4px solid rgb(39, 156, 3) !important;
+    border-bottom: 4px solid var(--borders) !important;
+ }
+
+ .input_box i{
+    width:14px;
+    position: absolute;
  }
 
  form .formButtons{
@@ -101,7 +115,7 @@ form h1{
  }
 form .formButtons button{
     background: none;
-    border: 1px solid rgb(51, 51, 51);
+    border: 1px solid var(--borders);
     border-radius: 7px;
     height: 100%;
     width: 40%;
@@ -112,7 +126,7 @@ form .formButtons button{
   form .formButtons button:hover{
     font-size: 103%;
     width:45%;
-    border-color: rgb(39, 156, 3);
+    border-color: var(--borders);
   }
 
 form p{
@@ -139,7 +153,7 @@ form p a{
 form p a:hover{
     font-size: 105%;
     text-decoration: solid;
-    color: black;
+    color: var(--text-color);
     font-weight: 200;
 }
 
