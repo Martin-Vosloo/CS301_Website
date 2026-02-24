@@ -63,27 +63,28 @@ form h1{
 .input_box{
     margin: 12px;
     justify-items: start;
-    transition:0.75s ease-in-out;
+    transition:0.95s ease-in-out;
 }
 
 .input_box input[type=text], input[type=password] {
-    width:90%;
+    width:85%;
     margin:auto;
     display: block;
     background-color: transparent;
     border:none;
     text-decoration: none;
     border-bottom: 1px solid var(--text-color);
-    transition: 0.75s;
-    padding-left: 15px;
+    transition: 0.95s ease-in-out;
+    padding-left: 20px;
+
 }
 
 
 .input_box input[type=text]:focus, input[type=password]:focus {
-    width:100%;
+    margin: auto;
     height:3vh;
     border: none;
-    color: black;
+    color: var(--borders);
     font-size: 120%;
     text-decoration: none;
     outline: none !important;
@@ -102,6 +103,7 @@ form h1{
  .input_box i{
     width:14px;
     position: absolute;
+    padding-right: 12px;
  }
 
  form .formButtons{
@@ -119,7 +121,7 @@ form .formButtons button{
     border-radius: 7px;
     height: 100%;
     width: 40%;
-    transition:0.75s
+    transition:0.95s ease-in-out;
     /* i must add the image as the background of the buttoms so that they glow on hover*/
   }
 
@@ -146,7 +148,7 @@ form p a{
     padding-left: 12px;
     padding-right: 12px;
     text-decoration: none;
-    transition: 0.75s;
+    transition: 0.95s ease-in-out;
     margin: auto;
 }
 
