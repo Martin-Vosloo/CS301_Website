@@ -1,3 +1,4 @@
+/* Branding font import */
 @font-face {
   font-family: 'AmsterdamOne';
   src: url('/font/AmsterdamOne.woff') format('woff');
@@ -5,28 +6,28 @@
   font-style: normal;
 }
 
-/*Font type for the rest of the document currently. This can be edited by anyone!!*/
-h1{
+/* Decorative page title styling */
+h1 {
     font-family: 'AmsterdamOne', cursive;
     font-weight: 600;
     text-align: center;
     font-size: 50px;
 }
 
+/* Global body resets for centered text and standard sans-serif font */
 body {
   margin: 0;
   font-family: sans-serif;
   text-align: center;
 }
 
+/* Centered logo container */
 .logo {
-display: block;
-margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 }
-/*-------------------------------------------------------------------------------------*/
 
-/* Speciafically set for the reviews page: Layout and images*/
-
+/* Main review section layout using space-between for image and text alignment */
 .reviews {
   display: flex;
   align-items: center;
@@ -34,6 +35,7 @@ margin: 0 auto;
   padding: 50px;
 }
 
+/* Left/Right column flex sharing */
 .reviews-image {
   flex: 1;
 }
@@ -49,6 +51,7 @@ margin: 0 auto;
   padding-left: 40px;
 }
 
+/* Individual user review card styling */
 .review-card {
   margin-bottom: 30px;
   padding: 20px;
@@ -56,26 +59,27 @@ margin: 0 auto;
   border-radius: 10px;
 }
 
+/* Top bar of a review card showing name and date */
 .review-header {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
 }
 
-/*Star ratings and fake date for realism*/
+/* Muted color for review timestamps */
 .review-date {
   color: gray;
   font-size: 14px;
 }
 
+/* Golden star ratings */
 .review-stars {
   color: gold;
   margin: 8px 0;
   font-size: 18px;
 }
 
-
-/*Responsiveness for the respective images*/
+/* Media query to stack the reviews vertically on tablets and phones */
 @media (max-width: 768px) {
   .reviews {
     flex-direction: column;
@@ -87,8 +91,7 @@ margin: 0 auto;
   }
 }
 
-/*---------------------------------------------------------------------------------------*/
-/* Navbar section and all the details thereof */
+/* Global Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -99,13 +102,13 @@ margin: 0 auto;
   text-align: left;
 }
 
-/* Hide checkboxes */
+/* Hide checkboxes used for mobile menu functionality */
 .menu-toggle,
 .submenu-toggle {
   display: none;
 }
 
-/* Hamburger */
+/* Hamburger icon for mobile menu */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -119,7 +122,7 @@ margin: 0 auto;
   background: white;
 }
 
-/* Off-canvas menu */
+/* Side navigation panel for mobile view */
 .nav-links {
   position: fixed;
   top: 0;
@@ -130,74 +133,39 @@ margin: 0 auto;
   display: flex;
   flex-direction: column;
   padding-top: 60px;
-
   transform: translateX(100%);
   transition: transform 0.3s ease;
 }
 
-/* Show menu */
+/* Interaction to show menu when toggled */
 .menu-toggle:checked ~ .nav-links {
   transform: translateX(0);
 }
 
-/* Links */
-.nav-links a,
-.submenu-label {
-  color: white;
-  text-decoration: none;
-  padding: 15px 20px;
-  cursor: pointer;
-}
-
+/* Link hover effects using primary accent color */
 .nav-links a:hover,
 .submenu-label:hover {
   background: #A8C0A2;
 }
 
-/* Close button */
-.close-btn {
-  font-size: 22px;
-  padding: 15px 20px;
-  cursor: pointer;
-  align-self: flex-end;
-}
-
-/* Submenu (Booking dropdown) */
+/* Dropdown logic for sub-navigation */
 .submenu {
   display: none;
   flex-direction: column;
   background: #333;
 }
 
-.submenu a {
-  padding-left: 40px;
-}
-
-/* Show submenu when clicked */
 .submenu-toggle:checked + .submenu-label + .submenu {
   display: flex;
 }
 
-/*needs adjustment*/
-/*
-.background-image {
-  background-image: url('image4.jpg');
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-  background-repeat: no-repeat;
-}*/
-
-/*--------------------------------------------------------------------------------*/
-/*All the extra things that will be put onto the Footer and contact us*/
-/* Footer */
+/* Footer layout and social media icon transitions */
 footer {
   padding: 20px;
   text-align: center;
   background: #333;
   color: white;
 }
-
 
 .social-icons a {
   color: black;
@@ -207,24 +175,11 @@ footer {
   transition: 0.3s ease;
 }
 
-/*social media icons will change color when you hover over them*/
 .social-icons a:hover {
   color: #A8C0A2;
 }
 
-.contact-icon {
-  color: white;
-  font-size: 28px;
-  text-decoration: none;
-}
-
-.contact-icon:hover {
+/* Standard accent color for all hyperlinks */
+a {
   color: #A8C0A2;
 }
-
-/*Sets all hyperlinks to be green color as an accent*/
-a{
-  color: #A8C0A2;
-}
-
-/*--------------------------------------------------------------------------------*

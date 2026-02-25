@@ -1,3 +1,4 @@
+/* Core color palette and typography variables */
 :root {
   --primary-colour: #a8c0a2;
   --secondary: #f4c6c6;
@@ -7,13 +8,14 @@
   --font: 'Garet', 'Lucida Sans', sans-serif;
 }
 
-/* Background Image styling for the whole page */
+/* Page background with fixed positioning for a parallax effect */
 .booking-page {
   background: url('../images/venue/reception_table.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
 }
 
+/* Container for centering the form on the screen */
 .form-wrapper {
   padding: 2rem 1rem;
   display: flex;
@@ -21,7 +23,7 @@
   align-items: center;
 }
 
-/* Glassmorphism Form Container */
+/* The 'Glass' effect: semi-transparent white with a background blur */
 .glass-form {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(10px);
@@ -35,12 +37,10 @@
   margin-bottom: 3rem;
 }
 
+/* Secondary headings with an accent underline */
 h2 {
   font-family: var(--font);
   color: var(--tertiary);
-}
-
-h2 {
   font-size: 1.2rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
@@ -48,7 +48,7 @@ h2 {
   display: inline-block;
 }
 
-/* Input Layouts */
+/* Layout for label and input pairs */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -62,6 +62,7 @@ h2 {
   margin-bottom: 0.4rem;
 }
 
+/* Standardized styling for all text-based inputs */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -76,19 +77,20 @@ textarea {
   transition: all 0.3s ease;
 }
 
+/* Highlight the field when the user clicks/taps it */
 input:focus, textarea:focus {
   border-color: var(--primary-colour);
   box-shadow: 0 0 0 3px rgba(168, 192, 162, 0.3);
 }
 
-/* Layout for Dates */
+/* Grid layout for start/end date alignment */
 .date-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-/* Checkbox Grid */
+/* Auto-fitting grid for services checkboxes */
 .checkbox-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -104,7 +106,7 @@ input:focus, textarea:focus {
   font-size: 0.9rem;
 }
 
-/* Styling the button */
+/* Main action button styling with hover lifting effect */
 .submit-btn {
   background-color: var(--primary-colour);
   color: white;

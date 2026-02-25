@@ -1,50 +1,65 @@
+/* Container for the main about section using flex for side-by-side content */
 .about-us {
     display: flex;
     padding: 80px;
     gap: 100px;
     text-align: left;
-    
 }
-.about-heading{
+
+/* Primary heading styling for the about section */
+.about-heading {
     text-align: left;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 50px;
     margin-bottom: 40px;
     font: bold;
-
 }
-.team{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+/* Specific heading for the team members section */
+.team {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 50px;
     margin-bottom: 10px;
 }
-hr{
+
+/* Horizontal line used as a separator between sections */
+hr {
     margin-top: 0;
     margin-bottom: 70px;
     width: 600px;
-    
 }
-.para{
+
+/* General paragraph text sizing */
+.para {
     font-size: 20px;
 }
-.about-para{
+
+/* Margin adjustment for about-specific paragraphs */
+.about-para {
     margin-top: 60px;
 }
+
+/* Rounded corners for venue-related images */
 .venue img {
     border-radius: 20px;
 }
+
+/* Rounded button styling for 'Read More' or similar actions */
 .about-btn {
     padding: 13px;
     border-radius: 30px;
     margin-top: 20px;
 }
 
-.images{
+/* Flexbox layout for a row of team or gallery images */
+.images {
     display: flex;
     justify-content: center;
     gap: 80px;
     margin-bottom: 60px;
 }
-.image img{
+
+/* Makes images perfectly circular (typically for team headshots) */
+.image img {
     border-radius: 100%;
 }

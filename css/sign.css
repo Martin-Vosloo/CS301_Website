@@ -1,3 +1,4 @@
+/* Custom font import for branding */
 @font-face {
   font-family: 'AmsterdamOne';
   src: url('../font/AmsterdamOne.woff') format('woff');
@@ -5,6 +6,7 @@
   font-style: normal;
 }
 
+/* Global design variables */
 :root {
     --primary-colour: #a8c0a2;
     --secondary: #f4c6c6;
@@ -14,19 +16,21 @@
     --font: 'Garet', sans-serif;
 }
 
+/* Flexbox centering for the sign-in/up card */
 body {
     display: flex;
-    min-height: 100vh; /* Changed from height to min-height for mobile scrolling */
+    min-height: 100vh;
     justify-content: center;
-    align-items: center; /* Centering vertically */
+    align-items: center;
     background-image: url('../images/venue/reception_table_night.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
-    padding: 1rem; /* Space for mobile edges */
+    padding: 1rem;
 }
 
+/* Semi-transparent form container */
 form {
     color: var(--text-color);
     background-color: rgba(255, 255, 255, 0.6); 
@@ -35,10 +39,11 @@ form {
     border-radius: 1.5rem;
     padding: 2rem;
     width: 100%;
-    max-width: 24rem; /* Ensures responsiveness on all screens */
+    max-width: 24rem;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
+/* Decorative header using the custom font */
 form h1 {
     font-family: 'AmsterdamOne', cursive;
     font-weight: 600;
@@ -46,6 +51,7 @@ form h1 {
     margin-bottom: 1.5rem;
 }
 
+/* Input container with a subtle shadow and background */
 .input_box {
     position: relative;
     margin-bottom: 1.2rem;
@@ -64,6 +70,7 @@ label {
     color: var(--tertiary);
 }
 
+/* Clean, borderless input fields with a bottom line only */
 .input_box input[type=text], 
 .input_box input[type=password],
 .input_box input[type=email],
@@ -79,11 +86,13 @@ label {
     transition: all 0.3s ease;
 }
 
+/* Input scale effect on focus */
 .input_box input:focus {
     border-bottom: 1px solid var(--primary-colour);
     transform: scale(1.02);
 }
 
+/* Side-by-side button layout */
 form .formButtons {
     display: flex;
     justify-content: space-between;
@@ -95,19 +104,21 @@ form .formButtons button {
     background: white;
     border: 1px solid var(--borders);
     border-radius: 7px;
-    flex: 1; /* Equal width buttons */
+    flex: 1;
     padding: 0.6rem;
     cursor: pointer;
     transition: 0.3s ease;
     font-family: var(--font);
 }
 
+/* Hover colors using primary branding color */
 form .formButtons button:hover {
     background-color: var(--primary-colour);
     border-color: var(--secondary);
     color: white;
 }
 
+/* Links and footer text styling */
 form p {
     margin-top: 1rem;
     font-family: var(--font);
@@ -125,7 +136,7 @@ form p a:hover {
     color: var(--primary-colour);
 }
 
-/* Specific fix for small phones */
+/* Stack buttons vertically on small phone screens */
 @media (max-width: 400px) {
     form {
         padding: 1.2rem;
