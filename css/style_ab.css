@@ -1,4 +1,10 @@
 /*Font type for the rest of the document currently. This can be edited by anyone!!*/
+@font-face {
+  font-family: 'AmsterdamOne';
+  src: url('../font/AmsterdamOne.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body{
   min-height: 100vh;
@@ -18,8 +24,10 @@ body{
 }
 
 h1{
-  margin: 1em;
-  font-family: Lucida Sans, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',  
+  font-family: 'AmsterdamOne', cursive;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .about-container{
