@@ -29,7 +29,7 @@ body{
     height: 100vh;
     justify-content: center;
     justify-items: center;
-    background-image: url('/images/venue1.jpg');
+    background-image: url('/images/venue/outside_garden.jpg');
     background-position: centre;
     overflow: hidden;
     background-repeat: no-repeat;
