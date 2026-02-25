@@ -4,33 +4,93 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/style_ab.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    /> -->
   </head>
   <body>
-    <form action="#">
-      <h1>Sign Up</h1>
-
-      <label for="full_name">Full Name</label>
-      <input type="text" name="full_name" required />
-
-      <label for="email">Email Address</label>
-      <input type="text" name="email" required />
-
-      <label for="password">Password</label>
-      <input type="password" name="password" required />
-
-      <label for="password_conf">Confirm Password</label>
-      <input type="password" name="password_conf" required />
-
-      <button type="submit">Sign Up</button>
-
-      <button onclick="location.href = '/html/index.html'">Back</button>
-
-      <p>
-        <a href="signIn.html"
-          >If you have an account click here. <br />And we will get you happily
-          wedded.</a
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../images/logo1.png" height="200" width="300" alt="Logo" />
+      </div>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="hamburger">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="nav-links">
+        <label for="menu-toggle" class="close-btn">&#10005;</label>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="signIn.html">Sign in</a>
+        <a href="signUp.html">Sign Up</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html">About Us</a>
+        <input type="checkbox" id="booking-toggle" class="submenu-toggle" />
+        <label for="booking-toggle" class="submenu-label"
+          >Booking &#9662;</label
         >
+        <div class="submenu">
+          <a href="booking.html">Book a Wedding</a>
+          <a href="eventBooking.html">Book an event</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="main">
+      <form action="#">
+        <h1>Sign Up</h1>
+
+        <label for="full_name">Full Name</label>
+        <input type="text" name="full_name" required />
+
+        <label for="email">Email Address</label>
+        <input type="text" name="email" required />
+
+        <label for="password">Password</label>
+        <input type="password" name="password" required />
+
+        <label for="password_conf">Confirm Password</label>
+        <input type="password" name="password_conf" required />
+
+        <button type="submit">Sign Up</button>
+
+        <button onclick="location.href = '/html/index.html'">Back</button>
+
+        <p>
+          <a href="signIn.html"
+            >If you have an account click here. <br />And we will get you
+            happily wedded.</a
+          >
+        </p>
+      </form>
+    </section>
+
+    <footer>
+      <p>
+        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small
+        ><br />
+        <small>
+          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze<br />
+          Authors: <a href="about.html">Contact Details</a>
+        </small>
       </p>
-    </form>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="reviews.html">Write a Review</a>
+        <a href="booking.html">Book</a>
+      </nav>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="tel:+27123456789" class="contact-icon"
+          ><i class="fa-solid fa-phone"></i
+        ></a>
+      </div>
+    </footer>
   </body>
 </html>
