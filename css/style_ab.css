@@ -18,25 +18,42 @@ body{
 }
 
 h1{
-  margin: 1;
+  margin: 1em;
   font-family: Lucida Sans, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',  
 }
 
-.intro-text{
+.about-container{
   display: flexbox;
   margin: auto;
   min-width: auto;
-  max-width: fit-content;
+  max-width: 1020px;
+  /* border: black 2px solid; */
+  
 }
 
+.about-container img{
+  width: 500px;
+  border-radius: 10px;
+}
+
+.about-container p{
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.about-container p:nth-child(even){
+  flex-direction: row-reverse;
+}
+/* 1079 x 716 */
 .description{
   display: flexbox;
   text-align: justify;  
 }
 
 .description-container{
-  word-wrap: break-word;
   display: inline-block;
+  word-wrap: break-word;
   border: black 2px solid;
   margin: auto;
   margin-bottom: 1em;
@@ -71,14 +88,16 @@ ul{
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-width: 40%;
-
+  min-width: 300px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo {
 display: block;
 margin: 0.1em;
-margin-left: 1em;
+margin-left: auto;
 width: 150px;
 }
 
