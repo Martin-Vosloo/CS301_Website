@@ -1,15 +1,85 @@
 /*Font type for the rest of the document currently. This can be edited by anyone!!*/
 
-body,h1 {
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer{
+  min-height: auto;
+}
+
+body{
   margin: 0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
   Geneva, Verdana, sans-serif;
   text-align: center;
 }
 
+h1{
+  margin: 1;
+  font-family: Lucida Sans, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',  
+}
+
+.intro-text{
+  display: flexbox;
+  margin: auto;
+  min-width: auto;
+  max-width: fit-content;
+}
+
+.description{
+  display: flexbox;
+  text-align: justify;  
+}
+
+.description-container{
+  word-wrap: break-word;
+  display: inline-block;
+  border: black 2px solid;
+  margin: auto;
+  margin-bottom: 1em;
+  min-width: auto;
+  max-width: 1140px;
+  text-align: justify;
+}
+
+.description-container img {
+  float: left;
+  clear: both;
+  border-radius: 5px;
+  margin-right: 0.6em;
+}
+
+.Heading{
+  justify-content: center;
+  text-align: center;
+  font-family: cursive;
+  font-size:2em;
+}
+
+li{
+  padding: 0.4em;
+}
+
+ul{
+  list-style: none;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 40%;
+
+}
+
 .logo {
 display: block;
-margin: 0 auto;
+margin: 0.1em;
+margin-left: 1em;
+width: 150px;
 }
 
 /*---------------------------------------------------------------------------------------*/
@@ -18,8 +88,8 @@ margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #333;
-  padding: 15px;
+  background: #303030;
+  padding: 5px;
   color: white;
   text-align: left;
 }
@@ -36,6 +106,8 @@ margin: 0 auto;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
+  margin-right: 1.6em;
+  
 }
 
 .hamburger span {
