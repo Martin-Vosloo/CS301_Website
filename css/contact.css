@@ -1,0 +1,11 @@
+.contact-heading {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.whole-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+}
