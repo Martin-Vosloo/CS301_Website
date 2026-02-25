@@ -30,7 +30,7 @@ body{
     justify-content: center;
     justify-items: center;
     background-image: url('/images/venue/outside_garden.jpg');
-    background-position: centre;
+    background-position: center;
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
