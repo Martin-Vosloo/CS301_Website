@@ -18,12 +18,14 @@ const images1 = ["../images/venue/reception_table0.jpg", "../images/venue/recept
 
 function slideshow1(){
      
-    // loop through each img
+    // loop through each img and updates value stored in array( imgIndxe1)
     for(i = 0; i < image_slides1.length;i++){
+         // if it reaches the end of the images goes back to start
         imgIndex1[i] = imgIndex1[i]+1;
         if(imgIndex1[i] >= images1.length){
             imgIndex1[i] = 0;
         }
+        //get the next img path from images2 list and assign it to current img element on the page
         image_slides1[i].src = images1[imgIndex1[i]];
         // image_slides1[i].src = images1[current1];
     }
@@ -67,3 +69,20 @@ function slideshow2(){
 
 // switch images after 3 seconds
     setInterval(slideshow2, 2000);
+
+
+
+/*-----------------------------
+link a button to google maps
+-----------------------------
+*/
+
+// location URL
+const locationUrl = "https://www.google.com/maps/place/Die+Boer+en+die+Belg,+Die+Boer+en+Die+Belg+Part+4+of+Rietvally+340+Rietvally,+Mookgophong,+0560/@-24.4338477,28.7037168,16z/data=!4m6!3m5!1s0x1ec0a7bb00000001:0xf654b315f386eba1!8m2!3d-24.4338477!4d28.7037168!16s%2Fg%2F11bwf73s66?force=pwa&source=mlapk&g_ep=Eg1tbF8yMDI2MDIyM18wIOC7DCoASAJQAQ%3D%3D";
+
+// get button with a class name about-btn
+let locationBtn = document.getElementsByClassName("about-btn")[0];
+// when you click a button should take you to the location
+locationBtn.addEventListener("click", function(){
+    window.location.href = locationUrl;
+});
