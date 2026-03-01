@@ -86,3 +86,16 @@ let locationBtn = document.getElementsByClassName("about-btn")[0];
 locationBtn.addEventListener("click", function(){
     window.location.href = locationUrl;
 });
+
+/*-----------------------------
+Change a button color when hover 
+-----------------------------
+*/
+let bgColor = "#a8c0a2";
+let bgColor2  = "#efefef";
+locationBtn.addEventListener("mouseenter", function(){
+    locationBtn.style.backgroundColor = bgColor;
+});
+locationBtn.addEventListener("mouseleave", function(){
+    locationBtn.style.backgroundColor = bgColor2;
+});
