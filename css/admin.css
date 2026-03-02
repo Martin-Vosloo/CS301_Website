@@ -46,7 +46,7 @@ h1 {
 
 /* Table styling for booking data */
 .admin-table, .admin-table-narrow {
-width: 95%;
+    width: 95%;
     margin: auto;
     border-collapse: collapse;
     margin-bottom: 1.5rem;
@@ -126,4 +126,23 @@ button:hover {
     .admin-table {
         font-size: 0.9rem;
     }
+}
+
+/*
+the following styling will be to make the tables better using js
+because i do not know what else to do
+*/
+
+.clicked{
+    z-index: 1000;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    padding-bottom: 12vh;
+    padding-top:12vh;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: block;
+    position: fixed;
 }
