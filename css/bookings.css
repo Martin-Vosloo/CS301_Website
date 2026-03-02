@@ -1,0 +1,132 @@
+/* Core color palette and typography variables */
+:root {
+  --primary-colour: #a8c0a2;
+  --secondary: #f4c6c6;
+  --tertiary: #444444;
+  --text-color: black;
+  --borders: #444444;
+  --font: 'Garet', 'Lucida Sans', sans-serif;
+}
+
+/* Page background with fixed positioning for a parallax effect */
+.booking-page {
+  background: url('../images/venue/reception_table.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/* Container for centering the form on the screen */
+.form-wrapper {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The 'Glass' effect: semi-transparent white with a background blur */
+.glass-form {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--borders);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 40rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+/* Secondary headings with an accent underline */
+h2 {
+  font-family: var(--font);
+  color: var(--tertiary);
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--primary-colour);
+  display: inline-block;
+}
+
+/* Layout for label and input pairs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+/* Standardized styling for all text-based inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Highlight the field when the user clicks/taps it */
+input:focus, textarea:focus {
+  border-color: var(--primary-colour);
+  box-shadow: 0 0 0 3px rgba(168, 192, 162, 0.3);
+}
+
+/* Grid layout for start/end date alignment */
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Auto-fitting grid for services checkboxes */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.8rem;
+  text-align: left;
+}
+
+.custom-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Main action button styling with hover lifting effect */
+.submit-btn {
+  background-color: var(--primary-colour);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-family: var(--font);
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: transform 0.2s ease, background 0.3s ease;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #8fa889;
+  transform: translateY(-2px);
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+}

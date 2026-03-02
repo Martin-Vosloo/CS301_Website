@@ -5,34 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Write a Review</title>
     <link rel="stylesheet" href="../css/style_ab.css" />
+    <link rel="stylesheet" href="../css/reviews.css" />
   </head>
   <body>
     <nav class="navbar">
-      <div class="logo">
-        <img src="../images/logo1.png" height="200" width="300" alt="Logo" />
+      <div class="logo-container">
+        <img class="logo" src="../images/logo/logo1.png" alt="Logo" />
       </div>
+
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
       <label for="menu-toggle" class="hamburger">
         <span></span><span></span><span></span>
       </label>
+
       <div class="nav-links">
         <label for="menu-toggle" class="close-btn">&#10005;</label>
+
         <a href="index.html">Home</a>
         <a href="contact.html">Contact Us</a>
         <a href="signIn.html">Sign in</a>
         <a href="signUp.html">Sign Up</a>
         <a href="reviews.html">Reviews</a>
         <a href="about.html">About Us</a>
+        <a href="administrator.html">Admin</a>
+
         <input type="checkbox" id="booking-toggle" class="submenu-toggle" />
+
         <label for="booking-toggle" class="submenu-label"
           >Booking &#9662;</label
         >
+
         <div class="submenu">
           <a href="booking.html">Book a Wedding</a>
           <a href="eventBooking.html">Book an event</a>
         </div>
       </div>
     </nav>
+
+    <!--Start of review code samples-->
+    <!--customer 1-->
+    <section class="reviews">
+      <div class="reviews-image">
+        <img src="../images/reviews/rev1.png" alt="Happy customers" />
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="review-name">Sarah M.</span>
+          <span class="review-date">12 January 2026</span>
+        </div>
+
+        <div class="review-stars">★★★★★</div>
+
+        <p>"Absolutely amazing service. Everything was perfect!"</p>
+      </div>
+    </section>
+
+    <!--customer 2-->
+    <section class="reviews">
+      <div class="reviews-image">
+        <img src="../images/reviews/rev3.png" alt="Happy customers" />
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="review-name">Jan P.</span>
+          <span class="review-date">09 August 2024</span>
+        </div>
+
+        <div class="review-stars">★★★★</div>
+
+        <p>"Ek was die hele tyd in trane.</p>
+        <p>
+          Ek kon my oë nie glo nie! Alles was wonderlik en die kos was
+          uitstekend.
+        </p>
+        <p>Ek sal nooit my ware dankbaarheid kan uitdruk nie!"</p>
+      </div>
+    </section>
+
+    <!--customer 3-->
+    <section class="reviews">
+      <div class="reviews-image">
+        <img src="../images/reviews/rev4.png" alt="Happy customers" />
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="review-name">Thatogatsi K.</span>
+          <span class="review-date">16 December 2025</span>
+        </div>
+
+        <div class="review-stars">★★★★</div>
+
+        <p>
+          "Never thought this day would be as wonderful as it was! Best
+          <i>Relationship advice ever</i>"
+        </p>
+      </div>
+    </section>
+
+    <!--customer 4-->
+    <section class="reviews">
+      <div class="reviews-image">
+        <img src="../images/reviews/rev6.png" alt="Happy customers" />
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="review-name">Felicia G.</span>
+          <span class="review-date">21 July 2024</span>
+        </div>
+
+        <div class="review-stars">★★★★</div>
+
+        <p>"Ek onthou dit soos gister! Ek is so gelukkig en ek is steeds!</p>
+        <p>Die natuur, die uitsig... Beste plek om te trou!</p>
+      </div>
+    </section>
+
+    <!--customer 5-->
+    <section class="reviews">
+      <div class="reviews-image">
+        <img
+          src="../images/reviews/rev2.png"
+          alt="Happy customers"
+          height="500"
+          width="400"
+        />
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="review-name">Selealo B.</span>
+          <span class="review-date">31 October 2023</span>
+        </div>
+
+        <div class="review-stars">★★★★★</div>
+
+        <p>"Nka se tsoge ke batle go nyala go sele. Ke e ratile!!!!!</p>
+      </div>
+    </section>
+
+    <!--End of review code samples-->
 
     <form>
       <h2>Write a review</h2>
@@ -61,7 +177,8 @@
         <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small
         ><br />
         <small>
-          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze<br />
+          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze,
+          Nwabisa Malawu<br />
           Authors: <a href="about.html">Contact Details</a>
         </small>
       </p>
@@ -71,7 +188,16 @@
         <a href="contact.html">Contact Us</a>
         <a href="reviews.html">Write a Review</a>
         <a href="booking.html">Book</a>
+        <a href="administrator.html">Admin</a>
       </nav>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="tel:+27123456789" class="contact-icon"
+          ><i class="fa-solid fa-phone"></i
+        ></a>
+      </div>
     </footer>
   </body>
 </html>
