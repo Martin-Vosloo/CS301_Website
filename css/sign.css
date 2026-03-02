@@ -48,7 +48,7 @@ form{
     align-self: auto;
     border: 1px solid var(--secondary);
     border-radius: 5%;
-    padding: 12px;
+    padding: 20px;
     background-color: rgba(216, 216, 216, 0.664);/* this is white but not using the predefined colours*/
     backdrop-filter: blur(6px);
     width: auto;
