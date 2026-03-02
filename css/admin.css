@@ -17,14 +17,16 @@ body {
 
 /* Section styling for content blocks */
 section {
-    max-width: 900px;
-    margin: 2rem auto;
+    /* max-width: 900px; */
+    margin: 12px;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.8); /* Slight transparency */
+    /* width: 50vw; */
+    /* font-size: large; */
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
-    border-radius: 15px;
+    border-radius: 31px;
     border: 1px solid var(--secondary);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
@@ -44,10 +46,13 @@ h1 {
 
 /* Table styling for booking data */
 .admin-table, .admin-table-narrow {
-    width: 100%;
+width: 95%;
+    margin: auto;
     border-collapse: collapse;
     margin-bottom: 1.5rem;
+    /* font-size: large; */
     background: white;
+    color: grey;
 }
 
 .admin-table th, .admin-table td {
