@@ -143,5 +143,29 @@ if(namesInput){
     emailInput.title = "Enter your email";
     phoneNumInput.title = "Enter your phone number";
 }
+/*-----------------------------
+Alternative property
+-----------------------------
+*/
+// fetch html elements for home page images
+let venueImgs = document.getElementsByClassName("home");
+let venueImgs2 = document.getElementsByClassName("home1");
+
+/*show alt text if image does'nt load, loop through collection of 
+images with class name home and home1*/
+
+if(venueImgs && venueImgs2){
+    for( let i = 0; i < venueImgs.length; i++){
+        venueImgs[i].alt = "Venue Image";
+    }
+    for( let i = 0; i < venueImgs2.length; i++){
+        venueImgs2[i].alt = "Venue Image";
+    }
+    
+    
+}
+
+
+
 
 
