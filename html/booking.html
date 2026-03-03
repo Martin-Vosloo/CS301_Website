@@ -3,28 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style_ab.css" />
     <title>Book a Wedding</title>
     <link rel="stylesheet" href="../css/style_ab.css" />
+    <link rel="stylesheet" href="../css/bookings.css" />
   </head>
   <body>
-
     <nav class="navbar">
-      <div class="logo"><img src="../images/logo1.png" height="200" width="300" alt="Logo"></div>
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <div class="logo-container">
+        <img class="logo" src="../images/logo/logo1.png" alt="Logo" />
+      </div>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
       <label for="menu-toggle" class="hamburger">
         <span></span><span></span><span></span>
       </label>
+
       <div class="nav-links">
         <label for="menu-toggle" class="close-btn">&#10005;</label>
+
         <a href="index.html">Home</a>
         <a href="contact.html">Contact Us</a>
         <a href="signIn.html">Sign in</a>
         <a href="signUp.html">Sign Up</a>
         <a href="reviews.html">Reviews</a>
         <a href="about.html">About Us</a>
-        <input type="checkbox" id="booking-toggle" class="submenu-toggle">
-        <label for="booking-toggle" class="submenu-label">Booking &#9662;</label>
+        <a href="administrator.html">Admin</a>
+
+        <input type="checkbox" id="booking-toggle" class="submenu-toggle" />
+
+        <label for="booking-toggle" class="submenu-label"
+          >Booking &#9662;</label
+        >
+
         <div class="submenu">
           <a href="booking.html">Book a Wedding</a>
           <a href="eventBooking.html">Book an event</a>
@@ -32,74 +43,105 @@
       </div>
     </nav>
 
-    <section>
-      <h1>Book our venue</h1>
-    </section>
+    <main class="form-wrapper">
+      <section class="form-header">
+        <h1>Book our venue</h1>
+      </section>
 
-    <form>
-      <h2>Contact Information</h2>
+      <form class="glass-form">
+        <section>
+          <h2>Contact Information</h2>
+          <div class="input-group">
+            <label for="couple-names">Couple Names</label>
+            <input
+              type="text"
+              id="couple-names"
+              name="couple-names"
+              required
+              placeholder="e.g. Alex & Sam"
+            />
+          </div>
 
-      <label for="couple-names">Couple Names</label>
-      <input type="text" id="couple-names" name="couple-names" required />
-      <br /><br />
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="email@example.com"
+            />
+          </div>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required />
-      <br /><br />
+          <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              placeholder="+27..."
+            />
+          </div>
+        </section>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" required />
-      <br /><br />
+        <section>
+          <h2>Booking Dates</h2>
+          <div class="date-row">
+            <div class="input-group">
+              <label for="start-date">Check-in</label>
+              <input type="date" id="start-date" name="start-date" required />
+            </div>
+            <div class="input-group">
+              <label for="end-date">Check-out</label>
+              <input type="date" id="end-date" name="end-date" required />
+            </div>
+          </div>
+        </section>
 
-      <h2>Booking Dates</h2>
+        <section class="checkbox-section">
+          <h2>Services Required</h2>
+          <div class="checkbox-grid">
+            <label class="custom-check">
+              <input type="checkbox" name="services" value="catering-full" />
+              <span>Full Catering</span>
+            </label>
+            <label class="custom-check">
+              <input type="checkbox" name="services" value="catering-self" />
+              <span>Self-Catering</span>
+            </label>
+            <label class="custom-check">
+              <input type="checkbox" name="services" value="photographer" />
+              <span>Photographer</span>
+            </label>
+            <label class="custom-check">
+              <input type="checkbox" name="services" value="lodging" />
+              <span>Lodging</span>
+            </label>
+          </div>
+        </section>
 
-      <label for="start-date">Check-in / Start Date</label>
-      <input type="date" id="start-date" name="start-date" required />
-      <br /><br />
+        <section>
+          <h2>Wedding Preferences</h2>
+          <textarea
+            id="preferences"
+            name="preferences"
+            rows="4"
+            placeholder="Tell us about your vision..."
+          ></textarea>
+        </section>
 
-      <label for="end-date">Check-out / End Date</label>
-      <input type="date" id="end-date" name="end-date" required />
-      <br /><br />
-
-      <h2>Services Required</h2>
-
-      <input type="checkbox" id="catering-full" name="services" value="catering-full" />
-      <label for="catering-full">Full Catering Services</label>
-      <br />
-      <input type="checkbox" id="catering-self" name="services" value="catering-self" />
-      <label for="catering-self">Self-Catering Services</label>
-      <br />
-      <input type="checkbox" id="photographer" name="services" value="photographer" />
-      <label for="photographer">Photographer</label>
-      <br />
-      <input type="checkbox" id="lodging" name="services" value="lodging" />
-      <label for="lodging">Lodging for Guests and Couple</label>
-      <br />
-      <input type="checkbox" id="breakfast" name="services" value="breakfast" />
-      <label for="breakfast">Breakfast</label>
-      <br /><br />
-
-      <h2>Wedding Preferences</h2>
-
-      <label for="preferences">Tell us about your vision (food types, color scheme, time of day, itinerary, special requests)</label>
-      <br />
-      <textarea
-        id="preferences"
-        name="preferences"
-        rows="6"
-        cols="50"
-        placeholder="Example: Vegetarian menu, pastel pink and gold colors, afternoon ceremony at 3pm, outdoor reception..."
-      ></textarea>
-      <br /><br />
-
-      <button type="submit">Submit Booking Request</button>
-    </form>
+        <button type="submit" class="submit-btn">Submit Booking Request</button>
+      </form>
+    </main>
 
     <footer>
       <p>
-        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
+        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small
+        ><br />
         <small>
-          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze<br />
+          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze,
+          Nwabisa Malawu<br />
           Authors: <a href="about.html">Contact Details</a>
         </small>
       </p>
@@ -109,8 +151,17 @@
         <a href="contact.html">Contact Us</a>
         <a href="reviews.html">Write a Review</a>
         <a href="booking.html">Book</a>
+        <a href="administrator.html">Admin</a>
       </nav>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="tel:+27123456789" class="contact-icon"
+          ><i class="fa-solid fa-phone"></i
+        ></a>
+      </div>
     </footer>
-
+    <script src="../JavaScript/slideshow.js" defer></script>
   </body>
 </html>

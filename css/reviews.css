@@ -1,0 +1,185 @@
+/* Branding font import */
+@font-face {
+  font-family: 'AmsterdamOne';
+  src: url('/font/AmsterdamOne.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Decorative page title styling */
+h1 {
+    font-family: 'AmsterdamOne', cursive;
+    font-weight: 600;
+    text-align: center;
+    font-size: 50px;
+}
+
+/* Global body resets for centered text and standard sans-serif font */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* Centered logo container */
+.logo {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Main review section layout using space-between for image and text alignment */
+.reviews {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+/* Left/Right column flex sharing */
+.reviews-image {
+  flex: 1;
+}
+
+.reviews-image img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.reviews-text {
+  flex: 1;
+  padding-left: 40px;
+}
+
+/* Individual user review card styling */
+.review-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+/* Top bar of a review card showing name and date */
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* Muted color for review timestamps */
+.review-date {
+  color: gray;
+  font-size: 14px;
+}
+
+/* Golden star ratings */
+.review-stars {
+  color: gold;
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+/* Media query to stack the reviews vertically on tablets and phones */
+@media (max-width: 768px) {
+  .reviews {
+    flex-direction: column;
+  }
+
+  .reviews-text {
+    padding-left: 0;
+    padding-top: 20px;
+  }
+}
+
+/* Global Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 15px;
+  color: white;
+  text-align: left;
+}
+
+/* Hide checkboxes used for mobile menu functionality */
+.menu-toggle,
+.submenu-toggle {
+  display: none;
+}
+
+/* Hamburger icon for mobile menu */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+/* Side navigation panel for mobile view */
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+/* Interaction to show menu when toggled */
+.menu-toggle:checked ~ .nav-links {
+  transform: translateX(0);
+}
+
+/* Link hover effects using primary accent color */
+.nav-links a:hover,
+.submenu-label:hover {
+  background: #A8C0A2;
+}
+
+/* Dropdown logic for sub-navigation */
+.submenu {
+  display: none;
+  flex-direction: column;
+  background: #333;
+}
+
+.submenu-toggle:checked + .submenu-label + .submenu {
+  display: flex;
+}
+
+/* Footer layout and social media icon transitions */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #333;
+  color: white;
+}
+
+.social-icons a {
+  color: black;
+  font-size: 28px;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #A8C0A2;
+}
+
+/* Standard accent color for all hyperlinks */
+a {
+  color: #A8C0A2;
+}

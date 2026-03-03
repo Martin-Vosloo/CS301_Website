@@ -80,8 +80,9 @@ label{
     display: block;
     height: 27px;
     width: 100%;
-    padding-left: 22px;
+    margin: auto;
     margin-bottom: 0px;
+    text-align:center;
     transition: 0.97s ease-in-out;
     font-family: var(--font);
     
@@ -95,16 +96,18 @@ label{
 
 
 .input_box input[type=text], input[type=password] {
-    width: 80%;
-    margin-left: auto;
-    right: 0px;
+    width: 85%;
+    left: 20px;
+    background: transparent;
     position: relative;
-    display: block;
-    background-color: transparent;
     border: none;
-    text-decoration: none;
     border-bottom: 1px solid var(--text-color);
-    transition: 0.97s ease-in-out;
+    font-family: var(--font);
+    font-size: 1rem;
+    padding: 0.3rem 0;
+    outline: none;
+    padding-bottom: 1px;
+    transition: all 0.3s ease;
 }
 
 
@@ -128,6 +131,7 @@ label{
  }
 
  .input_box i{
+    display: flex;
     width:14px;
     position: absolute;
     padding-right: 12px;

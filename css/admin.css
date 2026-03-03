@@ -1,0 +1,157 @@
+/* Using the established color palette and font from your theme */
+:root {
+    --primary-colour: #a8c0a2;
+    --secondary: #f4c6c6;
+    --tertiary: #444444;
+    --text-color: black;
+    --borders: #444444;
+    --font: 'Garet', sans-serif;
+}
+
+body {
+    font-family: var(--font);
+    background-color: #f4f4f4; /* Neutral background to keep data readable */
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* Section styling for content blocks */
+section {
+    /* max-width: 900px; */
+    margin: 30px;
+    padding: 2rem;
+    /* width: 50vw; */
+    /* font-size: large; */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 31px;
+    border: 1px solid var(--secondary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    font-family: 'AmsterdamOne', cursive; /* Branding font from style_ab.css */
+    color: var(--tertiary);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.heading h2 {
+    border-bottom: 2px solid var(--primary-colour);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+/* Table styling for booking data */
+.admin-table, .admin-table-narrow {
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    /* font-size: large; */
+    background: white;
+    color: grey;
+}
+
+.admin-table th, .admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table th {
+    background-color: var(--primary-colour);
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.admin-table tr:hover {
+    background-color: rgba(168, 192, 162, 0.1); /* Subtle highlight on hover */
+}
+
+/* Side-by-side layout for the 'Modify a booking' section */
+.left {
+    float: left;
+    width: 60%;
+}
+
+.right {
+    float: right;
+    width: 35%;
+}
+
+/* Clearfix for floating elements */
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Button styling following the sign.css and bookings.css theme */
+button {
+    background-color: white;
+    border: 1px solid var(--borders);
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%; /* Default to full width within table cells */
+}
+
+button:hover {
+    background-color: var(--primary-colour);
+    border-color: var(--secondary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Specific styling for the buttons container at the bottom */
+.buttons {
+    max-width: 900px;
+    margin: 0 auto 4rem auto;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .left, .right {
+        width: 100%;
+        float: none;
+    }
+    
+    .admin-table {
+        font-size: 0.9rem;
+    }
+}
+
+/*
+the following styling will be to make the tables better using js
+because i do not know what else to do
+*/
+
+.clicked{
+    z-index: 1000;
+    top: 0;
+    bottom: 0; 
+    right: 0;
+    left: 0;
+    width: 90%;
+    padding: 12px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: aqua;
+    height: 90vh;
+    padding-bottom: 12vh;
+    padding-top: 12vh;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: block;
+    overflow-y: scroll;
+    position: sticky;
+}
