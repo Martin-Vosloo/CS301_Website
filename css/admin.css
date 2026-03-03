@@ -135,14 +135,23 @@ because i do not know what else to do
 
 .clicked{
     z-index: 1000;
-    top:0;
-    bottom:0;
-    right:0;
-    left:0;
+    top: 0;
+    bottom: 0; 
+    right: 0;
+    left: 0;
+    width: 90%;
+    padding: 12px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: aqua;
+    height: 90vh;
     padding-bottom: 12vh;
-    padding-top:12vh;
+    padding-top: 12vh;
     padding-left: 25px;
     padding-right: 25px;
     display: block;
-    position: fixed;
+    overflow-y: scroll;
+    position: sticky;
 }
