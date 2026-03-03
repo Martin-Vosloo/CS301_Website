@@ -1,0 +1,242 @@
+@font-face {
+    font-family: 'AmsterdamOne';
+    src: url('../font/AmsterdamOne.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;;
+}
+
+:root{
+    --primary: #A8C0A2;
+    --secondary: #f4c6c6;
+    --nav-color: #303030;
+    --text-color: black;
+    --borders: #444444;
+    --font-text: 'Garet', sans-serif;
+    --heading-font: 'AmsterdamOne';
+    --heading-weight: 600;
+    --display-height: 100vh;        /* min height = height of device screen*/
+    --display-flex: flex;
+    --display-grid: grid;
+    --gtc-normal-screen: auto auto;
+    --flex-column: column;
+    --center-text: center;
+    --body-max-width: 1020px;
+    --test-border: black 2px solid;
+    --image-width: 500px;
+    --logo-width: 150px;
+}
+
+body{
+    margin: 0;
+    min-height: var(--display-height);
+    display: var(--display-flex);
+    flex-direction: var(--flex-column);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
+    Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+
+h1{
+    font-family: var(--heading-font);
+    font-weight: var(--heading-weight);
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1000px){
+    .main .container{
+        min-width: auto;
+        max-width: 90%;
+        grid-template-columns: auto;
+        text-align: center;
+    }
+}
+
+.main .container{
+    display: var(--display-grid);       /*Originally flexbox -> change back if it breaks*/
+    grid-template-columns: var(--gtc-normal-screen);
+    margin: auto;
+    min-width: auto;
+    max-width: fit-content;
+    padding: 1rem;
+    gap: 1rem;
+    text-align: var(--center-text);
+}
+
+.main .container img{
+    min-width: auto;
+    max-width: 90%;
+    border-radius: 10px;
+}
+
+.main .description-container{
+    display: inline-block;
+    word-wrap: break-word;
+    margin: auto;
+    margin-bottom: 1em;
+    min-width: auto;
+    max-width: 1140px;
+    text-align: justify;
+}
+
+.description-container img{
+    border-radius: 5px;
+    margin-right: 0.6em;
+}
+
+h1{
+    font-family: 'AmsterdamOne';
+    font-weight: 100;
+    margin-bottom: 1.5rem;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 1rem;
+    gap: 1rem;
+    text-align: center;
+    max-width: fit-content;
+}
+
+.container img{
+    min-width: auto;
+    max-width: 90%;
+    border-radius: 10px;
+}
+
+.description-container{
+    border-radius: 5px;
+    margin-right: 0.6rem;
+}
+
+.description{
+    display: flexbox;
+    text-align: justify;
+}
+
+.heading{
+    justify-content: center;
+    text-align: center;
+    font-family: cursive;
+    font-size: 2em;
+}
+
+li{
+    padding: o.4em;
+}
+
+ul{
+    list-style: none;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 300px;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.logo-container{
+    margin: auto;
+}
+
+.logo{
+    width: var(--logo-width);
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--nav-color);
+    padding: 5px;
+    color: whitesmoke;
+}
+
+.navbar .menutoggle, .submenu-toggle{
+    display: none;
+}
+
+.navbar .hamburger{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-right: 1.6em;
+}
+.navbar .hamburger span{
+    width: 25px;
+    height: 3px;
+    background: white;
+}
+
+.navbar .nav-links{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding-top: 60px;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: #222;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.navbar .menu-toggle:checked ~ .nav-links{
+    transform: translateX(0);
+}
+
+.navbar .nav-links a, .submenu-label{
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.navbar .nav-links a:hover, .submenu-label:hover {
+    background: A8C0A2;
+}
+
+.close-btn{
+    font-size: 22px;
+    padding: 15px 20px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.navbar .submenu {
+    display: none;
+    flex-direction: column;
+    background: #333;
+}
+
+.navbar .submenu a{
+    padding-left: 40px;
+}
+
+.navbar .submenu-toggle:checked + .submenu-label + .submenu {
+    display: flex;
+}
+
+footer{
+    min-height: auto;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--nav-color);
+    color: white;
+}
+
+footer .social-icons a:hover, .contact-icon:hover {
+    color: var(--primary);
+}
+
+a{
+    color: var(--primary);
+}
