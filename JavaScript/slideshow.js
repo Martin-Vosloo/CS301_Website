@@ -104,9 +104,11 @@ let bgColor = "#a8c0a2";
 let bgColor2  = "#efefef";
 
 if(locationBtn){
+    // when you hover on the location button change backgrownd color
     locationBtn.addEventListener("mouseenter", function(){
         locationBtn.style.backgroundColor = bgColor;
     });
+    // and when you stop hovering backgrownd color goes back to default color
     locationBtn.addEventListener("mouseleave", function(){
         locationBtn.style.backgroundColor = bgColor2;
     });
@@ -117,10 +119,53 @@ if(locationBtn){
 placeholder property
 -----------------------------
 */
+
+// fetch html element and change the placeholder
 let placeholderVar = document.getElementById("couple-names");
 if(placeholderVar){
     let names = "e.g. Samantha & Goerge";                             
     placeholderVar.placeholder = names;
 }
+
+/*-----------------------------
+Title property
+-----------------------------
+*/
+
+// fetch html elements
+let namesInput = document.getElementById("couple-names");
+let emailInput = document.getElementById("email");
+let phoneNumInput = document.getElementById("phone");
+
+if(namesInput){
+    // show validation live hints to the user when filling forms
+    namesInput.title = "Enter your names";
+    emailInput.title = "Enter your email";
+    phoneNumInput.title = "Enter your phone number";
+}
+/*-----------------------------
+Alternative property
+-----------------------------
+*/
+// fetch html elements for home page images
+let venueImgs = document.getElementsByClassName("home");
+let venueImgs2 = document.getElementsByClassName("home1");
+
+/*show alt text if image does'nt load, loop through collection of 
+images with class name home and home1*/
+
+if(venueImgs && venueImgs2){
+    for( let i = 0; i < venueImgs.length; i++){
+        venueImgs[i].alt = "Venue Image";
+    }
+    for( let i = 0; i < venueImgs2.length; i++){
+        venueImgs2[i].alt = "Venue Image";
+    }
+    
+    
+}
+
+
+
 
 
