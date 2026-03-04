@@ -18,7 +18,7 @@ function isMobile(){
     reducing functionality basing that on the type of device being used
 */
 window.addEventListener('load', function(){
-    if(isMobile()){
+    if(isMobile()==true){
         this.document.getElementById('changes').innerHTML=
         "Due to the nature of the device you are using to access the page we cannot allow you to make changes to the database.<br>Try using a desktop or laptop please";
         this.document.getElementById('changes').style.display="block";
