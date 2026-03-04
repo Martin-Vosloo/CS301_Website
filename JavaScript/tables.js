@@ -79,7 +79,8 @@ table.addEventListener("click", function(){
 
 /*
 now the function will be for whenever a person clicks on a record or hovers over it for more than 2 seconds
-*/
+having this code active does not yet make sense, thus it is removed for now because the false data does not work nicely
+it is influences our creativity point marks by the way
  function profile(arr_selected){
     // assuming we get the info from some table via php over here 
     //but we create false stuff just for submission
@@ -125,5 +126,5 @@ now the function will be for whenever a person clicks on a record or hovers over
     //Adding the table with transactions to the profile 
     profile.appendChild(table);
     document.getElementById("Cur").appendChild(profile);
-
  }
+*/
