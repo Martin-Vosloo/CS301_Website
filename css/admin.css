@@ -17,14 +17,17 @@ body {
 
 /* Section styling for content blocks */
 section {
-    max-width: 900px;
-    margin: 2rem auto;
+    /* max-width: 900px; */
+    margin: 30px;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.8); /* Slight transparency */
+    /* width: 50vw; */
+    /* font-size: large; */
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
-    border-radius: 15px;
+    border-radius: 31px;
     border: 1px solid var(--secondary);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: 02s ease-in-out;
 }
 
 h1 {
@@ -44,10 +47,13 @@ h1 {
 
 /* Table styling for booking data */
 .admin-table, .admin-table-narrow {
-    width: 100%;
+    width: 95%;
+    margin: auto;
     border-collapse: collapse;
     margin-bottom: 1.5rem;
+    /* font-size: large; */
     background: white;
+    color: grey;
 }
 
 .admin-table th, .admin-table td {
@@ -121,4 +127,49 @@ button:hover {
     .admin-table {
         font-size: 0.9rem;
     }
+}
+
+/*
+the following styling will be to make the tables better using js
+because i do not know what else to do
+*/
+
+.clicked{
+    z-index: 2;
+    top: 14%;
+    right: 0;
+    left: 0;
+    width: 90%;
+    padding: 12px;
+    margin: auto;
+    margin-bottom: 18%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: aqua;
+    height: 80vh;
+    padding-bottom: 12vh;
+    padding-top: 12vh;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: block;
+    overflow-y: auto;
+    position: sticky;
+}
+
+/* 
+the above code will not scale well for a mobile device 
+the adjustments appropriate here, to optimize for a mobile screen are:
+                                                                        top:10%;
+                                                                        margin-bottom:26%
+these will be added to the js code since they are few of them just njeeee...
+*/
+
+
+/*this is because i want to reset the settings of all the styling for any element.
+will call this function using js
+# not actually necessary but i will keep it here
+*/
+.reset{
+    all:unset;
 }
