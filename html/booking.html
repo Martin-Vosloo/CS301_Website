@@ -52,8 +52,9 @@
         <section>
           <h2>Contact Information</h2>
           <div class="input-group">
-            <label for="couple-names">Couple Names</label>
+            <label for="couple-names">Couple Names</label>. <!--Input for couple names-->
             <input
+              oninput = "validate_()"
               type="text"
               id="couple-names"
               name="couple-names"
@@ -63,8 +64,9 @@
           </div>
 
           <div class="input-group">
-            <label for="email">Email Address</label>
+            <label for="email">Email Address</label>  <!--Input for emails-->
             <input
+              oninput = "validate_email()"
               type="email"
               id="email"
               name="email"
@@ -76,6 +78,7 @@
           <div class="input-group">
             <label for="phone">Phone Number</label>
             <input
+              oninput = "validate_phone()"
               type="tel"
               id="phone"
               name="phone"
@@ -162,6 +165,10 @@
         ></a>
       </div>
     </footer>
+
+    <!--External JS files being called to be used in the HTML file-->
     <script src="../JavaScript/slideshow.js" defer></script>
+    <script src="../JavaScript/validation.js" defer></script>
+
   </body>
 </html>
