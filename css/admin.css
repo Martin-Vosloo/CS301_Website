@@ -27,6 +27,7 @@ section {
     border-radius: 31px;
     border: 1px solid var(--secondary);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: 02s ease-in-out;
 }
 
 h1 {
@@ -134,24 +135,41 @@ because i do not know what else to do
 */
 
 .clicked{
-    z-index: 1000;
-    top: 0;
-    bottom: 0; 
+    z-index: 2;
+    top: 14%;
     right: 0;
     left: 0;
     width: 90%;
     padding: 12px;
     margin: auto;
+    margin-bottom: 18%;
     align-items: center;
     justify-content: center;
     text-align: center;
     background: aqua;
-    height: 90vh;
+    height: 80vh;
     padding-bottom: 12vh;
     padding-top: 12vh;
     padding-left: 25px;
     padding-right: 25px;
     display: block;
-    overflow-y: scroll;
+    overflow-y: auto;
     position: sticky;
+}
+
+/* 
+the above code will not scale well for a mobile device 
+the adjustments appropriate here, to optimize for a mobile screen are:
+                                                                        top:10%;
+                                                                        margin-bottom:26%
+these will be added to the js code since they are few of them just njeeee...
+*/
+
+
+/*this is because i want to reset the settings of all the styling for any element.
+will call this function using js
+# not actually necessary but i will keep it here
+*/
+.reset{
+    all:unset;
 }
