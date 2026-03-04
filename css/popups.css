@@ -1,0 +1,46 @@
+/* css for cookies container and different buttons */
+.cookies-container {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0;    
+    background: #303030;
+    color: white;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#accept-cookies {
+    background: green;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+}
+
+#reject-cookies{
+    background: red;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+}
+
+.cookies-container {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0;    
+    background: #303030;
+    color: white;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
