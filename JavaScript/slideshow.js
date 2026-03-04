@@ -164,6 +164,32 @@ if(venueImgs && venueImgs2){
     
     
 }
+/*-----------------------------
+Scroll top btn 
+-----------------------------
+*/
+
+let scrollTopBtn = document.getElementById("top-btn");
+
+if(scrollTopBtn){
+    // show the scroll top button after scrolling down  px
+    window.onscroll = function() {
+         if(document.documentElement.scrollTop > 2050) {
+        scrollTopBtn.style.display = "block";
+
+        }else{
+            scrollTopBtn.style.display = "none";
+        }
+    }
+// when you click on the button it should take you to the top
+
+    scrollTopBtn.onclick = function(){
+        window.scrollTo({
+            top : 0
+        });
+    }
+}
+
 
 
 
