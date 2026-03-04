@@ -173,3 +173,28 @@ will call this function using js
 .reset{
     all:unset;
 }
+
+
+.hoveringProfile{
+    display: block;
+    width: 350px;
+    height: 400px;
+    z-index: 12;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    top: 14%;
+    right: 3%;
+    margin: auto;
+    padding: 5px;
+    position: absolute;
+   /* overflow-y: auto; for now we remove this*/ 
+}
+.hoveringProfile img{
+    width:200px;
+    height: 200px;
+    margin:auto;
+    margin-top: 12px;
+    padding:auto;
+    border-radius: 10px;
+}
