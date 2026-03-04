@@ -270,3 +270,25 @@ a{
   right: 70px;
   display: none;
 }
+
+/* Button for navigator of directions stylying 
+   It will have rounded corners
+   Green color and white text
+   It will move as you hover over It
+   Once clicked, will redirect to google maps
+*/
+
+#directionsBtn {
+    background:  #A8C0A2;
+    color: white;
+    padding: 25px 50px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#directionsBtn:hover {
+    transform: scale(1.05);
+}
