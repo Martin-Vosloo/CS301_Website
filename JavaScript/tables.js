@@ -59,8 +59,10 @@ function overlay(elementId) {
 /*
 functionality to be added it the use of the transactions table
 */
-const table = document.getElementById("currbooking");
-table.addEventListener("click", function(event){
+const table = document.getElementById("smt");
+console.log(table);
+//table is for some reason pointing to a null
+table.addEventListener("click", function(){
     //getting the closest row to the click on the table from the dom
     const row = event.target.closest("tr");
     //if none was found
@@ -72,6 +74,56 @@ table.addEventListener("click", function(event){
     /*this is to be passed to php to display the person's transactions in the table that will appear on the side
       this will be implemented later on
     */
-
-
+    profile(['him']);
 })
+
+/*
+now the function will be for whenever a person clicks on a record or hovers over it for more than 2 seconds
+*/
+ function profile(arr_selected){
+    // assuming we get the info from some table via php over here 
+    //but we create false stuff just for submission
+    const profile = document.createElement("div");
+    //PP means profile picture
+    const PP = document.createElement('img');
+    //will be dynamically assigned for now we just grab sommething  by ourselves from the img folder
+    PP.src="../images/cover2.png"
+    PP.alt= arr_selected[0]+"'s Profile picture.";
+
+    //getting the transactions the person made from the database through php
+    //adding those to a table in php
+    //the following is garbage code
+    // Create table element
+
+    const table = document.createElement("table");
+    // Create header row
+    const headerRow = document.createElement("tr");
+    const headers = ["Company", "Contact", "Country"];
+    headers.forEach(text => {
+        const th = document.createElement("th");
+        th.textContent = text;
+        headerRow.appendChild(th);
+    });
+    table.appendChild(headerRow);
+    // Data rows
+    const data = [
+        ["Alfreds Futterkiste", "Maria Anders", "Germany"],
+        ["Centro comercial Moctezuma", "Francisco Chang", "Mexico"]
+    ];
+    data.forEach(rowData => {
+        const row = document.createElement("tr");
+        rowData.forEach(cellData => {
+            const td = document.createElement("td");
+            td.textContent = cellData;
+            row.appendChild(td);
+        });
+        table.appendChild(row);
+    });
+
+    //adding the profile photo to the div
+    profile.appendChild(PP)
+    //Adding the table with transactions to the profile 
+    profile.appendChild(table);
+    document.getElementById("Cur").appendChild(profile);
+
+ }
