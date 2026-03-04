@@ -1,6 +1,6 @@
 /* Core color palette and typography variables */
 :root {
-  --primary: #a8c0a2;
+  --primary-colour: #a8c0a2;
   --secondary: #f4c6c6;
   --tertiary: #444444;
   --text-color: black;
@@ -12,7 +12,7 @@
 .booking-page {
   background: url('../images/venue/reception_table.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* Container for centering the form on the screen */
@@ -21,7 +21,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 3px solid green;
 }
 
 /* The 'Glass' effect: semi-transparent white with a background blur */
@@ -32,8 +31,8 @@
   border: 1.5px solid var(--borders);
   border-radius: 1.5rem;
   padding: 2.5rem;
-  min-width: auto;
-  max-width: fit-content;
+  width: 100%;
+  max-width: 40rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   margin-bottom: 3rem;
 }
@@ -45,7 +44,7 @@ h2 {
   font-size: 1.2rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary-colour);
   display: inline-block;
 }
 
@@ -80,7 +79,7 @@ textarea {
 
 /* Highlight the field when the user clicks/taps it */
 input:focus, textarea:focus {
-  border-color: var(--primary);
+  border-color: var(--primary-colour);
   box-shadow: 0 0 0 3px rgba(168, 192, 162, 0.3);
 }
 
@@ -89,7 +88,6 @@ input:focus, textarea:focus {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  /* max-width: fit-content; */
 }
 
 /* Auto-fitting grid for services checkboxes */
@@ -110,7 +108,7 @@ input:focus, textarea:focus {
 
 /* Main action button styling with hover lifting effect */
 .submit-btn {
-  background-color: var(--primary);
+  background-color: var(--primary-colour);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -131,5 +129,4 @@ input:focus, textarea:focus {
 textarea {
   width: 100%;
   resize: vertical;
-  margin: auto;
 }
