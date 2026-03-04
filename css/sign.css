@@ -1,150 +1,214 @@
-/* Custom font import for branding */
+/*
+the following code is to use the downloaded font sice it is not in browsers by default
+*/
 @font-face {
   font-family: 'AmsterdamOne';
-  src: url('../font/AmsterdamOne.woff') format('woff');
+  src: url('/font/AmsterdamOne.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-/* Global design variables */
-:root {
+/*
+this is only for the colour to make it easier to change them upon request
+and these are the only colours to use for the pages
+*/
+:root{
     --primary-colour: #a8c0a2;
     --secondary: #f4c6c6;
-    --tertiary: #444444;
+    --tertiary:#444444;
     --text-color: black;
     --borders: #444444;
-    --font: 'Garet', sans-serif;
+    --font: 'Garet', sans-serif;;
 }
 
-/* Flexbox centering for the sign-in/up card */
-body {
+/* 
+all of the body is to keep the form centered and give it the background
+*/
+body{
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
     justify-content: center;
-    align-items: center;
-    background-image: url('../images/venue/reception_table_night.jpg');
-    background-position: center;
+    justify-items: center;
+    background-image: url('/images/venue1.jpg');
+    background-position: centre;
+    overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0;
-    padding: 1rem;
+
 }
 
-/* Semi-transparent form container */
-form {
+form{
     color: var(--text-color);
-    background-color: rgba(255, 255, 255, 0.6); 
-    backdrop-filter: blur(8px);
+    position: relative;
+    display: block;
+    margin: auto;
+    top: auto;
+    align-items: center;
+    justify-content: center;
+    align-self: auto;
     border: 1px solid var(--secondary);
-    border-radius: 1.5rem;
-    padding: 2rem;
-    width: 100%;
-    max-width: 24rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-radius: 5%;
+    padding: 20px;
+    background-color: rgba(216, 216, 216, 0.664);/* this is white but not using the predefined colours*/
+    backdrop-filter: blur(6px);
+    width: auto;
 }
+/* this would be beautiful and wow if we had the colours in variables but that will be added when i have time
+*/
 
-/* Decorative header using the custom font */
-form h1 {
+form h1{
     font-family: 'AmsterdamOne', cursive;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 1.5rem;
 }
 
-/* Input container with a subtle shadow and background */
-.input_box {
-    position: relative;
-    margin-bottom: 1.2rem;
-    background-color: rgba(68, 68, 68, 0.05);
+.input_box{
+    margin: 15px;
+    justify-items: start;
+    transition: 0.95s ease-in-out;
+    background-color: #44444409;
     border-radius: 5px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 0.8rem;
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 9px 12px rgb(0, 0, 0, 0.5);
+    height: 30px;
+    margin-top: 0px;
+    padding: 0px 12px 0px 12px;
 }
-
-label {
+/*
+this will only display after the person has selected it asssuming the placeholders will be vanished by then
+*/
+label{
     display: block;
+    height: 27px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 0px;
+    text-align:center;
+    transition: 0.97s ease-in-out;
     font-family: var(--font);
-    font-size: 0.85rem;
-    margin-bottom: 0.2rem;
-    color: var(--tertiary);
+    
+}
+.input_box input:focus{
+    font-family: var(--font);
+    display: block;
+    font-size: 0.9em ;
+    padding-left:0px;
 }
 
-/* Clean, borderless input fields with a bottom line only */
-.input_box input[type=text], 
-.input_box input[type=password],
-.input_box input[type=email],
-.input_box input[type=tel] {
-    width: 100%;
+
+.input_box input[type=text], input[type=password] {
+    width: 85%;
+    left: 20px;
     background: transparent;
+    position: relative;
     border: none;
     border-bottom: 1px solid var(--text-color);
     font-family: var(--font);
     font-size: 1rem;
     padding: 0.3rem 0;
     outline: none;
+    padding-bottom: 1px;
     transition: all 0.3s ease;
 }
 
-/* Input scale effect on focus */
-.input_box input:focus {
-    border-bottom: 1px solid var(--primary-colour);
-    transform: scale(1.02);
+
+.input_box input[type=text]:focus, input[type=password]:focus {
+    color: var(--text-color);
+    font-size: 105%;
+    text-decoration: none;
+    width:85%;
+    outline: none !important;
+    border-bottom: 1px solid var(--borders) !important;
 }
 
-/* Side-by-side button layout */
-form .formButtons {
+.input_box input:focus{
+    border:none;
+}
+
+ .input_box input:hover{
+    font-size: 101%;
+    width: 85%;
+    border-bottom: 2px solid var(--borders) !important;
+ }
+
+ .input_box i{
+    display: flex;
+    width:14px;
+    position: absolute;
+    padding-right: 12px;
+    font-size: 20px;
+ }
+
+ form .formButtons{
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-form .formButtons button {
-    background: white;
+    padding: 2px;
+    margin: 20px;
+    height: auto;
+ }
+form .formButtons button{
+    background: none;
     border: 1px solid var(--borders);
     border-radius: 7px;
-    flex: 1;
-    padding: 0.6rem;
-    cursor: pointer;
-    transition: 0.3s ease;
-    font-family: var(--font);
-}
+    height: 27px;
+    width: 40%;
+    padding-bottom: 0px;
+    transition: 0.97s ease-in-out;
 
-/* Hover colors using primary branding color */
-form .formButtons button:hover {
-    background-color: var(--primary-colour);
+  }
+
+  form .formButtons button:hover{
+    font-size: 101%;
+    width:47%;
+    font-weight: 400;
     border-color: var(--secondary);
-    color: white;
+    background-color: var(--primary-colour);
+  }
+
+form p{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
 }
 
-/* Links and footer text styling */
-form p {
-    margin-top: 1rem;
-    font-family: var(--font);
-    font-size: 0.8rem;
-}
-
-form p a {
+form p a{
+    font-size: small;
     text-decoration: none;
-    color: var(--tertiary);
-    font-weight: bold;
-    transition: color 0.3s;
+    color: var(--font);
+    display: flex;
+    font-family: var(--font);
+    text-align: center;
+    justify-items: center;
+    padding: 0px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-decoration: none;
+    transition: 0.95s ease-in-out;
+    margin: auto;
 }
 
-form p a:hover {
-    color: var(--primary-colour);
+form p a:hover{
+    font-size: 105%;
+    text-decoration: solid;
+    color: var(--text-color);
+    font-weight: 200;
 }
 
-/* Stack buttons vertically on small phone screens */
-@media (max-width: 400px) {
-    form {
-        padding: 1.2rem;
-    }
-    .formButtons {
-        flex-direction: column;
-    }
-    form .formButtons button {
-        width: 100%;
-    }
+button{
+    display: flex;
+    justify-content: space-around;
+    padding: auto;
+    margin: auto;
+    width: 70%;
+    border-radius: 5px;
+    border-color: red;
+    background-color: rgba(255, 255, 255, 0.548);
+    font-family: var(--font);
 }
+
+/*
+ !remember!:
+    *tested this on: chrome and edge 
+    *both have the same issues with the responsaive of those two phones 
+ */
