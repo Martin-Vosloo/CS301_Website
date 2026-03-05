@@ -1,0 +1,299 @@
+@font-face {
+    font-family: 'AmsterdamOne';
+    src: url('../font/AmsterdamOne.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;;
+}
+
+:root{
+    --primary: #A8C0A2;
+    --secondary: #f4c6c6;
+    --tertiary: #444444;;
+    --nav-color: #303030;
+    --text-color: black;
+    --borders: #444444;
+    --font-text: 'Garet', sans-serif;
+    --heading-font: 'AmsterdamOne';
+    --heading-weight: 600;
+    --display-height: 100vh;        /* min height = height of device screen*/
+    --display-flex: flex;
+    --display-grid: grid;
+    --flex-column: column;
+    --center-text: center;
+    --body-max-width: 1020px;
+    --test-border: black 2px solid;
+    --image-width: 500px;
+    --logo-width: 150px;
+}
+
+/* ================================== General ================================== */
+
+
+body{
+    margin: 0;
+    min-height: var(--display-height);
+    display: var(--display-flex);
+    flex-direction: var(--flex-column);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
+    Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+img{
+    border-radius: 20px;
+}
+
+h1{
+    font-family: var(--heading-font);
+    font-weight: var(--heading-weight);
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-family: var(--font-text);
+  color: var(--tertiary);
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--primary);
+  display: inline-block;
+}
+
+li{
+    padding: 0.4em;
+}
+
+ul{
+    list-style: none;
+}
+
+footer{
+    min-height: auto;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--nav-color);
+    color: white;
+}
+
+a, footer .social-icons a:hover, .contact-icon:hover {
+    color: var(--primary);
+}
+
+p{
+    font-size: 15px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    /* flex: 1; */
+    justify-content: center;
+    /* max-width: fit-content; */
+    /* margin-left: auto;
+    margin-right: auto; */
+    border: 3px solid green;
+}
+
+.main .container{
+    display: var(--display-grid);       /*Originally flexbox -> change back if it breaks*/
+    grid-template-columns: auto auto;
+    padding: 1rem;
+    gap: 1rem;
+    min-width: auto;
+    margin: auto;
+    max-width: fit-content;
+    text-align: var(--center-text);
+}
+
+@media (max-width: 1000px){
+    .main .container{
+        min-width: auto;
+        max-width: 90%;
+        grid-template-columns: auto;
+        text-align: center;
+    }
+}
+
+
+.main .container img{
+    min-width: auto;
+    max-width: 90%;
+}
+
+/* ================================== General ================================== */
+    
+.description-container{
+    display: inline-block;
+    word-wrap: break-word;
+    margin: auto;
+    margin-bottom: 1em;
+    min-width: auto;
+    max-width: 1140px;
+    text-align: justify;
+}
+
+.description{
+    display: flexbox;
+    text-align: justify;
+}
+
+.description-container img{
+    margin-right: 0.6em;
+}
+
+.heading{
+    justify-content: center;
+    text-align: center;
+    font-size: 2em;
+}
+
+
+
+/* ================================== Navbar ================================== */
+
+
+.logo-container{
+    margin: auto;
+}
+
+.logo{
+    width: var(--logo-width);
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--nav-color);
+    padding: 5px;
+    color: whitesmoke;
+    position: sticky;
+}
+
+.navbar .menu-toggle, .submenu-toggle{
+    display: none;
+}
+
+.navbar .hamburger{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-right: 1.6em;
+}
+.navbar .hamburger span{
+    width: 25px;
+    height: 3px;
+    background: white;
+}
+
+.navbar .nav-links{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding-top: 60px;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: #222;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.navbar .menu-toggle:checked ~ .nav-links{
+    transform: translateX(0);
+}
+
+.navbar .nav-links a, .submenu-label{
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.navbar .nav-links a:hover, .submenu-label:hover {
+    background: var(--primary);
+}
+
+.close-btn{
+    font-size: 22px;
+    padding: 15px 20px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.navbar .submenu {
+    display: none;
+    flex-direction: column;
+    background: #333;
+}
+
+.navbar .submenu a{
+    padding-left: 40px;
+}
+
+.navbar .submenu-toggle:checked + .submenu-label + .submenu {
+    display: flex;
+}
+/* ================================== Navbar ================================== */
+
+/* ================================== About Us ================================== */
+
+
+.team-container{
+    display: flex;
+    flex-direction: column;
+    min-width: fit-content;
+    margin-left:20%;
+    margin-right:20%;
+    /* border: 1px solid black; */
+}
+
+.team-container img{
+    border-radius: 100%;
+}
+
+.team-container .row-one{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    min-width: fit-content;
+    justify-content: center;
+    gap: 80px;
+}
+.team-container .row-two{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 60px;
+}
+
+.about-paragraph{
+    margin-top: 60px;
+    font-size: 20px;
+}
+
+.about-btn{
+    padding: 13px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+/* ================================== Booking ================================== */
+
+
+.main .glass-form {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--borders);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  /* width: 100%; */
+  /* max-width: 40rem; */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
