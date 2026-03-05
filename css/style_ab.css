@@ -260,9 +260,9 @@ a{
 /* scroll button only appear when you scroll down */
 #top-btn{
   font-weight: bolder;
-  font-size: 30px;
+  font-size: 10px;
   background-color: #A8C0A2;
-  border-radius: 90px;
+  border-radius: 100%;
   padding: 10px;
   border: 1px solid #222222;
   position: fixed;
@@ -270,6 +270,7 @@ a{
   right: 70px;
   display: none;
 }
+
 
 /* Button for navigator of directions stylying 
    It will have rounded corners

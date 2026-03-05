@@ -42,6 +42,7 @@ hr {
 /* Rounded corners for venue-related images */
 .venue img {
     border-radius: 20px;
+    width: 600px;
 }
 
 /* Rounded button styling for 'Read More' or similar actions */
