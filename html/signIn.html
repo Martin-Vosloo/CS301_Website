@@ -24,62 +24,66 @@
       rel="stylesheet"
     />
     <script src="/JavaScript/cookies.js"></script>
+    <script src="/JavaScript/loadNavBar.js"></script>
   </head>
   <body>
     <!-- 
   this does not have the conf password because you're logging in
   later we will have to do a forgot password screen but later thus in the extra box    
 -->
-    <form action="#">
-      <h1>Sign In</h1>
 
-      <label for="name">Full Name</label>
-      <div class="input_box">
-        <i class="bx bx-user"></i>
-        <input
-          type="text"
-          name="full_name"
-          id="name"
-          required
-          placeholder="full name"
-        />
-      </div>
+    <main class="signin-main">
+      <form action="#">
+        <h1>Sign In</h1>
 
-      <label for="email">Email Address</label>
-      <div class="input_box">
-        <i class="bx bx-envelope-open"></i>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          required
-          placeholder="email address"
-        />
-      </div>
+        <label for="name">Full Name</label>
+        <div class="input_box">
+          <i class="bx bx-user"></i>
+          <input
+            type="text"
+            name="full_name"
+            id="name"
+            required
+            placeholder="full name"
+          />
+        </div>
 
-      <label for="password">Password</label>
-      <div class="input_box">
-        <i class="bx bx-lock-keyhole-open"></i>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          placeholder="password"
-        />
-      </div>
+        <label for="email">Email Address</label>
+        <div class="input_box">
+          <i class="bx bx-envelope-open"></i>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            required
+            placeholder="email address"
+          />
+        </div>
 
-      <div class="formButtons">
-        <button type="submit" id="done">Sign In</button>
-        <button id="autofill">Autofill</button>
-        <button onclick="location.href = '/html/index.html'" id="back">
-          Back
-        </button>
-      </div>
-      <!--
+        <label for="password">Password</label>
+        <div class="input_box">
+          <i class="bx bx-lock-keyhole-open"></i>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            placeholder="password"
+          />
+        </div>
+
+        <div class="formButtons">
+          <button type="submit" id="done">Sign In</button>
+          <button id="autofill">Autofill</button>
+          <button onclick="location.href = '/html/index.html'" id="back">
+            Back
+          </button>
+        </div>
+        <!--
       the following button will call a java script method to get te email then send an email to reset the password to the user
       -->
-      <button onclick="">Forgot password</button>
-    </form>
+        <button onclick="">Forgot password</button>
+      </form>
+    </main>
   </body>
 </html>
