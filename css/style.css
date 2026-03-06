@@ -431,7 +431,7 @@ textarea {
 /* ================================== Popups ================================== */
 
 /* css for cookies container and different buttons */
-.popups .cookies-container {
+.popups #cookies-container {
     display: flex;
     width: 100%;
     position: fixed;
@@ -444,7 +444,7 @@ textarea {
     align-items: center;
 }
 
-.popups #accept-cookies {
+.popups #accept-cookies-btn {
     background: green;
     border: none;
     padding: 8px 15px;
@@ -454,7 +454,7 @@ textarea {
     border-radius: 20px;
 }
 
-.popups #reject-cookies{
+.popups #reject-cookies-btn{
     background: red;
     border: none;
     padding: 8px 15px;
@@ -464,10 +464,11 @@ textarea {
     border-radius: 20px;
 }
 
-.popups .language-container {
+.popups #language-container {
     display: flex;
     width: 100%;
     position: fixed;
+    z-index: 2025;
     top: 0;
     background: #303030;
     color: white;
@@ -475,6 +476,16 @@ textarea {
     gap: 1rem;
     justify-content: center;
     align-items: center;
+}
+
+.popups #accept-language-btn {
+    background: green;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
 }
 
 /* ================================== Reviews ================================== */
