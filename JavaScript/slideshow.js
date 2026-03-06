@@ -52,7 +52,7 @@ let imgIndex2 = [0,1,2,3];
 let image_slides2 = document.getElementsByClassName("home1");
 
 // paths of images to slideshow, divvied up with their widths
-const images2 = ["../images/venue/outside_seating1.jpg","../images/venue/outside_night.jpg", "../images/venue/reception_hall2.jpg"];
+const images2 = ["../images/venue/outside_seating1.jpg","../images/venue/outside_night.jpg", "../images/venue/reception_hall3.jpg"];
 
 if(image_slides2.length > 0){
     function slideshow2(){
