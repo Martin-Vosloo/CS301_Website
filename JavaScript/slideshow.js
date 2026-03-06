@@ -10,10 +10,10 @@ Slideshow for First collection of images
 let current1 = 0;
 let imgIndex1 = [0,1,2,3];
 // look for all the paragraphs that contain the images
-let image_slides1 = document.getElementsByClassName("home");
+let image_slides1 = document.getElementsByClassName("image-slider");
 
 // paths of images to slideshow, divvied up with their widths
-const images1 = ["../images/venue/reception_table0.jpg", "../images/venue/reception_table01.jpg","../images/venue/reception_table02.jpg","../images/venue/outside_seating0.jpg"];
+const images1 = ["../images/venue/reception_table0.jpg", "../images/venue/reception_table01.jpg","../images/venue/reception_table02.jpg","../images/venue/outside_chairs.jpg.jpg"];
 
 if(image_slides1.length > 0){
     function slideshow1(){
@@ -34,7 +34,7 @@ if(image_slides1.length > 0){
 
 
 // switch images after 3 seconds
-    setInterval(slideshow1, 2000);
+    // setInterval(slideshow1, 2000);
 
 }
 

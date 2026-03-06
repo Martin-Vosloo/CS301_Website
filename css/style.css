@@ -26,21 +26,36 @@
     --logo-width: 150px;
 }
 
-/* ================================== General ================================== */
+    /* ================================== General ================================== */
 
 
 body{
-    margin: 0;
-    min-height: var(--display-height);
     display: var(--display-flex);
     flex-direction: var(--flex-column);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
-    Geneva, Verdana, sans-serif;
+    min-height: var(--display-height);
+    justify-content: center;
     text-align: center;
+    margin: 0;    
+    -webkit-font-smoothing: antialiased;
+    font-family: Arapey, BodoniXT, flood-std, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 120px;
+    /* flex: 1; */
+    /* max-width: fit-content; */
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* border: 3px solid green; */
 }
 
 img{
     border-radius: 20px;
+    width: 90%;
 }
 
 h1{
@@ -50,13 +65,13 @@ h1{
 }
 
 h2 {
-  font-family: var(--font-text);
-  color: var(--tertiary);
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--primary);
-  display: inline-block;
+    font-family: var(--font-text);
+    color: var(--tertiary);
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--primary);
+    display: inline-block;
 }
 
 li{
@@ -83,18 +98,12 @@ p{
     font-size: 15px;
 }
 
-.main{
-    display: flex;
-    flex-direction: column;
-    /* flex: 1; */
-    justify-content: center;
-    /* max-width: fit-content; */
-    /* margin-left: auto;
-    margin-right: auto; */
-    border: 3px solid green;
-}
+    /* ================================== General ================================== */
 
-.main .container{
+
+    /* ================================== Index ================================== */
+
+.index-main .img-description-container{
     display: var(--display-grid);       /*Originally flexbox -> change back if it breaks*/
     grid-template-columns: auto auto;
     padding: 1rem;
@@ -106,7 +115,7 @@ p{
 }
 
 @media (max-width: 1000px){
-    .main .container{
+    .index-main .img-description-container{
         min-width: auto;
         max-width: 90%;
         grid-template-columns: auto;
@@ -115,59 +124,66 @@ p{
 }
 
 
-.main .container img{
+.index-main .img-description-container img{
     min-width: auto;
     max-width: 90%;
 }
 
-/* ================================== General ================================== */
-    
-.description-container{
-    display: inline-block;
-    word-wrap: break-word;
-    margin: auto;
-    margin-bottom: 1em;
+.index-main .img-description-container p{
+    font-size: 17px;
+}
+
+.index-main .offer-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.index-main .offer-images-container{
+    display: var(--display-grid);       /*Originally flexbox -> change back if it breaks*/
+    grid-template-columns: auto auto auto;
+    padding: 1rem;
+    gap: 1rem;
     min-width: auto;
-    max-width: 1140px;
-    text-align: justify;
+    margin: auto;
+    max-width: fit-content;
+    text-align: var(--center-text);
 }
 
-.description{
-    display: flexbox;
-    text-align: justify;
-}
-
-.description-container img{
+.index-main .offer-container .offer-image img{
     margin-right: 0.6em;
 }
 
-.heading{
-    justify-content: center;
-    text-align: center;
-    font-size: 2em;
-}
+    /* ================================== Index ================================== */
 
 
 
-/* ================================== Navbar ================================== */
 
 
-.logo-container{
-    margin: auto;
-}
-
-.logo{
-    width: var(--logo-width);
-}
+    /* ================================== Navbar ================================== */
 
 .navbar{
     display: flex;
+    position: fixed;
     justify-content: space-between;
     align-items: center;
+
     background: var(--nav-color);
-    padding: 5px;
     color: whitesmoke;
-    position: sticky;
+
+    top: 0;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: auto;
+
+    z-index: 2020;
+}
+
+.navbar .logo-container{
+    margin: auto;
+}
+
+.navbar .logo{
+    width: var(--logo-width);
 }
 
 .navbar .menu-toggle, .submenu-toggle{
@@ -181,6 +197,7 @@ p{
     cursor: pointer;
     margin-right: 1.6em;
 }
+
 .navbar .hamburger span{
     width: 25px;
     height: 3px;
@@ -236,12 +253,33 @@ p{
 .navbar .submenu-toggle:checked + .submenu-label + .submenu {
     display: flex;
 }
-/* ================================== Navbar ================================== */
+    /* ================================== Navbar ================================== */
 
-/* ================================== About Us ================================== */
+    /* ================================== About Us ================================== */
 
 
-.team-container{
+.about-main .container{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.about-main .container .about-paragraph{
+    padding: 60px;
+    font-size: 20px;
+
+}
+
+.about-main .container img{
+    width: 80%;
+}
+
+.about-main .container .about-btn{
+    padding: 13px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.about-main .team-container{
     display: flex;
     flex-direction: column;
     min-width: fit-content;
@@ -250,50 +288,481 @@ p{
     /* border: 1px solid black; */
 }
 
-.team-container img{
-    border-radius: 100%;
-}
-
-.team-container .row-one{
+.about-main .team-container .row-one{
     display: grid;
     grid-template-columns: auto auto auto;
     min-width: fit-content;
     justify-content: center;
     gap: 80px;
+    margin-bottom: 40px;
 }
-.team-container .row-two{
+
+.about-main .team-container .row-two{
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
     gap: 80px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
-.about-paragraph{
-    margin-top: 60px;
+.about-main .team-container .row-one img{
+    border-radius: 100%;
+    width: 200px;
+}
+
+.about-main .team-container .row-two img{
+    border-radius: 100%;
+    width: 200px;
+}
+
+
+    /* ================================== Booking ================================== */
+
+.booking-main{
+    margin-top: 100px;
+}
+
+.booking-main .container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('../images/venue/outside_seating0.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin-top: 0;
+    padding: 2rem 1rem;
+    align-items: center;
+}
+
+.booking-main .container .glass-form {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(5px);
+    border: 1.5px solid var(--borders);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    width: 80%;
+    max-width: 40rem;
+}
+
+/* Layout for label and input pairs */
+.booking-main .input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.booking-main .input-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+}
+
+    /* Standardized styling for all text-based inputs */
+.booking-main input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+    /* Highlight the field when the user clicks/taps it */
+.booking-main input:focus, textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(168, 192, 162, 0.3);
+}
+
+    /* Grid layout for start/end date alignment */
+.booking-main .date-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+    /* Auto-fitting grid for services checkboxes */
+.booking-main .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.8rem;
+    text-align: left;
+}
+
+.booking-main .custom-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+    /* Main action button styling with hover lifting effect */
+.booking-main .submit-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: var(--font);
+    border-radius: 2rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: transform 0.2s ease, background 0.3s ease;
+    width: 100%;
+}
+
+.booking-main .submit-btn:hover {
+    background-color: #8fa889;
+    transform: translateY(-2px);
+}
+
+.booking-main textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+    /* ================================== Popups ================================== */
+
+/* css for cookies & language banners */
+.popups #cookies-container {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0;    
+    background: #303030;
+    color: white;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    }
+
+.popups #accept-cookies-btn {
+    background: green;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+    }
+
+.popups #reject-cookies-btn{
+    background: red;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+    }
+
+.popups #language-container {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    z-index: 2025;
+    top: 0;
+    background: #303030;
+    color: white;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    }
+
+.popups #accept-language-btn {
+    background: green;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+    }
+
+/* ================================== Reviews ================================== */
+
+/* Decorative page title styling */
+.reviews-main h1 {
+    /* font-family: 'AmsterdamOne', cursive;
+    font-weight: 600;
+    text-align: center; */
+    font-size: 50px;
+}
+
+    /* Main review section layout using space-between for image and text alignment */
+.reviews-main .reviews {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+    /* Left/Right column flex sharing */
+.reviews-main .reviews-image {
+    flex: 1;
+}
+
+.reviews-main .reviews-image img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.reviews-main .reviews-text {
+    flex: 1;
+    padding-left: 40px;
+}
+
+    /* Individual user review card styling */
+.reviews-main .review-card {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+    /* Top bar of a review card showing name and date */
+.reviews-main .review-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+    /* Muted color for review timestamps */
+.reviews-main .review-date {
+    color: gray;
+    font-size: 14px;
+}
+
+    /* Golden star ratings */
+.reviews-main .review-stars {
+    color: gold;
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+    /* Media query to stack the reviews vertically on tablets and phones */
+@media (max-width: 768px) {
+    .reviews-main .reviews {
+        flex-direction: column;
+    }
+
+    .reviews-main .reviews-text {   
+        padding-left: 0;
+        padding-top: 20px;
+    }
+}
+
+    /* ================================== Sign in/up ================================== */
+
+    /*
+    the following code is to use the downloaded font sice it is not in browsers by default
+    */
+@font-face {
+    font-family: 'AmsterdamOne';
+    src: url('/font/AmsterdamOne.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    /* 
+    all of the body is to keep the form centered and give it the background
+    */
+.sign-main body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    justify-items: center;
+    background-image: url('/images/venue1.jpg');
+    background-position: centre;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.sign-main form{
+    color: var(--text-color);
+    position: relative;
+    display: block;
+    margin: auto;
+    top: auto;
+    align-items: center;
+    justify-content: center;
+    align-self: auto;
+    border: 1px solid var(--secondary);
+    border-radius: 5%;
+    padding: 20px;
+    background-color: rgba(216, 216, 216, 0.664);/* this is white but not using the predefined colours*/
+    backdrop-filter: blur(6px);
+    width: auto;
+}
+    /* this would be beautiful and wow if we had the colours in variables but that will be added when i have time
+    */
+
+.sign-main form h1{
+    font-family: 'AmsterdamOne', cursive;
+    font-weight: 600;
+    text-align: center;
+}
+
+.sign-main .input_box{
+    margin: 15px;
+    justify-items: start;
+    transition: 0.95s ease-in-out;
+    background-color: #44444409;
+    border-radius: 5px;
+    box-shadow: 0px 9px 12px rgb(0, 0, 0, 0.5);
+    height: 30px;
+    margin-top: 0px;
+    padding: 0px 12px 0px 12px;
+}
+    /*
+    this will only display after the person has selected it asssuming the placeholders will be vanished by then
+    */
+.sign-main label{
+    display: block;
+    height: 27px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 0px;
+    text-align:center;
+    transition: 0.97s ease-in-out;
+    font-family: var(--font);
+
+}
+.sign-main .input_box input:focus{
+    font-family: var(--font);
+    display: block;
+    font-size: 0.9em ;
+    padding-left:0px;
+}
+
+
+.sign-main .input_box input[type=text], input[type=password] {
+    width: 85%;
+    left: 20px;
+    background: transparent;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+    font-family: var(--font);
+    font-size: 1rem;
+    padding: 0.3rem 0;
+    outline: none;
+    padding-bottom: 1px;
+    transition: all 0.3s ease;
+}
+
+
+.sign-main .input_box input[type=text]:focus, input[type=password]:focus {
+    color: var(--text-color);
+    font-size: 105%;
+    text-decoration: none;
+    width:85%;
+    outline: none !important;
+    border-bottom: 1px solid var(--borders) !important;
+}
+
+.sign-main .input_box input:focus{
+    border:none;
+}
+
+.sign-main .input_box input:hover{
+    font-size: 101%;
+    width: 85%;
+    border-bottom: 2px solid var(--borders) !important;
+}
+
+.sign-main .input_box i{
+    display: flex;
+    width:14px;
+    position: absolute;
+    padding-right: 12px;
     font-size: 20px;
 }
 
-.about-btn{
-    padding: 13px;
-    border-radius: 30px;
-    margin-top: 20px;
+.sign-main form .formButtons{
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    margin: 20px;
+    height: auto;
 }
 
-/* ================================== Booking ================================== */
-
-
-.main .glass-form {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1.5px solid var(--borders);
-  border-radius: 1.5rem;
-  padding: 2.5rem;
-  /* width: 100%; */
-  /* max-width: 40rem; */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin-bottom: 3rem;
-  /* margin-left: auto;
-  margin-right: auto; */
+.sign-main form .formButtons button{
+    background: none;
+    border: 1px solid var(--borders);
+    border-radius: 7px;
+    height: 27px;
+    width: 40%;
+    padding-bottom: 0px;
+    transition: 0.97s ease-in-out;
 }
+
+.sign-main form .formButtons button:hover{
+    font-size: 101%;
+    width:47%;
+    font-weight: 400;
+    border-color: var(--secondary);
+    background-color: var(--primary);
+}
+
+.sign-main form p{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+.sign-main form p a{
+    font-size: small;
+    text-decoration: none;
+    color: var(--font);
+    display: flex;
+    font-family: var(--font);
+    text-align: center;
+    justify-items: center;
+    padding: 0px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-decoration: none;
+    transition: 0.95s ease-in-out;
+    margin: auto;
+}
+
+.sign-main form p a:hover{
+    font-size: 105%;
+    text-decoration: solid;
+    color: var(--text-color);
+    font-weight: 200;
+}
+
+.sign-main button{
+    display: flex;
+    justify-content: space-around;
+    padding: auto;
+    margin: auto;
+    width: 70%;
+    border-radius: 5px;
+    border-color: red;
+    background-color: rgba(255, 255, 255, 0.548);
+    font-family: var(--font);
+}
+
+    /*
+    !remember!:
+    *tested this on: chrome and edge 
+    *both have the same issues with the responsaive of those two phones 
+    */
+
