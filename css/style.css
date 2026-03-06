@@ -30,14 +30,15 @@
 
 
 body{
-    margin: 0;
-    min-height: var(--display-height);
     display: var(--display-flex);
     flex-direction: var(--flex-column);
+    min-height: var(--display-height);
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 
     Geneva, Verdana, sans-serif;
-    text-align: center;
-    justify-content: center;
 }
 
 img{
@@ -156,26 +157,30 @@ main .img-description-container img{
 
 .navbar{
     display: flex;
+    position: fixed;
     justify-content: space-between;
     align-items: center;
+
     background: var(--nav-color);
-    padding: 5px;
     color: whitesmoke;
-    position: fixed;
-    width: 100%;
+    
     top: 0;
+    padding: 5px;
+    width: 100%;
     margin-bottom: auto;
+    
     border-bottom: 1px solid var(--secondary);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    
     z-index: 2020;
 }
 
-.logo-container{
+.navbar .logo-container{
     margin: auto;
 }
 
-.logo{
+.navbar .logo{
     width: var(--logo-width);
 }
 
@@ -249,6 +254,16 @@ main .img-description-container img{
 
 /* ================================== About Us ================================== */
 
+.about-paragraph{
+    margin-top: 60px;
+    font-size: 20px;
+}
+
+.about-btn{
+    padding: 13px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
 
 .team-container{
     display: flex;
@@ -278,16 +293,6 @@ main .img-description-container img{
     margin-bottom: 60px;
 }
 
-.about-paragraph{
-    margin-top: 60px;
-    font-size: 20px;
-}
-
-.about-btn{
-    padding: 13px;
-    border-radius: 30px;
-    margin-top: 20px;
-}
 
 /* ================================== Booking ================================== */
 
@@ -299,12 +304,8 @@ main .img-description-container img{
   border: 1.5px solid var(--borders);
   border-radius: 1.5rem;
   padding: 2.5rem;
-  /* width: 100%; */
-  /* max-width: 40rem; */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   margin-bottom: 3rem;
-  /* margin-left: auto;
-  margin-right: auto; */
 }
 
 .booking-main .container{
@@ -426,3 +427,330 @@ textarea {
   width: 100%;
   resize: vertical;
 }
+
+/* ================================== Popups ================================== */
+
+/* css for cookies container and different buttons */
+.popups .cookies-container {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0;    
+    background: #303030;
+    color: white;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.popups #accept-cookies {
+    background: green;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+}
+
+.popups #reject-cookies{
+    background: red;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+}
+
+.popups .language-container {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #303030;
+    color: white;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================================== Reviews ================================== */
+
+/* Decorative page title styling */
+.reviews-main h1 {
+    font-family: 'AmsterdamOne', cursive;
+    font-weight: 600;
+    text-align: center;
+    font-size: 50px;
+}
+
+/* Main review section layout using space-between for image and text alignment */
+.reviews-main .reviews {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+/* Left/Right column flex sharing */
+.reviews-main .reviews-image {
+  flex: 1;
+}
+
+.reviews-main .reviews-image img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.reviews-main .reviews-text {
+  flex: 1;
+  padding-left: 40px;
+}
+
+/* Individual user review card styling */
+.reviews-main .review-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+/* Top bar of a review card showing name and date */
+.reviews-main .review-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* Muted color for review timestamps */
+.reviews-main .review-date {
+  color: gray;
+  font-size: 14px;
+}
+
+/* Golden star ratings */
+.reviews-main .review-stars {
+  color: gold;
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+/* Media query to stack the reviews vertically on tablets and phones */
+@media (max-width: 768px) {
+  .reviews-main .reviews {
+    flex-direction: column;
+  }
+
+  .reviews-main .reviews-text {
+    padding-left: 0;
+    padding-top: 20px;
+  }
+}
+
+/* ================================== Sign in/up ================================== */
+
+/*
+the following code is to use the downloaded font sice it is not in browsers by default
+*/
+@font-face {
+  font-family: 'AmsterdamOne';
+  src: url('/font/AmsterdamOne.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 
+all of the body is to keep the form centered and give it the background
+*/
+.sign-main body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    justify-items: center;
+    background-image: url('/images/venue1.jpg');
+    background-position: centre;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.sign-main form{
+    color: var(--text-color);
+    position: relative;
+    display: block;
+    margin: auto;
+    top: auto;
+    align-items: center;
+    justify-content: center;
+    align-self: auto;
+    border: 1px solid var(--secondary);
+    border-radius: 5%;
+    padding: 20px;
+    background-color: rgba(216, 216, 216, 0.664);/* this is white but not using the predefined colours*/
+    backdrop-filter: blur(6px);
+    width: auto;
+}
+/* this would be beautiful and wow if we had the colours in variables but that will be added when i have time
+*/
+
+.sign-main form h1{
+    font-family: 'AmsterdamOne', cursive;
+    font-weight: 600;
+    text-align: center;
+}
+
+.sign-main .input_box{
+    margin: 15px;
+    justify-items: start;
+    transition: 0.95s ease-in-out;
+    background-color: #44444409;
+    border-radius: 5px;
+    box-shadow: 0px 9px 12px rgb(0, 0, 0, 0.5);
+    height: 30px;
+    margin-top: 0px;
+    padding: 0px 12px 0px 12px;
+}
+/*
+this will only display after the person has selected it asssuming the placeholders will be vanished by then
+*/
+.sign-main label{
+    display: block;
+    height: 27px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 0px;
+    text-align:center;
+    transition: 0.97s ease-in-out;
+    font-family: var(--font);
+    
+}
+.sign-main .input_box input:focus{
+    font-family: var(--font);
+    display: block;
+    font-size: 0.9em ;
+    padding-left:0px;
+}
+
+
+.sign-main .input_box input[type=text], input[type=password] {
+    width: 85%;
+    left: 20px;
+    background: transparent;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+    font-family: var(--font);
+    font-size: 1rem;
+    padding: 0.3rem 0;
+    outline: none;
+    padding-bottom: 1px;
+    transition: all 0.3s ease;
+}
+
+
+.sign-main .input_box input[type=text]:focus, input[type=password]:focus {
+    color: var(--text-color);
+    font-size: 105%;
+    text-decoration: none;
+    width:85%;
+    outline: none !important;
+    border-bottom: 1px solid var(--borders) !important;
+}
+
+.sign-main .input_box input:focus{
+    border:none;
+}
+
+ .sign-main .input_box input:hover{
+    font-size: 101%;
+    width: 85%;
+    border-bottom: 2px solid var(--borders) !important;
+ }
+
+ .sign-main .input_box i{
+    display: flex;
+    width:14px;
+    position: absolute;
+    padding-right: 12px;
+    font-size: 20px;
+ }
+
+ .sign-main form .formButtons{
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    margin: 20px;
+    height: auto;
+ }
+.sign-main form .formButtons button{
+    background: none;
+    border: 1px solid var(--borders);
+    border-radius: 7px;
+    height: 27px;
+    width: 40%;
+    padding-bottom: 0px;
+    transition: 0.97s ease-in-out;
+
+  }
+
+  .sign-main form .formButtons button:hover{
+    font-size: 101%;
+    width:47%;
+    font-weight: 400;
+    border-color: var(--secondary);
+    background-color: var(--primary-colour);
+  }
+  .sign-main form p{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+.sign-main form p a{
+    font-size: small;
+    text-decoration: none;
+    color: var(--font);
+    display: flex;
+    font-family: var(--font);
+    text-align: center;
+    justify-items: center;
+    padding: 0px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-decoration: none;
+    transition: 0.95s ease-in-out;
+    margin: auto;
+}
+
+.sign-main form p a:hover{
+    font-size: 105%;
+    text-decoration: solid;
+    color: var(--text-color);
+    font-weight: 200;
+}
+
+.sign-main button{
+    display: flex;
+    justify-content: space-around;
+    padding: auto;
+    margin: auto;
+    width: 70%;
+    border-radius: 5px;
+    border-color: red;
+    background-color: rgba(255, 255, 255, 0.548);
+    font-family: var(--font);
+}
+
+/*
+ !remember!:
+    *tested this on: chrome and edge 
+    *both have the same issues with the responsaive of those two phones 
+ */
+
