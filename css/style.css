@@ -188,6 +188,12 @@ img {
     padding:10px;
     width: 400px;
     height: 400px;
+    
+    transition: transform 0.4s ease-out;
+}
+.card:hover{
+    /* make card change position when moving */
+    transform: translateY(-20px);
 }
 
 .book-btn-link {
@@ -219,7 +225,6 @@ img {
     font-size: 30px;
 }
 .enga-text{
-    margin-top:;
     padding: 50px;
     background: linear-gradient(to right,#A8C0A2, #ffffff , #A8C0A2);
 }
