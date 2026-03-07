@@ -102,6 +102,26 @@ Change a button color when hover
 */
 let bgColor = "#a8c0a2";
 let bgColor2  = "#efefef";
+let contactBtn = document.getElementsByClassName("about-btn1")[0];
+let aboutBtn = document.getElementsByClassName("about-btn2")[0];
+
+if(contactBtn){
+     
+    contactBtn.style.backgroundColor = "#000000";
+    contactBtn.style.color = "#ffffff";
+
+    aboutBtn.style.backgroundColor = bgColor
+    // when you hover on the location button change backgrownd color
+    contactBtn.addEventListener("mouseenter", function(){
+        contactBtn.style.backgroundColor = bgColor;
+        contactBtn.style.color = "#000000";
+    });
+    // and when you stop hovering backgrownd color goes back to default color
+    contactBtn.addEventListener("mouseleave", function(){
+        contactBtn.style.backgroundColor = "#000000";
+        contactBtn.style.color = "#ffffff";
+    });
+}
 
 if(locationBtn){
     // when you hover on the location button change backgrownd color
@@ -111,6 +131,21 @@ if(locationBtn){
     // and when you stop hovering backgrownd color goes back to default color
     locationBtn.addEventListener("mouseleave", function(){
         locationBtn.style.backgroundColor = bgColor2;
+    });
+}
+
+if(aboutBtn){
+    // when you hover on the location button change backgrownd color
+    aboutBtn.addEventListener("mouseenter", function(){
+        aboutBtn.style.backgroundColor = "#000000";
+        aboutBtn.style.color = "#ffffff";
+        
+    });
+    // and when you stop hovering backgrownd color goes back to default color
+    aboutBtn.addEventListener("mouseleave", function(){
+        aboutBtn.style.backgroundColor = bgColor;
+        aboutBtn.style.color = "#000000";
+        
     });
 }
 
