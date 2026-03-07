@@ -225,7 +225,29 @@ if(scrollTopBtn){
     }
 }
 
+const images = ["../images/venue/VENUE1.jpg","../images/venue/VENUE2.jpg", "../images/venue/VENUE3.jpg", "../images/venue/VENUE4.jpg"];
 
+let currentImage = document.getElementsByClassName("bc-img")[0];
+let currentIndex = 0;
+
+if(currentImage){
+    
+function backgrowndChanger(){
+    currentIndex = currentIndex + 1;
+    // if it reaches end of the image, go back to start
+    if(currentIndex >= images1.length){
+        currentIndex = 0;
+    }
+
+    // move to the next img
+    currentImage.style.backgroundImage = "url('" + images[currentIndex] +  "')";
+}
+
+// call func to load image to be loaded first
+backgrowndChanger();
+//change backgrownd after 2 seconds
+setInterval(backgrowndChanger, 3000);
+}
 
 
 

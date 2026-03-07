@@ -60,11 +60,20 @@ body {
     -webkit-font-smoothing: antialiased;
     font-family: Arapey, BodoniXT, flood-std, Helvetica, sans-serif;
     font-weight: 400;
-    background-image: url("../images/venue/reception_table5.jpg");
+
+    /* background-image: url("../images/venue/VENUE3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 0;
+    padding: 0; */
+}
+.bc-img {
+    background-image: url("../images/venue/VENUE3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 80px;
+    transition: background-image 0.7s ease-in-out;
 }
 
 .about-body, .review-body, .booking-body {
@@ -176,8 +185,7 @@ img {
 .card {
     background-color: #8fa889;
     border-radius: 20px;
-    margin: 0;
-    padding: 0;
+    padding:10px;
     width: 400px;
     height: 400px;
 }
@@ -188,6 +196,9 @@ img {
     padding: 10px;
     border-radius: 20px;
     color: #ffffff;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .book-btn-link a {
@@ -208,7 +219,7 @@ img {
     font-size: 30px;
 }
 .enga-text{
-    margin-top: 20%;
+    margin-top:;
     padding: 50px;
     background: linear-gradient(to right,#A8C0A2, #ffffff , #A8C0A2);
 }
