@@ -2,20 +2,23 @@
     font-family: 'AmsterdamOne';
     src: url('../font/AmsterdamOne.woff') format('woff');
     font-weight: 100;
-    font-style: normal;;
+    font-style: normal;
+    ;
 }
 
-:root{
+:root {
     --primary: #A8C0A2;
     --secondary: #f4c6c6;
-    --tertiary: #444444;;
+    --tertiary: #444444;
+    ;
     --nav-color: #303030;
     --text-color: black;
     --borders: #444444;
     --font-text: 'Garet', sans-serif;
     --heading-font: 'AmsterdamOne';
     --heading-weight: 600;
-    --display-height: 100vh;        /* min height = height of device screen*/
+    --display-height: 100vh;
+    /* min height = height of device screen*/
     --display-flex: flex;
     --display-grid: grid;
     --flex-column: column;
@@ -26,26 +29,72 @@
     --logo-width: 150px;
 }
 
-    /* ================================== General ================================== */
+/* ================================== General ================================== */
 
 
-body{
+body {
     display: var(--display-flex);
     flex-direction: var(--flex-column);
     min-height: var(--display-height);
     justify-content: center;
     text-align: center;
-    margin: 0;    
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: Arapey, BodoniXT, flood-std, Helvetica, sans-serif;
+    /* font-weight: 400;
+    background-image: url("../images/venue/reception_table5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+
+
+}
+
+.home-body {
+    display: var(--display-flex);
+    flex-direction: var(--flex-column);
+    min-height: var(--display-height);
+    justify-content: center;
+    text-align: center;
+    margin: 0;
     -webkit-font-smoothing: antialiased;
     font-family: Arapey, BodoniXT, flood-std, Helvetica, sans-serif;
     font-weight: 400;
+
+    /* background-image: url("../images/venue/VENUE3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 0; */
+}
+.bc-img {
+    background-image: url("../images/venue/VENUE3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 80px;
+    transition: background-image 0.7s ease-in-out;
 }
 
-main{
+.about-body, .review-body, .booking-body {
+    background: linear-gradient(to right, #A8C0A2,  #ffffff,#8fa889);
+}
+.about-btn2, .about-btn1 {
+    padding: 15px;
+    border: 1px solid #222222;
+    border-radius: 20px;
+}
+.cont-btns{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 120px;
+    /* margin-top: 90px; */
     /* flex: 1; */
     /* max-width: fit-content; */
     /* margin-left: auto;
@@ -53,13 +102,13 @@ main{
     /* border: 3px solid green; */
 }
 
-img{
+img {
     border-radius: 20px;
     width: 90%;
 }
 
-.navigation-bar{
-    background-color:  #303030;
+.navigation-bar {
+    background-color: #303030;
     display: flex;
     padding: 25px;
     margin: 20px;
@@ -69,45 +118,121 @@ img{
     justify-content: space-between;
 
 }
-.navigation-links{
+
+
+.navigation-links {
     display: flex;
     gap: 20px;
     font: bold;
     justify-content: center;
 }
-.navigation-links a:hover{
+
+.navigation-links a:hover {
     transition-duration: 0.3s;
-    transition:0.5s; /*smooth movement */
+    transition: 0.5s;
+    /*smooth movement */
     transform: translateY(-4px);
 }
-.navigation-links a{
+
+.navigation-links a {
     text-decoration: none;
 }
+
 .navigation-btns a {
     text-decoration: none;
 }
-.navigation-btns{
+
+.navigation-btns {
     display: flex;
     gap: 15px;
     font: bold;
 }
-.nav-btn{
+
+.nav-btn {
     background-color: #A8C0A2;
     color: #000000;
     padding: 10px;
     border-radius: 20px;
 }
+
 .nav-btn:hover {
     background-color: #8fa889;
 }
-.logo-image{
+
+.logo-image {
     width: 150px;
 }
 
-h1{
+.landing-greet {
+    font: bolder;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+.welcome-head{
+    font-size: 40px;
+}
+.cards {
+    display: flex;
+    color: #ffffff;
+    gap: 30px;
+    background: linear-gradient(to right,#A8C0A2, #ffffff , #A8C0A2);
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.card {
+    background-color: #8fa889;
+    border-radius: 20px;
+    padding:10px;
+    width: 400px;
+    height: 400px;
+}
+
+.book-btn-link {
+    text-decoration: none;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 20px;
+    color: #ffffff;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.book-btn-link a {
+    width: 300px;
+    
+}
+.card-heading {
+    color: #000000;
+    font-size: 20px;
+}
+.card-text {
+    color: #000000;
+}
+
+.enga-paragraph {
+    font-family: var(--heading-font);
+    font-weight: var(--heading-weight);
+    font-size: 30px;
+}
+.enga-text{
+    margin-top:;
+    padding: 50px;
+    background: linear-gradient(to right,#A8C0A2, #ffffff , #A8C0A2);
+}
+
+.about-heading {
+    color: #000000;
+}
+
+h1 {
     font-family: var(--heading-font);
     font-weight: var(--heading-weight);
     margin-bottom: 1.5rem;
+    color: #ffffff;
 }
 
 h2 {
@@ -120,15 +245,15 @@ h2 {
     display: inline-block;
 }
 
-li{
+li {
     padding: 0.4em;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
-footer{
+footer {
     min-height: auto;
     padding: 20px;
     text-align: center;
@@ -136,21 +261,24 @@ footer{
     color: white;
 }
 
-a, footer .social-icons a:hover, .contact-icon:hover {
+a,
+footer .social-icons a:hover,
+.contact-icon:hover {
     color: var(--primary);
 }
 
-p{
+p {
     font-size: 15px;
 }
 
-    /* ================================== General ================================== */
+/* ================================== General ================================== */
 
 
-    /* ================================== Index ================================== */
+/* ================================== Index ================================== */
 
-.index-main .img-description-container{
-    display: var(--display-grid);       /*Originally flexbox -> change back if it breaks*/
+.index-main .img-description-container {
+    display: var(--display-grid);
+    /*Originally flexbox -> change back if it breaks*/
     grid-template-columns: auto auto;
     padding: 1rem;
     gap: 1rem;
@@ -160,8 +288,8 @@ p{
     text-align: var(--center-text);
 }
 
-@media (max-width: 1000px){
-    .index-main .img-description-container{
+@media (max-width: 1000px) {
+    .index-main .img-description-container {
         min-width: auto;
         max-width: 90%;
         grid-template-columns: auto;
@@ -170,22 +298,23 @@ p{
 }
 
 
-.index-main .img-description-container img{
+.index-main .img-description-container img {
     min-width: auto;
     max-width: 90%;
 }
 
-.index-main .img-description-container p{
+.index-main .img-description-container p {
     font-size: 17px;
 }
 
-.index-main .offer-container{
+.index-main .offer-container {
     display: flex;
     flex-direction: column;
 }
 
-.index-main .offer-images-container{
-    display: var(--display-grid);       /*Originally flexbox -> change back if it breaks*/
+.index-main .offer-images-container {
+    display: var(--display-grid);
+    /*Originally flexbox -> change back if it breaks*/
     grid-template-columns: auto auto auto;
     padding: 1rem;
     gap: 1rem;
@@ -195,19 +324,19 @@ p{
     text-align: var(--center-text);
 }
 
-.index-main .offer-container .offer-image img{
+.index-main .offer-container .offer-image img {
     margin-right: 0.6em;
 }
 
-    /* ================================== Index ================================== */
+/* ================================== Index ================================== */
 
 
 
 
 
-    /* ================================== Navbar ================================== */
+/* ================================== Navbar ================================== */
 
-.navbar{
+.navbar {
     display: flex;
     position: fixed;
     justify-content: space-between;
@@ -224,19 +353,20 @@ p{
     z-index: 2020;
 }
 
-.navbar .logo-container{
+.navbar .logo-container {
     margin: auto;
 }
 
-.navbar .logo{
+.navbar .logo {
     width: var(--logo-width);
 }
 
-.navbar .menu-toggle, .submenu-toggle{
+.navbar .menu-toggle,
+.submenu-toggle {
     display: none;
 }
 
-.navbar .hamburger{
+.navbar .hamburger {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -244,13 +374,13 @@ p{
     margin-right: 1.6em;
 }
 
-.navbar .hamburger span{
+.navbar .hamburger span {
     width: 25px;
     height: 3px;
     background: white;
 }
 
-.navbar .nav-links{
+.navbar .nav-links {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -264,22 +394,24 @@ p{
     transition: transform 0.3s ease;
 }
 
-.navbar .menu-toggle:checked ~ .nav-links{
+.navbar .menu-toggle:checked~.nav-links {
     transform: translateX(0);
 }
 
-.navbar .nav-links a, .submenu-label{
+.navbar .nav-links a,
+.submenu-label {
     color: white;
     text-decoration: none;
     padding: 15px 20px;
     cursor: pointer;
 }
 
-.navbar .nav-links a:hover, .submenu-label:hover {
+.navbar .nav-links a:hover,
+.submenu-label:hover {
     background: var(--primary);
 }
 
-.close-btn{
+.close-btn {
     font-size: 22px;
     padding: 15px 20px;
     cursor: pointer;
@@ -292,49 +424,50 @@ p{
     background: #333;
 }
 
-.navbar .submenu a{
+.navbar .submenu a {
     padding-left: 40px;
 }
 
-.navbar .submenu-toggle:checked + .submenu-label + .submenu {
+.navbar .submenu-toggle:checked+.submenu-label+.submenu {
     display: flex;
 }
-    /* ================================== Navbar ================================== */
 
-    /* ================================== About Us ================================== */
+/* ================================== Navbar ================================== */
+
+/* ================================== About Us ================================== */
 
 
-.about-main .container{
+.about-main .container {
     display: grid;
     grid-template-columns: auto auto;
 }
 
-.about-main .container .about-paragraph{
+.about-main .container .about-paragraph {
     padding: 60px;
     font-size: 20px;
 
 }
 
-.about-main .container img{
+.about-main .container img {
     width: 80%;
 }
 
-.about-main .container .about-btn{
+.about-main .container .about-btn {
     padding: 13px;
     border-radius: 30px;
     margin-top: 20px;
 }
 
-.about-main .team-container{
+.about-main .team-container {
     display: flex;
     flex-direction: column;
     min-width: fit-content;
-    margin-left:20%;
-    margin-right:20%;
+    margin-left: 20%;
+    margin-right: 20%;
     /* border: 1px solid black; */
 }
 
-.about-main .team-container .row-one{
+.about-main .team-container .row-one {
     display: grid;
     grid-template-columns: auto auto auto;
     min-width: fit-content;
@@ -343,7 +476,7 @@ p{
     margin-bottom: 40px;
 }
 
-.about-main .team-container .row-two{
+.about-main .team-container .row-two {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
@@ -351,28 +484,28 @@ p{
     margin-bottom: 40px;
 }
 
-.about-main .team-container .row-one img{
+.about-main .team-container .row-one img {
     border-radius: 100%;
     width: 200px;
 }
 
-.about-main .team-container .row-two img{
+.about-main .team-container .row-two img {
     border-radius: 100%;
     width: 200px;
 }
 
 
-    /* ================================== Booking ================================== */
+/* ================================== Booking ================================== */
 
-.booking-main{
+/* .booking-main {
     margin-top: 100px;
-}
+} */
 
-.booking-main .container{
+.booking-main .container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: url('../images/venue/outside_seating0.jpg') no-repeat center center fixed;
+    /* background: url('../images/venue/outside_seating0.jpg') no-repeat center center fixed; */
     background-size: cover;
     margin-top: 0;
     padding: 2rem 1rem;
@@ -405,12 +538,12 @@ p{
     margin-bottom: 0.4rem;
 }
 
-    /* Standardized styling for all text-based inputs */
+/* Standardized styling for all text-based inputs */
 .booking-main input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="date"],
-    textarea {
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
@@ -420,20 +553,21 @@ p{
     transition: all 0.3s ease;
 }
 
-    /* Highlight the field when the user clicks/taps it */
-.booking-main input:focus, textarea:focus {
+/* Highlight the field when the user clicks/taps it */
+.booking-main input:focus,
+textarea:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(168, 192, 162, 0.3);
 }
 
-    /* Grid layout for start/end date alignment */
+/* Grid layout for start/end date alignment */
 .booking-main .date-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
 
-    /* Auto-fitting grid for services checkboxes */
+/* Auto-fitting grid for services checkboxes */
 .booking-main .checkbox-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -449,7 +583,7 @@ p{
     font-size: 0.9rem;
 }
 
-    /* Main action button styling with hover lifting effect */
+/* Main action button styling with hover lifting effect */
 .booking-main .submit-btn {
     background-color: var(--primary);
     color: white;
@@ -474,21 +608,21 @@ p{
     resize: vertical;
 }
 
-    /* ================================== Popups ================================== */
+/* ================================== Popups ================================== */
 
 /* css for cookies & language banners */
 .popups #cookies-container {
     display: flex;
     width: 100%;
     position: fixed;
-    bottom: 0;    
+    bottom: 0;
     background: #303030;
     color: white;
     padding: 2rem;
     gap: 1rem;
     justify-content: center;
     align-items: center;
-    }
+}
 
 .popups #accept-cookies-btn {
     background: green;
@@ -498,9 +632,9 @@ p{
     cursor: pointer;
     border: 1px solid whitesmoke;
     border-radius: 20px;
-    }
+}
 
-.popups #reject-cookies-btn{
+.popups #reject-cookies-btn {
     background: red;
     border: none;
     padding: 8px 15px;
@@ -508,7 +642,7 @@ p{
     cursor: pointer;
     border: 1px solid whitesmoke;
     border-radius: 20px;
-    }
+}
 
 .popups #language-container {
     display: flex;
@@ -522,7 +656,7 @@ p{
     gap: 1rem;
     justify-content: center;
     align-items: center;
-    }
+}
 
 .popups #accept-language-btn {
     background: green;
@@ -532,7 +666,7 @@ p{
     cursor: pointer;
     border: 1px solid whitesmoke;
     border-radius: 20px;
-    }
+}
 
 /* ================================== Reviews ================================== */
 
@@ -544,7 +678,7 @@ p{
     font-size: 50px;
 }
 
-    /* Main review section layout using space-between for image and text alignment */
+/* Main review section layout using space-between for image and text alignment */
 .reviews-main .reviews {
     display: flex;
     align-items: center;
@@ -552,7 +686,7 @@ p{
     padding: 50px;
 }
 
-    /* Left/Right column flex sharing */
+/* Left/Right column flex sharing */
 .reviews-main .reviews-image {
     flex: 1;
 }
@@ -568,7 +702,7 @@ p{
     padding-left: 40px;
 }
 
-    /* Individual user review card styling */
+/* Individual user review card styling */
 .reviews-main .review-card {
     margin-bottom: 30px;
     padding: 20px;
@@ -576,41 +710,41 @@ p{
     border-radius: 10px;
 }
 
-    /* Top bar of a review card showing name and date */
+/* Top bar of a review card showing name and date */
 .reviews-main .review-header {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
 }
 
-    /* Muted color for review timestamps */
+/* Muted color for review timestamps */
 .reviews-main .review-date {
     color: gray;
     font-size: 14px;
 }
 
-    /* Golden star ratings */
+/* Golden star ratings */
 .reviews-main .review-stars {
     color: gold;
     margin: 8px 0;
     font-size: 18px;
 }
 
-    /* Media query to stack the reviews vertically on tablets and phones */
+/* Media query to stack the reviews vertically on tablets and phones */
 @media (max-width: 768px) {
     .reviews-main .reviews {
         flex-direction: column;
     }
 
-    .reviews-main .reviews-text {   
+    .reviews-main .reviews-text {
         padding-left: 0;
         padding-top: 20px;
     }
 }
 
-    /* ================================== Sign in/up ================================== */
+/* ================================== Sign in/up ================================== */
 
-    /*
+/*
     the following code is to use the downloaded font sice it is not in browsers by default
     */
 @font-face {
@@ -620,10 +754,10 @@ p{
     font-style: normal;
 }
 
-    /* 
+/* 
     all of the body is to keep the form centered and give it the background
     */
-.sign-main body{
+.sign-main body {
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -636,7 +770,7 @@ p{
 
 }
 
-.sign-main form{
+.sign-main form {
     color: var(--text-color);
     position: relative;
     display: block;
@@ -648,20 +782,22 @@ p{
     border: 1px solid var(--secondary);
     border-radius: 5%;
     padding: 20px;
-    background-color: rgba(216, 216, 216, 0.664);/* this is white but not using the predefined colours*/
+    background-color: rgba(216, 216, 216, 0.664);
+    /* this is white but not using the predefined colours*/
     backdrop-filter: blur(6px);
     width: auto;
 }
-    /* this would be beautiful and wow if we had the colours in variables but that will be added when i have time
+
+/* this would be beautiful and wow if we had the colours in variables but that will be added when i have time
     */
 
-.sign-main form h1{
+.sign-main form h1 {
     font-family: 'AmsterdamOne', cursive;
     font-weight: 600;
     text-align: center;
 }
 
-.sign-main .input_box{
+.sign-main .input_box {
     margin: 15px;
     justify-items: start;
     transition: 0.95s ease-in-out;
@@ -672,29 +808,32 @@ p{
     margin-top: 0px;
     padding: 0px 12px 0px 12px;
 }
-    /*
+
+/*
     this will only display after the person has selected it asssuming the placeholders will be vanished by then
     */
-.sign-main label{
+.sign-main label {
     display: block;
     height: 27px;
     width: 100%;
     margin: auto;
     margin-bottom: 0px;
-    text-align:center;
+    text-align: center;
     transition: 0.97s ease-in-out;
     font-family: var(--font);
 
 }
-.sign-main .input_box input:focus{
+
+.sign-main .input_box input:focus {
     font-family: var(--font);
     display: block;
-    font-size: 0.9em ;
-    padding-left:0px;
+    font-size: 0.9em;
+    padding-left: 0px;
 }
 
 
-.sign-main .input_box input[type=text], input[type=password] {
+.sign-main .input_box input[type=text],
+input[type=password] {
     width: 85%;
     left: 20px;
     background: transparent;
@@ -710,34 +849,35 @@ p{
 }
 
 
-.sign-main .input_box input[type=text]:focus, input[type=password]:focus {
+.sign-main .input_box input[type=text]:focus,
+input[type=password]:focus {
     color: var(--text-color);
     font-size: 105%;
     text-decoration: none;
-    width:85%;
+    width: 85%;
     outline: none !important;
     border-bottom: 1px solid var(--borders) !important;
 }
 
-.sign-main .input_box input:focus{
-    border:none;
+.sign-main .input_box input:focus {
+    border: none;
 }
 
-.sign-main .input_box input:hover{
+.sign-main .input_box input:hover {
     font-size: 101%;
     width: 85%;
     border-bottom: 2px solid var(--borders) !important;
 }
 
-.sign-main .input_box i{
+.sign-main .input_box i {
     display: flex;
-    width:14px;
+    width: 14px;
     position: absolute;
     padding-right: 12px;
     font-size: 20px;
 }
 
-.sign-main form .formButtons{
+.sign-main form .formButtons {
     display: flex;
     justify-content: space-between;
     padding: 2px;
@@ -745,7 +885,7 @@ p{
     height: auto;
 }
 
-.sign-main form .formButtons button{
+.sign-main form .formButtons button {
     background: none;
     border: 1px solid var(--borders);
     border-radius: 7px;
@@ -755,23 +895,23 @@ p{
     transition: 0.97s ease-in-out;
 }
 
-.sign-main form .formButtons button:hover{
+.sign-main form .formButtons button:hover {
     font-size: 101%;
-    width:47%;
+    width: 47%;
     font-weight: 400;
     border-color: var(--secondary);
     background-color: var(--primary);
 }
 
-.sign-main form p{
+.sign-main form p {
     display: flex;
-    width:100%;
+    width: 100%;
     justify-content: center;
     text-align: center;
     margin: auto;
 }
 
-.sign-main form p a{
+.sign-main form p a {
     font-size: small;
     text-decoration: none;
     color: var(--font);
@@ -787,14 +927,14 @@ p{
     margin: auto;
 }
 
-.sign-main form p a:hover{
+.sign-main form p a:hover {
     font-size: 105%;
     text-decoration: solid;
     color: var(--text-color);
     font-weight: 200;
 }
 
-.sign-main button{
+.sign-main button {
     display: flex;
     justify-content: space-around;
     padding: auto;
@@ -806,9 +946,8 @@ p{
     font-family: var(--font);
 }
 
-    /*
+/*
     !remember!:
     *tested this on: chrome and edge 
     *both have the same issues with the responsaive of those two phones 
     */
-
