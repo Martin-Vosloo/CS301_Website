@@ -197,3 +197,50 @@ will call this function using js
     padding:auto;
     border-radius: 10px;
 }
+
+
+.navigation-bar{
+    background-color:  #303030;
+    display: flex;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 30px;
+    align-items: center;
+    gap: 40px;
+    justify-content: space-between;
+
+}
+.navigation-links{
+    display: flex;
+    gap: 20px;
+    font: bold;
+    justify-content: center;
+}
+.navigation-links a:hover{
+    transition-duration: 0.3s;
+    transition:0.5s; /*smooth movement */
+    transform: translateY(-4px);
+}
+.navigation-links a{
+    text-decoration: none;
+}
+.navigation-btns a {
+    text-decoration: none;
+}
+.navigation-btns{
+    display: flex;
+    gap: 15px;
+    font: bold;
+}
+.nav-btn{
+    background-color: #A8C0A2;
+    color: #000000;
+    padding: 10px;
+    border-radius: 20px;
+}
+.nav-btn:hover {
+    background-color: #8fa889;
+}
+.logo-image img{
+    width: 150px;
+}
