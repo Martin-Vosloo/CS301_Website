@@ -1,4 +1,5 @@
 <?php
+class connecting{
 
     private $server = "localhost";
     private $user = "username";
