@@ -131,17 +131,26 @@
     <section class="review-form-section" id="reviewForm">
       <p class="section-small-title">Share your experience</p>
       <h2>Leave Us a Review</h2>
-      <form class="review-form">
+
+
+<!-- FaORM -->
+
+
+      <form class="review-form" action="../php/reviews.php" method="post" enctype="multipart/form-data">
         <div class="form-row">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Email Address" required />
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
         </div>
-        <input type="text" placeholder="Instagram / Handle (optional)" />
-        <textarea placeholder="Tell us about your experience..." rows="5"></textarea>
+        <input type="text" name="insta"  placeholder="Instagram / Handle (optional)" />
+        <textarea placeholder="Tell us about your experience..." rows="5" name="review" ></textarea>
         <div class="rating">
           <span>Rating:</span>
           <span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span>
-        </div>
+        </div><br>
+
+        <label for="image">Upload Image</label>
+        <input type="file"  name="image">
+
         <button type="submit" class="submit-review">Submit Review</button>
       </form>
     </section>
