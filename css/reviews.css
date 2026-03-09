@@ -1,185 +1,258 @@
-/* Branding font import */
-@font-face {
-  font-family: 'AmsterdamOne';
-  src: url('/font/AmsterdamOne.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+S
+Copy
+
+/* ── Reviews page layout ────────────────────────────────────────────────────── */
+/* All selectors are scoped to .reviews-page to avoid leaking into other pages */
+
+.reviews-page .page-content {
+  width: min(1200px, calc(100% - 24px));
+  margin: 1.2rem auto 0;
 }
 
-/* Decorative page title styling */
-h1 {
-    font-family: 'AmsterdamOne', cursive;
-    font-weight: 600;
-    text-align: center;
-    font-size: 50px;
+/* ── Hero section ───────────────────────────────────────────────────────────── */
+/* Two-column grid: image takes 55% (1.25fr), text takes 45% (1fr) */
+.reviews-page .hero-section {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  border: 1px solid #e5d7c8;
+  border-radius: 20px;
+  overflow: hidden; /* clips the image corners to match the card radius */
+  background: #fffaf4;
 }
 
-/* Global body resets for centered text and standard sans-serif font */
-body {
-  margin: 0;
-  font-family: sans-serif;
-  text-align: center;
+.reviews-page .hero-image-side {
+  min-height: 420px; /* prevents the image column from collapsing on short viewports */
 }
 
-/* Centered logo container */
-.logo {
-  display: block;
-  margin: 0 auto;
-}
-
-/* Main review section layout using space-between for image and text alignment */
-.reviews {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 50px;
-}
-
-/* Left/Right column flex sharing */
-.reviews-image {
-  flex: 1;
-}
-
-.reviews-image img {
-  width: 80%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.reviews-text {
-  flex: 1;
-  padding-left: 40px;
-}
-
-/* Individual user review card styling */
-.review-card {
-  margin-bottom: 30px;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 10px;
-}
-
-/* Top bar of a review card showing name and date */
-.review-header {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-}
-
-/* Muted color for review timestamps */
-.review-date {
-  color: gray;
-  font-size: 14px;
-}
-
-/* Golden star ratings */
-.review-stars {
-  color: gold;
-  margin: 8px 0;
-  font-size: 18px;
-}
-
-/* Media query to stack the reviews vertically on tablets and phones */
-@media (max-width: 768px) {
-  .reviews {
-    flex-direction: column;
-  }
-
-  .reviews-text {
-    padding-left: 0;
-    padding-top: 20px;
-  }
-}
-
-/* Global Navbar Styling */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #333;
-  padding: 15px;
-  color: white;
-  text-align: left;
-}
-
-/* Hide checkboxes used for mobile menu functionality */
-.menu-toggle,
-.submenu-toggle {
-  display: none;
-}
-
-/* Hamburger icon for mobile menu */
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-}
-
-/* Side navigation panel for mobile view */
-.nav-links {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 250px;
+/* Fill the column completely, ignoring intrinsic image dimensions */
+.reviews-page .hero-image {
+  width: 100%;
   height: 100%;
-  background: #222;
+  object-fit: cover;
+  border-radius: 0; /* override global img border-radius inside the clipped parent */
+}
+
+.reviews-page .hero-text-side {
+  padding: 3.2rem 2rem;
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
+  justify-content: center; /* vertically centres content regardless of column height */
+  background: linear-gradient(150deg, #f8f0e6, #efe3d5);
 }
 
-/* Interaction to show menu when toggled */
-.menu-toggle:checked ~ .nav-links {
-  transform: translateX(0);
+/* clamp() provides fluid scaling between mobile min and desktop max */
+.reviews-page .hero-text-side h1 {
+  margin-bottom: 0.4rem;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  color: #2f261f;
+  line-height: 1;
 }
 
-/* Link hover effects using primary accent color */
-.nav-links a:hover,
-.submenu-label:hover {
-  background: #A8C0A2;
+/* Small uppercase eyebrow label above or below the heading */
+.reviews-page .tagline {
+  color: #5f5146;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 0.82rem;
 }
 
-/* Dropdown logic for sub-navigation */
-.submenu {
-  display: none;
-  flex-direction: column;
-  background: #333;
-}
-
-.submenu-toggle:checked + .submenu-label + .submenu {
-  display: flex;
-}
-
-/* Footer layout and social media icon transitions */
-footer {
-  padding: 20px;
-  text-align: center;
-  background: #333;
-  color: white;
-}
-
-.social-icons a {
-  color: black;
-  font-size: 28px;
-  margin: 0 10px;
+/* CTA button anchored to the left via fit-content rather than stretching full width */
+.reviews-page .review-btn {
+  margin-top: 1.3rem;
+  width: fit-content;
   text-decoration: none;
-  transition: 0.3s ease;
+  background: #8aa57b;
+  color: #fff;
+  border: 1px solid #8aa57b;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 700;
 }
 
-.social-icons a:hover {
-  color: #A8C0A2;
+.reviews-page .review-btn:hover {
+  background: #708764;
+  color: #fff;
 }
 
-/* Standard accent color for all hyperlinks */
-a {
-  color: #A8C0A2;
+/* ── Shared panel styles ─────────────────────────────────────────────────────── */
+/* Services, quote, and review form sections share the same card appearance */
+.reviews-page .services-section,
+.reviews-page .quote-section,
+.reviews-page .review-form-section {
+  margin-top: 1.2rem;
+  border: 1px solid #e5d7c8;
+  border-radius: 18px;
+  background: #fffaf4;
+  padding: 1.5rem;
+}
+
+/* Gold uppercase label used as a section eyebrow above each h2 */
+.reviews-page .section-small-title {
+  color: #c7a46d;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.reviews-page .services-section h2,
+.reviews-page .quote-section h2,
+.reviews-page .review-form-section h2 {
+  margin: 0;
+  color: #30271f;
+}
+
+/* Reset container so it stretches to the full panel width */
+.reviews-page .container {
+  margin-top: 1.2rem;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+/* ── Review card ────────────────────────────────────────────────────────────── */
+/* Two-column card: text fills available space, image is fixed at 300px */
+.reviews-page .card {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1rem;
+  align-items: stretch; /* stretches both columns to equal height */
+  background: #fffaf4;
+  border: 1px solid #e5d7c8;
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.reviews-page .left {
+  padding: 0.3rem;
+}
+
+.reviews-page .left h1 {
+  margin-bottom: 0.5rem;
+  color: #2f261f;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.reviews-page .left p {
+  margin-bottom: 0.35rem;
+}
+
+/* Gold star rating display */
+.reviews-page .stars {
+  margin: 0.8rem 0;
+  color: #c7a46d;
+  font-size: 1.3rem;
+}
+
+.reviews-page .handle {
+  color: #4d4239;
+  font-weight: 700;
+}
+
+/* Right column centres its image both horizontally and vertically */
+.reviews-page .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image fills the right column completely, matching the card height */
+.reviews-page .right img {
+  width: 100%;
+  height: 100%;
+  min-height: 230px; /* prevents the image from shrinking to nothing on short cards */
+  object-fit: cover;
+}
+
+/* ── Review submission form ──────────────────────────────────────────────────── */
+.reviews-page .review-form {
+  max-width: 720px;
+  margin: 0 auto; /* centres the form within the wider panel */
+}
+
+/* Side-by-side input pair (e.g. name + email) */
+.reviews-page .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.reviews-page .review-form input,
+.reviews-page .review-form textarea {
+  width: 100%;
+  border: 1px solid #d8c7b6;
+  border-radius: 10px;
+  padding: 0.72rem 0.8rem;
+  margin-top: 0.7rem;
+  font-family: inherit; /* prevents browsers defaulting textarea to a system font */
+}
+
+.reviews-page .rating {
+  margin-top: 0.8rem;
+  color: #5b4d42;
+}
+
+/* Stars are muted by default and highlight gold on hover */
+.reviews-page .star-rev {
+  color: #cfbeac;
+  font-size: 1.24rem;
+}
+
+.reviews-page .star-rev:hover {
+  color: #c7a46d;
+}
+
+.reviews-page .submit-review {
+  margin-top: 1rem;
+  border: 1px solid #8aa57b;
+  background: #8aa57b;
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 700;
+}
+
+.reviews-page .submit-review:hover {
+  background: #708764;
+}
+
+/* ── Responsive breakpoints ─────────────────────────────────────────────────── */
+
+/* Tablet: collapse hero and review card to single-column stacks */
+@media (max-width: 991px) {
+  .reviews-page .hero-section {
+    grid-template-columns: 1fr;
+  }
+
+  /* Shorter min-height since the image is now full-width rather than half */
+  .reviews-page .hero-image-side {
+    min-height: 300px;
+  }
+
+  .reviews-page .card {
+    grid-template-columns: 1fr;
+  }
+
+  /* Cap image height when it expands to fill the full card width */
+  .reviews-page .right img {
+    max-height: 320px;
+  }
+}
+
+/* Mobile: tighter page margins, reduced padding, stacked form rows */
+@media (max-width: 640px) {
+  .reviews-page .page-content {
+    width: calc(100% - 16px);
+  }
+
+  .reviews-page .services-section,
+  .reviews-page .quote-section,
+  .reviews-page .review-form-section {
+    padding: 1rem;
+  }
+
+  /* Stack the two-column form row vertically on narrow screens */
+  .reviews-page .form-row {
+    grid-template-columns: 1fr;
+  }
 }
