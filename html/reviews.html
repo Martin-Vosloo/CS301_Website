@@ -1,189 +1,177 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Write a Review</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <!-- <link rel="stylesheet" href="../css/reviews.css" /> -->
-  </head>
-  <body class="review-body">
-    <nav class="navigation-bar">
-      <article class="logo-image">
-        <a href="index.html"><img src="../images/logo/logo1.png" alt="Logo" /></a>
-      </article>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviews | Kampvuur en Konfetti</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/reviews.css" />
+</head>
+<body class="reviews-page">
+  <nav class="navigation-bar">
+    <article class="logo-image">
+      <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
+    </article>
 
-      <article class="navigation-links">
-        <a href="index.html">Home</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="about.html">About</a>
-        <a href="booking.html">Book</a>
-        <a href="administrator.html">Admin</a>
+    <article class="navigation-links">
+      <a href="index.html">Home</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="about.html">About</a>
+      <a href="booking.html">Book</a>
+      <a href="contact.html">Contact</a>
+      <a href="administrator.html">Admin</a>
+    </article>
 
-      </article>
-        
-      <article class="navigation-btns">
-        <a href="signIn.html" class="nav-btn">Sign in</a>
-        <a href="signUp.html" class="nav-btn">Sign Up</a>
-      </article>
-    </nav>
+    <article class="navigation-btns">
+      <a href="signIn.html" class="nav-btn">Sign In</a>
+      <a href="signUp.html" class="nav-btn">Sign Up</a>
+    </article>
+  </nav>
 
-    <!--Start of review code samples-->
-    <!--customer 1-->
-    <main class="reviews-main">
-      <section class="reviews">
-        <div class="reviews-image">
-          <img src="../images/reviews/rev1.png" alt="Happy customers" />
-        </div>
-
-        <div class="review-card">
-          <div class="review-header">
-            <span class="review-name">Sarah M.</span>
-            <span class="review-date">12 January 2026</span>
-          </div>
-
-          <div class="review-stars">★★★★★</div>
-
-          <p>"Absolutely amazing service. Everything was perfect!"</p>
-        </div>
-      </section>
-
-      <!--customer 2-->
-      <section class="reviews">
-        <div class="reviews-image">
-          <img src="../images/reviews/rev3.png" alt="Happy customers" />
-        </div>
-
-        <div class="review-card">
-          <div class="review-header">
-            <span class="review-name">Jan P.</span>
-            <span class="review-date">09 August 2024</span>
-          </div>
-
-          <div class="review-stars">★★★★★</div>
-
-          <p>"Ek was die hele tyd in trane.</p>
-          <p>
-            Ek kon my oë nie glo nie! Alles was wonderlik en die kos was
-            uitstekend.
-          </p>
-          <p>Ek sal nooit my ware dankbaarheid kan uitdruk nie!"</p>
-        </div>
-      </section>
-
-      <!--customer 3-->
-      <section class="reviews">
-        <div class="reviews-image">
-          <img src="../images/reviews/rev4.png" alt="Happy customers" />
-        </div>
-
-        <div class="review-card">
-          <div class="review-header">
-            <span class="review-name">Thatogatsi K.</span>
-            <span class="review-date">16 December 2025</span>
-          </div>
-
-          <div class="review-stars">★★★★</div>
-
-          <p>
-            "Never thought this day would be as wonderful as it was! Best
-            <i>Relationship advice ever</i>"
-          </p>
-        </div>
-      </section>
-
-      <!--customer 4-->
-      <section class="reviews">
-        <div class="reviews-image">
-          <img src="../images/reviews/rev6.png" alt="Happy customers" />
-        </div>
-
-        <div class="review-card">
-          <div class="review-header">
-            <span class="review-name">Felicia G.</span>
-            <span class="review-date">21 July 2024</span>
-          </div>
-
-          <div class="review-stars">★★★★</div>
-
-          <p>"Ek onthou dit soos gister! Ek is so gelukkig en ek is steeds!</p>
-          <p>Die natuur, die uitsig... Beste plek om te trou!</p>
-        </div>
-      </section>
-
-      <!--customer 5-->
-      <section class="reviews">
-        <div class="reviews-image">
-          <img
-            src="../images/reviews/rev2.png"
-            alt="Happy customers"
-            height="500"
-            width="400"
-          />
-        </div>
-
-        <div class="review-card">
-          <div class="review-header">
-            <span class="review-name">Selealo B.</span>
-            <span class="review-date">31 October 2023</span>
-          </div>
-
-          <div class="review-stars">★★★★★</div>
-
-          <p>"Nka se tsoge ke batle go nyala go sele. Ke e ratile!!!!!</p>
-        </div>
-      </section>
-
-      <!--End of review code samples-->
-
-      <form>
-        <h2>Write a review</h2>
-
-        <label for="reviewer-name">Your name</label><br /><br />
-        <input type="text" name="reviewer-name" id="reviewer-name" required />
-        <br /><br />
-
-        <label for="review-text"
-          >What do you have to say for yourself?<br /><br
-        /></label>
-        <textarea
-          id="review-text"
-          name="review"
-          placeholder="Write your review here"
-          rows="4"
-          cols="50"
-          required
-        ></textarea>
-        <br /><br />
-        <button type="submit">Submit Review</button>
-      </form>
-    </main>
-    <footer>
-      <p>
-        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small
-        ><br />
-        <small>
-          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze,
-          Nwabisa Malawu<br />
-          Authors: <a href="about.html">Contact Details</a>
-        </small>
-      </p>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="reviews.html">Write a Review</a>
-        <a href="booking.html">Book</a>
-        <a href="administrator.html">Admin</a>
-      </nav>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="tel:+27123456789" class="contact-icon"
-          ><i class="fa-solid fa-phone"></i
-        ></a>
+  <div class="page-content">
+    <section class="hero-section">
+      <div class="hero-image-side">
+        <img src="../images/reviews/rev6.png" alt="Wedding couple" class="hero-image" />
       </div>
-    </footer>
-  </body>
+      <div class="hero-text-side">
+        <h1>Do not just say I do</h1>
+        <p class="tagline">Tell us what you think</p>
+        <a href="#reviewForm" class="review-btn">Write a Review</a>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <p class="section-small-title">What we offer</p>
+      <h2>Every love story deserves to be told beautifully.</h2>
+    </section>
+
+    <section class="container">
+      <article class="card">
+        <div class="left">
+          <h1>Bethany Jones</h1>
+          <p>Absolutely amazing service. Everything was perfect!</p>
+          <div class="stars">
+            <span class="star filled">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+          </div>
+          <p class="handle">@reallygreatsite</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="right"><img src="../images/reviews/rev4.png" alt="Couple walking" /></div>
+      </article>
+    </section>
+
+    <section class="container">
+      <article class="card">
+        <div class="left">
+          <h1>Christopher P.</h1>
+          <p>Ek was die hele tyd in trane. Ek kon my oe nie glo nie! Alles was wonderlik en die kos was uitstekend. Ek sal nooit my ware dankbaarheid kan uitdruk nie!</p>
+          <div class="stars">
+            <span class="star filled">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+          </div>
+          <p class="handle">@therealChris</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-x"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="right"><img src="../images/reviews/rev1.png" alt="Couple walking" /></div>
+      </article>
+    </section>
+
+    <section class="container">
+      <article class="card">
+        <div class="left">
+          <h1>Dr Stones C.</h1>
+          <p>Never thought this day would be as wonderful as it was! Best <i>Relationship advice</i> ever.</p>
+          <div class="stars">
+            <span class="star filled">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+          </div>
+          <p class="handle">@theCS3lecturer</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="right"><img src="../images/reviews/rev2.png" alt="Couple walking" /></div>
+      </article>
+    </section>
+
+    <section class="container">
+      <article class="card">
+        <div class="left">
+          <h1>Felicia G.</h1>
+          <p>Ek onthou dit soos gister! Ek is so gelukkig en ek is steeds!</p>
+          <p>Die natuur, die uitsig... Beste plek om te trou!</p>
+          <div class="stars">
+            <span class="star filled">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+          </div>
+          <p class="handle">@theHotFelicia</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="right"><img src="../images/reviews/rev3.png" alt="Couple walking" /></div>
+      </article>
+    </section>
+
+    <section class="quote-section">
+      <p class="section-small-title">A moment in time</p>
+      <h2>The best photographs feel like you can hear the laughter.</h2>
+    </section>
+
+    <section class="review-form-section" id="reviewForm">
+      <p class="section-small-title">Share your experience</p>
+      <h2>Leave Us a Review</h2>
+      <form class="review-form">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Email Address" required />
+        </div>
+        <input type="text" placeholder="Instagram / Handle (optional)" />
+        <textarea placeholder="Tell us about your experience..." rows="5"></textarea>
+        <div class="rating">
+          <span>Rating:</span>
+          <span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span>
+        </div>
+        <button type="submit" class="submit-review">Submit Review</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>
+      <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
+      <small>
+        Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze, Nwabisa Malawu<br />
+        Authors: <a href="about.html">Contact Details</a>
+      </small>
+    </p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="reviews.html">Write a Review</a>
+      <a href="booking.html">Book</a>
+      <a href="administrator.html">Admin</a>
+    </nav>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="tel:+27123456789" class="contact-icon"><i class="fa-solid fa-phone"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
 </html>
