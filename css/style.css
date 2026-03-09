@@ -1,17 +1,20 @@
+/* Google Fonts: Cormorant Garamond (headings) + Manrope (body) */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
 
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
 :root {
-  --ra-sage: #8aa57b;
-  --ra-sage-dark: #708764;
-  --ra-gold: #c7a46d;
-  --ra-ink: #2b241f;
-  --ra-muted: #6f655d;
-  --ra-bg: #f4efe9;
-  --ra-surface: #fffaf4;
-  --ra-border: #e5d7c8;
-  --ra-footer: #221d19;
+  --ra-sage: #8aa57b;         /* primary brand green */
+  --ra-sage-dark: #708764;    /* hover state for sage */
+  --ra-gold: #c7a46d;         /* accent gold (decorative use) */
+  --ra-ink: #2b241f;          /* default body text */
+  --ra-muted: #6f655d;        /* secondary / paragraph text */
+  --ra-bg: #f4efe9;           /* page background */
+  --ra-surface: #fffaf4;      /* card / panel background */
+  --ra-border: #e5d7c8;       /* border colour for cards and inputs */
+  --ra-footer: #221d19;       /* footer background */
 }
 
+/* ── Global reset ───────────────────────────────────────────────────────────── */
 * {
   box-sizing: border-box;
 }
@@ -22,6 +25,8 @@ body {
   padding: 0;
 }
 
+/* ── Base layout ────────────────────────────────────────────────────────────── */
+/* Sticky footer: flex column ensures footer is pushed to bottom of viewport */
 body {
   min-height: 100vh;
   display: flex;
@@ -29,13 +34,16 @@ body {
   font-family: 'Manrope', sans-serif;
   color: var(--ra-ink);
   background-color: var(--ra-bg);
+  /* Subtle radial gradient layered over the flat background colour */
   background-image: radial-gradient(circle at 12% 10%, #f8f4ef 0, #f4efe9 40%, #eee6de 100%);
 }
 
+/* main grows to fill remaining vertical space between navbar and footer */
 main {
   flex: 1;
 }
 
+/* ── Typography ─────────────────────────────────────────────────────────────── */
 h1,
 h2,
 h3,
@@ -46,6 +54,7 @@ h5 {
   letter-spacing: 0.3px;
 }
 
+/* clamp() scales font size fluidly between a min and max value */
 h1 {
   font-size: clamp(2rem, 4vw, 3.2rem);
 }
@@ -61,7 +70,7 @@ p {
 
 img {
   max-width: 100%;
-  display: block;
+  display: block;   /* removes inline baseline gap */
   border-radius: 14px;
 }
 
@@ -73,16 +82,18 @@ a:hover {
   color: var(--ra-sage-dark);
 }
 
-/* Shared navigation */
+/* ── Navigation bar ─────────────────────────────────────────────────────────── */
+/* Supports both .navigation-bar and .navbar class names for flexibility */
 .navigation-bar,
 .navbar {
+  /* min() keeps it from exceeding 1200px while leaving 24px page margin */
   width: min(1200px, calc(100% - 24px));
   margin: 12px auto 0;
   padding: 12px 18px;
   border-radius: 18px;
   border: 1px solid var(--ra-border);
   background: rgba(255, 250, 244, 0.94);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px); /* frosted-glass effect on scroll */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -94,13 +105,13 @@ a:hover {
 
 .logo-image,
 .logo-container {
-  flex-shrink: 0;
+  flex-shrink: 0; /* prevents logo from compressing when nav is tight */
 }
 
 .logo-image img,
 .logo {
   width: 132px;
-  border-radius: 0;
+  border-radius: 0; /* override global img border-radius for the logo */
 }
 
 .navigation-links {
@@ -117,7 +128,7 @@ a:hover {
   font-weight: 600;
   font-size: 0.96rem;
   padding: 8px 11px;
-  border-radius: 999px;
+  border-radius: 999px; /* pill shape */
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -133,6 +144,7 @@ a:hover {
   align-items: center;
 }
 
+/* Primary CTA button used in the navbar */
 .nav-btn {
   text-decoration: none;
   background-color: var(--ra-sage);
@@ -151,7 +163,7 @@ a:hover {
   color: #fff;
 }
 
-/* Footer */
+/* ── Footer ─────────────────────────────────────────────────────────────────── */
 footer {
   margin-top: 2.4rem;
   padding: 2rem 1rem 2.4rem;
@@ -196,7 +208,8 @@ footer nav a {
   color: #b9d1ac;
 }
 
-/* Home page */
+/* ── Home page ──────────────────────────────────────────────────────────────── */
+/* Full-width hero banner with dark overlay on top of the cover image */
 .bc-img {
   width: min(1200px, calc(100% - 24px));
   margin: 14px auto 0;
@@ -224,6 +237,7 @@ footer nav a {
   font-size: 1.03rem;
 }
 
+/* Hero CTA button row */
 .cont-btns {
   margin-top: 1.2rem;
   display: flex;
@@ -242,6 +256,7 @@ footer nav a {
   font-weight: 700;
 }
 
+/* Engagement / intro text section beneath the hero */
 .enga-text {
   text-align: center;
   padding: 2.2rem 1rem 1rem;
@@ -254,6 +269,7 @@ footer nav a {
   font-size: 1.18rem;
 }
 
+/* auto-fit grid collapses columns as viewport narrows */
 .cards {
   width: min(1200px, calc(100% - 24px));
   margin: 0 auto;
@@ -271,6 +287,7 @@ footer nav a {
   box-shadow: 0 8px 26px rgba(56, 39, 23, 0.08);
 }
 
+/* Fixed height keeps card images uniform regardless of source dimensions */
 .cards .card img {
   width: 100%;
   height: 190px;
@@ -298,12 +315,13 @@ footer nav a {
   background: var(--ra-sage-dark);
 }
 
-/* About page */
+/* ── About page ─────────────────────────────────────────────────────────────── */
 .about-main {
   width: min(1200px, calc(100% - 24px));
   margin: 1.2rem auto 0;
 }
 
+/* Two-column layout: image on one side, text on the other */
 .about-main .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -341,6 +359,7 @@ footer nav a {
   background: var(--ra-sage-dark);
 }
 
+/* Team member grid — two rows of auto-fitting cards */
 .team-container {
   margin-top: 1.6rem;
 }
@@ -363,6 +382,7 @@ footer nav a {
   padding: 0.8rem;
 }
 
+/* Circular portrait for each team member */
 .team-photo {
   width: 170px;
   height: 170px;
@@ -375,7 +395,7 @@ footer nav a {
   color: #352921;
 }
 
-/* Contact page */
+/* ── Contact page ───────────────────────────────────────────────────────────── */
 .contact-main {
   width: min(920px, calc(100% - 24px));
   margin: 1.2rem auto 0;
@@ -386,6 +406,7 @@ footer nav a {
   text-align: center;
 }
 
+/* Divider between contact detail rows; last child has no border */
 .contact-main article {
   padding: 0.6rem 0;
   border-bottom: 1px solid #efe2d4;
@@ -400,7 +421,7 @@ footer nav a {
   color: #58493f;
 }
 
-/* Booking page */
+/* ── Booking page ───────────────────────────────────────────────────────────── */
 .booking-main .container {
   width: min(920px, calc(100% - 24px));
   margin: 1.2rem auto 0;
@@ -420,6 +441,7 @@ footer nav a {
   padding-bottom: 0.4rem;
 }
 
+/* Stacked label + input pattern for each form field */
 .booking-main .input-group {
   display: flex;
   flex-direction: column;
@@ -443,12 +465,14 @@ footer nav a {
   background: #fff;
 }
 
+/* Sage focus ring for accessibility */
 .booking-main input:focus,
 .booking-main textarea:focus {
   border-color: var(--ra-sage);
   outline: 2px solid #d6e4ce;
 }
 
+/* Date pickers and checkboxes sit in a responsive multi-column grid */
 .booking-main .date-row,
 .booking-main .checkbox-grid {
   display: grid;
@@ -481,7 +505,7 @@ footer nav a {
   background: var(--ra-sage-dark);
 }
 
-/* Sign In / Sign Up */
+/* ── Sign In / Sign Up ──────────────────────────────────────────────────────── */
 .sign-main {
   width: min(640px, calc(100% - 24px));
   margin: 1.2rem auto 0;
@@ -508,6 +532,7 @@ footer nav a {
   color: #3a2f27;
 }
 
+/* Icon positioned absolutely inside the input so it doesn't shift layout */
 .sign-main .input_box {
   position: relative;
 }
@@ -520,6 +545,7 @@ footer nav a {
   color: #8b7a6d;
 }
 
+/* Left padding leaves room for the absolutely positioned icon */
 .sign-main .input_box input {
   width: 100%;
   border: 1px solid #d8c9ba;
@@ -532,6 +558,7 @@ footer nav a {
   outline: 2px solid #dce7d5;
 }
 
+/* Responsive button row — collapses to single column on narrow screens */
 .sign-main .formButtons {
   margin-top: 1rem;
   display: grid;
@@ -552,13 +579,14 @@ footer nav a {
   background: #f3e9dd;
 }
 
-/* Popups */
+/* ── Popups: language selector + cookie consent ─────────────────────────────── */
+/* Both banners are fixed to opposite edges (top / bottom) of the viewport */
 .popups #language-container,
 .popups #cookies-container {
   position: fixed;
   left: 0;
   width: 100%;
-  z-index: 1100;
+  z-index: 1100; /* above the sticky navbar (z-index: 1000) */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -583,6 +611,7 @@ footer nav a {
   color: #fff;
 }
 
+/* Distinct colours make the accept/reject actions immediately clear */
 #accept-cookies-btn,
 #accept-language-btn {
   background: #2f7f47;
@@ -592,7 +621,8 @@ footer nav a {
   background: #a93a3a;
 }
 
-/* Back to top */
+/* ── Back-to-top button ──────────────────────────────────────────────────────── */
+/* Shown/hidden via JS; fixed to bottom-right corner */
 #top-btn {
   background-color: var(--ra-sage);
   color: #fff;
@@ -606,7 +636,9 @@ footer nav a {
   display: none;
 }
 
-/* Responsive tweaks */
+/* ── Responsive breakpoints ─────────────────────────────────────────────────── */
+
+/* Tablet and below: unstick the navbar and stack nav links below the logo */
 @media (max-width: 991px) {
   .navigation-bar,
   .navbar {
@@ -617,6 +649,7 @@ footer nav a {
     flex-wrap: wrap;
   }
 
+  /* Links row drops to a third flex line, centred beneath logo and buttons */
   .navigation-links {
     order: 3;
     width: 100%;
@@ -627,11 +660,13 @@ footer nav a {
     margin-left: auto;
   }
 
+  /* About image + text stacks vertically on smaller screens */
   .about-main .container {
     grid-template-columns: 1fr;
   }
 }
 
+/* Mobile: tighten logo, nav links, and full-bleed content sections */
 @media (max-width: 640px) {
   .logo-image img,
   .logo {
@@ -655,13 +690,13 @@ footer nav a {
     padding: 1rem;
   }
 
+  /* Remove the calc() side margins so these sections go edge-to-edge */
   .contact-main,
   .about-main,
   .booking-main .container {
     width: calc(100% - 16px);
   }
 }
-
 
 /*
     !remember!:
