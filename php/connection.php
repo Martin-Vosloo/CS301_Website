@@ -16,9 +16,12 @@ class connecting{
         $this->conn = new mysqli($this->server, $this->user, $this->password);
     }
     
-    //getting the parameters for the query to be prepared
-    public function get($var1, $var2, $var3, $table){
-        $query = $this->conn->prepare("SELECT (feild1, feild2, feild3")
+    /*
+        logging  function will be used to log into the website
+        @parameters username and password
+    */
+    function logging($uname, $password){
+        $query = $this->conn->prepare("SELECT fname lname FROM users where pwrd = (SELECT ID FROM USERS WHERE ID = $uname OR $var=email)")
     }
     
 

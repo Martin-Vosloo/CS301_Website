@@ -1,5 +1,3 @@
-
-
 #creating the users table
 create table users(
 	identityNumber varchar(20) Primary Key,
