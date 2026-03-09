@@ -225,7 +225,7 @@ if(scrollTopBtn){
     }
 }
 
-const images = ["../images/venue/VENUE1.jpg","../images/venue/VENUE2.jpg", "../images/venue/VENUE3.jpg", "../images/venue/VENUE4.jpg"];
+const images = ["../images/venue/cover1.jpg","../images/venue/cover2.png", "../images/venue/reception_table0.jpg", "../images/venue/outside_seating0.jpg"];
 
 let currentImage = document.getElementsByClassName("bc-img")[0];
 let currentIndex = 0;
