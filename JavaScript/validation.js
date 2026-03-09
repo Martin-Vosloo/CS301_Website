@@ -68,4 +68,22 @@ document.addEventListener("DOMContentLoaded", function() {
         password.addEventListener("input", validate_passwords);
         confirmPassword.addEventListener("input", validate_passwords);
     }
+    
+    /* A function called togglePassword(): 
+       The function creates an eye icon at the edge of the password box.
+       The user can click it to see their password previously inputted.
+       The function switches between data types changing from the actually password,
+       This is like a show and hide feature.
+    */
+    function togglePassword() {
+        let passwordField = document.getElementById("password");
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+        } else {
+            passwordField.type = "password";
+        }
+        }
+
+
 });
