@@ -1,12 +1,20 @@
 <?php // Creation of a PHP Document
+<<<<<<< HEAD
     require_once "connection.php";
+=======
+
+>>>>>>> 41aa58dacd76c64218ff89701f7ed88883b5f0cc
 /* This document will contain all function that validate the input of the users
    validate_name()- checks whether the input is empty and sends a message if left empty
    This function is applicable for Names, email, preferneces and Phone numbers
     */
 
 function validate_name($value, $field_name) {
+<<<<<<< HEAD
     if (strlen(clean($value)) == 0) {
+=======
+    if (strlen(trim($value)) == 0) {
+>>>>>>> 41aa58dacd76c64218ff89701f7ed88883b5f0cc
         echo "Please enter your $field_name";
     } else {
         echo "Accepted";
@@ -42,7 +50,11 @@ if ($error != "") {
 }
 
 function validate_catering() {
+<<<<<<< HEAD
     //still to add code here
+=======
+
+>>>>>>> 41aa58dacd76c64218ff89701f7ed88883b5f0cc
 }
 
 function validate_phone($phone) {
