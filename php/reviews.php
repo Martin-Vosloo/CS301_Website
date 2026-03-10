@@ -1,13 +1,14 @@
 <?php
-session_start();
+ require_once "connection.php";
 
-
+echo "its not here";
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $feedback_message = "";
 // check if all required fileds are on point before storing them
-if(empty($_POST['name']) || empty($_POST['rating']) || empty($_POST['review'])){
+if(empty($_POST['name']) /* || empty($_POST['rating']) */|| empty($_POST['review'])){
     $feedback_message = 'Please fill in all required fields';
-
+    echo "$feedback_message";
+    exit();
 }
 
 // make sure the file size is not too large and the user uploads the specified types
@@ -24,10 +25,14 @@ if(!empty($_FILES['image']['name'])){
 
     if(!in_array($review_imagetype, $image_allowed_types)){
         $feedback_message = "Only .png, .jpg, .jpeg types are allowed";
+        echo "$feedback_message";
+        exit();
     }
 
     if($review_image_size > $image_max_size){
         $feedback_message = 'Image is too large';
+        echo "$feedback_message";
+        exit();
     }
 
     // move image from the tempo location to the right folder(image folder) 
@@ -38,23 +43,47 @@ if(!empty($_FILES['image']['name'])){
     
     }else{
         $feedback_message = "Failed to upload image";
+        echo "$feedback_message";
+        exit();
     }
     
 }
 
-// store the data from html form 
-$review_name = $_POST['name'];
-$review_rating = $_POST['rating'];
-$review_text = $_POST['review'];
+echo "its here";
 
-if(empty($feedback_message)){
+// store the data from html form 
+$review_name = clean($_POST['name']);
+//$review_rating = $_POST['rating'];
+$review_text = clean($_POST['review']);
+$review_email = clean($_POST['email']);
+$review_insta = clean($_POST['insta']);
+
+
+// if(empty($feedback_message)){
     $feedback_message = "Review submitted successfully!";
-}
-$_SESSION['feedback'] = $feedback_message;
+    echo "$feedback_message";
+    exit();
+// }
+
+
+// add to the reviews table
+$sql = "INSERT INTO reviews(id, user_id, text_review, image) VALUES (?, ?, ?, ?, ?)";
+
+//bind parameters
+$stmt->bind_param("sssss",
+    $review_name,
+    $review_text,
+    $review_email,
+    $insta,
+    $review_image
+);
+$stmt->execute();
+
+// $_SESSION['feedback'] = $feedback_message;
  // test whatever typed in the form is what the backend receives
 // var_dump($_POST);
-header("Location:../html/reviews.php");
-exit();
+// header("Location:../html/reviews.php");
+// exit();
 
 
 }

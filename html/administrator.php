@@ -42,35 +42,35 @@
       class="containsTable"
       id="currrentBookings"
       onclick="overlay('currrentBookings')"
-    >
+    
       <div class="heading">
         <h2>Current Bookings</h2>
       </div>
+      
       <table class="admin-table" id="smt">
         <tr>
           <th>Full name</th>
           <th>Date</th>
+          <th>Duration in days</th>
         </tr>
 
-        <tr>
-          <td>John Smith</td>
-          <td><time datetime="2026-09-12">12-09-2026</time></td>
-        </tr>
-
-        <tr>
-          <td>Samuel Ntlonti</td>
-          <td><time datetime="2026-04-12">12-04-2026</time></td>
-        </tr>
-
-        <tr>
-          <td>Onalo Maliwa</td>
-          <td><time datetime="2026-09-13">13-09-2026</time></td>
-        </tr>
-
-        <tr>
-          <td>Asemahle Sinqe</td>
-          <td><time datetime="2026-06-12">12-06-2026</time></td>
-        </tr>
+        <!-- php will begin with these as they are not headers-->
+        <?php
+          include "../php/connection.php";
+          $sql = "SELECT fname, lname, start_date, duration FROM users inner join booking on users.identityNumber=booking.idNo where start_date > NOW()";
+          $result = $conn->query($sql);
+          if($result->num_rows>0){
+            while ($row = $result->fetch_assoc()) {
+              echo "<tr>";
+                echo "<td>".$row['fname']. $row['lname']. "</td>";
+                echo "<td>".$row['start_date']. "</td>";
+                echo "<td>".$row['duration'];
+              echo "<tr>";
+            }
+          }else{
+            echo "<p>nothing in the database yet</p>";
+          }
+        ?>
       </table>
       <!--this table must include in it the packages the person took along with because right now it is too narrow-->
     </section>
@@ -124,29 +124,22 @@
       </div>
 
       <table class="admin-table">
-        <tr>
-          <td>J. Smith</td>
-          <td><time datetime="2026-09-12">12-09-2026</time></td>
-          <td>R50 000</td>
-        </tr>
-
-        <tr>
-          <td>S. Ntlonti</td>
-          <td><time datetime="2026-04-12">12-04-2026</time></td>
-          <td>R49 000</td>
-        </tr>
-
-        <tr>
-          <td>O. Maliwa</td>
-          <td><time datetime="2026-09-13">13-09-2026</time></td>
-          <td>R37 000</td>
-        </tr>
-
-        <tr>
-          <td>A. Sinqe</td>
-          <td><time datetime="2026-06-12">12-06-2026</time></td>
-          <td>R50 000</td>
-        </tr>
+        <?php
+          $sql = "SELECT fname, lname, start_date, duration FROM users inner join booking on users.identityNumber=booking.idNo where start_date < NOW()";
+          $result = $conn->query($sql);
+          if($result->num_rows>0){
+            while ($row = $result->fetch_assoc()) {
+              echo "<tr>";
+                echo "<td>". substr($row['fname'], 0, 1) . $row['lname']. "</td>";
+                echo "<td>".$row['start_date']. "</td>";
+                echo "<td>".$row['duration'];
+              echo "<tr>";
+            }
+          }else{
+            echo "<p>nothing in the database yet</p>";
+          }
+        ?>
+      </table>
       </table>
     </section>
 
