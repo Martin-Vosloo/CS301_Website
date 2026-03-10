@@ -1,23 +1,23 @@
 
 
-#creating the users table
+-- #creating the users table
 create table users(
 	identityNumber varchar(20) Primary Key,
 	constraint checkId_len CHECK(CHAR_LENGTH(identityNumber) in (9,11,12,13,15,18) ),
 	fname varchar(50),
-	#checkiong the first name using like to imitate regular expressions
+	-- #checkiong the first name using like to imitate regular expressions
 	constraint fname_format check(fname not like('%[^A-Za-z]%')),
 	lname varchar(50),
     email_address varchar(40),
 	passwrd varchar(20),
 	admin bit,
-    #checkiong the last name using like to imitate regular expressions
+    -- checkiong the last name using like to imitate regular expressions
 	constraint lname_format check(lname not like('%[^A-Za-z]%')),
-    #checkinbg the format of the password
+    -- #checkinbg the format of the password
     constraint word_length CHECK(char_length(pwrd)>7 and char_length(pwrd)<20),
-    #checking if the email is in the correct format
+    -- #checking if the email is in the correct format
     constraint email check(email not like'%[^A-Za-z0-9@._-]%' and email like '%@%' and email like '%.%'),
-    #we are keeping the data not deleting user
+    -- #we are keeping the data not deleting user
 	alive bit default true
 );
 
@@ -61,19 +61,19 @@ create table users(
 -- 	ON UPDATE CASCADE
 -- );
 
-#booking tables
+-- #booking tables
 create table booking(
 	booking_id varchar(50),
 	idNo varchar(20),
 	number_of_people integer,
     start_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    #keeping the duration of the wedding booking to just a few days
+    -- #keeping the duration of the wedding booking to just a few days
     duration INTEGER,
     package_id varchar(20)
 	//add booking details
 );
 
-#creating the  packages table
+-- #creating the  packages table
 create table Packages(
 	PackageId varchar(20),
     Catering bit,
@@ -89,7 +89,7 @@ create table Packages(
 --     capacity integer
 -- );
 
-#creating the reviews table
+-- #creating the reviews table
 create table reviews(
 	id int primary key,
     user_id varchar(100),
