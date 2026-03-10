@@ -8,3 +8,7 @@ if($conn->connect_erorr){
     die("Connection failed ". $conn->connect_erorr);
 }
 echo "Connected"
+
+function clean($text){
+    return htmlspecialchars(stripslashes(trim($data)));
+}
