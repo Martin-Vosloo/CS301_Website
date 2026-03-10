@@ -19,12 +19,6 @@
     <form action="#">
       <h1>Sign In</h1>
 
-      <label for="name">Full Name</label>
-      <div class="input_box">
-        <i class="bx bx-user"></i>
-        <input type="text" name="full_name" id="name" required placeholder="full name" />
-      </div>
-
       <label for="email">Email Address</label>
       <div class="input_box">
         <i class="bx bx-envelope-open"></i>

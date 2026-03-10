@@ -15,14 +15,28 @@
   <!-- NAVBAR contained in external file -->
   <?php include 'navbar.php' ?>
 
+  <?php
+  include 'users.php';
+
+  if ($error != '') {
+    echo "<br><span style='color:red'>$error</span><br><br>";
+  }
+  ?>
+
   <main class="sign-main">
-    <form action="#">
+    <form action="#" method="post">
       <h1>Sign Up</h1>
 
-      <label for="name">Full Name</label>
+      <label for="name">First Name</label>
       <div class="input_box">
         <i class="bx bx-user"></i>
-        <input type="text" name="full_name" id="name" required placeholder="full name" />
+        <input type="text" name="full_name" id="name" required placeholder="first name" />
+      </div>
+      
+      <label for="name">Last Name</label>
+      <div class="input_box">
+        <i class="bx bx-user"></i>
+        <input type="text" name="full_name" id="name" required placeholder="last name" />
       </div>
 
       <label for="email">Email Address</label>

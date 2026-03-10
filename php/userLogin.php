@@ -34,22 +34,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         }
     }
 
-    $arr['fname'] = $_POST['name'];
-    $arr['lname'] = $_POST['name'];
     $arr['email_address'] = $_POST['email_address'];
     $arr['passwrd'] = hash('sha1', $POST['passwrd']);
-    $arr['user_role'] = 0;
     
-    $query = "insert into users (user_id, fname, lname, email_address, passwrd, user_role) values (:user_id, :fname, :lname, :email_address, :passwrd, :user_role)";
+    $query = "select * from users where email_address = :email_address && passwrd = :passwrd limit 1";
     $stm = $DB->prepare($query)
     
     if ($stm) {
         $check = $stm->execute($arr);
         if (!$check) {
-            $error = "Could not save to database"
+            $error = "Wrong username or password";
         }
         if ($error = ""){
-            header("Location: login.php")
+            header("Location: index.php")
         }
     }
 }
