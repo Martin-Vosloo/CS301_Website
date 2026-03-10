@@ -8,25 +8,9 @@
     <!-- <link rel="stylesheet" href="../css/bookings.css" /> -->
   </head>
   <body class="booking-body" >
-    <nav class="navigation-bar">
-      <article class="logo-image">
-        <a href="index.html"><img src="../images/logo/logo1.png" alt="Logo" /></a>
-      </article>
-
-      <article class="navigation-links">
-        <a href="index.html">Home</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="about.html">About</a>
-        <a href="booking.html">Book</a>
-        <a href="administrator.html">Admin</a>
-
-      </article>
-        
-      <article class="navigation-btns">
-        <a href="signIn.html" class="nav-btn">Sign in</a>
-        <a href="signUp.html" class="nav-btn">Sign Up</a>
-      </article>
-    </nav>
+    
+    <!-- NAVBAR contained in external file -->
+    <?php include 'navbar.php' ?>
 
     <main class="booking-main">
       <!-- <h1>Book our venue</h1> -->
@@ -125,35 +109,8 @@
       </section>
     </main>
 
-    <footer>
-      <p>
-        <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small
-        ><br />
-        <small>
-          Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze,
-          Nwabisa Malawu<br />
-          Authors: <a href="about.html">Contact Details</a>
-        </small>
-      </p>
-
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="about.html">Contact Us</a>
-        <a href="reviews.html">Write a Review</a>
-        <a href="booking.html">Book</a>
-        <a href="administrator.html">Admin</a>
-      </nav>
-
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="tel:+27123456789" class="contact-icon"
-          ><i class="fa-solid fa-phone"></i
-        ></a>
-      </div>
-    </footer>
+    <!-- FOOTER contained in external file -->
+    <?php include 'footer.php' ?>
 
     <!--External JS files being called to be used in the HTML file-->
     <script src="../JavaScript/slideshow.js" defer></script>

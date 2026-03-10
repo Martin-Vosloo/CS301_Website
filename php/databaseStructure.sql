@@ -10,7 +10,7 @@ create table users(
 	lname varchar(50),
     email_address varchar(40),
 	passwrd varchar(20),
-	admin bit,
+	user_role varchar(20),
     -- checkiong the last name using like to imitate regular expressions
 	constraint lname_format check(lname not like('%[^A-Za-z]%')),
     -- #checkinbg the format of the password
