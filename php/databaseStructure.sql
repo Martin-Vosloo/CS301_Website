@@ -100,6 +100,7 @@ create table reviews(
 	constraint stars_lim check(rating<6)
     constraint imageLink check(image like '%.pnj' or image like'%jpg')
 );
+#exact code to create table
 
 -- #Creating the blocked
 -- #not yet sure how i will enforce this but there is a way and i will find it

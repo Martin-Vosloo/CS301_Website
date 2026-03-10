@@ -21,7 +21,7 @@
       <a href="booking.html">Book</a>
       <a href="contact.html">Contact</a>
       <a href="administrator.html">Admin</a>
-      <?php include_once "connection" ?>
+      <?php include_once '../php/databaseCreation.php'?> 
     </article>
 
     <article class="navigation-btns">

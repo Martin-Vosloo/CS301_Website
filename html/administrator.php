@@ -81,11 +81,39 @@
       </p>
     </aside>
 
-    <aside class="right">
-      <table class="admin-table-narrow">
-        <tr><td><button>Change Date</button></td></tr>
-        <tr><td><button>Cancel Booking</button></td></tr>
-        <tr><td><button>...</button></td></tr>
+    <section
+      class="containsTable"
+      id="currrentBookings"
+      onclick="overlay('currrentBookings')"
+    
+      <div class="heading">
+        <h2>Current Bookings</h2>
+      </div>
+      
+      <table class="admin-table" id="smt">
+        <tr>
+          <th>Full name</th>
+          <th>Date</th>
+          <th>Duration in days</th>
+        </tr>
+
+        <!-- php will begin with these as they are not headers-->
+        <?php
+          include "../php/connection.php";
+          $sql = "SELECT fname, lname, start_date, duration FROM users inner join booking on users.identityNumber=booking.idNo where start_date > NOW()";
+          $result = $conn->query($sql);
+          if($result->num_rows>0){
+            while ($row = $result->fetch_assoc()) {
+              echo "<tr>";
+                echo "<td>".$row['fname']. $row['lname']. "</td>";
+                echo "<td>".$row['start_date']. "</td>";
+                echo "<td>".$row['duration'];
+              echo "<tr>";
+            }
+          }else{
+            echo "<p>nothing in the database yet</p>";
+          }
+        ?>
       </table>
     </aside>
   </section>
@@ -152,11 +180,66 @@
       <a href="administrator.html">Admin</a>
     </nav>
 
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="tel:+27123456789" class="contact-icon"><i class="fa-solid fa-phone"></i></a>
+      <aside class="right">
+        <table class="admin-table-narrow">
+          <tr>
+            <td><button>Change Date</button></td>
+          </tr>
+
+          <tr>
+            <td><button>Cancel Booking</button></td>
+          </tr>
+
+          <tr>
+            <td><button>...</button></td>
+          </tr>
+        </table>
+      </aside>
+    </section>
+
+    <section
+      class="containsTable"
+      id="past_Bookings"
+      onclick="overlay('past_Bookings')"
+    >
+      <div class="heading">
+        <h2>Successful Bookings</h2>
+      </div>
+
+      <table class="admin-table">
+        <?php
+          $sql = "SELECT fname, lname, start_date, duration FROM users inner join booking on users.identityNumber=booking.idNo where start_date < NOW()";
+          $result = $conn->query($sql);
+          if($result->num_rows>0){
+            while ($row = $result->fetch_assoc()) {
+              echo "<tr>";
+                echo "<td>". substr($row['fname'], 0, 1) . $row['lname']. "</td>";
+                echo "<td>".$row['start_date']. "</td>";
+                echo "<td>".$row['duration'];
+              echo "<tr>";
+            }
+          }else{
+            echo "<p>nothing in the database yet</p>";
+          }
+        ?>
+      </table>
+      </table>
+    </section>
+
+    <div class="buttons">
+      <table class="admin-table">
+        <tr>
+          <td><button>Totals</button></td>
+          <td><button>120 bookings</button></td>
+          <td><button>R129 000 000</button></td>
+        </tr>
+
+        <tr>
+          <td><button>Filter Dates</button></td>
+          <td><button>Filter Amounts</button></td>
+          <td><button>Search</button></td>
+        </tr>
+      </table>
     </div>
   </footer>
 
