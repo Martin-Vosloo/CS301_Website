@@ -616,6 +616,12 @@ body {
 
 .contactPageHeading {
   color: #352921;
+  text-align: center;
+}
+
+.contactCenter {
+  text-align: center;
+  color: red;
 }
 
 /* ── Contact page ───────────────────────────────────────────────────────────── */

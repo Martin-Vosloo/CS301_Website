@@ -1,3 +1,52 @@
+  <?php
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+  session_start();
+
+  require '../php/connection.php';
+
+  $error = '';
+
+  // function clean($text)
+  // {
+  //   return htmlspecialchars(stripslashes(trim($text)));
+  // }
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $fname = clean($_POST['fname']);
+    $lname = clean($_POST['lname']);
+    $email_address = clean($_POST['email_address']);
+    $password = clean($_POST['password']);  // match the input name
+    $password_conf = clean($_POST['password_conf']);
+
+    // Check passwords match
+    if ($password !== $password_conf) {
+      $error = 'Passwords do not match';
+    } else {
+      $password_hashed = hash('sha1', $password);
+      $role = 'user';
+
+      // Insert user into DB (id auto-increment)
+      $query = 'insert into users (fname, lname, email_address, password, role) VALUES (?, ?, ?, ?, ?)';
+      $stm = $conn->prepare($query);
+
+      if ($stm) {
+        $stm->bind_param('sssss', $fname, $lname, $email_address, $password_hashed, $role);
+
+        if ($stm->execute()) {
+          header('Location: ../html/index.php');
+          exit;
+        } else {
+          $error = 'Could not save to database: ' . $conn->error;
+        }
+      } else {
+        $error = 'Database error: ' . $conn->error;
+      }
+    }
+  }
+
+  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,76 +64,7 @@
 </head>
 <body>
   <!-- NAVBAR contained in external file -->
-  <?php
-  include 'navbar.php';
-
-  require '../php/connection.php';
-
-  $error = '';
-
-  function create_userid()
-  {
-    $length = rand(9, 10);
-    $number = '';
-    for ($i = 0; $i < $length; $i++) {
-      $new_rand = rand(0, 9);
-      $number = $number . $new_rand;
-    }
-    return $number;
-  }
-
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $arr['identityNumber'] = create_userid();
-
-    $query = 'select * from users where identityNumber = ?';
-    $stm = $conn->prepare($query);
-    $stm->bind_param('s', $arr['identityNumber']);
-
-    if ($stm) {
-      $check = $stm->execute();
-      if ($check) {
-        $result = $stm->get_result();
-        $data = $result->fetch_all(PDO::FETCH_ASSOC);
-        if (is_array($data) && count($data) > 0) {
-          // $arr['userid'] = create_userid();
-        }
-      }
-      // $check->close();
-    }
-
-    $arr['fname'] = $_POST['fname'];
-
-    $arr['lname'] = $_POST['lname'];
-
-    $arr['email_address'] = $_POST['email_address'];
-
-    $arr['passwrd'] = hash('sha1', $_POST['passwrd']);
-
-    // $arr['salt'] = XXXXXXXXXXXXXXXx
-
-    $arr['role'] = 'user';
-
-    $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd, role) values (?, ?, ?, ?, ?, ?)';
-    // $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd) values (?, ?, ?, ?, ?)';
-    $stm = $conn->prepare($query);
-
-    $stm->bind_param('ssssss', $arr['identityNumber'], $arr['fname'], $arr['lname'], $arr['email_address'], $arr['passwrd'], $arr['role']);
-
-    if ($stm) {
-      $check = $stm->execute();
-      if (!$check) {
-        $error = 'Could not save to database';
-      }
-      if ($error = '') {
-        header('Location: signIn.php');
-      }
-    }
-  }
-  if ($error != '') {
-    echo "<br><span style='color:red'>$error</span><br><br>";
-  }
-
-  ?>
+<?php include 'navbar.php' ?>;
 
   <main class="sign-main">
     <form action="" method="post">
@@ -111,7 +91,7 @@
       <label for="password">Password</label>
       <div class="input_box">
         <i class="bx bx-lock-keyhole-open"></i>
-        <input type="password" name="passwrd" id="passwrd" required placeholder="password" />
+        <input type="password" name="password" id="password" required placeholder="password" />
       </div>
 
       <label for="password_conf">Confirm password</label>
@@ -138,3 +118,17 @@
   
 </body>
 </html>
+
+<!-- create table users(
+    id varchar(20) primary key auto increment,
+    fname varchar(50),
+    lname varchar(50),
+    email_address varchar(40),
+    password varchar(20),
+    role varchar(20),
+    alive bit default true,
+    constraint fname_format check (fname REGEXP '^[A-Za-z]+([ -]?[A-Za-z]+)*$'),
+    constraint lname_format check (lname REGEXP '^[A-Za-z]+([ -]?[A-Za-z]+)*$'),
+    constraint email_format check (email_address REGEXP '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'),
+    constraint password_length check (char_length(password) between 8 and 20)
+); -->

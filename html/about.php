@@ -102,12 +102,12 @@
   <h1 class="about-heading mt-4">Contact Us</h1>
   <hr />
 
-  <article>
+  <article class ="contactCenter">
     <p class="contactPageHeading"><b>General Enquiries</b></p>
     <a class="contactLink" href="tel:0123456789">Tel: 012 345 6789<br /></a>
     <a class="contactLink" href="tel:0987654321">Cel: 098 765 4321<br /></a>
   </article>
-  <article>
+  <article class ="contactCenter">
     <p class="contactPageHeading"><b>General Email:</b></p>
     <a class="contactLink" href="mailto:generalmail@gmail.com">generalmail@gmail.com</a>
     <p class="contactPageHeading"><b>Accounts Email:</b></p>

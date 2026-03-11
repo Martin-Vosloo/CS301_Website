@@ -80,28 +80,32 @@ $review_insta = clean($_POST['insta']);
 
 
 // if(empty($feedback_message)){
-     $_SESSION['alert'] = [
-        'type' => 'success',
-        'message' => 'Review submitted successfully!'
-        ];
-        header("Location:../html/reviews.php");
-        exit();
+
 // }
 
 
 // add to the reviews table
-$sql = "INSERT INTO reviews(id, user_id, text_review, image) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO reviews(id,text_review, user_id, email, insta, image) VALUES (?, ?, ?, ?)";
 
 //bind parameters
+if($stmt = $conn->prepare($sql)){
 $stmt->bind_param("sssss",
     $review_name,
     $review_text,
     $review_email,
     $insta,
     $review_image
-);
-$stmt->execute();
+    );
+}
 
+
+$stmt->execute();
+    $_SESSION['alert'] = [
+        'type' => 'success',
+        'message' => 'Review submitted successfully!'
+    ];
+    header("Location:../html/reviews.php");
+    exit();
 // $_SESSION['feedback'] = $feedback_message;
  // test whatever typed in the form is what the backend receives
 // var_dump($_POST);
