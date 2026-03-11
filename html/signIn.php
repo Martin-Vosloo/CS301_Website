@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if ($stm) {
     $stm->bind_param('ss', $email, $password);
-    $check = $stm->execute($arr);
+    $check = $stm->execute();
 
     if ($check) {
       $result = $stm->get_result();
