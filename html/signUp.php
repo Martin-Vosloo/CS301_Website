@@ -1,68 +1,44 @@
   <?php
-
+  session_start();
   require '../php/connection.php';
 
   $error = '';
 
-  function create_userid()
+  function clean($text)
   {
-    $length = rand(9, 10);
-    $number = '';
-    for ($i = 0; $i < $length; $i++) {
-      $new_rand = rand(0, 9);
-      $number = $number . $new_rand;
-    }
-    return $number;
+    return htmlspecialchars(stripslashes(trim($text)));
   }
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $arr['identityNumber'] = create_userid();
+    $fname = clean($_POST['fname']);
+    $lname = clean($_POST['lname']);
+    $email_address = clean($_POST['email_address']);
+    $password = clean($_POST['password']);  // match the input name
+    $password_conf = clean($_POST['password_conf']);
 
-    $query = 'select * from users where identityNumber = ?';
-    $stm = $conn->prepare($query);
-    $stm->bind_param('s', $arr['identityNumber']);
+    // Check passwords match
+    if ($password !== $password_conf) {
+      $error = 'Passwords do not match';
+    } else {
+      $password_hashed = hash('sha1', $password);
+      $role = 'user';
 
-    if ($stm) {
-      $check = $stm->execute();
-      if ($check) {
-        $result = $stm->get_result();
-        $data = $result->fetch_all(MYSQLI_ASSOC);
-        if (is_array($data) && count($data) > 0) {
-          $arr['userid'] = create_userid();
+      // Insert user into DB (id auto-increment)
+      $query = 'insert into users (fname, lname, email_address, password, role) VALUES (?, ?, ?, ?, ?)';
+      $stm = $conn->prepare($query);
+
+      if ($stm) {
+        $stm->bind_param('sssss', $fname, $lname, $email_address, $password_hashed, $role);
+
+        if ($stm->execute()) {
+          header('Location: ../html/index.php');
+          exit;
+        } else {
+          $error = 'Could not save to database: ' . $conn->error;
         }
-      }
-      // $check->close();
-    }
-
-    $arr['fname'] = clean($_POST['fname']);
-
-    $arr['lname'] = clean($_POST['lname']);
-
-    $arr['email_address'] = clean($_POST['email_address']);
-
-    $arr['passwrd'] = hash('sha1', clean($_POST['passwrd']));
-
-    // $arr['salt'] = XXXXXXXXXXXXXXXx
-
-    $arr['role'] = 'user';
-
-    $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd, role) values (?, ?, ?, ?, ?, ?)';
-    // $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd) values (?, ?, ?, ?, ?)';
-    $stm = $conn->prepare($query);
-
-    $stm->bind_param('ssssss', $arr['identityNumber'], $arr['fname'], $arr['lname'], $arr['email_address'], $arr['passwrd'], $arr['role']);
-
-    if ($stm) {
-      $check = $stm->execute();
-      if (!$check) {
-        $error = 'Could not save to database';
       } else {
-        header('Location: ../html/index.php');
-        exit;
+        $error = 'Database error: ' . $conn->error;
       }
-    }
-    if ($error != '') {
-      echo "<br><span style='color:red'>$error</span><br><br>";
     }
   }
 
@@ -111,7 +87,7 @@
       <label for="password">Password</label>
       <div class="input_box">
         <i class="bx bx-lock-keyhole-open"></i>
-        <input type="password" name="passwrd" id="passwrd" required placeholder="password" />
+        <input type="password" name="password" id="password" required placeholder="password" />
       </div>
 
       <label for="password_conf">Confirm password</label>

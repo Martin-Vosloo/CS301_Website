@@ -2,7 +2,7 @@
 
 -- #create users table
 create table users(
-    id varchar(20) primary key,
+    id varchar(20) primary key auto increment,
     fname varchar(50),
     lname varchar(50),
     email_address varchar(40),
@@ -17,26 +17,28 @@ create table users(
 
 -- #creating the reviews table
 create table reviews(
-	id int primary key,
+	id int primary key auto increment,
     user_id varchar(100),
     text_review varchar(300),
     image varchar(100),
 	rating integer,
 	date_of_review datetime default current_timestamp,
-	constraint stars_lim check(rating<6)
-    constraint imageLink check(image like '%.pnj' or image like'%jpg')
+	constraint stars_lim check(rating between 0 AND 5),
+    constraint imageLink check(image IS NULL or image like '%.pnj' or image like'%.jpg'),
+	constraint fk_user foreign key (user_id) references users(id);
 );
 
 -- #booking tables
 create table booking(
-	booking_id varchar(50) primary key,
-	idNo varchar(20),
+	booking_id varchar(50) primary key auto increment,
+	user_id varchar(100),
 	number_of_people integer,
     start_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
     -- #keeping the duration of the wedding booking to just a few days
     duration INTEGER,
-    package_id varchar(20)
-	//add booking details
+    package_id varchar(20),
+	constraint fk_user foreign key (user_id) references users(id);
+	-- //add booking details
 );
 
 -- #creating the  packages table
