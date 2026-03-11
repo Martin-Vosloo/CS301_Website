@@ -1,16 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kampvuur en Konfetti | Wedding Venue</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kampvuur en Konfetti</title>
+
+  <!-- LINKS TO ALL EXTERNAL CSS LINKS USED, WHETHER IN FOLDER OR THE WEB-->
+   
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/popups.css" />
   <script src="../JavaScript/popups.js" defer></script>
+  <link rel="stylesheet" href="../css/style.css"/>
+
 </head>
-<body class="home-body">
+<body>
+
+  <!-- ═══ HERO SLIDESHOW ═══ -->
+  <section class="hero">
+
+    <div class="slide active">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=85" alt="Wedding ceremony"/>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1600&q=85" alt="Wedding couple"/>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1600&q=85" alt="Bride and groom"/>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=1600&q=85" alt="Evening celebration"/>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=1600&q=85" alt="Wedding reception"/>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-name">
+      <p class="venue-pre">Wedding Venue · South Africa</p>
+      <h1 class="venue-title">
+        Kampvuur
+        <em>en Konfetti</em>
+      </h1>
+      <div class="venue-rule"></div>
+      <p class="venue-tagline">Where fireside warmth meets confetti joy</p>
+      <div class="hero-book"><a href="../html/booking.html">Book Your Date</a></div>
+    </div>
+
+    <button class="arrow arrow-prev" onclick="prevSlide()">&#8249;</button>
+    <button class="arrow arrow-next" onclick="nextSlide()">&#8250;</button>
+
+    <div class="dots" id="dots"></div>
+
+  </section>
+
+  <!-- ═══ NAVIGATION BAR ═══ -->
   <nav class="navigation-bar">
     <article class="logo-image">
       <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
@@ -30,42 +76,15 @@
     </article>
   </nav>
 
-  <section class="bc-img">
-    <section class="popups">
-      <div id="language-container">
-        <p>This website's default language is English</p>
-        <button id="accept-language-btn">Continue</button>
-      </div>
+  <!-- ═══ ABOUT ═══ -->
+<section class="about rv">
+  <p class="eyebrow">What we offer</p>
+  <h2>A setting as special as<br><em>your love story</em></h2>
+  <div class="thin-rule"></div>
+  
+</section>
 
-      <div id="cookies-container">
-        <p>This website uses cookies to improve your experience</p>
-        <button id="accept-cookies-btn">Accept</button>
-        <button id="reject-cookies-btn">Reject</button>
-      </div>
-    </section>
-
-    <main>
-      <h1 class="welcome-head"> <b>Welcome to Kampvuur en Konfetti </b></h1>
-      <p class="landing-greet">
-        <br><br><br><br>
-        <!--A modern garden wedding and function venue designed for couples who seek something truly distinctive.<br />
-        Create unforgettable memories in a peaceful and elegant outdoor setting.<br />
-        Our venue blends natural beauty with modern comfort, making your special day unique.-->
-      </p>
-
-      <article class="cont-btns">
-        <button class="about-btn1" onclick="location.href='contact.html'">Contact Us</button>
-        <button class="about-btn2" onclick="location.href='about.html'">See Venue</button>
-      </article>
-    </main>
-  </section>
-
-  <section class="enga-text">
-    <p class="enga-paragraph">
-      Congratulations on your engagement. Celebrate your special day with us.<br />
-      Here is what we offer.
-    </p>
-  </section>
+  <!-- ═══ WHAT WE OFFER ═══ -->
 
   <section class="cards">
     <section class="card">
@@ -97,9 +116,61 @@
     </section>
   </section>
 
-  <article class="scrolltop">
-    <button id="top-btn" title="go top">&uarr;</button>
-  </article>
+
+  <!-- ═══ BOOKING ═══ -->
+  <section class="booking" id="book">
+    <div class="booking-inner rv">
+      <p class="eyebrow">Enquire Now</p>
+      <h2>Let's plan your perfect day</h2>
+      <p>Send us a message and we'll get back to you within 24 hours.</p>
+
+      <div id="bFormWrap">
+        <form class="bform" onsubmit="formDone(event)">
+          <div>
+            <label>Your Name</label>
+            <input type="text" placeholder="Anné" required/>
+          </div>
+          <div>
+            <label>Partner's Name</label>
+            <input type="text" placeholder="Pieter"/>
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com" required/>
+          </div>
+          <div>
+            <label>Phone</label>
+            <input type="tel" placeholder="+27 00 000 0000"/>
+          </div>
+          <div>
+            <label>Wedding Date</label>
+            <input type="date" required/>
+          </div>
+          <div>
+            <label>Number of Guests</label>
+            <select required>
+              <option value="" disabled selected>Select</option>
+              <option>Under 50</option>
+              <option>50 – 100</option>
+              <option>100 – 150</option>
+              <option>150 – 200</option>
+              <option>200+</option>
+            </select>
+          </div>
+          <div class="full">
+            <label>Tell us about your vision</label>
+            <textarea placeholder="Describe your dream day…"></textarea>
+          </div>
+          <div class="full center">
+            <button type="submit" class="btn-submit">Send Enquiry</button>
+          </div>
+        </form>
+      </div>
+      <p id="form-thanks">Thank you! We can't wait to hear more about your day. ✦</p>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
 
   <footer>
     <p>
@@ -125,42 +196,11 @@
     </div>
   </footer>
 
-  <script src="../JavaScript/slideshow.js" defer></script>
+  <!-- END OF THE FOOTER-->
+  <!--<script src="../JavaScript/new_index.js"></script>-->
+
+  <script src="../JavaScript/new_index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
 </body>
 </html>
-
-<!-- <nav class="navbar"> -->
-    <!-- <div class="logo-container">
-        <img class="logo" src="../images/logo/logo1.png" alt="Logo" />
-      </div> -->
-
-    <!-- <input type="checkbox" class="menu-toggle" id="menu-toggle" /> -->
-
-    <!-- <label for="menu-toggle" class="hamburger">
-        <span></span><span></span><span></span>
-      </label> -->
-
-    <!-- <div class="nav-links">
-        <label for="menu-toggle" class="close-btn">&#10005;</label>
-
-        <a href="index.html">Home</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="signIn.html">Sign in</a>
-        <a href="signUp.html">Sign Up</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="about.html">About Us</a>
-        <a href="administrator.html">Admin</a>
-
-        <input type="checkbox" id="booking-toggle" class="submenu-toggle" />
-
-        <label for="booking-toggle" class="submenu-label"
-          >Booking &#9662;</label
-        >
-
-        <div class="submenu">
-          <a href="booking.html">Book a Wedding</a>
-          <a href="eventBooking.html">Book an event</a>
-        </div>
-      </div>
-    </nav> -->
