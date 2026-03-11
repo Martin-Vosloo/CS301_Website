@@ -11,9 +11,10 @@ if ($conn->connect_error) {
 }
 // echo 'Connected';
 
-function clean($text){
-    //using cleaner class and the usual stuff for the forms
+function clean($text)
+{
+    // using cleaner class and the usual stuff for the forms
     // $conf = HTMLPurifier_Config::createDefault();
     // $purifier = new HTMLPurifier($conf);
-    return htmlspecialchars(stripslashes(trim(/*$purifier->purify(*/$text)));
+    return htmlspecialchars(stripslashes(trim(/* $purifier->purify( */ $text)));
 }

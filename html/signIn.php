@@ -6,9 +6,9 @@ $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $email = $_POST['email_address'];
-  $password = hash('sha1', $_POST['passwrd']);
+  $password = hash('sha1', $_POST['password']);
 
-  $query = 'select * from users where email_address = ? AND passwrd = ? LIMIT 1';
+  $query = 'select * from users where email_address = ? AND password = ? LIMIT 1';
 
   $stm = $conn->prepare($query);
 
@@ -27,16 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['name'] = $user['fname'];
         $_SESSION['role'] = $user['role'];
 
-        if ($user['role'] ==)
         header('Location: ../html/index.php');
         exit;
       } else {
         $error = 'Wrong username or password';
       }
+    } else {
+      $error = 'Database query failed';
     }
   }
 }
-
 ?>
 
 <!doctype html>
@@ -76,7 +76,7 @@ if ($error) {
       <label for="password">Password</label>
       <div class="input_box">
         <i class="bx bx-lock-keyhole-open"></i>
-        <input type="password" name="passwrd" id="passwrd" required placeholder="password" />
+        <input type="password" name="password" id="password" required placeholder="password" />
       </div>
 
       <div class="formButtons">

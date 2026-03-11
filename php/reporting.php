@@ -1,18 +1,19 @@
 <?php
-require_once "../php/connection.php";
+require "../php/connection.php";
 
-function getDbConnection()
-{
-    global $conn;
-    return $conn;
-}
+// function getDbConnection()
+// {
+//     global $conn;
+//     return $conn;
+// }
 
 function fetchBookingReportRows()
 {
-    $db = $conn;
-    if (!$db || $db->connect_error) {
+    // $db = $conn;
+    if (!$conn || $conn->connect_error) {
         return [];
     }
+    
 
     $sql = "SELECT 
                 u.fname,
@@ -28,7 +29,7 @@ function fetchBookingReportRows()
             INNER JOIN users u ON u.identityNumber = b.idNo
             ORDER BY b.start_Date DESC";
 
-    $result = $db->query($sql);
+    $result = $conn->query($sql);
     if (!$result) {
         return [];
     }
