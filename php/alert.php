@@ -3,13 +3,13 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 // Check if a session notification is set
-if (isset($_SESSION['notification'])) {
-    $notification = $_SESSION['notification'];
-    echo "<div id='alert-box' class='alert {$notification['type']}'>";
-    echo "<span>" . htmlspecialchars($notification['message']) . "</span>";
+if (isset($_SESSION['alert'])) {
+    $alert = $_SESSION['alert'];
+    echo "<div id='alert-box' class='alert {$alert['type']}'>";
+    echo "<span>" . htmlspecialchars($alert['message']) . "</span>";
     echo "<button class='close-btn'>&times;</button>";
     echo "</div>";
-    unset($_SESSION['notification']);
+    unset($_SESSION['alert']);
 }
 ?>
 

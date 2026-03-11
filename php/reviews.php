@@ -8,11 +8,11 @@ include_once "../php/alert.php";
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 // check if all required fileds are on point before storing them
 if(empty($_POST['name']) /* || empty($_POST['rating']) */|| empty($_POST['review'])){
-    $_SESSION[alert] = [
+    $_SESSION['alert'] = [
         'type' => 'error',
         'message' => 'Please fill in all required fields!'
         ];
-    header("Location:../html/index.php");
+    header("Location:../html/reviews.php");
     exit();
 }
 
@@ -30,21 +30,21 @@ if(!empty($_FILES['image']['name'])){
 
     if(!in_array($review_imagetype, $image_allowed_types)){
         // $feedback_message = "Only .png, .jpg, .jpeg types are allowed";
-        $_SESSION[alert] = [
+        $_SESSION['alert'] = [
         'type' => 'error',
         'message' => 'Only .png, .jpg, .jpeg types are allowed!'
         ];
-        header("Location:../html/index.php");
+        header("Location:../html/reviews.php");
         exit();
     }
 
     if($review_image_size > $image_max_size){
         // $feedback_message = 'Image is too large';
-        $_SESSION[alert] = [
+        $_SESSION['alert'] = [
         'type' => 'error',
         'message' => 'Image is too large!'
         ];
-        header("Location:../html/index.php");
+        header("Location:../html/reviews.php");
         exit();
     }
 
@@ -53,18 +53,18 @@ if(!empty($_FILES['image']['name'])){
     $image_path = "../images/reviews images/" . $review_image;
     if(move_uploaded_file($tmp_name, $image_path)){
         // $feedback_message = "Image uploaded successfully";
-        $_SESSION[alert] = [
+        $_SESSION['alert'] = [
         'type' => 'success',
         'message' => 'Image uploaded successfully!'
         ];
     
     
     }else{
-        $_SESSION[alert] = [
+        $_SESSION['alert'] = [
         'type' => 'error',
         'message' => 'Failed to upload image!'
         ];
-        header("Location:../html/index.php");
+        header("Location:../html/reviews.php");
         exit();
     }
     
@@ -84,7 +84,7 @@ $review_insta = clean($_POST['insta']);
         'type' => 'success',
         'message' => 'Review submitted successfully!'
         ];
-        header("Location:../html/index.php");
+        header("Location:../html/reviews.php");
         exit();
 // }
 
