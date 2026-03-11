@@ -24,7 +24,7 @@ $review_date = clean($_POST['date']);
 $review_services = clean($_POST['services']);
 $review_preferences = clean($_POST['preferences']);
 
-
+$services
 
 // add to the reviews table
 $sql = "INSERT INTO reviews(booking_id, idNo, text_review, image) VALUES (?, ?, ?, ?, ?)";
