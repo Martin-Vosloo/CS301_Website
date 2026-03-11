@@ -19,7 +19,7 @@
 
 
 
-      <!-- FORM -->
+      <!-- FORM 
 
 
         <form class="glass-form" action="../php/bookingForm.php" method="post" enctype="multipart/form-data">
@@ -113,7 +113,69 @@
             Submit Booking Request
           </button>
         </form>
-      </section>
+      </section> -->
+
+                    <!-- OLD FORM FROM INDEX THAT WILL BE REPLICATED-->
+  <section class="booking" id="book">
+    <div class="booking-inner rv">
+      <p class="eyebrow">Book now</p>
+      <h2>Please fill In your details</h2>
+      <p>Send us a message and we'll get back to you within 24 hours.</p>
+
+      <div id="bFormWrap">
+        <form class="bform" onsubmit="formDone(event)">
+          
+          <div>
+            <label>Check In date</label>
+            <input type="date" required/>
+          </div>
+
+           <div>
+            <label>Check Out date</label>
+            <input type="date" required/>
+          </div>
+
+          <div>
+            <label>Services Required</label>
+            <select required>
+                <div class="checkbox-grid">
+                <label class="custom-check">
+                  <input type="checkbox" name="services[]" value="catering-full" />
+                  <span>Full Catering</span>
+                </label>
+
+                <label class="custom-check">
+                  <input type="checkbox" name="services[]" value="catering-self" />
+                  <span>Self-Catering</span>
+                </label>
+
+                <label class="custom-check">
+                  <input type="checkbox" name="services[]" value="photographer" />
+                  <span>Photographer</span>
+                </label>
+
+                <label class="custom-check">
+                  <input type="checkbox" name="services[]" value="lodging" />
+                  <span>Lodging</span>
+              </label>
+            </div>
+            </select>
+          </div>
+
+          <div class="full">
+            <label>Tell Us your Wedding preferences</label>
+            <textarea placeholder="Describe your dream day…"></textarea>
+          </div>
+
+          <div class="full center">
+            <button type="submit" class="btn-submit">Send Enquiry</button>
+          </div>
+          
+        </form>
+      </div>
+      <p id="form-thanks">Thank you! We can't wait to hear more about your day. ✦</p>
+    </div>
+  </section>
     </main>
 
     <!-- FOOTER contained in external file -->

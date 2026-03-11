@@ -85,21 +85,20 @@ $review_insta = clean($_POST['insta']);
 
 
 // add to the reviews table
-$sql = "INSERT INTO reviews(id, user_id, text_review, image) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO reviews(id,text_review, user_id, email, insta, image) VALUES (?, ?, ?, ?)";
 
 //bind parameters
 if($stmt = $conn->prepare($sql)){
-
-
-
-}
 $stmt->bind_param("sssss",
     $review_name,
     $review_text,
     $review_email,
     $insta,
     $review_image
-);
+    );
+}
+
+
 $stmt->execute();
     $_SESSION['alert'] = [
         'type' => 'success',
