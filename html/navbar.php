@@ -1,3 +1,7 @@
+<?php
+// session_start();                    // make sure session is started
+$role = $_SESSION['role'] ?? null;  // default to null if not logged in
+?>
 <nav class="navigation-bar">
     <article class="logo-image">
       <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>

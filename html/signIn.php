@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $_SESSION['myid'] = $user['id'];
         $_SESSION['name'] = $user['fname'];
-        $_SESSION['role'] = 'admin';
+        $_SESSION['role'] = $user['role'];
 
         if ($user['role'] ==)
         header('Location: ../html/index.php');
