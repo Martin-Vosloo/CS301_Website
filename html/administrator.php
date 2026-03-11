@@ -140,7 +140,7 @@
       </div>
 
       <table class="admin-table">
-<<<<<<< HEAD
+
         <tr>
           <td>J. Smith</td>
           <td><time datetime="2026-09-12">12-09-2026</time></td>
@@ -164,61 +164,4 @@
           <td><time datetime="2026-06-12">12-06-2026</time></td>
           <td>R50 000</td>
         </tr>
-=======
         <?php
-<<<<<<< HEAD
-          include "../php/administrator.php";
-          echo table();
-=======
-        $sql = 'SELECT fname, lname, start_date, duration FROM users inner join booking on users.identityNumber=booking.idNo where start_date < NOW()';
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . substr($row['fname'], 0, 1) . $row['lname'] . '</td>';
-            echo '<td>' . $row['start_date'] . '</td>';
-            echo '<td>' . $row['duration'];
-            echo '<tr>';
-          }
-        } else {
-          echo '<p>nothing in the database yet</p>';
-        }
->>>>>>> dylan
-        ?>
-      </table>
->>>>>>> main
-      </table>
-    </section>
-
-    <div class="buttons">
-      <table class="admin-table">
-        <tr>
-          <td><button>Totals</button></td>
-          <td><button>120 bookings</button></td>
-          <td><button>R129 000 000</button></td>
-        </tr>
-
-        <tr>
-          <td><button>Filter Dates</button></td>
-          <td><button>Filter Amounts</button></td>
-          <td><button>Search</button></td>
-        </tr>
-      </table>
-    </div>
-<<<<<<< HEAD
-
-    <!-- FOOTER contained in external file -->
-    <?php include 'footer.php' ?>
-    
-  </body>
-=======
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-</body>
-<<<<<<< HEAD
-</html>
-=======
->>>>>>> main
-</html>
->>>>>>> dylan
