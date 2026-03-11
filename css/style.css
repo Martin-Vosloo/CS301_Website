@@ -395,6 +395,10 @@ footer nav a {
   color: #352921;
 }
 
+.contact-info {
+  text-align: center;
+}
+
 /* ── Contact page ───────────────────────────────────────────────────────────── */
 .contact-main {
   width: min(920px, calc(100% - 24px));

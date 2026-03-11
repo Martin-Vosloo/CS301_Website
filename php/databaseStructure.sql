@@ -10,6 +10,7 @@ create table users(
 	lname varchar(50),
     email_address varchar(40),
 	passwrd varchar(20),
+	admin bit,
     #checkiong the last name using like to imitate regular expressions
 	constraint lname_format check(lname not like('%[^A-Za-z]%')),
     #checkinbg the format of the password
@@ -47,18 +48,18 @@ create table users(
 	);
 */
 
-#creating the admin table
-create table admin(
-	idNo varchar(20) PRIMARY KEY,
-	CONSTRAINT checkId_len CHECK(CHAR_LENGTH(idNo) in (9,11,12,13,15,18) ),
-	pword varchar(20),
-    #constraints
-	CONSTRAINT word_length CHECK(char_length(pwrd)>7 and char_length(pwrd)<20),
-	CONSTRAINT fk_identity FOREIGN KEY (idNo)
-	REFERENCES users(identityNumber)
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
-);
+-- #creating the admin table
+-- create table admin(
+-- 	idNo varchar(20) PRIMARY KEY,
+-- 	CONSTRAINT checkId_len CHECK(CHAR_LENGTH(idNo) in (9,11,12,13,15,18) ),
+-- 	pword varchar(20),
+--     #constraints
+-- 	CONSTRAINT word_length CHECK(char_length(pwrd)>7 and char_length(pwrd)<20),
+-- 	CONSTRAINT fk_identity FOREIGN KEY (idNo)
+-- 	REFERENCES users(identityNumber)
+-- 	ON DELETE CASCADE
+-- 	ON UPDATE CASCADE
+-- );
 
 #booking tables
 create table booking(
@@ -69,6 +70,7 @@ create table booking(
     #keeping the duration of the wedding booking to just a few days
     duration INTEGER,
     package_id varchar(20)
+	//add booking details
 );
 
 #creating the  packages table
@@ -80,25 +82,29 @@ create table Packages(
     accomodation bit
 );
     
-#creating the venue table
-create table venue(
-	venueName varchar(20),
-    location varchar(50),
-    capacity integer
-);
+-- #creating the venue table
+-- create table venue(
+-- 	venueName varchar(20),
+--     location varchar(50),
+--     capacity integer
+-- );
 
 #creating the reviews table
 create table reviews(
 	id int primary key,
-    person varchar(100),
+    user_id varchar(100),
     text_review varchar(300),
     image varchar(100),
+	rating integer,
+	date_of_review datetime default current_timestamp,
+	constraint stars_lim check(rating<6)
     constraint imageLink check(image like '%.pnj' or image like'%jpg')
 );
+#exact code to create table
 
-#Creating the blocked
-#not yet sure how i will enforce this but there is a way and i will find it
-create table Blocked(
-	mac_address varchar(100) primary key,
-    dateBlocked datetime default CURRENT_TIMESTAMp
-);
+-- #Creating the blocked
+-- #not yet sure how i will enforce this but there is a way and i will find it
+-- create table Blocked(
+-- 	mac_address varchar(100) primary key,
+--     dateBlocked datetime default CURRENT_TIMESTAMp
+-- );
