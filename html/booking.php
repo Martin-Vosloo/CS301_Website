@@ -116,65 +116,81 @@
       </section> -->
 
                     <!-- OLD FORM FROM INDEX THAT WILL BE REPLICATED-->
+  <!-- ═══ BOOKING ═══ -->
   <section class="booking" id="book">
     <div class="booking-inner rv">
-      <p class="eyebrow">Book now</p>
-      <h2>Please fill In your details</h2>
+      <p class="eyebrow">Enquire Now</p>
+      <h2>Let's plan your perfect day</h2>
       <p>Send us a message and we'll get back to you within 24 hours.</p>
 
       <div id="bFormWrap">
         <form class="bform" onsubmit="formDone(event)">
-          
           <div>
-            <label>Check In date</label>
+            <label>Your Name</label>
+            <input type="text" placeholder="Anné" required/>
+          </div>
+          <div>
+            <label>Partner's Name</label>
+            <input type="text" placeholder="Pieter"/>
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com" required/>
+          </div>
+          <div>
+            <label>Phone</label>
+            <input type="tel" placeholder="+27 00 000 0000"/>
+          </div>
+          <div>
+            <label>Check-in Date </label>
             <input type="date" required/>
           </div>
 
-           <div>
-            <label>Check Out date</label>
-            <input type="date" required/>
-          </div>
 
           <div>
-            <label>Services Required</label>
-            <select required>
-                <div class="checkbox-grid">
-                <label class="custom-check">
-                  <input type="checkbox" name="services[]" value="catering-full" />
-                  <span>Full Catering</span>
-                </label>
-
-                <label class="custom-check">
-                  <input type="checkbox" name="services[]" value="catering-self" />
-                  <span>Self-Catering</span>
-                </label>
-
-                <label class="custom-check">
-                  <input type="checkbox" name="services[]" value="photographer" />
-                  <span>Photographer</span>
-                </label>
-
-                <label class="custom-check">
-                  <input type="checkbox" name="services[]" value="lodging" />
-                  <span>Lodging</span>
-              </label>
-            </div>
-            </select>
+            <label>Check-out Date</label>
+            <input type="date" required/>
           </div>
-
           <div class="full">
-            <label>Tell Us your Wedding preferences</label>
+            <label>Tell us about your preferences</label>
             <textarea placeholder="Describe your dream day…"></textarea>
           </div>
+          
+
+          <section class="checkbox-section">
+            <h2>Services Required</h2>
+            <div class="checkbox-grid">
+              <label class="custom-check">
+                <input type="checkbox" name="services[]" value="catering-full" />
+                <span>Full Catering</span>
+              </label>
+
+              <label class="custom-check">
+                <input type="checkbox" name="services[]" value="catering-self" />
+                <span>Self-Catering</span>
+              </label>
+
+              <label class="custom-check">
+                <input type="checkbox" name="services[]" value="photographer" />
+                <span>Photographer</span>
+              </label>
+
+              <label class="custom-check">
+                <input type="checkbox" name="services[]" value="lodging" />
+                <span>Lodging</span>
+              </label>
+            </div>
+          </section>
 
           <div class="full center">
             <button type="submit" class="btn-submit">Send Enquiry</button>
           </div>
-          
+
         </form>
       </div>
       <p id="form-thanks">Thank you! We can't wait to hear more about your day. ✦</p>
     </div>
+
   </section>
     </main>
 

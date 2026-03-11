@@ -651,6 +651,7 @@ body {
 }
 
 /* ── Booking page ───────────────────────────────────────────────────────────── */
+/*
 .booking-main .container {
   width: min(920px, calc(100% - 24px));
   margin: 1.2rem auto 0;
@@ -670,7 +671,7 @@ body {
   padding-bottom: 0.4rem;
 }
 
-/* Stacked label + input pattern for each form field */
+/* Stacked label + input pattern for each form field 
 .booking-main .input-group {
   display: flex;
   flex-direction: column;
@@ -694,14 +695,14 @@ body {
   background: #fff;
 }
 
-/* Sage focus ring for accessibility */
+/* Sage focus ring for accessibility 
 .booking-main input:focus,
 .booking-main textarea:focus {
   border-color: var(--ra-sage);
   outline: 2px solid #d6e4ce;
 }
 
-/* Date pickers and checkboxes sit in a responsive multi-column grid */
+/* Date pickers and checkboxes sit in a responsive multi-column grid 
 .booking-main .date-row,
 .booking-main .checkbox-grid {
   display: grid;
@@ -732,7 +733,7 @@ body {
 
 .booking-main .submit-btn:hover {
   background: var(--ra-sage-dark);
-}
+}*/
 
 /* ── Sign In / Sign Up ──────────────────────────────────────────────────────── */
 .sign-main {
