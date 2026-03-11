@@ -16,44 +16,20 @@
 <body>
   <!-- NAVBAR contained in external file -->
   <?php
-  include 'navbar.php';
 
+include 'navbar.php';
+
+  session_start();
   require '../php/connection.php';
 
   $error = '';
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $arr['identityNumber'] = create_userid();
-
-    $query = 'select * from users where identityNumber = ?';
-    $stm = $conn->prepare($query);
-    $stm->bind_param('s', $arr['identityNumber']);
-
-    if ($stm) {
-      $check = $stm->execute();
-      if ($check) {
-        $result = $stm->get_result();
-        $data = $result->fetch_all(PDO::FETCH_ASSOC);
-        if (is_array($data) && count($data) > 0) {
-          // $arr['userid'] = create_userid();
-        }
-      }
-      // $check->close();
-    }
-
-    $arr['fname'] = $_POST['fname'];
-
-    $arr['lname'] = $_POST['lname'];
-
     $arr['email_address'] = $_POST['email_address'];
 
     $arr['passwrd'] = hash('sha1', $_POST['passwrd']);
 
-    // $arr['salt'] = XXXXXXXXXXXXXXXx
-
-    $arr['role'] = 'user';
-
-    $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd, role) values (?, ?, ?, ?, ?, ?)';
+    $query = 'select * from users where email_address = :email_address && passwrd = :password limit 1';
     // $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd) values (?, ?, ?, ?, ?)';
     $stm = $conn->prepare($query);
 
@@ -61,10 +37,18 @@
 
     if ($stm) {
       $check = $stm->execute();
-      if (!$check) {
-        $error = 'Could not save to database';
+      if ($check) {
+        $result = $stm->get_result();
+        $data = $result->fetch_all(PDO::FETCH_ASSOC);
+        if (is_array($data) && count($data) > 0)
+        {
+          $_SESSION['myid'] = $data[0]['id']
+        }
+      }
+        $error = 'Wrong username or password';
       }
       if ($error = '') {
+        
         header('Location: signIn.php');
       }
     }
