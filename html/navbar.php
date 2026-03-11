@@ -1,15 +1,28 @@
+<?php
+// session_start();                    // make sure session is started
+$role = $_SESSION['role'] ?? null;  // default to null if not logged in
+?>
 <nav class="navigation-bar">
     <article class="logo-image">
       <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
     </article>
 
     <article class="navigation-links">
+      <?php if ($role === 'admin'): ?>
       <a href="index.php">Home</a>
       <a href="reviews.php">Reviews</a>
       <a href="about.php">About</a>
       <a href="booking.php">Book</a>
       <a href="gallery.php">Gallery</a>
       <a href="administrator.php">Admin</a>
+      <?php else: ?>
+        <a href="index.php">Home</a>
+        <a href="reviews.php">Reviews</a>
+        <a href="about.php">About</a>
+        <a href="booking.php">Book</a>
+        <a href="gallery.php">Gallery</a>
+      <?php endif; ?>
+
     </article>
 
     <article class="navigation-btns">

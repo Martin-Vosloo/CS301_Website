@@ -6,162 +6,84 @@
     <link rel="stylesheet" href="../css/admin.css" />
     <title>Admin Panel</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="/JavaScript/tables.js"></script>
   </head>
 
   <body>
-    
     <!-- NAVBAR contained in external file -->
-    <?php include 'navbar.php' ?>
-      <!-- <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <?php include 'navbar.php'; ?>
 
-      <label for="menu-toggle" class="hamburger">
-        <span></span><span></span><span></span>
-      </label> -->
+    <?php
+      require_once __DIR__ . '/../php/reporting.php';
+      $bookings = fetchBookingReportRows();
 
-  <section class="containsTable" id="currrentBookings" onclick="overlay('currrentBookings')">
-    <div class="heading">
-      <h2>Current Bookings</h2>
-    </div>
-    <table class="admin-table" id="curbooking" onload= >
-        <!--php will add the table here -->
-    </table>
+      function safeText($value)
+      {
+          return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+      }
 
-    <input type="text" name="searchString">
+      function formatBool($value)
+      {
+          return ((int) $value) === 1 ? 'Yes' : 'No';
+      }
+    ?>
 
-  </section>
-
-  <table class="admin-table admin-tools">
-    <tr>
-      <td><button id="orderDate">Order by date</button></td>
-      <td><button id="orderName">Order by name</button></td>
-      <td><button id="search">Search</button></td>
-    </tr>
-  </table>
-
-
-  <section id="changes">
-    <div class="heading">
-      <h2>Modify a booking</h2>
-    </div>
-
-    <aside class="left">
-      <p>
-        <b>For:</b> Samuel Onako<br />
-        <b>On:</b> <time datetime="2026-04-12">12-04-2026</time><br />
-        <b>Extra services:</b> C, P, ...<br />
-        <b>Amount paid:</b> None
-      </p>
-    </aside>
-
-    <section
-      class="containsTable"
-      id="currrentBookings"
-      onclick="overlay('currrentBookings')"
-    >
+    <section class="containsTable" id="currentBookings">
       <div class="heading">
         <h2>Current Bookings</h2>
       </div>
-      <table class="admin-table" id="smt">
+
+      <table class="admin-table" id="curbooking">
         <tr>
-          <th>Full name</th>
-          <th>Date</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Start date</th>
+          <th>Duration</th>
+          <th>Full catering</th>
+          <th>Photographer</th>
+          <th>Lodging</th>
+          <th>Wedding preferences</th>
         </tr>
 
-        <tr>
-          <td>John Smith</td>
-          <td><time datetime="2026-09-12">12-09-2026</time></td>
-        </tr>
-
-        <tr>
-          <td>Samuel Ntlonti</td>
-          <td><time datetime="2026-04-12">12-04-2026</time></td>
-        </tr>
-
-        <tr>
-          <td>Onalo Maliwa</td>
-          <td><time datetime="2026-09-13">13-09-2026</time></td>
-        </tr>
-
-        <tr>
-          <td>Asemahle Sinqe</td>
-          <td><time datetime="2026-06-12">12-06-2026</time></td>
-        </tr>
+        <?php if (empty($bookings)): ?>
+          <tr>
+            <td colspan="9">No bookings found.</td>
+          </tr>
+        <?php else: ?>
+          <?php foreach ($bookings as $booking): ?>
+            <tr>
+              <td><?php echo safeText($booking['fname']); ?></td>
+              <td><?php echo safeText($booking['lname']); ?></td>
+              <td><?php echo safeText($booking['email_address']); ?></td>
+              <td>
+                <time datetime="<?php echo safeText($booking['start_date']); ?>">
+                  <?php echo safeText($booking['start_date']); ?>
+                </time>
+              </td>
+              <td><?php echo safeText($booking['duration']); ?></td>
+              <td><?php echo formatBool($booking['fullcatering']); ?></td>
+              <td><?php echo formatBool($booking['photographer']); ?></td>
+              <td><?php echo formatBool($booking['lodging']); ?></td>
+              <td>
+                <button
+                  type="button"
+                  onclick="showWeddingPreference('<?php echo safeText($booking['wedding_preference']); ?>')"
+                >
+                  View
+                </button>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        <?php endif; ?>
       </table>
-      <!--this table must include in it the packages the person took along with because right now it is too narrow-->
     </section>
 
-    <table class="admin-table">
-      <tr>
-        <td><button>Order by date</button></td>
-        <td><button>Order by name</button></td>
-        <td><button>Search</button></td>
-      </tr>
-    </table>
+    <script>
+      function showWeddingPreference(text) {
+        var message = text && text.trim() ? text : 'No wedding preference provided.';
+        alert(message);
+      }
+    </script>
+  </body>
+</html>
 
-    <section id="changes">
-      <div class="heading">
-        <h2>Modify a booking</h2>
-      </div>
-
-      <aside class="left">
-        <p>
-          <b>For: </b>Samuel Onako<br />
-          <b>On: </b><time datetime="2026-04-12">12-04-2026</time><br />
-          <b>Extra services: </b>C, P, ...<br />
-          <b>Amount paid: </b>None
-        </p>
-      </aside>
-
-      <aside class="right">
-        <table class="admin-table-narrow">
-          <tr>
-            <td><button>Change Date</button></td>
-          </tr>
-
-          <tr>
-            <td><button>Cancel Booking</button></td>
-          </tr>
-
-          <tr>
-            <td><button>...</button></td>
-          </tr>
-        </table>
-      </aside>
-    </section>
-
-    <section
-      class="containsTable"
-      id="past_Bookings"
-      onclick="overlay('past_Bookings')"
-    >
-      <div class="heading">
-        <h2>Successful Bookings</h2>
-      </div>
-
-      <table class="admin-table">
-
-        <tr>
-          <td>J. Smith</td>
-          <td><time datetime="2026-09-12">12-09-2026</time></td>
-          <td>R50 000</td>
-        </tr>
-
-        <tr>
-          <td>S. Ntlonti</td>
-          <td><time datetime="2026-04-12">12-04-2026</time></td>
-          <td>R49 000</td>
-        </tr>
-
-        <tr>
-          <td>O. Maliwa</td>
-          <td><time datetime="2026-09-13">13-09-2026</time></td>
-          <td>R37 000</td>
-        </tr>
-
-        <tr>
-          <td>A. Sinqe</td>
-          <td><time datetime="2026-06-12">12-06-2026</time></td>
-          <td>R50 000</td>
-        </tr>
-        

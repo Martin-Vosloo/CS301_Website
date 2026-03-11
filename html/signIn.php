@@ -18,14 +18,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($check) {
       $result = $stm->get_result();
-      $data = $result->fetch_assoc();
+      $user = $result->fetch_assoc();
 
-      if ($data) {
+      if ($user) {
         session_regenerate_id(true);
 
-        $_SESSION['myid'] = $data['id'];
-        $_SESSION['name'] = $data['fname'];
+        $_SESSION['myid'] = $user['id'];
+        $_SESSION['name'] = $user['fname'];
+        $_SESSION['role'] = $user['role'];
 
+        if ($user['role'] ==)
         header('Location: ../html/index.php');
         exit;
       } else {
