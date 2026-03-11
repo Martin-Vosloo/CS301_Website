@@ -9,7 +9,7 @@ if ($conn->connect_error) {
     header('HTTP/1.1 404 Not Found');
     die();
 }
-echo 'Connected';
+// echo 'Connected';
 
 function clean($text)
 {

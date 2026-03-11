@@ -6,12 +6,13 @@
   <title>Kampvuur en Konfetti — Wedding Venue</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../css/gallery.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
 
   <!-- ══ BANNER ══ -->
   <header class="banner">
-<?php include "navbar.php"?>
+    <?php include 'navbar.php' ?>
     <h1 class="banner-title">The<em> Gallery</em></h1>
   </header>
 
@@ -194,7 +195,7 @@
       <p>From arrival to farewell breakfast, your guests are held in warmth and beauty every step of the way.</p>
     </div>
 
-  <?php footer.php ?>
+  <!-- <?php include 'footer.php' ?> -->
 
 </body>
 </html>
