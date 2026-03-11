@@ -15,7 +15,14 @@
     <main class="booking-main">
       <!-- <h1>Book our venue</h1> -->
       <section class="container">
-        <form class="glass-form">
+
+
+
+
+      <!-- FORM -->
+
+
+        <form class="glass-form" action="../php/bookingForm.php" method="post" enctype="multipart/form-data">
           <section>
             <h2>Contact Information</h2>
             <div class="input-group">
@@ -23,7 +30,7 @@
               <input
                 type="text"
                 id="couple-names"
-                name="couple-names"
+                name="name"
                 required
                 placeholder="e.g. Alex & Sam"
               />
@@ -71,22 +78,22 @@
             <h2>Services Required</h2>
             <div class="checkbox-grid">
               <label class="custom-check">
-                <input type="checkbox" name="services" value="catering-full" />
+                <input type="checkbox" name="services[]" value="catering-full" />
                 <span>Full Catering</span>
               </label>
 
               <label class="custom-check">
-                <input type="checkbox" name="services" value="catering-self" />
+                <input type="checkbox" name="services[]" value="catering-self" />
                 <span>Self-Catering</span>
               </label>
 
               <label class="custom-check">
-                <input type="checkbox" name="services" value="photographer" />
+                <input type="checkbox" name="services[]" value="photographer" />
                 <span>Photographer</span>
               </label>
 
               <label class="custom-check">
-                <input type="checkbox" name="services" value="lodging" />
+                <input type="checkbox" name="services[]" value="lodging" />
                 <span>Lodging</span>
               </label>
             </div>

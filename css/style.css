@@ -618,6 +618,10 @@ body {
   color: #352921;
 }
 
+.contactCenter {
+  text-align: center;
+}
+
 /* ── Contact page ───────────────────────────────────────────────────────────── */
 .contact-main {
   width: min(920px, calc(100% - 24px));
