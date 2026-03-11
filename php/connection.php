@@ -13,5 +13,5 @@ if ($conn->connect_error) {
 
 function clean($text)
 {
-    return htmlspecialchars(stripslashes(trim($data)));
+    return htmlspecialchars(stripslashes(trim($text)));
 }
