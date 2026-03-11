@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="../css/style.css"/>
 
 </head>
-<<<<<<< HEAD:html/index.html
 <body>
 
   <!-- ═══ HERO SLIDESHOW ═══ -->
@@ -58,30 +57,11 @@
   </section>
 
   <!-- ═══ NAVIGATION BAR ═══ -->
-  <nav class="navigation-bar">
-    <article class="logo-image">
-      <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
-    </article>
-
-    <article class="navigation-links">
-      <a href="index.html">Home</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="about.html">About</a>
-      <a href="booking.html">Book</a>
-      <a href="administrator.php">Admin</a>
-    </article>
-
-    <article class="navigation-btns">
-      <a href="signIn.html" class="nav-btn">Sign In</a>
-      <a href="signUp.html" class="nav-btn">Sign Up</a>
-    </article>
-  </nav>
-=======
+  
 <body class="home-body">
   
 <!-- NAVBAR contained in external file -->
   <?php include 'navbar.php' ?>
->>>>>>> dylan:html/index.php
 
   <!-- ═══ ABOUT ═══ -->
 <section class="about rv">

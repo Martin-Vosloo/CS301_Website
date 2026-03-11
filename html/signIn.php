@@ -13,7 +13,65 @@
 </head>
 <body>
   <!-- NAVBAR contained in external file -->
-  <?php include 'navbar.php' ?>
+  <?php
+  include 'navbar.php';
+
+  require '../php/connection.php';
+
+  $error = '';
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $arr['identityNumber'] = create_userid();
+
+    $query = 'select * from users where identityNumber = ?';
+    $stm = $conn->prepare($query);
+    $stm->bind_param('s', $arr['identityNumber']);
+
+    if ($stm) {
+      $check = $stm->execute();
+      if ($check) {
+        $result = $stm->get_result();
+        $data = $result->fetch_all(PDO::FETCH_ASSOC);
+        if (is_array($data) && count($data) > 0) {
+          // $arr['userid'] = create_userid();
+        }
+      }
+      // $check->close();
+    }
+
+    $arr['fname'] = $_POST['fname'];
+
+    $arr['lname'] = $_POST['lname'];
+
+    $arr['email_address'] = $_POST['email_address'];
+
+    $arr['passwrd'] = hash('sha1', $_POST['passwrd']);
+
+    // $arr['salt'] = XXXXXXXXXXXXXXXx
+
+    $arr['role'] = 'user';
+
+    $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd, role) values (?, ?, ?, ?, ?, ?)';
+    // $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd) values (?, ?, ?, ?, ?)';
+    $stm = $conn->prepare($query);
+
+    $stm->bind_param('ssssss', $arr['identityNumber'], $arr['fname'], $arr['lname'], $arr['email_address'], $arr['passwrd'], $arr['role']);
+
+    if ($stm) {
+      $check = $stm->execute();
+      if (!$check) {
+        $error = 'Could not save to database';
+      }
+      if ($error = '') {
+        header('Location: signIn.php');
+      }
+    }
+  }
+  if ($error != '') {
+    echo "<br><span style='color:red'>$error</span><br><br>";
+  }
+
+  ?>
 
   <main class="sign-main">
     <form action="#">
@@ -33,9 +91,9 @@
 
       <div class="formButtons">
         <button type="submit" id="done">Sign In</button>
-        <button type="button" id="autofill">Autofill</button>
         <button type="button" onclick="location.href='index.html'" id="back">Back</button>
       </div>
+      <br><br>
 
       <button type="button">Forgot password</button>
     </form>
