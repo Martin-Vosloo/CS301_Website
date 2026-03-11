@@ -12,7 +12,7 @@ create table users(
 	constraint lname_format check(lname like('%[^A-Za-z]%')),
     email_address varchar(40),
     -- #check if the email is in the correct format
-    constraint email check(email not like'%[^A-Za-z0-9@._-]%' and email like '%@%' and email like '%.%'),
+    constraint email check(email like'%[^A-Za-z0-9@._-]%' and email like '%@%' and email like '%.%'),
 	password varchar(20),
     -- #check the format of the password
     constraint word_length check(char_length(passwrd)>7 and char_length(passwrd)<20),
@@ -36,7 +36,7 @@ create table reviews(
 
 -- #booking tables
 create table booking(
-	booking_id varchar(50),
+	booking_id varchar(50) primary key,
 	idNo varchar(20),
 	number_of_people integer,
     start_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -48,7 +48,7 @@ create table booking(
 
 -- #creating the  packages table
 create table Packages(
-	PackageId varchar(20),
+	PackageId varchar(20) primary key,
     Catering bit,
     Venue varchar(20),
     photography bit,

@@ -10,6 +10,8 @@
   <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet" />
   <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet" />
   <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet" />
+  <script src="../JavaScript/validation.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
   <!-- NAVBAR contained in external file -->
@@ -96,13 +98,12 @@
       <br><br>
 
       <button type="button">Forgot password</button>
+      <br><br>
+      <a href="signUp.php">If you don't have an account, sign up here.</a>
     </form>
   </main>
 
   <!-- FOOTER contained in external file -->
   <?php include 'footer.php' ?>
-
-  <script src="../JavaScript/validation.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
