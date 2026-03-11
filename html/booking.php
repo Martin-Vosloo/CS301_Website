@@ -119,8 +119,8 @@
   <!-- ═══ BOOKING ═══ -->
   <section class="booking" id="book">
     <div class="booking-inner rv">
-      <p class="eyebrow">Enquire Now</p>
-      <h2>Let's plan your perfect day</h2>
+      <p class="eyebrow">Book Now</p>
+      <h2>Please fill in the form below</h2>
       <p>Send us a message and we'll get back to you within 24 hours.</p>
 
       <div id="bFormWrap">
