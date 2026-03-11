@@ -15,13 +15,14 @@
   <!-- NAVBAR contained in external file -->
   <?php
   include 'navbar.php';
-  // require 'C:\Apache24\htdocs\Practicals\Group 3\projects\relAdv\CS301_Website\php\connection.php';
+
+  require '../php/connection.php';
 
   $error = '';
 
   function create_userid()
   {
-    $length = rand(4, 20);
+    $length = rand(9, 10);
     $number = '';
     for ($i = 0; $i < $length; $i++) {
       $new_rand = rand(0, 9);
@@ -31,42 +32,49 @@
   }
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!$DB = new PDO('mysql:host=localhost;dbname=XXXX', 'root', '')) {
-      die('Could not connect to database');
-    }
+    $arr['identityNumber'] = create_userid();
 
-    $arr['user_id'] = create_userid();
-
-    $query = 'select * from users where user_id = :user_id limit 1';
-    $stm = $DB->prepare($query);
+    $query = 'select * from users where identityNumber = ?';
+    $stm = $conn->prepare($query);
+    $stm->bind_param('s', $arr['identityNumber']);
 
     if ($stm) {
-      $check = $stm->execute($arr);
+      $check = $stm->execute();
       if ($check) {
-        $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stm->get_result();
+        $data = $result->fetch_all(PDO::FETCH_ASSOC);
         if (is_array($data) && count($data) > 0) {
-          $arr['userid'] = create_userid();
+          // $arr['userid'] = create_userid();
         }
       }
+      // $check->close();
     }
 
     $arr['fname'] = $_POST['fname'];
-    $arr['lname'] = $_POST['name'];
+
+    $arr['lname'] = $_POST['lname'];
+
     $arr['email_address'] = $_POST['email_address'];
-    $arr['passwrd'] = hash('sha1', $POST['passwrd']);
-    $arr['user_role'] = 'user ';
 
-    $query = 'insert into users (user_id, fname, lname, email_address, passwrd, user_role) values (:user_id, :fname, :lname, :email_address, :passwrd, :user_role)';
+    $arr['passwrd'] = hash('sha1', $_POST['passwrd']);
 
-    $stm = $DB->prepare($query);
+    // $arr['salt'] = XXXXXXXXXXXXXXXx
+
+    $arr['role'] = 'user';
+
+    $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd, role) values (?, ?, ?, ?, ?, ?)';
+    // $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd) values (?, ?, ?, ?, ?)';
+    $stm = $conn->prepare($query);
+
+    $stm->bind_param('ssssss', $arr['identityNumber'], $arr['fname'], $arr['lname'], $arr['email_address'], $arr['passwrd'], $arr['role']);
 
     if ($stm) {
-      $check = $stm->execute($arr);
+      $check = $stm->execute();
       if (!$check) {
         $error = 'Could not save to database';
       }
       if ($error = '') {
-        header('Location: login.php');
+        header('Location: signIn.php');
       }
     }
   }
@@ -77,31 +85,31 @@
   ?>
 
   <main class="sign-main">
-    <form action="#" method="post">
+    <form action="" method="post">
       <h1>Sign Up</h1>
 
       <label for="name">First Name</label>
       <div class="input_box">
         <i class="bx bx-user"></i>
-        <input type="text" name="full_name" id="name" required placeholder="first name" />
+        <input type="text" name="fname" id="fname" required placeholder="first name" />
       </div>
       
       <label for="name">Last Name</label>
       <div class="input_box">
         <i class="bx bx-user"></i>
-        <input type="text" name="full_name" id="name" required placeholder="last name" />
+        <input type="text" name="lname" id="lname" required placeholder="last name" />
       </div>
 
       <label for="email">Email Address</label>
       <div class="input_box">
         <i class="bx bx-envelope-open"></i>
-        <input type="text" name="email" id="email" required placeholder="email address" />
+        <input type="text" name="email_address" id="email_address" required placeholder="email address" />
       </div>
 
       <label for="password">Password</label>
       <div class="input_box">
         <i class="bx bx-lock-keyhole-open"></i>
-        <input type="password" name="password" id="password" required placeholder="password" />
+        <input type="password" name="passwrd" id="passwrd" required placeholder="password" />
       </div>
 
       <label for="password_conf">Confirm password</label>
