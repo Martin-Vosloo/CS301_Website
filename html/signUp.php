@@ -13,14 +13,12 @@
 </head>
 <body>
   <!-- NAVBAR contained in external file -->
-  <?php include 'navbar.php' ?>
+  <?php
+  include 'navbar.php';
+  ?>
 
   <?php
-  include 'users.php';
-
-  if ($error != '') {
-    echo "<br><span style='color:red'>$error</span><br><br>";
-  }
+  include 'CS301_Website/php/userSignup.php';
   ?>
 
   <main class="sign-main">

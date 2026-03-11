@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     $error = "";
     private function create_userid(){
         $length = rand(4, 20);
@@ -40,12 +42,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $query = "select * from users where email_address = :email_address && passwrd = :passwrd limit 1";
     $stm = $DB->prepare($query)
     
-    if ($stm) {
+    if ($stm)
+    {
         $check = $stm->execute($arr);
-        if (!$check) {
+        if ($check)
+        {
+            $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+            if (is_array($data) && count($data) > 0) 
+            {
+                $_SESSION['myid'] = $data[0]['user_id'];
+                continue;   
+            }
+        }
+
+        if (!$check) 
+        {
             $error = "Wrong username or password";
         }
-        if ($error = ""){
+
+        if ($error = "")
+        {
             header("Location: index.php")
         }
     }
