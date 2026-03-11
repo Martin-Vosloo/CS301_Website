@@ -17,6 +17,7 @@ include_once "../php/alert.php";
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/popups.css" />
   <script src="../JavaScript/popups.js" defer></script>
+  <script src="../JavaScript/validation.js" defer></script>
   <link rel="stylesheet" href="../css/style.css"/>
 
 </head>
@@ -120,19 +121,19 @@ include_once "../php/alert.php";
         <form class="bform" onsubmit="formDone(event)">
           <div>
             <label>Your Name</label>
-            <input type="text" placeholder="Anné" required/>
+            <input id="couple_names" type="text" placeholder="Anné" required/>
           </div>
           <div>
             <label>Partner's Name</label>
-            <input type="text" placeholder="Pieter"/>
+            <input id="couple_names" type="text" placeholder="Pieter"/>
           </div>
           <div>
             <label>Email</label>
-            <input type="email" placeholder="you@email.com" required/>
+            <input  id="email" type="email" placeholder="you@email.com" required/>
           </div>
           <div>
             <label>Phone</label>
-            <input type="tel" placeholder="+27 00 000 0000"/>
+            <input id ="phone" type="tel" placeholder="+27 00 000 0000"/>
           </div>
           <div>
             <label>Wedding Date</label>
