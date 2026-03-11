@@ -1,22 +1,5 @@
 <!doctype html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Panel | Kampvuur en Konfetti</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/admin.css" />
-  <script src="../JavaScript/tables.js" defer></script>
-</head>
-<body onload="initialTable_onload();>
-  <nav class="navigation-bar">
-    <article class="logo-image">
-      <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
-    </article>
-=======
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +8,6 @@
     <link rel="stylesheet" href="../css/style_ab.css" />
     <script src="/JavaScript/tables.js"></script>
   </head>
->>>>>>> dylan
 
   <body>
     
@@ -37,7 +19,6 @@
         <span></span><span></span><span></span>
       </label> -->
 
-<<<<<<< HEAD
   <section class="containsTable" id="currrentBookings" onclick="overlay('currrentBookings')">
     <div class="heading">
       <h2>Current Bookings</h2>
@@ -72,31 +53,19 @@
         <b>Amount paid:</b> None
       </p>
     </aside>
-=======
-
->>>>>>> dylan
 
     <section
       class="containsTable"
       id="currrentBookings"
       onclick="overlay('currrentBookings')"
-<<<<<<< HEAD
     >
       <div class="heading">
         <h2>Current Bookings</h2>
       </div>
-=======
-    
-      <div class="heading">
-        <h2>Current Bookings</h2>
-      </div>
-      
->>>>>>> main
       <table class="admin-table" id="smt">
         <tr>
           <th>Full name</th>
           <th>Date</th>
-<<<<<<< HEAD
         </tr>
 
         <tr>
@@ -143,74 +112,6 @@
           <b>Amount paid: </b>None
         </p>
       </aside>
-=======
-          <th>Duration in days</th>
-        </tr>
-
-        <!-- php will begin with these as they are not headers-->
-        <?php
-        include '../php/connection.php';
-        $sql = 'SELECT fname, lname, start_date, duration FROM users inner join booking on users.identityNumber=booking.idNo where start_date > NOW()';
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . $row['fname'] . $row['lname'] . '</td>';
-            echo '<td>' . $row['start_date'] . '</td>';
-            echo '<td>' . $row['duration'];
-            echo '<tr>';
-          }
-        } else {
-          echo '<p>nothing in the database yet</p>';
-        }
-        ?>
-      </table>
-    </aside>
-  </section>
-
-  <section class="containsTable" id="past_Bookings" onclick="overlay('past_Bookings')">
-    <div class="heading">
-      <h2>Successful Bookings</h2>
-    </div>
-    <?php
-          include "../php/administrator.php";
-          echo table();
-    ?>
-  </section>
-
-  <div class="buttons">
-    <table class="admin-table">
-      <tr>
-        <td><button>Totals</button></td>
-        <td><button>120 bookings</button></td>
-        <td><button>R129 000 000</button></td>
-      </tr>
-      <tr>
-        <td><button>Filter Dates</button></td>
-        <td><button>Filter Amounts</button></td>
-        <td><button>Search</button></td>
-      </tr>
-    </table>
-  </div>
-
-  <footer>
-    <p>
-      <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
-      <small>
-        Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze, Nwabisa Malawu<br />
-        Authors: <a href="about.html">Contact Details</a>
-      </small>
-    </p>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="reviews.html">Write a Review</a>
-      <a href="booking.html">Book</a>
-      <a href="administrator.html">Admin</a>
-    </nav>
->>>>>>> main
 
       <aside class="right">
         <table class="admin-table-narrow">
