@@ -4,12 +4,21 @@
     </article>
 
     <article class="navigation-links">
+      <?php if ($role === 'admin'): ?>
       <a href="index.php">Home</a>
       <a href="reviews.php">Reviews</a>
       <a href="about.php">About</a>
       <a href="booking.php">Book</a>
       <a href="gallery.php">Gallery</a>
       <a href="administrator.php">Admin</a>
+      <?php else: ?>
+        <a href="index.php">Home</a>
+        <a href="reviews.php">Reviews</a>
+        <a href="about.php">About</a>
+        <a href="booking.php">Book</a>
+        <a href="gallery.php">Gallery</a>
+      <?php endif; ?>
+
     </article>
 
     <article class="navigation-btns">
