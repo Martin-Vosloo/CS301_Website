@@ -80,12 +80,7 @@ $review_insta = clean($_POST['insta']);
 
 
 // if(empty($feedback_message)){
-     $_SESSION['alert'] = [
-        'type' => 'success',
-        'message' => 'Review submitted successfully!'
-        ];
-        header("Location:../html/reviews.php");
-        exit();
+
 // }
 
 
@@ -101,7 +96,12 @@ $stmt->bind_param("sssss",
     $review_image
 );
 $stmt->execute();
-
+    $_SESSION['alert'] = [
+        'type' => 'success',
+        'message' => 'Review submitted successfully!'
+    ];
+    header("Location:../html/reviews.php");
+    exit();
 // $_SESSION['feedback'] = $feedback_message;
  // test whatever typed in the form is what the backend receives
 // var_dump($_POST);
