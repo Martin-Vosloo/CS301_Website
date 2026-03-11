@@ -1,5 +1,5 @@
 <?php
-session_start();  // make sure session is started
+
 $role = $_SESSION['role'] ?? null;
 $name = $_SESSION['name'] ?? null;
 ?>

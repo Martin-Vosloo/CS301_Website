@@ -1,15 +1,15 @@
 <?php
 require "../php/connection.php";
 
-// function getDbConnection()
-// {
-//     global $conn;
-//     return $conn;
-// }
+function getDbConnection()
+{
+    global $conn;
+    return $conn;
+}
 
 function fetchBookingReportRows()
 {
-    // $db = $conn;
+    $db = $conn;
     if (!$conn || $conn->connect_error) {
         return [];
     }
