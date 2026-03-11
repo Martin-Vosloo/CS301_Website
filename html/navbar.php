@@ -1,6 +1,7 @@
 <?php
-// session_start();                    // make sure session is started
-$role = $_SESSION['role'] ?? null;  // default to null if not logged in
+session_start();  // make sure session is started
+$role = $_SESSION['role'] ?? null;
+$name = $_SESSION['name'] ?? null;
 ?>
 <nav class="navigation-bar">
     <article class="logo-image">
@@ -26,7 +27,14 @@ $role = $_SESSION['role'] ?? null;  // default to null if not logged in
     </article>
 
     <article class="navigation-btns">
-      <a href="signIn.php" class="nav-btn">Sign In</a>
-      <a href="signUp.php" class="nav-btn">Sign Up</a>
-    </article>
+  <?php if ($role): ?>
+    <!-- Logged in user -->
+    <a href="profile.php" class="nav-btn">Hello, <?= htmlspecialchars($name) ?></a>
+    <a href="../php/logout.php" class="nav-btn">Logout</a>
+  <?php else: ?>
+    <!-- Guest -->
+    <a href="signIn.php" class="nav-btn">Sign In</a>
+    <a href="signUp.php" class="nav-btn">Sign Up</a>
+  <?php endif; ?>
+</article>
 </nav>
