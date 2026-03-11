@@ -158,7 +158,7 @@ include_once "../php/alert.php";
           </div>
         </form>
       </div>
-      <!-- <p id="form-thanks">Thank you! We can't wait to hear more about your day. ✦</p> -->
+      <p id="form-thanks">Thank you! We can't wait to hear more about your day. ✦</p>
     </div>
   </section>
 
