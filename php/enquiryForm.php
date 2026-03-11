@@ -12,7 +12,7 @@ if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['phone']) || 
         'type' => 'error',
         'message' => 'Please fill in all required fields!'
         ];
-    header("Location:../html/booking.php");
+    header("Location:../html/index.php");
     exit();
 }
 
@@ -44,7 +44,7 @@ $stmt->bind_param("sssss",
     'type' => 'success',
     'message' => 'Booking is submitted successfully!'
     ];
-    header("Location:../html/booking.php");
+    header("Location:../html/index.php");
     exit();
 
 // $_SESSION['feedback'] = $feedback_message;
