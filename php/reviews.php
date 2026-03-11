@@ -88,6 +88,11 @@ $review_insta = clean($_POST['insta']);
 $sql = "INSERT INTO reviews(id, user_id, text_review, image) VALUES (?, ?, ?, ?, ?)";
 
 //bind parameters
+if($stmt = $conn->prepare($sql)){
+
+
+
+}
 $stmt->bind_param("sssss",
     $review_name,
     $review_text,
