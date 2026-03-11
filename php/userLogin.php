@@ -35,7 +35,6 @@
             }
         }
 
-<<<<<<< HEAD
     $arr['email_address'] = $_POST['email_address'];
     $arr['passwrd'] = hash('sha1', $POST['passwrd']);
     
@@ -63,22 +62,6 @@
         if ($error = "")
         {
             header("Location: index.php")
-=======
-        $arr['email_address'] = $_POST['email_address'];
-        $arr['passwrd'] = hash('sha1', $POST['passwrd']);
-        
-        $query = "select * from users where email_address = :email_address && passwrd = :passwrd limit 1";
-        $stm = $DB->prepare($query)
-        
-        if ($stm) {
-            $check = $stm->execute($arr);
-            if (!$check) {
-                
-            }
-            if ($error = ""){
-                header("Location: index.php")
-            }
->>>>>>> e85138005291df74b32de5d64e7a2d3b6081f38f
         }
     }
 ?>
