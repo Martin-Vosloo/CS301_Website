@@ -1,0 +1,265 @@
+/* ══════════════════════════════════════════
+   style.css — Gallery
+   ══════════════════════════════════════════ */
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS Variables (named colours & fonts) ── */
+:root {
+  --cream:   #faf7f2;
+  --sand:    #e8e0d3;
+  --stone:   #b0a090;
+  --charcoal:#3a3530;
+  --gold:    #c9a96e;
+  --white:   #ffffff;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'Jost', sans-serif;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.banner-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  /* clamp(min, preferred, max) — scales the font smoothly */
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 1.0;
+  color: var(--charcoal);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.banner-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.banner-sub {
+  max-width: 460px;
+  font-size: 14px;
+  color: var(--stone);
+  letter-spacing: 0.04em;
+  margin-bottom: 40px;
+}
+
+
+/* ══ INTRO ══ */
+.intro {
+  padding: 80px 24px 48px;
+  text-align: center;
+}
+
+/* ── Shared section labels ── */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin-bottom: 16px;
+}
+
+.section-title.light {
+  color: var(--white);
+}
+
+.section-body {
+  max-width: 580px;
+  margin: 0 auto;
+  color: var(--stone);
+  font-size: 14px;
+}
+
+/* ══ GALLERY ══ */
+.gallery {
+  padding: 0 24px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Category label row */
+.gallery-label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.gallery-label::before,
+.gallery-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--sand);
+}
+
+.cat-tag {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--stone);
+  white-space: nowrap;
+}
+
+/* ── Grid ── */
+.gallery-grid {
+  display: grid;
+  /* auto-fill: make as many columns as fit, each at least 240px wide */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  /* auto-rows: each row is 240px tall by default */
+  grid-auto-rows: 240px;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+/* Each card */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--sand);
+}
+
+/* Tall card spans 2 rows */
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+/* Wide card spans 2 columns */
+.gallery-item.wide {
+  grid-column: span 2;
+}
+
+/* Hover zoom on the image */
+.gallery-item img {
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* Caption that appears on hover */
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 18px;
+  background: linear-gradient(to top, rgba(58,53,48,0.7), transparent);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+
+  /* Hidden by default */
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.gallery-item:hover .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Description under each category's grid */
+.gallery-desc {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.gallery-desc h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.gallery-desc p {
+  color: var(--stone);
+  font-size: 14px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Thin gold rule between categories */
+.rule {
+  height: 1px;
+  background: var(--sand);
+  margin: 48px 0 48px;
+}
+
+/* ══ SPACE INTRO BLOCKS ══ */
+/* These sit between the category label and its grid */
+.space-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 36px;
+  padding: 0 12px;
+}
+
+/* Small tag above the title e.g. "Reception Hall" */
+.space-tag {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+/* The catchphrase / caption line */
+.space-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--charcoal);
+  margin-bottom: 14px;
+  line-height: 1.35;
+}
+
+/* The body / storyline paragraph */
+.space-body {
+  color: var(--stone);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Extra top spacing for a second paragraph */
+.space-body--gap {
+  margin-top: 12px;
+}
