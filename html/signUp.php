@@ -1,22 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up | Kampvuur en Konfetti</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet" />
-  <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet" />
-  <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet" />
-  <script src="../JavaScript/validation.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-</head>
-<body>
-  <!-- NAVBAR contained in external file -->
   <?php
-  include 'navbar.php';
 
   require '../php/connection.php';
 
@@ -44,9 +26,9 @@
       $check = $stm->execute();
       if ($check) {
         $result = $stm->get_result();
-        $data = $result->fetch_all(PDO::FETCH_ASSOC);
+        $data = $result->fetch_all(MYSQLI_ASSOC);
         if (is_array($data) && count($data) > 0) {
-          // $arr['userid'] = create_userid();
+          $arr['userid'] = create_userid();
         }
       }
       // $check->close();
@@ -74,17 +56,35 @@
       $check = $stm->execute();
       if (!$check) {
         $error = 'Could not save to database';
-      }
-      if ($error = '') {
-        header('Location: signIn.php');
+      } else {
+        header('Location: ../html/index.php');
+        exit;
       }
     }
-  }
-  if ($error != '') {
-    echo "<br><span style='color:red'>$error</span><br><br>";
+    if ($error != '') {
+      echo "<br><span style='color:red'>$error</span><br><br>";
+    }
   }
 
   ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up | Kampvuur en Konfetti</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet" />
+  <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet" />
+  <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet" />
+  <script src="../JavaScript/validation.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</head>
+<body>
+  <!-- NAVBAR contained in external file -->
+<?php include 'navbar.php' ?>;
 
   <main class="sign-main">
     <form action="" method="post">

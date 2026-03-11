@@ -1,3 +1,42 @@
+<?php
+session_start();
+require '../php/connection.php';
+
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $email = $_POST['email_address'];
+  $password = hash('sha1', $_POST['passwrd']);
+
+  $query = 'select * from users where email_address = ? AND passwrd = ? LIMIT 1';
+
+  $stm = $conn->prepare($query);
+
+  if ($stm) {
+    $stm->bind_param('ss', $email, $password);
+    $check = $stm->execute($arr);
+
+    if ($check) {
+      $result = $stm->get_result();
+      $data = $result->fetch_assoc();
+
+      if ($data) {
+        session_regenerate_id(true);
+
+        $_SESSION['myid'] = $data['id'];
+        $_SESSION['name'] = $data['fname'];
+
+        header('Location: ../html/index.php');
+        exit;
+      } else {
+        $error = 'Wrong username or password';
+      }
+    }
+  }
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,64 +54,27 @@
 </head>
 <body>
   <!-- NAVBAR contained in external file -->
-  <?php
-
-include 'navbar.php';
-
-  session_start();
-  require '../php/connection.php';
-
-  $error = '';
-
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $arr['email_address'] = $_POST['email_address'];
-
-    $arr['passwrd'] = hash('sha1', $_POST['passwrd']);
-
-    $query = 'select * from users where email_address = :email_address && passwrd = :password limit 1';
-    // $query = 'insert into users (identityNumber, fname, lname, email_address, passwrd) values (?, ?, ?, ?, ?)';
-    $stm = $conn->prepare($query);
-
-    $stm->bind_param('ssssss', $arr['identityNumber'], $arr['fname'], $arr['lname'], $arr['email_address'], $arr['passwrd'], $arr['role']);
-
-    if ($stm) {
-      $check = $stm->execute();
-      if ($check) {
-        $result = $stm->get_result();
-        $data = $result->fetch_all(PDO::FETCH_ASSOC);
-        if (is_array($data) && count($data) > 0)
-        {
-          $_SESSION['myid'] = $data[0]['id']
-        }
-      }
-        $error = 'Wrong username or password';
-      }
-      if ($error = '') {
-        
-        header('Location: signIn.php');
-      }
-    }
-  }
-  if ($error != '') {
-    echo "<br><span style='color:red'>$error</span><br><br>";
-  }
-
-  ?>
+<?php include 'navbar.php'; ?>
 
   <main class="sign-main">
-    <form action="#">
+    <form method="POST">
       <h1>Sign In</h1>
 
+ <?php
+if ($error) {
+  echo "<br><span style='color:red'>$error</span><br><br>";
+}
+?>
       <label for="email">Email Address</label>
       <div class="input_box">
         <i class="bx bx-envelope-open"></i>
-        <input type="text" name="email" id="email" required placeholder="email address" />
+        <input type="text" name="email_address" id="email_address" required placeholder="email address" />
       </div>
 
       <label for="password">Password</label>
       <div class="input_box">
         <i class="bx bx-lock-keyhole-open"></i>
-        <input type="password" name="password" id="password" required placeholder="password" />
+        <input type="password" name="passwrd" id="passwrd" required placeholder="password" />
       </div>
 
       <div class="formButtons">
