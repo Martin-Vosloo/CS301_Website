@@ -1,3 +1,9 @@
+<?php
+session_start();
+include_once "../php/alert.php";
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
