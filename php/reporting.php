@@ -1,6 +1,12 @@
 <?php
 require_once "../php/connection.php";
 
+function getDbConnection()
+{
+    global $conn;
+    return $conn;
+}
+
 function fetchBookingReportRows()
 {
     $db = $conn;
