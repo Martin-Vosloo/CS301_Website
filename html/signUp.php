@@ -118,3 +118,17 @@
   
 </body>
 </html>
+
+<!-- create table users(
+    id varchar(20) primary key auto increment,
+    fname varchar(50),
+    lname varchar(50),
+    email_address varchar(40),
+    password varchar(20),
+    role varchar(20),
+    alive bit default true,
+    constraint fname_format check (fname REGEXP '^[A-Za-z]+([ -]?[A-Za-z]+)*$'),
+    constraint lname_format check (lname REGEXP '^[A-Za-z]+([ -]?[A-Za-z]+)*$'),
+    constraint email_format check (email_address REGEXP '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'),
+    constraint password_length check (char_length(password) between 8 and 20)
+); -->
