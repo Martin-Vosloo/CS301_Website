@@ -43,7 +43,12 @@ $stmt->bind_param("sssssss",
     );
 }
 $stmt->execute();
-
+$_SESSION['alert'] = [
+        'type' => 'success',
+        'message' => 'Thank you! We cant wait to hear more about your day!'
+    ];
+    header("Location:../html/index.php");
+    exit();
 
 // $_SESSION['feedback'] = $feedback_message;
  // test whatever typed in the form is what the backend receives
