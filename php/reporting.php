@@ -1,15 +1,9 @@
 <?php
-require_once __DIR__ . "/connection.php";
-
-function getDbConnection()
-{
-    global $conn;
-    return $conn;
-}
+require_once "../php/connection.php";
 
 function fetchBookingReportRows()
 {
-    $db = getDbConnection();
+    $db = $conn;
     if (!$db || $db->connect_error) {
         return [];
     }
