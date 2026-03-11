@@ -38,15 +38,19 @@
     <table class="admin-table" id="curbooking" onload= >
         <!--php will add the table here -->
     </table>
+
+    <input type="text" name="searchString">
+
   </section>
 
   <table class="admin-table admin-tools">
     <tr>
-      <td><button>Order by date</button></td>
-      <td><button>Order by name</button></td>
-      <td><button>Search</button></td>
+      <td><button id="orderDate">Order by date</button></td>
+      <td><button id="orderName">Order by name</button></td>
+      <td><button id="search">Search</button></td>
     </tr>
   </table>
+
 
   <section id="changes">
     <div class="heading">
