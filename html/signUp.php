@@ -52,13 +52,13 @@
       // $check->close();
     }
 
-    $arr['fname'] = $_POST['fname'];
+    $arr['fname'] = clean($_POST['fname']);
 
-    $arr['lname'] = $_POST['lname'];
+    $arr['lname'] = clean($_POST['lname']);
 
-    $arr['email_address'] = $_POST['email_address'];
+    $arr['email_address'] = clean($_POST['email_address']);
 
-    $arr['passwrd'] = hash('sha1', $_POST['passwrd']);
+    $arr['passwrd'] = hash('sha1', clean($_POST['passwrd']));
 
     // $arr['salt'] = XXXXXXXXXXXXXXXx
 
