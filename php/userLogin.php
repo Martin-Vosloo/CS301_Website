@@ -10,8 +10,8 @@
             die ("Could not connect to database");
         }
 
-        $arr['email'] = $_POST['email'];
-        $arr['password'] = hash('sha1', $_POST['password']);
+        $arr['email'] = clean($_POST['email']);
+        $arr['password'] = hash('sha1', clean($_POST['password']));
         
         $query = "select * from users where user_id = :user_id limit 1";
         $stm = $DB->prepare($query)
@@ -34,7 +34,7 @@
                 
             }
         }
-
+    }
     $arr['email_address'] = $_POST['email_address'];
     $arr['passwrd'] = hash('sha1', $POST['passwrd']);
     

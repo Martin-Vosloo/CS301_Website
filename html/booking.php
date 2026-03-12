@@ -130,41 +130,41 @@ if (!$role) {
   <!-- ═══ BOOKING ═══ -->
   <section class="booking" id="book">
     <div class="booking-inner rv">
-      <p class="eyebrow">Enquire Now</p>
-      <h2>Let's plan your perfect day</h2>
+      <p class="eyebrow">Book Now</p>
+      <h2>Please fill in the form below</h2>
       <p>Send us a message and we'll get back to you within 24 hours.</p>
 
       <div id="bFormWrap">
-        <form class="bform" onsubmit="formDone(event)">
+        <form class="bform" action="../php/bookingForm.php" method="post" enctype="multipart/form-data">
           <div>
             <label>Your Name</label>
-            <input type="text" placeholder="Anné" required/>
+            <input type="text" placeholder="Anné" name="name1" required/>
           </div>
           <div>
             <label>Partner's Name</label>
-            <input type="text" placeholder="Pieter"/>
+            <input type="text"  name="name2" placeholder="Pieter"/>
           </div>
           <div>
             <label>Email</label>
-            <input type="email" placeholder="you@email.com" required/>
+            <input type="email" name="email" placeholder="you@email.com" required/>
           </div>
           <div>
             <label>Phone</label>
-            <input type="tel" placeholder="+27 00 000 0000"/>
+            <input type="tel" name="phone" placeholder="+27 00 000 0000"/>
           </div>
           <div>
             <label>Check-in Date </label>
-            <input type="date" required/>
+            <input type="date" name="check-in" required/>
           </div>
 
 
           <div>
             <label>Check-out Date</label>
-            <input type="date" required/>
+            <input type="date" name="check-out" required/>
           </div>
           <div class="full">
             <label>Tell us about your preferences</label>
-            <textarea placeholder="Describe your dream day…"></textarea>
+            <textarea placeholder="Describe your dream day…" name="text"></textarea>
           </div>
           
 
@@ -172,22 +172,22 @@ if (!$role) {
             <h2>Services Required</h2>
             <div class="checkbox-grid">
               <label class="custom-check">
-                <input type="checkbox" name="services[]" value="catering-full" />
+                <input type="checkbox" name="services" value="catering-full" />
                 <span>Full Catering</span>
               </label>
 
               <label class="custom-check">
-                <input type="checkbox" name="services[]" value="catering-self" />
+                <input type="checkbox" name="services" value="catering-self" />
                 <span>Self-Catering</span>
               </label>
 
               <label class="custom-check">
-                <input type="checkbox" name="services[]" value="photographer" />
+                <input type="checkbox" name="services" value="photographer" />
                 <span>Photographer</span>
               </label>
 
               <label class="custom-check">
-                <input type="checkbox" name="services[]" value="lodging" />
+                <input type="checkbox" name="services" value="lodging" />
                 <span>Lodging</span>
               </label>
             </div>
