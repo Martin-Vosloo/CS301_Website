@@ -13,7 +13,7 @@
     <?php include 'navbar.php'; ?>
 
     <?php
-      require_once __DIR__ . '../php/reporting.php';
+      require_once __DIR__ . '/../php/reporting.php';
       $bookings = fetchBookingReportRows();
 
       function safeText($value)

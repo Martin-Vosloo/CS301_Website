@@ -1,16 +1,17 @@
 <?php
 require "../php/connection.php";
 
-function getDbConnection()
-{
-    global $conn;
-    return $conn;
-}
+// function getDbConnection()
+// {
+//     global $conn;
+//     return $conn;
+// }
 
 function fetchBookingReportRows()
 {
+    global $conn;
     $db = $conn;
-    if (!$conn || $conn->connect_error) {
+    if (!$db || $db->connect_error) {
         return [];
     }
     
@@ -26,10 +27,10 @@ function fetchBookingReportRows()
                 b.lodging,
                 b.wedding_preference
             FROM booking b
-            INNER JOIN users u ON u.identityNumber = b.idNo
+            INNER JOIN users u ON u.id = b.idNo
             ORDER BY b.start_Date DESC";
 
-    $result = $conn->query($sql);
+    $result = $db->query($sql);
     if (!$result) {
         return [];
     }
