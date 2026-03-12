@@ -1,12 +1,20 @@
 <?php
 session_start();
+$redirect = $_GET['redirect'] ?? '../html/index.php';
+
 require '../php/connection.php';
 
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $email = $_POST['email_address'];
-  $password = hash('sha1', $_POST['password']);
+  $input = $_POST['password'];
+
+  if (password_verify($input, $hash)) {
+    $password = $input;
+  } else {
+    echo 'incorrect password';
+  }
 
   $query = 'select * from users where email_address = ? AND password = ? LIMIT 1';
 
@@ -27,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['name'] = $user['fname'];
         $_SESSION['role'] = $user['role'];
 
-        header('Location: ../html/index.php');
+        $redirectTo = $_POST['redirect'] ?? $redirect ?? '../html/index.php';
+        header("Location: $redirectTo");
         exit;
       } else {
         $error = 'Wrong username or password';
@@ -60,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   <main class="sign-main">
     <form method="POST">
+      <input type="hidden" name="redirect" value="<?= htmlspecialchars($redirect) ?>">
       <h1>Sign In</h1>
 
  <?php

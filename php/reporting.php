@@ -1,5 +1,5 @@
 <?php
-require_once "../php/connection.php";
+require_once '../php/connection.php';
 
 function getDbConnection()
 {
@@ -14,7 +14,7 @@ function fetchBookingReportRows()
         return [];
     }
 
-    $sql = "SELECT 
+    $sql = 'SELECT 
                 u.fname,
                 u.lname,
                 u.email_address,
@@ -26,7 +26,7 @@ function fetchBookingReportRows()
                 b.wedding_preference
             FROM booking b
             INNER JOIN users u ON u.identityNumber = b.idNo
-            ORDER BY b.start_Date DESC";
+            ORDER BY b.start_Date DESC';
 
     $result = $db->query($sql);
     if (!$result) {
@@ -36,19 +36,18 @@ function fetchBookingReportRows()
     $rows = [];
     while ($row = $result->fetch_assoc()) {
         $rows[] = [
-            "fname" => $row["fname"],
-            "lname" => $row["lname"],
-            "email_address" => $row["email_address"],
-            "start_date" => $row["start_Date"],
-            "duration" => (int) $row["duration"],
-            "fullcatering" => (int) $row["full_catering"],
-            "photographer" => (int) $row["photographer"],
-            "lodging" => (int) $row["lodging"],
-            "wedding_preference" => $row["wedding_preference"],
+            'fname' => $row['fname'],
+            'lname' => $row['lname'],
+            'email_address' => $row['email_address'],
+            'start_date' => $row['start_Date'],
+            'duration' => (int) $row['duration'],
+            'fullcatering' => (int) $row['full_catering'],
+            'photographer' => (int) $row['photographer'],
+            'lodging' => (int) $row['lodging'],
+            'wedding_preference' => $row['wedding_preference'],
         ];
     }
 
     $result->free();
     return $rows;
 }
-

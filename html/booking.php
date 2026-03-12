@@ -1,3 +1,14 @@
+<?php
+session_start();  // make sure session is started
+$role = $_SESSION['role'] ?? null;
+$name = $_SESSION['name'] ?? null;
+
+if (!$role) {
+  $currentPage = urlencode($_SERVER['REQUEST_URI']);
+  header("Location: ../html/signIn.php?redirect=$currentPage");
+  exit;
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>

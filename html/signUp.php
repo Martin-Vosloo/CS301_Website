@@ -24,7 +24,7 @@
     if ($password !== $password_conf) {
       $error = 'Passwords do not match';
     } else {
-      $password_hashed = hash('sha1', $password);
+      $hash = password_hash($password, PASSWORD_DEFAULT);
       $role = 'user';
 
       // Insert user into DB (id auto-increment)
@@ -32,7 +32,7 @@
       $stm = $conn->prepare($query);
 
       if ($stm) {
-        $stm->bind_param('sssss', $fname, $lname, $email_address, $password_hashed, $role);
+        $stm->bind_param('sssss', $fname, $lname, $email_address, $hash, $role);
 
         if ($stm->execute()) {
           header('Location: ../html/index.php');

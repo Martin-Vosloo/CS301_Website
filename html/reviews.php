@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../php/alert.php";
+include_once '../php/alert.php';
 ?>
 
 
@@ -113,11 +113,11 @@ include_once "../php/alert.php";
         <div class="right"><img src="../images/reviews/rev3.png" alt="Couple walking" /></div>
       </article>
     </section>
-
+<!-- 
     <section class="quote-section">
       <p class="section-small-title">A moment in time</p>
       <h2>The best photographs feel like you can hear the laughter.</h2>
-    </section>
+    </section> -->
 
     <section class="review-form-section" id="reviewForm">
       <p class="section-small-title">Share your experience</p>
