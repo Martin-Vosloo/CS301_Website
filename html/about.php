@@ -1,7 +1,3 @@
-<?php
-session_start()
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,7 +26,7 @@ session_start()
           Founded in 2016, our wedding venue was created with a clear vision to provide an elegant space where meaningful celebration comes to life.
           With attention to detail and a commitment to excellence, we strive to make every wedding seamless, meaningful, and truly memorable.
         </p>
-        <button class="directionsBtn" id="directionsBtn">Get Directions</button>
+        <button type="button" class="directionsBtn" id="directionsBtn">Get Directions</button>
       </article>
     </section>
 
@@ -126,4 +122,5 @@ session_start()
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
+
 
