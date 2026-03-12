@@ -1,33 +1,42 @@
 /* BOOKING.JS
 
-    - this function is created so that specific dates picked must be submitted
-    - The form will show a message once completed and successfully inptted.
-    - the function makes sure that catering is selected.
-
+    - Ensure dates are valid and required options are selected.
 */
 
-const today = new Date().toISOString().split('T')[0];
-  document.getElementById('checkin').min = today;
-  document.getElementById('checkout').min = today;
+const checkinInput = document.getElementById('checkin');
+const checkoutInput = document.getElementById('checkout');
+const bookingForm = document.getElementById('form');
 
-  document.getElementById('checkin').addEventListener('change', function () {
-    const co = document.getElementById('checkout');
-    co.min = this.value;
-    if (co.value && co.value <= this.value) co.value = '';
+if (checkinInput && checkoutInput) {
+  const today = new Date().toISOString().split('T')[0];
+  checkinInput.min = today;
+  checkoutInput.min = today;
+
+  checkinInput.addEventListener('change', function () {
+    checkoutInput.min = this.value;
+    if (checkoutInput.value && checkoutInput.value <= this.value) checkoutInput.value = '';
   });
+}
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const ci = document.getElementById('checkin').value;
-    const co = document.getElementById('checkout').value;
+if (bookingForm) {
+  bookingForm.addEventListener('submit', function (e) {
+    const ci = checkinInput ? checkinInput.value : '';
+    const co = checkoutInput ? checkoutInput.value : '';
     const catering = document.querySelector('input[name="catering"]:checked');
 
-    if (!ci || !co)  { alert('Please select both check-in and check-out dates.'); return; }
-    if (co <= ci)    { alert('Check-out must be after check-in.'); return; }
-    if (!catering)   { alert('Please select a catering option.'); return; }
-
-    document.getElementById('form').style.display = 'none';
-    const s = document.getElementById('success');
-    s.classList.add('show');
-    s.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+    if (!ci || !co) {
+      e.preventDefault();
+      alert('Please select both check-in and check-out dates.');
+      return;
+    }
+    if (co <= ci) {
+      e.preventDefault();
+      alert('Check-out must be after check-in.');
+      return;
+    }
+    if (!catering) {
+      e.preventDefault();
+      alert('Please select a catering option.');
+    }
+  });
+}

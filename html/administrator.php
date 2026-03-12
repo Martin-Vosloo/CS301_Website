@@ -20,11 +20,6 @@
       {
           return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
       }
-
-      function formatBool($value)
-      {
-          return ((int) $value) === 1 ? 'Yes' : 'No';
-      }
     ?>
 
     <section class="containsTable" id="currentBookings">
@@ -34,56 +29,39 @@
 
       <table class="admin-table" id="curbooking">
         <tr>
+          <th>Booking ID</th>
           <th>First name</th>
           <th>Last name</th>
           <th>Email</th>
+          <th>People</th>
           <th>Start date</th>
-          <th>Duration</th>
-          <th>Full catering</th>
-          <th>Photographer</th>
-          <th>Lodging</th>
-          <th>Wedding preferences</th>
+          <th>Duration (days)</th>
+          <th>Package</th>
         </tr>
 
         <?php if (empty($bookings)): ?>
           <tr>
-            <td colspan="9">No bookings found.</td>
+            <td colspan="8">No bookings found.</td>
           </tr>
         <?php else: ?>
           <?php foreach ($bookings as $booking): ?>
             <tr>
-              <td><?php echo safeText($booking['fname']); ?></td>
+              <td><?php echo safeText($booking['booking_id']); ?></td>
+              <td><?php echo safeText($booking['fname'] ?: 'Guest'); ?></td>
               <td><?php echo safeText($booking['lname']); ?></td>
               <td><?php echo safeText($booking['email_address']); ?></td>
+              <td><?php echo safeText($booking['number_of_people']); ?></td>
               <td>
                 <time datetime="<?php echo safeText($booking['start_date']); ?>">
                   <?php echo safeText($booking['start_date']); ?>
                 </time>
               </td>
               <td><?php echo safeText($booking['duration']); ?></td>
-              <td><?php echo formatBool($booking['fullcatering']); ?></td>
-              <td><?php echo formatBool($booking['photographer']); ?></td>
-              <td><?php echo formatBool($booking['lodging']); ?></td>
-              <td>
-                <button
-                  type="button"
-                  onclick="showWeddingPreference('<?php echo safeText($booking['wedding_preference']); ?>')"
-                >
-                  View
-                </button>
-              </td>
+              <td><?php echo safeText($booking['package_id']); ?></td>
             </tr>
           <?php endforeach; ?>
         <?php endif; ?>
       </table>
     </section>
-
-    <script>
-      function showWeddingPreference(text) {
-        var message = text && text.trim() ? text : 'No wedding preference provided.';
-        alert(message);
-      }
-    </script>
   </body>
 </html>
-

@@ -17,9 +17,8 @@ if (!$role) {
     <title>Book a Wedding Venue</title>
 
     <link rel="stylesheet" href="../css/bookings.css" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../css/style.css"/>
-    <!-- <link rel="stylesheet" href="../css/bookings.css" /> -->
   </head>
   <body class="booking-body" >
     
@@ -37,7 +36,7 @@ if (!$role) {
   </div>
 
 <!-- BEGINNING OF BOOKING FORM -->
-  <form id="form" action="../php/bookingForm.php" method="post" enctype="multipart/form-data">>
+  <form id="form" action="../php/bookingForm.php" method="post" enctype="multipart/form-data">
 
     <div class="section">
       <div class="section-title">Your Dates</div>
@@ -50,6 +49,14 @@ if (!$role) {
           <label for="checkout">Check-out</label>
           <input type="date" id="checkout" name="checkout" required />
         </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Guests</div>
+      <div class="field">
+        <label for="number_of_people">Number of people</label>
+        <input type="number" id="number_of_people" name="number_of_people" min="1" max="500" required />
       </div>
     </div>
 
@@ -75,12 +82,12 @@ if (!$role) {
       <div class="section-title">Optional Add-ons</div>
       <div class="check-group">
         <label class="check-row">
-          <input type="checkbox" name="photography" value="yes" />
+          <input type="checkbox" name="photography" value="1" />
           <span class="check-label">Photography</span>
           <span class="check-tag">R10 000</span>
         </label>
         <label class="check-row">
-          <input type="checkbox" name="accommodation" value="yes" />
+          <input type="checkbox" name="accommodation" value="1" />
           <span class="check-label">Accommodation</span>
           <span class="check-tag">R5 000 /room/day</span>
         </label>
@@ -92,7 +99,7 @@ if (!$role) {
       <div class="section-title">Preferences</div>
       <div class="field">
         <label for="prefs">Notes &amp; special requests</label>
-        <textarea id="prefs" name="preferences" placeholder="Dietary needs, accessibility, or anything else…"></textarea>
+        <textarea id="prefs" name="preferences" placeholder="Dietary needs, accessibility, or anything else..."></textarea>
       </div>
     </div>
 
@@ -106,7 +113,7 @@ if (!$role) {
 
   <!-- BEGINNING OF BCONFIRMATION OF BOOKING -->
   <div class="success" id="success">
-    <div class="success-mark">✓</div>
+    <div class="success-mark">&#10003;</div>
     <h2>Reservation Received</h2>
     <p>Thank you. Our team will be in touch<br/>within 24 hours to confirm your booking.</p>
   </div>
@@ -121,3 +128,4 @@ if (!$role) {
     <script src="../JavaScript/validation.js" defer></script>
   </body>
 </html>
+

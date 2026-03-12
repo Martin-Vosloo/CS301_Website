@@ -21,9 +21,9 @@ include_once '../php/alert.php';
   <link rel="stylesheet" href="../css/style.css"/>
 
 </head>
-<body>
+<body class="home-body">
 
-  <!-- ═══ HERO SLIDESHOW ═══ -->
+  <!-- === HERO SLIDESHOW === -->
   <section class="hero">
 
     <div class="slide active">
@@ -45,7 +45,7 @@ include_once '../php/alert.php';
     <div class="hero-overlay"></div>
 
     <div class="hero-name">
-      <p class="venue-pre">Wedding Venue · South Africa</p>
+      <p class="venue-pre">Wedding Venue &middot; South Africa</p>
       <h1 class="venue-title">
         Kampvuur
         <em>en Konfetti</em>
@@ -62,14 +62,12 @@ include_once '../php/alert.php';
 
   </section>
 
-  <!-- ═══ NAVIGATION BAR ═══ -->
+  <!-- === NAVIGATION BAR === -->
   
-<body class="home-body">
-  
-<!-- NAVBAR contained in external file -->
+  <!-- NAVBAR contained in external file -->
   <?php include 'navbar.php' ?>
 
-  <!-- ═══ ABOUT ═══ -->
+  <!-- === ABOUT === -->
 <section class="about rv">
   <p class="eyebrow">What we offer</p>
   <h2>A setting as special as<br><em>your love story</em></h2>
@@ -77,40 +75,40 @@ include_once '../php/alert.php';
   
 </section>
 
-  <!-- ═══ WHAT WE OFFER ═══ -->
+  <!-- === WHAT WE OFFER === -->
 
   <section class="cards">
     <section class="card">
       <img src="../images/venue/catering2.jpeg" alt="Catering service" />
       <h3 class="card-heading">Catering</h3>
       <p class="card-text">Enjoy a delicious selection of meals prepared with fresh ingredients.</p>
-      <a href="booking.html" class="book-btn-link">Book now</a>
+      <a href="booking.php" class="book-btn-link">Book now</a>
     </section>
 
     <section class="card">
       <img src="../images/venue/photography.jpeg" alt="Wedding photography" />
       <h3 class="card-heading">Photography</h3>
       <p class="card-text">Capture every beautiful moment of your wedding day with us.</p>
-      <a href="booking.html" class="book-btn-link">Book now</a>
+      <a href="booking.php" class="book-btn-link">Book now</a>
     </section>
 
     <section class="card">
       <img src="../images/venue/reception_table5.jpg" alt="Wedding decor" />
       <h3 class="card-heading">Venue Decoration</h3>
       <p class="card-text">Elegant decorations designed to match your wedding vision.</p>
-      <a href="booking.html" class="book-btn-link">Book now</a>
+      <a href="booking.php" class="book-btn-link">Book now</a>
     </section>
 
     <section class="card">
       <img src="../images/venue/outside_chairs.jpg" alt="Accommodation" />
       <h3 class="card-heading">Accommodation</h3>
       <p class="card-text">Comfortable accommodation is available for you and your guests.</p>
-      <a href="booking.html" class="book-btn-link">Book now</a>
+      <a href="booking.php" class="book-btn-link">Book now</a>
     </section>
   </section>
 
 
-  <!-- ═══ BOOKING ═══ -->
+  <!-- === BOOKING === -->
   <section class="booking" id="book">
     <div class="booking-inner rv">
       <p class="eyebrow">Enquire Now</p>
@@ -118,41 +116,41 @@ include_once '../php/alert.php';
       <p>Send us a message and we'll get back to you within 24 hours.</p>
 
       <div id="bFormWrap">
-        <form class="bform" >
+        <form class="bform" action="../php/enquiryForm.php" method="post">
           <div>
             <label>Your Name</label>
-            <input id="couple_names" type="text" placeholder="Anné" required/>
+            <input id="couple-names" name="name1" type="text" placeholder="Anne" required/>
           </div>
           <div>
             <label>Partner's Name</label>
-            <input id="couple_names" type="text" placeholder="Pieter"/>
+            <input id="partner-name" name="name2" type="text" placeholder="Pieter" required/>
           </div>
           <div>
             <label>Email</label>
-            <input  id="email" type="email" placeholder="you@email.com" required/>
+            <input id="email" name="email" type="email" placeholder="you@email.com" required/>
           </div>
           <div>
             <label>Phone</label>
-            <input id ="phone" type="tel" placeholder="+27 00 000 0000"/>
+            <input id="phone" name="phone" type="tel" placeholder="+27 00 000 0000"/>
           </div>
           <div>
             <label>Wedding Date</label>
-            <input type="date" required/>
+            <input name="date" type="date" required/>
           </div>
           <div>
             <label>Number of Guests</label>
-            <select required>
+            <select name="guests" required>
               <option value="" disabled selected>Select</option>
-              <option>Under 50</option>
-              <option>50 – 100</option>
-              <option>100 – 150</option>
-              <option>150 – 200</option>
-              <option>200+</option>
+              <option value="Under 50">Under 50</option>
+              <option value="50 - 100">50 - 100</option>
+              <option value="100 - 150">100 - 150</option>
+              <option value="150 - 200">150 - 200</option>
+              <option value="200+">200+</option>
             </select>
           </div>
           <div class="full">
             <label>Tell us about your vision</label>
-            <textarea placeholder="Describe your dream day…"></textarea>
+            <textarea name="text" placeholder="Describe your dream day..." required></textarea>
           </div>
           <div class="full center">
             <button type="submit" class="btn-submit">Send Enquiry</button>
@@ -163,16 +161,14 @@ include_once '../php/alert.php';
     </div>
   </section>
 
-  <!-- ═══ FOOTER ═══ -->
+  <!-- === FOOTER === -->
 
   <!-- FOOTER contained in external file -->
   <?php include 'footer.php' ?>
-
-  <!-- END OF THE FOOTER-->
-  <!--<script src="../JavaScript/new_index.js"></script>-->
 
   <script src="../JavaScript/new_index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
 </body>
 </html>
+

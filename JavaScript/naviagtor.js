@@ -8,7 +8,10 @@
 
 // the button id is directionBtn which is styled in csss to have a nicer look. 
 
-document.getElementById("directionsBtn").addEventListener("click", getDirections);
+const directionsBtn = document.getElementById("directionsBtn");
+if (directionsBtn) {
+    directionsBtn.addEventListener("click", getDirections);
+}
 
 function getDirections() {
     const venueLat = -24.450427344869926;

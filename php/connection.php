@@ -12,10 +12,6 @@ if ($conn->connect_error) {
 
 function clean($text)
 {
-    // using cleaner class and the usual stuff for the forms
-    // $conf = HTMLPurifier_Config::createDefault();
-    // $purifier = new HTMLPurifier($conf);
-    //purifier requires the installation of the purifier files
-    return htmlspecialchars(stripslashes(trim(/* $purifier->purify( */ $text)));
+    return htmlspecialchars(stripslashes(trim($text)), ENT_QUOTES, 'UTF-8');
 }
 ?>

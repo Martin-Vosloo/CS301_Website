@@ -1,64 +1,86 @@
 <?php
-    require "connection.php";
-    $error = "";
-    private function create_userid()
-    {
-        $length = rand(4, 20);
-        $number = "";
-        for($i=0; $i < $length; $i++){
-            $new_rand = rand(0, 9);
-            $number = $number . $new_rand;
-        }
-        return $number;
+session_start();
+require_once "connection.php";
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: ../html/signUp.php');
+    exit;
+}
+
+$fname = clean($_POST['fname'] ?? '');
+$lname = clean($_POST['lname'] ?? '');
+$email_address = clean($_POST['email_address'] ?? '');
+$password = $_POST['password'] ?? '';
+$password_conf = $_POST['password_conf'] ?? '';
+
+if ($fname === '' || $lname === '' || $email_address === '' || $password === '' || $password_conf === '') {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Please fill in all required fields.'
+    ];
+    header('Location: ../html/signUp.php');
+    exit;
+}
+
+if ($password !== $password_conf) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Passwords do not match.'
+    ];
+    header('Location: ../html/signUp.php');
+    exit;
+}
+
+// Check if email is already in use
+$checkQuery = 'SELECT id FROM users WHERE email_address = ? LIMIT 1';
+$checkStmt = $conn->prepare($checkQuery);
+if ($checkStmt) {
+    $checkStmt->bind_param('s', $email_address);
+    $checkStmt->execute();
+    $checkStmt->store_result();
+    if ($checkStmt->num_rows > 0) {
+        $_SESSION['alert'] = [
+            'type' => 'error',
+            'message' => 'An account with that email already exists.'
+        ];
+        $checkStmt->close();
+        header('Location: ../html/signUp.php');
+        exit;
     }
-    
-    if($_SERVER['REQUEST_METHOD'] == "POST")
-    {
-        if (!$DB = new PDO("mysql:host=localhost;dbname=XXXX", "root", ""))
-        {
-            die ("Could not connect to database");
-        }
+    $checkStmt->close();
+}
 
-        $arr['user_id'] = create_userid();
-        
-        $query = "select * from users where user_id = :user_id limit 1";
-        $stm = $DB->prepare($query)
+$hash = password_hash($password, PASSWORD_DEFAULT);
+$role = 'user';
+$alive = 1;
 
-        if ($stm)
-        {
-            $check = $stm->execute($arr);
-            if ($check)
-            {
-                $data = $stm->fetchAll(PDO::FETCH_ASSOC);
-                if (is_array($data) && count($data) > 0)
-                {
-                    $arr['userid'] = create_userid();
-                    continue;
-                }
-            }
-        }
+$insertQuery = 'INSERT INTO users (fname, lname, email_address, password, role, alive) VALUES (?, ?, ?, ?, ?, ?)';
+$insertStmt = $conn->prepare($insertQuery);
+if (!$insertStmt) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Database error. Please try again.'
+    ];
+    header('Location: ../html/signUp.php');
+    exit;
+}
 
-        $arr['fname'] = clean($_POST['fname']);
-        $arr['lname'] = clean($_POST['name']);
-        $arr['email_address'] = clean($_POST['email_address']);
-        $arr['passwrd'] = hash('sha1', clean($POST['passwrd']));
-        $arr['user_role'] = "user ";
-        
-        $query = "insert into users (user_id, fname, lname, email_address, passwrd, user_role) values (:user_id, :fname, :lname, :email_address, :passwrd, :user_role)";
-        
-        $stm = $DB->prepare($query)
-        
-        if ($stm)
-        {
-            $check = $stm->execute($arr);
-            if (!$check)
-            {
-                $error = "Could not save to database";
-            }
-            if ($error = "")
-             {
-                header("Location: login.php")
-            }
-        }
-    }
+$insertStmt->bind_param('sssssi', $fname, $lname, $email_address, $hash, $role, $alive);
+if ($insertStmt->execute()) {
+    $_SESSION['alert'] = [
+        'type' => 'success',
+        'message' => 'Account created successfully. Please sign in.'
+    ];
+    $insertStmt->close();
+    header('Location: ../html/signIn.php');
+    exit;
+}
+
+$insertStmt->close();
+$_SESSION['alert'] = [
+    'type' => 'error',
+    'message' => 'Could not save to the database. Please try again.'
+];
+header('Location: ../html/signUp.php');
+exit;
 ?>

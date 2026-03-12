@@ -3,7 +3,7 @@
       <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
       <small>
         Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze, Nwabisa Malawu<br />
-        Authors: <a href="about.html">Contact Details</a>
+        Authors: <a href="about.php">Contact Details</a>
       </small>
     </p>
     <nav>
