@@ -118,7 +118,7 @@ include_once "../php/alert.php";
       <p>Send us a message and we'll get back to you within 24 hours.</p>
 
       <div id="bFormWrap">
-        <form class="bform" onsubmit="formDone(event)">
+        <form class="bform" >
           <div>
             <label>Your Name</label>
             <input id="couple_names" type="text" placeholder="Anné" required/>
@@ -159,7 +159,7 @@ include_once "../php/alert.php";
           </div>
         </form>
       </div>
-      <p id="form-thanks">Thank you! We can't wait to hear more about your day. ✦</p>
+      
     </div>
   </section>
 
