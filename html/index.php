@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../php/alert.php";
+include_once '../php/alert.php';
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ include_once "../php/alert.php";
       </h1>
       <div class="venue-rule"></div>
       <p class="venue-tagline">Where fireside warmth meets confetti joy</p>
-      <div class="hero-book"><a href="../html/booking.html">Book Your Date</a></div>
+      <div class="hero-book"><a href="../html/booking.php">Book Your Date</a></div>
     </div>
 
     <button class="arrow arrow-prev" onclick="prevSlide()">&#8249;</button>
