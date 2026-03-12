@@ -45,6 +45,7 @@ $stmt->bind_param("sssssssss",
 
     );
 }
+
  $_SESSION['alert'] = [
     'type' => 'success',
     'message' => 'Booking is submitted successfully!'

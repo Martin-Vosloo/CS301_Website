@@ -17,6 +17,7 @@ include_once "../php/alert.php";
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/popups.css" />
   <script src="../JavaScript/popups.js" defer></script>
+  <script src="../JavaScript/validation.js" defer></script>
   <link rel="stylesheet" href="../css/style.css"/>
 
 </head>
@@ -51,7 +52,7 @@ include_once "../php/alert.php";
       </h1>
       <div class="venue-rule"></div>
       <p class="venue-tagline">Where fireside warmth meets confetti joy</p>
-      <div class="hero-book"><a href="../html/booking.php">Book Your Date</a></div>
+      <div class="hero-book"><a href="../html/booking.html">Book Your Date</a></div>
     </div>
 
     <button class="arrow arrow-prev" onclick="prevSlide()">&#8249;</button>
@@ -117,48 +118,48 @@ include_once "../php/alert.php";
       <p>Send us a message and we'll get back to you within 24 hours.</p>
 
       <div id="bFormWrap">
-        <form class="bform" action="../php/enquiryForm.php" method="post" enctype="multipart/form-data">
+        <form class="bform" onsubmit="formDone(event)">
           <div>
             <label>Your Name</label>
-            <input type="text" placeholder="Anné" name ="name1"  required/>
+            <input id="couple_names" type="text" placeholder="Anné" required/>
           </div>
           <div>
             <label>Partner's Name</label>
-            <input type="text" placeholder="Pieter" name ="name2" />
+            <input id="couple_names" type="text" placeholder="Pieter"/>
           </div>
           <div>
             <label>Email</label>
-            <input type="email" placeholder="you@email.com" name ="email"  required/>
+            <input  id="email" type="email" placeholder="you@email.com" required/>
           </div>
           <div>
             <label>Phone</label>
-            <input type="tel" placeholder="+27 00 000 0000" name="phone" />
+            <input id ="phone" type="tel" placeholder="+27 00 000 0000"/>
           </div>
           <div>
             <label>Wedding Date</label>
-            <input type="date" name="date" required/>
+            <input type="date" required/>
           </div>
           <div>
             <label>Number of Guests</label>
-            <select  name="guests" required>
-              <option value="" disabled selected >Select</option>
+            <select required>
+              <option value="" disabled selected>Select</option>
               <option>Under 50</option>
-              <option>50 - 100</option>
-              <option>100 - 150</option>
-              <option>150 - 200</option>
+              <option>50 – 100</option>
+              <option>100 – 150</option>
+              <option>150 – 200</option>
               <option>200+</option>
             </select>
           </div>
           <div class="full">
             <label>Tell us about your vision</label>
-            <textarea placeholder="Describe your dream day…" name="text" ></textarea>
+            <textarea placeholder="Describe your dream day…"></textarea>
           </div>
           <div class="full center">
             <button type="submit" class="btn-submit">Send Enquiry</button>
           </div>
         </form>
       </div>
-      <!-- <p id="form-thanks">Thank you! We can't wait to hear more about your day. ✦</p> -->
+      <p id="form-thanks">Thank you! We can't wait to hear more about your day. ✦</p>
     </div>
   </section>
 

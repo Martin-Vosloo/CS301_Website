@@ -5,8 +5,8 @@ require '../php/connection.php';
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $email = $_POST['email_address'];
-  $password = hash('sha1', $_POST['password']);
+  $email = clean($_POST['email_address']);
+  $password = hash('sha1', clean($_POST['password']));
 
   $query = 'select * from users where email_address = ? AND password = ? LIMIT 1';
 
@@ -70,7 +70,7 @@ if ($error) {
       <label for="email">Email Address</label>
       <div class="input_box">
         <i class="bx bx-envelope-open"></i>
-        <input type="text" name="email_address" id="email_address" required placeholder="email address" />
+        <input type="text" name="email_address" id="email" required placeholder="email address" />
       </div>
 
       <label for="password">Password</label>
