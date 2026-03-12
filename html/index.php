@@ -58,9 +58,16 @@
 
   </section>
 
+<<<<<<< HEAD
   <!-- === NAVIGATION BAR === -->
   
   <!-- NAVBAR contained in external file -->
+=======
+  
+  <body class="home-body">
+    
+    <!-- ═══ NAVIGATION BAR ═══ -->
+>>>>>>> 020dc31244658ca13f4ed9e8622af73118d8c92d
   <?php include 'navbar.php' ?>
 
   <!-- === ABOUT === -->
