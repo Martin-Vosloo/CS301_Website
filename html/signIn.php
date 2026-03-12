@@ -1,33 +1,36 @@
 <?php
 session_start();
+$redirect = $_GET['redirect'] ?? '../html/index.php';
+
 require '../php/connection.php';
 
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $email = clean($_POST['email_address']);
-  $password = hash('sha1', clean($_POST['password']));
+  $email = $_POST['email_address'];
+  $input = $_POST['password'];
 
-  $query = 'select * from users where email_address = ? AND password = ? LIMIT 1';
-
+  // Fetch user
+  $query = 'select * from users where email_address = ? limit 1';
   $stm = $conn->prepare($query);
 
   if ($stm) {
-    $stm->bind_param('ss', $email, $password);
-    $check = $stm->execute();
+    $stm->bind_param('s', $email);
+    $stm->execute();
+    $result = $stm->get_result();
+    $user = $result->fetch_assoc();
 
-    if ($check) {
-      $result = $stm->get_result();
-      $user = $result->fetch_assoc();
-
-      if ($user) {
+    if ($user) {
+      $hash = $user['password'];
+      if (password_verify($input, $hash)) {
+        // password has been verified
         session_regenerate_id(true);
-
         $_SESSION['myid'] = $user['id'];
         $_SESSION['name'] = $user['fname'];
         $_SESSION['role'] = $user['role'];
 
-        header('Location: ../html/index.php');
+        $redirectTo = $_POST['redirect'] ?? $redirect ?? '../html/index.php';
+        header("Location: $redirectTo");
         exit;
       } else {
         $error = 'Wrong username or password';
@@ -35,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
       $error = 'Database query failed';
     }
+  } else {
+    $error = 'No user found with that email';
   }
 }
 ?>
@@ -60,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   <main class="sign-main">
     <form method="POST">
+      <input type="hidden" name="redirect" value="<?= htmlspecialchars($redirect) ?>">
       <h1>Sign In</h1>
 
  <?php

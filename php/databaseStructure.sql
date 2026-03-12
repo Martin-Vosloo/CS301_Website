@@ -2,53 +2,48 @@
 
 -- #create users table
 create table users(
-	id varchar(20) Primary Key,
-	-- #constraint checkId_len CHECK(CHAR_LENGTH(id) in (9,11,12,13,15,18) ),
-	fname varchar(50),
-	-- #check the first name using like to imitate regular expressions
-	constraint fname_format check(fname like('%[^A-Za-z]%')),
-	lname varchar(50),
-    -- #check the last name using like to imitate regular expressions
-	constraint lname_format check(lname like('%[^A-Za-z]%')),
+    id integer primary key auto_increment,	
+    fname varchar(50),
+    lname varchar(50),
     email_address varchar(40),
-    -- #check if the email is in the correct format
-    constraint email check(email like'%[^A-Za-z0-9@._-]%' and email like '%@%' and email like '%.%'),
-	password varchar(20),
-    -- #check the format of the password
-    constraint word_length check(char_length(password)>7 and char_length(password)<20),
-	
-	role varchar(20),
-    -- #we are keeping the data not deleting user
-	alive bit default true
+    password varchar(20),
+    role varchar(20),
+    alive bit default true,
+    constraint fname_format check (fname REGEXP '^[A-Za-z]+([ -]?[A-Za-z]+)*$'),
+    constraint lname_format check (lname REGEXP '^[A-Za-z]+([ -]?[A-Za-z]+)*$'),
+    constraint email_format check (email_address REGEXP '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'),
+    constraint password_length check (char_length(password) between 8 and 20)
 );
 
 -- #creating the reviews table
 create table reviews(
-	id int primary key,
-    user_id varchar(100),
+    id integer primary key auto_increment,
+    user_id integer,
     text_review varchar(300),
     image varchar(100),
-	rating integer,
-	date_of_review datetime default current_timestamp,
-	constraint stars_lim check(rating<6)
-    constraint imageLink check(image like '%.pnj' or image like'%jpg')
+    rating integer,
+    date_of_review datetime default current_timestamp,
+    constraint stars_lim check (rating between 0 and 5),
+    constraint imageLink check (image IS NULL OR image like '%.png' OR image like '%.jpg'),
+    constraint fk_user foreign key (user_id) references users(id)
 );
 
 -- #booking tables
 create table booking(
-	booking_id varchar(50) primary key,
-	idNo varchar(20),
+	booking_id integer primary key auto_increment,
+	user_id int,
 	number_of_people integer,
     start_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
     -- #keeping the duration of the wedding booking to just a few days
     duration INTEGER,
     package_id varchar(20)
-	//add booking details
+	constraint fk_identity foreign key user_id references users(id);
+	constraint fk_identity foreign key package_id references packages(id);
 );
 
 -- #creating the  packages table
-create table Packages(
-	PackageId varchar(20) primary key,
+create table packages(
+	PackageId integer primary key auto_increment,
     Catering bit,
     Venue varchar(20),
     photography bit,

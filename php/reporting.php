@@ -16,7 +16,7 @@ function fetchBookingReportRows()
     }
     
 
-    $sql = "SELECT 
+    $sql = 'SELECT 
                 u.fname,
                 u.lname,
                 u.email_address,
@@ -53,4 +53,3 @@ function fetchBookingReportRows()
     $result->free();
     return $rows;
 }
-
