@@ -2,7 +2,7 @@
 
 <?php
 // Start browser session
-session_start();
+// session_start();
 
 // retrieve role & name from stored session info
 $role = $_SESSION['role'] ?? null;

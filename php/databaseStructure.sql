@@ -2,7 +2,7 @@
 
 -- #create users table
 create table users(
-    id integer primary key auto_increment,
+    id integer primary key auto_increment,	
     fname varchar(50),
     lname varchar(50),
     email_address varchar(40),

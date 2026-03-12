@@ -7,35 +7,24 @@ require '../php/connection.php';
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-<<<<<<< HEAD
   $email = $_POST['email_address'];
   $input = $_POST['password'];
 
-  if (password_verify($input, $hash)) {
-    $password = $input;
-  } else {
-    echo 'incorrect password';
-  }
-=======
-  $email = clean($_POST['email_address']);
-  $password = hash('sha1', clean($_POST['password']));
->>>>>>> 600dfac965357e7a2a28de24e30ce168bb0da85e
-
-  $query = 'select * from users where email_address = ? AND password = ? LIMIT 1';
-
+  // Fetch user
+  $query = 'select * from users where email_address = ? limit 1';
   $stm = $conn->prepare($query);
 
   if ($stm) {
-    $stm->bind_param('ss', $email, $password);
-    $check = $stm->execute();
+    $stm->bind_param('s', $email);
+    $stm->execute();
+    $result = $stm->get_result();
+    $user = $result->fetch_assoc();
 
-    if ($check) {
-      $result = $stm->get_result();
-      $user = $result->fetch_assoc();
-
-      if ($user) {
+    if ($user) {
+      $hash = $user['password'];
+      if (password_verify($input, $hash)) {
+        // password has been verified
         session_regenerate_id(true);
-
         $_SESSION['myid'] = $user['id'];
         $_SESSION['name'] = $user['fname'];
         $_SESSION['role'] = $user['role'];
@@ -49,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
       $error = 'Database query failed';
     }
+  } else {
+    $error = 'No user found with that email';
   }
 }
 ?>
