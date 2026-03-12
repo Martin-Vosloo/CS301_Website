@@ -1,65 +1,96 @@
 <?php
-
 session_start();
 
 require_once "../php/connection.php";
 include_once "../php/alert.php";
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-// check if all required fileds are on point before storing them
-if(empty($_POST['name1']) || empty($_POST['email']) || empty($_POST['check-in']) || empty($_POST['check-out']) || empty($_POST['services'] ) ){
-    $_SESSION['alert'] = [
-        'type' => 'error',
-        'message' => 'Please fill in all required fields!'
-        ];
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location:../html/booking.php");
     exit();
 }
 
-// store the data from html form 
-$review_name1 = clean($_POST['name1']);
-$review_name2 = clean($_POST['name2']);
-$review_email = clean($_POST['email']);
-$review_phone = clean($_POST['phone']);
-$review_check_in = clean($_POST['check-in']);
-$review_check_out = clean($_POST['check-out']);
-$review_services = clean($_POST['services']);
-$review_text = clean($_POST['text']);
-
-  
-
-// add to the booking table
-$sql = "INSERT INTO booking(booking_id, idNo, number_of_people, start_Date, duration, full_catering, photographer, lodging, wedding_preference) VALUES (?, ?, ?, ?, ?,?,?,?,?)";
-
-//bind parameters
-if($stmt = $conn->prepare($sql)){
-$stmt->bind_param("sssssssss",
-    $review_name1,
-    $review_name2,
-    $review_email,
-    $review_phone,
-    $review_check_in ,
-    $review_check_out,
-    $review_services,
-    $review_text
-
-    );
+if (!isset($_SESSION['myid'])) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Please sign in to submit a booking.'
+    ];
+    $redirect = urlencode('/html/booking.php');
+    header("Location:../html/signIn.php?redirect=$redirect");
+    exit();
 }
 
- $_SESSION['alert'] = [
-    'type' => 'success',
-    'message' => 'Booking is submitted successfully!'
+$checkin = clean($_POST['checkin'] ?? '');
+$checkout = clean($_POST['checkout'] ?? '');
+$number_of_people = isset($_POST['number_of_people']) ? (int) $_POST['number_of_people'] : 0;
+
+if ($checkin === '' || $checkout === '' || $number_of_people <= 0) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Please fill in all required fields.'
     ];
     header("Location:../html/booking.php");
     exit();
-
-// $_SESSION['feedback'] = $feedback_message;
- // test whatever typed in the form is what the backend receives
-// var_dump($_POST);
-// header("Location:../html/reviews.php");
-// exit();
-
-
 }
 
+try {
+    $startDate = new DateTime($checkin);
+    $endDate = new DateTime($checkout);
+} catch (Exception $e) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Invalid date selection.'
+    ];
+    header("Location:../html/booking.php");
+    exit();
+}
+
+if ($endDate <= $startDate) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Check-out must be after check-in.'
+    ];
+    header("Location:../html/booking.php");
+    exit();
+}
+
+$duration = (int) $startDate->diff($endDate)->days;
+
+$catering = isset($_POST['catering']) ? (int) $_POST['catering'] : 0;
+$photography = isset($_POST['photography']) ? 1 : 0;
+$accommodation = isset($_POST['accommodation']) ? 1 : 0;
+
+$package_id = sprintf('C%dP%dA%d', $catering, $photography, $accommodation);
+
+$sql = "INSERT INTO booking (user_id, number_of_people, start_Date, duration, package_id) VALUES (?, ?, ?, ?, ?)";
+$stmt = $conn->prepare($sql);
+if (!$stmt) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Database error. Please try again.'
+    ];
+    header("Location:../html/booking.php");
+    exit();
+}
+
+$user_id = (int) $_SESSION['myid'];
+$startDateStr = $startDate->format('Y-m-d H:i:s');
+$stmt->bind_param("iisis", $user_id, $number_of_people, $startDateStr, $duration, $package_id);
+
+if (!$stmt->execute()) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Booking could not be saved. Please try again.'
+    ];
+    $stmt->close();
+    header("Location:../html/booking.php");
+    exit();
+}
+
+$stmt->close();
+$_SESSION['alert'] = [
+    'type' => 'success',
+    'message' => 'Booking submitted successfully!'
+];
+header("Location:../html/booking.php");
+exit();
 ?>

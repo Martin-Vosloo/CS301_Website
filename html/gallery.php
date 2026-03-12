@@ -1,32 +1,36 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kampvuur en Konfetti — Wedding Venue</title>
+  <title>Kampvuur en Konfetti &mdash; Wedding Venue</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../css/gallery.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
 
-  <!-- ══ BANNER ══ -->
+  <!-- === BANNER === -->
   <header class="banner">
     <?php include 'navbar.php' ?>
     <h1 class="banner-title">The<em> Gallery</em></h1>
   </header>
 
-  <!-- ══ INTRO ══ -->
+  <!-- === INTRO === -->
   <section class="intro">
     <p class="section-label">Our Offering</p>
     <h2 class="section-title">The Kampvuur en Konfetti Experience</h2>
-    <p class="section-body">Every corner of this venue has been designed to hold your celebration beautifully — from the lush reception hall to the boma fires, the ceremony garden, refined cuisine, and elegant accommodation. Scroll to discover it all.</p>
+    <p class="section-body">Every corner of this venue has been designed to hold your celebration beautifully &mdash; from the lush reception hall to the boma fires, the ceremony garden, refined cuisine, and elegant accommodation. Scroll to discover it all.</p>
   </section>
 
-  <!-- ══ SPACES ══ -->
+  <!-- === SPACES === -->
   <section class="gallery" id="spaces">
 
-    <!-- ── The Venue / Spaces ── -->
+    <!-- The Venue / Spaces -->
     <div class="gallery-label">
       <span class="cat-tag">The Venue &amp; Spaces</span>
     </div>
@@ -41,7 +45,7 @@
     <div class="gallery-grid">
       <div class="gallery-item tall">
         <img src="../images/gallery_img/venue6.png" alt="Reception hall daytime"/>
-        <div class="caption">Reception Hall — Day</div>
+        <div class="caption">Reception Hall &mdash; Day</div>
       </div>
       <div class="gallery-item">
         <img src="../images/gallery_img/lights.jpeg" alt="Reception hall evening lights"/>
@@ -87,7 +91,7 @@
 
     <div class="rule"></div>
 
-    <!-- ── Ceremony Garden ── -->
+    <!-- Ceremony Garden -->
     <div class="gallery-label">
       <span class="cat-tag">Ceremony Garden</span>
     </div>
@@ -95,7 +99,7 @@
     <div class="space-intro">
       <p class="space-tag">Ceremony Garden</p>
       <h3 class="space-title">Say your vows under towering trees on a sweeping lawn.</h3>
-      <p class="space-body">Exchange your vows under towering trees on a sweeping green lawn. After the ceremony, guests enjoy canapés while exploring secret corners of the garden — a natural, unhurried transition into celebration.</p>
+      <p class="space-body">Exchange your vows under towering trees on a sweeping green lawn. After the ceremony, guests enjoy canap&eacute;s while exploring secret corners of the garden &mdash; a natural, unhurried transition into celebration.</p>
     </div>
 
     <div class="gallery-grid">
@@ -112,14 +116,14 @@
         <div class="caption">Garden Seating</div>
       </div>
       <div class="gallery-item">
-        <img src="../images/gallery_img/venue3.jpeg" alt="Canapés in the garden"/>
-        <div class="caption">Post-Ceremony Canapés</div>
+        <img src="../images/gallery_img/venue3.jpeg" alt="Canapes in the garden"/>
+        <div class="caption">Post-Ceremony Canap&eacute;s</div>
       </div>
     </div>
 
     <div class="rule"></div>
 
-    <!-- ── Food & Culinary Experience ── -->
+    <!-- Food & Culinary Experience -->
     <div class="gallery-label">
       <span class="cat-tag">Food &amp; Culinary Experience</span>
     </div>
@@ -127,13 +131,13 @@
     <div class="space-intro">
       <p class="space-tag">Where every bite is a celebration</p>
       <h3 class="space-title">Expertly crafted cuisine, designed to delight.</h3>
-      <p class="space-body">Food at Kampvuur en Konfetti is an experience. Our two professional chefs, with years of culinary expertise, create dishes that are thoughtful, refined, and delicious. From canapés to main courses and decadent desserts, each plate delights the senses. Menus are fully customisable to fit your style and dietary requirements.</p>
+      <p class="space-body">Food at Kampvuur en Konfetti is an experience. Our two professional chefs, with years of culinary expertise, create dishes that are thoughtful, refined, and delicious. From canap&eacute;s to main courses and decadent desserts, each plate delights the senses. Menus are fully customisable to fit your style and dietary requirements.</p>
     </div>
 
     <div class="gallery-grid">
       <div class="gallery-item tall">
-        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=900&q=80" alt="Canapés in the garden"/>
-        <div class="caption">Garden Canapés</div>
+        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=900&q=80" alt="Canapes in the garden"/>
+        <div class="caption">Garden Canap&eacute;s</div>
       </div>
       <div class="gallery-item wide">
         <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80" alt="Elegantly plated main course"/>
@@ -155,7 +159,7 @@
 
     <div class="rule"></div>
 
-    <!-- ── Accommodation ── -->
+    <!-- Accommodation -->
     <div class="gallery-label">
       <span class="cat-tag">Accommodation</span>
     </div>
@@ -164,7 +168,7 @@
       <p class="space-tag">Rest, relax, and awaken in the heart of celebration</p>
       <h3 class="space-title">Farm style comfort just steps from the celebration.</h3>
       <p class="space-body">Our venue features 8 elegantly appointed bed and breakfast double rooms, each with its own private en-suite bathroom. Designed for comfort, privacy, and a touch of farm style luxury, these rooms provide the perfect retreat for couples and their closest guests.</p>
-      <p class="space-body space-body--gap">Stay on-site to fully immerse yourself in the magic of Kampvuur en Konfetti — from waking up to the sunlit gardens to winding down beside the glow of our boma fires. A delicious farm-style breakfast is included with all overnight stays.</p>
+      <p class="space-body space-body--gap">Stay on-site to fully immerse yourself in the magic of Kampvuur en Konfetti &mdash; from waking up to the sunlit gardens to winding down beside the glow of our boma fires. A delicious farm-style breakfast is included with all overnight stays.</p>
     </div>
 
     <div class="gallery-grid">
@@ -194,8 +198,10 @@
       <h3>Every detail is designed to make your celebration effortless and unforgettable.</h3>
       <p>From arrival to farewell breakfast, your guests are held in warmth and beauty every step of the way.</p>
     </div>
+  </section>
 
-  <!-- <?php include 'footer.php' ?> -->
+  <?php include 'footer.php' ?>
 
 </body>
 </html>
+

@@ -10,10 +10,10 @@ $name = $_SESSION['name'] ?? null;
 ?>
 
 <!-- NAVBAR -->
-<nav class="navigation-bar">
+<nav class="navigation-bar" id="navigation-bar">
   <!-- Logo -->
     <article class="logo-image">
-      <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
+      <a href="index.php"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
     </article>
 
     <!-- Navbar buttons/links -->

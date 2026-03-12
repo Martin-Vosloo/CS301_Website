@@ -7,40 +7,37 @@
 */
 
 // the button id is directionBtn which is styled in csss to have a nicer look. 
-document.getElementById("directionsBtn")
-    .addEventListener("click", getDirections);
 
-document.getElementById("directionsBtn")
-    .addEventListener("click", getDirections);
+const directionsBtn = document.getElementById("directionsBtn");
+if (directionsBtn) {
+    directionsBtn.addEventListener("click", getDirections);
+}
 
 function getDirections() {
+    const venueLat = -24.450427344869926;
+    const venueLon = 28.73777946911542;
 
     if (navigator.geolocation) {
-
         navigator.geolocation.getCurrentPosition(
             function(position) {
-
-                // with the permission of the user, we  use it to get the directions of the venue from
-                // where they are 
                 const userLat = position.coords.latitude;
                 const userLon = position.coords.longitude;
-
-                const venueLat = -24.450427344869926;
-                const venueLon = 28.73777946911542;
-
-                window.location.href =
-                    "https://www.google.com/maps/dir/" +
-                    userLat + "," + userLon + "/" +
-                    venueLat + "," + venueLon;
+                window.open(
+                    `https://www.google.com/maps/dir/${userLat},${userLon}/${venueLat},${venueLon}`,
+                    "_blank"
+                );
             },
-
-            // warning to tell user to allow location retreival 
             function() {
-                alert("Location permission is required.");
+                window.open(
+                    `https://www.google.com/maps/dir/?api=1&destination=${venueLat},${venueLon}`,
+                    "_blank"
+                );
             }
         );
-    // feedback will report that it was unsuccessful
     } else {
-        alert("Geolocation not supported.");
+        window.open(
+            `https://www.google.com/maps/dir/?api=1&destination=${venueLat},${venueLon}`,
+            "_blank"
+        );
     }
 }

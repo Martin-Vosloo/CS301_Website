@@ -36,10 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = 'Wrong username or password';
       }
     } else {
-      $error = 'Database query failed';
+      $error = 'No user found with that email';
     }
   } else {
-    $error = 'No user found with that email';
+    $error = 'Database query failed';
   }
 }
 ?>
@@ -87,7 +87,7 @@ if ($error) {
 
       <div class="formButtons">
         <button type="submit" id="done">Sign In</button>
-        <button type="button" onclick="location.href='index.html'" id="back">Back</button>
+        <button type="button" onclick="location.href='index.php'" id="back">Back</button>
       </div>
       <br><br>
 
@@ -101,3 +101,6 @@ if ($error) {
   <?php include 'footer.php' ?>
 </body>
 </html>
+
+
+

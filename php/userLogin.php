@@ -1,67 +1,56 @@
 <?php
-    session_start();
-    
-    $error = "";
+session_start();
+require_once "connection.php";
 
-    if($_SERVER['REQUEST_METHOD'] == "POST")
-    {
-        if (!$DB = new PDO("mysql:host=localhost;dbname=XXXX", "root", ""))
-        {
-            die ("Could not connect to database");
-        }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: ../html/signIn.php');
+    exit;
+}
 
-        $arr['email'] = clean($_POST['email']);
-        $arr['password'] = hash('sha1', clean($_POST['password']));
-        
-        $query = "select * from users where user_id = :user_id limit 1";
-        $stm = $DB->prepare($query)
+$email_address = clean($_POST['email_address'] ?? '');
+$password = $_POST['password'] ?? '';
+$redirect = $_POST['redirect'] ?? '../html/index.php';
 
-        if ($stm)
-        {
-            $check = $stm->execute($arr);
+if ($email_address === '' || $password === '') {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Please enter your email and password.'
+    ];
+    header('Location: ../html/signIn.php');
+    exit;
+}
 
-            if ($check)
-            {
-                $data = $stm->fetchAll(PDO::FETCH_ASSOC);
-                if (is_array($data) && count($data) > 0)
-                {
-                    $_SESSION['myid'] = $data[0]['user_id'];
-                }
-                else
-                {
-                    $error = "Wrong username or password";
-                }
-                
-            }
-        }
-    }
-    $arr['email_address'] = $_POST['email_address'];
-    $arr['passwrd'] = hash('sha1', $POST['passwrd']);
-    
-    $query = "select * from users where email_address = :email_address && passwrd = :passwrd limit 1";
-    $stm = $DB->prepare($query)
-    
-    if ($stm)
-    {
-        $check = $stm->execute($arr);
-        if ($check)
-        {
-            $data = $stm->fetchAll(PDO::FETCH_ASSOC);
-            if (is_array($data) && count($data) > 0) 
-            {
-                $_SESSION['myid'] = $data[0]['user_id'];
-                continue;   
-            }
-        }
+$query = 'SELECT id, fname, role, password FROM users WHERE email_address = ? AND alive = 1 LIMIT 1';
+$stmt = $conn->prepare($query);
+if (!$stmt) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Database error. Please try again.'
+    ];
+    header('Location: ../html/signIn.php');
+    exit;
+}
 
-        if (!$check) 
-        {
-            $error = "Wrong username or password";
-        }
+$stmt->bind_param('s', $email_address);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+$stmt->close();
 
-        if ($error = "")
-        {
-            header("Location: index.php")
-        }
-    }
+if (!$user || !password_verify($password, $user['password'])) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Wrong username or password.'
+    ];
+    header('Location: ../html/signIn.php');
+    exit;
+}
+
+session_regenerate_id(true);
+$_SESSION['myid'] = $user['id'];
+$_SESSION['name'] = $user['fname'];
+$_SESSION['role'] = $user['role'];
+
+header('Location: ' . $redirect);
+exit;
 ?>

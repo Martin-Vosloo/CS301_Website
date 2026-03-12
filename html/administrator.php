@@ -1,6 +1,20 @@
+<?php
+session_start()
+?>
 <!doctype html>
 <html lang="en">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+=======
+>>>>>>> 8289d367c65e32c1311d2e0186d03c3127933f26
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,6 +30,7 @@
     <article class="logo-image">
       <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
     </article>
+<<<<<<< HEAD
 =======
   <head>
     <meta charset="UTF-8" />
@@ -25,12 +40,19 @@
     <link rel="stylesheet" href="../css/style.css" />
   </head>
 >>>>>>> main
+=======
+>>>>>>> 020dc31244658ca13f4ed9e8622af73118d8c92d
+>>>>>>> 8289d367c65e32c1311d2e0186d03c3127933f26
 
   <body>
     <!-- NAVBAR contained in external file -->
     <?php include 'navbar.php'; ?>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8289d367c65e32c1311d2e0186d03c3127933f26
       <label for="menu-toggle" class="hamburger">
         <span></span><span></span><span></span>
       </label> -->
@@ -111,24 +133,28 @@
     <div class="heading">
       <h2>Successful Bookings</h2>
     </div>
+<<<<<<< HEAD
 =======
 >>>>>>> main
+=======
+>>>>>>> 020dc31244658ca13f4ed9e8622af73118d8c92d
+>>>>>>> 8289d367c65e32c1311d2e0186d03c3127933f26
     <?php
-      require_once __DIR__ . '/../php/reporting.php';
-      $bookings = fetchBookingReportRows();
+    require_once __DIR__ . '/../php/reporting.php';
+    $bookings = fetchBookingReportRows();
 
-      function safeText($value)
-      {
-          return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
-      }
-
-      function formatBool($value)
-      {
-          return ((int) $value) === 1 ? 'Yes' : 'No';
-      }
+    function safeText($value)
+    {
+      return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+    }
     ?>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <section class="containsTable" id="currentBookings">
+=======
+>>>>>>> 8289d367c65e32c1311d2e0186d03c3127933f26
   <div class="buttons">
     <table class="admin-table">
       <tr>
@@ -184,65 +210,52 @@
       id="past_Bookings"
       onclick="overlay('past_Bookings')"
     >
+<<<<<<< HEAD
 =======
     <section class="containsTable" id="currentBookings">
 >>>>>>> main
+=======
+>>>>>>> 020dc31244658ca13f4ed9e8622af73118d8c92d
+>>>>>>> 8289d367c65e32c1311d2e0186d03c3127933f26
       <div class="heading">
         <h2>Current Bookings</h2>
       </div>
 
       <table class="admin-table" id="curbooking">
         <tr>
+          <th>Booking ID</th>
           <th>First name</th>
           <th>Last name</th>
           <th>Email</th>
+          <th>People</th>
           <th>Start date</th>
-          <th>Duration</th>
-          <th>Full catering</th>
-          <th>Photographer</th>
-          <th>Lodging</th>
-          <th>Wedding preferences</th>
+          <th>Duration (days)</th>
+          <th>Package</th>
         </tr>
 
         <?php if (empty($bookings)): ?>
           <tr>
-            <td colspan="9">No bookings found.</td>
+            <td colspan="8">No bookings found.</td>
           </tr>
         <?php else: ?>
           <?php foreach ($bookings as $booking): ?>
             <tr>
-              <td><?php echo safeText($booking['fname']); ?></td>
+              <td><?php echo safeText($booking['booking_id']); ?></td>
+              <td><?php echo safeText($booking['fname'] ?: 'Guest'); ?></td>
               <td><?php echo safeText($booking['lname']); ?></td>
               <td><?php echo safeText($booking['email_address']); ?></td>
+              <td><?php echo safeText($booking['number_of_people']); ?></td>
               <td>
                 <time datetime="<?php echo safeText($booking['start_date']); ?>">
                   <?php echo safeText($booking['start_date']); ?>
                 </time>
               </td>
               <td><?php echo safeText($booking['duration']); ?></td>
-              <td><?php echo formatBool($booking['fullcatering']); ?></td>
-              <td><?php echo formatBool($booking['photographer']); ?></td>
-              <td><?php echo formatBool($booking['lodging']); ?></td>
-              <td>
-                <button
-                  type="button"
-                  onclick="showWeddingPreference('<?php echo safeText($booking['wedding_preference']); ?>')"
-                >
-                  View
-                </button>
-              </td>
+              <td><?php echo safeText($booking['package_id']); ?></td>
             </tr>
           <?php endforeach; ?>
         <?php endif; ?>
       </table>
     </section>
-
-    <script>
-      function showWeddingPreference(text) {
-        var message = text && text.trim() ? text : 'No wedding preference provided.';
-        alert(message);
-      }
-    </script>
   </body>
 </html>
-

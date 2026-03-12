@@ -569,7 +569,7 @@ body {
   margin: 0.6rem 0 1rem;
 }
 
-.about-btn {
+.directionsBtn {
   border: 1px solid var(--ra-sage);
   background: var(--ra-sage);
   color: #fff;
@@ -578,7 +578,7 @@ body {
   font-weight: 700;
 }
 
-.about-btn:hover {
+.directionsBtn:hover {
   background: var(--ra-sage-dark);
 }
 

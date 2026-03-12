@@ -1,12 +1,6 @@
 <?php
 require "../php/connection.php";
 
-// function getDbConnection()
-// {
-//     global $conn;
-//     return $conn;
-// }
-
 function fetchBookingReportRows()
 {
     global $conn;
@@ -14,20 +8,18 @@ function fetchBookingReportRows()
     if (!$db || $db->connect_error) {
         return [];
     }
-    
 
-    $sql = 'SELECT 
-                u.fname,
-                u.lname,
-                u.email_address,
+    $sql = "SELECT 
+                b.booking_id,
+                b.number_of_people,
                 b.start_Date,
                 b.duration,
-                b.full_catering,
-                b.photographer,
-                b.lodging,
-                b.wedding_preference
+                b.package_id,
+                u.fname,
+                u.lname,
+                u.email_address
             FROM booking b
-            INNER JOIN users u ON u.id = b.idNo
+            LEFT JOIN users u ON u.id = b.user_id
             ORDER BY b.start_Date DESC";
 
     $result = $db->query($sql);
@@ -38,15 +30,14 @@ function fetchBookingReportRows()
     $rows = [];
     while ($row = $result->fetch_assoc()) {
         $rows[] = [
-            "fname" => clean($row["fname"]),
-            "lname" => clean($row["lname"]),
-            "email_address" => clean($row["email_address"]),
+            "booking_id" => (int) $row["booking_id"],
+            "fname" => clean($row["fname"] ?? ''),
+            "lname" => clean($row["lname"] ?? ''),
+            "email_address" => clean($row["email_address"] ?? ''),
+            "number_of_people" => (int) $row["number_of_people"],
             "start_date" => clean($row["start_Date"]),
-            "duration" => (int) clean($row["duration"]),
-            "fullcatering" => (int) clean($row["full_catering"]),
-            "photographer" => (int) clean($row["photographer"]),
-            "lodging" => (int) clean($row["lodging"]),
-            "wedding_preference" => clean($row["wedding_preference"])
+            "duration" => (int) $row["duration"],
+            "package_id" => clean($row["package_id"])
         ];
     }
 

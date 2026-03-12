@@ -194,6 +194,14 @@
 .reviews-page .star-rev {
   color: #cfbeac;
   font-size: 1.24rem;
+  background: none;
+  border: none;
+  padding: 0 2px;
+  cursor: pointer;
+}
+
+.reviews-page .star-rev.selected {
+  color: #c7a46d;
 }
 
 .reviews-page .star-rev:hover {

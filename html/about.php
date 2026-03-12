@@ -1,3 +1,7 @@
+<?php
+session_start()
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | Kampvuur en Konfetti</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+ 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -22,10 +27,10 @@
       <article class="about-paragraph-container">
         <h1 class="about-heading">Visit Us</h1>
         <p class="about-paragraph">
-          Founded in 2026, our wedding venue was created with a clear vision to provide an elegant space where meaningful celebration comes to life.
+          Founded in 2016, our wedding venue was created with a clear vision to provide an elegant space where meaningful celebration comes to life.
           With attention to detail and a commitment to excellence, we strive to make every wedding seamless, meaningful, and truly memorable.
         </p>
-        <button class="about-btn">Get Directions</button>
+        <button class="directionsBtn" id="directionsBtn">Get Directions</button>
       </article>
     </section>
 
@@ -102,7 +107,7 @@
   <h1 class="about-heading mt-4">Contact Us</h1>
   <hr />
 
-  <article class ="contactCenter">
+  <article class="contactCenter">
     <p class="contactPageHeading"><b>General Enquiries</b></p>
     <a class="contactLink" href="tel:0123456789">Tel: 012 345 6789<br /></a>
     <a class="contactLink" href="tel:0987654321">Cel: 098 765 4321<br /></a>
@@ -117,7 +122,8 @@
   <!-- FOOTER contained in external file -->
   <?php include 'footer.php' ?>
 
-  <script src="../JavaScript/slideshow.js" defer></script>
+  <script src="../JavaScript/naviagtor.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
+

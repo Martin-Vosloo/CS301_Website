@@ -64,7 +64,7 @@
 </head>
 <body>
   <!-- NAVBAR contained in external file -->
-<?php include 'navbar.php' ?>;
+<?php include 'navbar.php' ?>
 
   <main class="sign-main">
     <form action="" method="post">
@@ -102,7 +102,7 @@
 
       <div class="formButtons">
         <button type="submit" id="signUp">Sign Up</button>
-        <button type="button" onclick="location.href='index.html'" id="back">Back</button>
+        <button type="button" onclick="location.href='index.php'" id="back">Back</button>
       </div>
 
       <p>
@@ -118,3 +118,4 @@
   
 </body>
 </html>
+

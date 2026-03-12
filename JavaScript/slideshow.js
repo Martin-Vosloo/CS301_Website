@@ -13,13 +13,13 @@ let imgIndex1 = [0,1,2,3];
 let image_slides1 = document.getElementsByClassName("image-slider");
 
 // paths of images to slideshow, divvied up with their widths
-const images1 = ["../images/venue/reception_table0.jpg", "../images/venue/reception_table01.jpg","../images/venue/reception_table02.jpg","../images/venue/outside_chairs.jpg.jpg"];
+const images1 = ["../images/venue/reception_table0.jpg", "../images/venue/reception_table01.jpg","../images/venue/reception_table02.jpg","../images/venue/outside_chairs.jpg"];
 
 if(image_slides1.length > 0){
     function slideshow1(){
      
         // loop through each img and updates value stored in array( imgIndxe1)
-        for(i = 0; i < image_slides1.length;i++){
+        for(let i = 0; i < image_slides1.length;i++){
         // if it reaches the end of the images goes back to start
             imgIndex1[i] = imgIndex1[i]+1;
             if(imgIndex1[i] >= images1.length){
@@ -57,7 +57,7 @@ const images2 = ["../images/venue/outside_seating1.jpg","../images/venue/outside
 if(image_slides2.length > 0){
     function slideshow2(){
     // loop through each img and updates value stored in array( imgIndxe2)
-        for(i = 0; i < image_slides2.length;i++){
+        for(let i = 0; i < image_slides2.length;i++){
             imgIndex2[i] = imgIndex2[i]+1;
             // if it reaches the end of the images goes back to start
             if(imgIndex2[i] >= images2.length){
@@ -235,7 +235,7 @@ if(currentImage){
 function backgrowndChanger(){
     currentIndex = currentIndex + 1;
     // if it reaches end of the image, go back to start
-    if(currentIndex >= images1.length){
+    if(currentIndex >= images.length){
         currentIndex = 0;
     }
 
@@ -248,6 +248,7 @@ backgrowndChanger();
 //change backgrownd after 2 seconds
 setInterval(backgrowndChanger, 3000);
 }
+
 
 
 

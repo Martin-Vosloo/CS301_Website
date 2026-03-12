@@ -1,6 +1,8 @@
 <?php
 session_start();
 include_once '../php/alert.php';
+$loggedIn = isset($_SESSION['myid']);
+$displayName = $_SESSION['name'] ?? 'Guest';
 ?>
 
 
@@ -113,36 +115,36 @@ include_once '../php/alert.php';
         <div class="right"><img src="../images/reviews/rev3.png" alt="Couple walking" /></div>
       </article>
     </section>
-<!-- 
-    <section class="quote-section">
-      <p class="section-small-title">A moment in time</p>
-      <h2>The best photographs feel like you can hear the laughter.</h2>
-    </section> -->
 
     <section class="review-form-section" id="reviewForm">
       <p class="section-small-title">Share your experience</p>
       <h2>Leave Us a Review</h2>
-
-
-<!-- FaORM -->
-
+      <?php if ($loggedIn): ?>
+        <p class="mt-2">Signed in as <?php echo htmlspecialchars($displayName); ?>.</p>
+      <?php else: ?>
+        <p class="mt-2">
+          Please <a href="signIn.php?redirect=../html/reviews.php">sign in</a> to submit a review.
+        </p>
+      <?php endif; ?>
 
       <form class="review-form" action="../php/reviews.php" method="post" enctype="multipart/form-data">
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-        </div>
-        <input type="text" name="insta"  placeholder="Instagram / Handle (optional)" />
-        <textarea placeholder="Tell us about your experience..." rows="5" name="review" ></textarea>
-        <div class="rating">
+        <textarea placeholder="Tell us about your experience..." rows="5" name="review" required></textarea>
+        <div class="rating" id="ratingStars">
           <span>Rating:</span>
-          <span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span>
-        </div><br>
+          <button type="button" class="star-rev" data-value="1">&#9733;</button>
+          <button type="button" class="star-rev" data-value="2">&#9733;</button>
+          <button type="button" class="star-rev" data-value="3">&#9733;</button>
+          <button type="button" class="star-rev" data-value="4">&#9733;</button>
+          <button type="button" class="star-rev" data-value="5">&#9733;</button>
+          <input type="hidden" name="rating" id="rating-value" value="0" required />
+        </div>
 
         <label for="image">Upload Image</label>
-        <input type="file"  name="image">
+        <input type="file" name="image" accept="image/png,image/jpeg" />
 
-        <button type="submit" class="submit-review">Submit Review</button>
+        <button type="submit" class="submit-review" <?php echo $loggedIn ? '' : 'disabled'; ?>>
+          Submit Review
+        </button>
       </form>
     </section>
   </div>
@@ -150,6 +152,29 @@ include_once '../php/alert.php';
   <!-- FOOTER contained in external file -->
   <?php include 'footer.php' ?>
 
+  <script>
+    (function () {
+      const stars = Array.from(document.querySelectorAll('.star-rev'));
+      const ratingInput = document.getElementById('rating-value');
+      if (!stars.length || !ratingInput) return;
+
+      function setRating(value) {
+        ratingInput.value = value;
+        stars.forEach((star, index) => {
+          star.classList.toggle('selected', index < value);
+        });
+      }
+
+      stars.forEach((star) => {
+        star.addEventListener('click', () => {
+          const value = parseInt(star.getAttribute('data-value'), 10);
+          if (!Number.isNaN(value)) {
+            setRating(value);
+          }
+        });
+      });
+    })();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
