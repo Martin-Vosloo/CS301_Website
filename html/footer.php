@@ -7,12 +7,12 @@
       </small>
     </p>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="reviews.html">Write a Review</a>
-      <a href="booking.html">Book</a>
-      <a href="administrator.html">Admin</a>
+      <a href="index.php">Home</a>
+      <a href="reviews.php">Reviews</a>
+      <a href="about.php">About</a>
+      <a href="booking.php">Book</a>
+      <a href="gallery.php">Gallery</a>
+      <a href="administrator.php">Admin</a>
     </nav>
     <div class="social-icons">
       <a href="#"><i class="fab fa-instagram"></i></a>

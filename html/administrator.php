@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,13 +16,21 @@
     <article class="logo-image">
       <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
     </article>
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+>>>>>>> main
 
   <body>
-    
     <!-- NAVBAR contained in external file -->
-    <?php include 'navbar.php' ?>
-      <!-- <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <?php include 'navbar.php'; ?>
 
+<<<<<<< HEAD
       <label for="menu-toggle" class="hamburger">
         <span></span><span></span><span></span>
       </label> -->
@@ -102,12 +111,24 @@
     <div class="heading">
       <h2>Successful Bookings</h2>
     </div>
+=======
+>>>>>>> main
     <?php
-          include "../php/administrator.php";
-          echo table();
-    ?>
-  </section>
+      require_once __DIR__ . '/../php/reporting.php';
+      $bookings = fetchBookingReportRows();
 
+      function safeText($value)
+      {
+          return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+      }
+
+      function formatBool($value)
+      {
+          return ((int) $value) === 1 ? 'Yes' : 'No';
+      }
+    ?>
+
+<<<<<<< HEAD
   <div class="buttons">
     <table class="admin-table">
       <tr>
@@ -163,90 +184,65 @@
       id="past_Bookings"
       onclick="overlay('past_Bookings')"
     >
+=======
+    <section class="containsTable" id="currentBookings">
+>>>>>>> main
       <div class="heading">
-        <h2>Successful Bookings</h2>
+        <h2>Current Bookings</h2>
       </div>
 
-      <table class="admin-table">
-<<<<<<< HEAD
+      <table class="admin-table" id="curbooking">
         <tr>
-          <td>J. Smith</td>
-          <td><time datetime="2026-09-12">12-09-2026</time></td>
-          <td>R50 000</td>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Start date</th>
+          <th>Duration</th>
+          <th>Full catering</th>
+          <th>Photographer</th>
+          <th>Lodging</th>
+          <th>Wedding preferences</th>
         </tr>
 
-        <tr>
-          <td>S. Ntlonti</td>
-          <td><time datetime="2026-04-12">12-04-2026</time></td>
-          <td>R49 000</td>
-        </tr>
-
-        <tr>
-          <td>O. Maliwa</td>
-          <td><time datetime="2026-09-13">13-09-2026</time></td>
-          <td>R37 000</td>
-        </tr>
-
-        <tr>
-          <td>A. Sinqe</td>
-          <td><time datetime="2026-06-12">12-06-2026</time></td>
-          <td>R50 000</td>
-        </tr>
-=======
-        <?php
-<<<<<<< HEAD
-          include "../php/administrator.php";
-          echo table();
-=======
-        $sql = 'SELECT fname, lname, start_date, duration FROM users inner join booking on users.identityNumber=booking.idNo where start_date < NOW()';
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . substr($row['fname'], 0, 1) . $row['lname'] . '</td>';
-            echo '<td>' . $row['start_date'] . '</td>';
-            echo '<td>' . $row['duration'];
-            echo '<tr>';
-          }
-        } else {
-          echo '<p>nothing in the database yet</p>';
-        }
->>>>>>> dylan
-        ?>
-      </table>
->>>>>>> main
+        <?php if (empty($bookings)): ?>
+          <tr>
+            <td colspan="9">No bookings found.</td>
+          </tr>
+        <?php else: ?>
+          <?php foreach ($bookings as $booking): ?>
+            <tr>
+              <td><?php echo safeText($booking['fname']); ?></td>
+              <td><?php echo safeText($booking['lname']); ?></td>
+              <td><?php echo safeText($booking['email_address']); ?></td>
+              <td>
+                <time datetime="<?php echo safeText($booking['start_date']); ?>">
+                  <?php echo safeText($booking['start_date']); ?>
+                </time>
+              </td>
+              <td><?php echo safeText($booking['duration']); ?></td>
+              <td><?php echo formatBool($booking['fullcatering']); ?></td>
+              <td><?php echo formatBool($booking['photographer']); ?></td>
+              <td><?php echo formatBool($booking['lodging']); ?></td>
+              <td>
+                <button
+                  type="button"
+                  onclick="showWeddingPreference('<?php echo safeText($booking['wedding_preference']); ?>')"
+                >
+                  View
+                </button>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        <?php endif; ?>
       </table>
     </section>
 
-    <div class="buttons">
-      <table class="admin-table">
-        <tr>
-          <td><button>Totals</button></td>
-          <td><button>120 bookings</button></td>
-          <td><button>R129 000 000</button></td>
-        </tr>
-
-        <tr>
-          <td><button>Filter Dates</button></td>
-          <td><button>Filter Amounts</button></td>
-          <td><button>Search</button></td>
-        </tr>
-      </table>
-    </div>
-<<<<<<< HEAD
-
-    <!-- FOOTER contained in external file -->
-    <?php include 'footer.php' ?>
-    
+    <script>
+      function showWeddingPreference(text) {
+        var message = text && text.trim() ? text : 'No wedding preference provided.';
+        alert(message);
+      }
+    </script>
   </body>
-=======
-  </footer>
+</html>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-</body>
-<<<<<<< HEAD
-</html>
-=======
->>>>>>> main
-</html>
->>>>>>> dylan

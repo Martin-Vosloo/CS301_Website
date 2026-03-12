@@ -3,7 +3,6 @@ $server = 'CS3-DEV.ICT.RU.AC.ZA';
 $user = 'G21M4333';
 $password = 'ModChu21';
 $dbname = 'group3';
-$conn;
 $conn = new mysqli($server, $user, $password, $dbname);
 if ($conn->connect_error) {
     header('HTTP/1.1 404 Not Found');
@@ -13,5 +12,10 @@ if ($conn->connect_error) {
 
 function clean($text)
 {
-    return htmlspecialchars(stripslashes(trim($data)));
+    // using cleaner class and the usual stuff for the forms
+    // $conf = HTMLPurifier_Config::createDefault();
+    // $purifier = new HTMLPurifier($conf);
+    //purifier requires the installation of the purifier files
+    return htmlspecialchars(stripslashes(trim(/* $purifier->purify( */ $text)));
 }
+?>

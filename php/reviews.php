@@ -1,13 +1,18 @@
 <?php
- require_once "connection.php";
 
-echo "its not here";
+session_start();
+
+require_once "../php/connection.php";
+include_once "../php/alert.php";
+
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $feedback_message = "";
 // check if all required fileds are on point before storing them
 if(empty($_POST['name']) /* || empty($_POST['rating']) */|| empty($_POST['review'])){
-    $feedback_message = 'Please fill in all required fields';
-    echo "$feedback_message";
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Please fill in all required fields!'
+        ];
+    header("Location:../html/reviews.php");
     exit();
 }
 
@@ -24,14 +29,22 @@ if(!empty($_FILES['image']['name'])){
     $image_allowed_types = ["image/png", "image/jpeg"];
 
     if(!in_array($review_imagetype, $image_allowed_types)){
-        $feedback_message = "Only .png, .jpg, .jpeg types are allowed";
-        echo "$feedback_message";
+        // $feedback_message = "Only .png, .jpg, .jpeg types are allowed";
+        $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Only .png, .jpg, .jpeg types are allowed!'
+        ];
+        header("Location:../html/reviews.php");
         exit();
     }
 
     if($review_image_size > $image_max_size){
-        $feedback_message = 'Image is too large';
-        echo "$feedback_message";
+        // $feedback_message = 'Image is too large';
+        $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Image is too large!'
+        ];
+        header("Location:../html/reviews.php");
         exit();
     }
 
@@ -39,17 +52,24 @@ if(!empty($_FILES['image']['name'])){
     // and report back to the user 
     $image_path = "../images/reviews images/" . $review_image;
     if(move_uploaded_file($tmp_name, $image_path)){
-        $feedback_message = "Image uploaded successfully";
+        // $feedback_message = "Image uploaded successfully";
+        $_SESSION['alert'] = [
+        'type' => 'success',
+        'message' => 'Image uploaded successfully!'
+        ];
+    
     
     }else{
-        $feedback_message = "Failed to upload image";
-        echo "$feedback_message";
+        $_SESSION['alert'] = [
+        'type' => 'error',
+        'message' => 'Failed to upload image!'
+        ];
+        header("Location:../html/reviews.php");
         exit();
     }
     
 }
 
-echo "its here";
 
 // store the data from html form 
 $review_name = clean($_POST['name']);
@@ -60,25 +80,31 @@ $review_insta = clean($_POST['insta']);
 
 
 // if(empty($feedback_message)){
-    $feedback_message = "Review submitted successfully!";
-    echo "$feedback_message";
-    exit();
+
 // }
 
 
 // add to the reviews table
-$sql = "INSERT INTO reviews(id, user_id, text_review, image) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO reviews(name,enail_address,insta_link, Experience, image_path) VALUES (?, ?, ?, ?,?)";
 
 //bind parameters
+if($stmt = $conn->prepare($sql)){
 $stmt->bind_param("sssss",
     $review_name,
-    $review_text,
     $review_email,
-    $insta,
+    $review_insta,
+    $review_text, 
     $review_image
-);
-$stmt->execute();
+    );
+}
 
+$stmt->execute();
+    $_SESSION['alert'] = [
+        'type' => 'success',
+        'message' => 'Review submitted successfully!'
+    ];
+    header("Location:../html/reviews.php");
+    exit();
 // $_SESSION['feedback'] = $feedback_message;
  // test whatever typed in the form is what the backend receives
 // var_dump($_POST);

@@ -38,10 +38,10 @@
             }
         }
 
-        $arr['fname'] = $_POST['fname'];
-        $arr['lname'] = $_POST['name'];
-        $arr['email_address'] = $_POST['email_address'];
-        $arr['passwrd'] = hash('sha1', $POST['passwrd']);
+        $arr['fname'] = clean($_POST['fname']);
+        $arr['lname'] = clean($_POST['name']);
+        $arr['email_address'] = clean($_POST['email_address']);
+        $arr['passwrd'] = hash('sha1', clean($POST['passwrd']));
         $arr['user_role'] = "user ";
         
         $query = "insert into users (user_id, fname, lname, email_address, passwrd, user_role) values (:user_id, :fname, :lname, :email_address, :passwrd, :user_role)";

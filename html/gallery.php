@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kampvuur en Konfetti — Wedding Venue</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/gallery.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+
+  <!-- ══ BANNER ══ -->
+  <header class="banner">
+    <?php include 'navbar.php' ?>
+    <h1 class="banner-title">The<em> Gallery</em></h1>
+  </header>
+
+  <!-- ══ INTRO ══ -->
+  <section class="intro">
+    <p class="section-label">Our Offering</p>
+    <h2 class="section-title">The Kampvuur en Konfetti Experience</h2>
+    <p class="section-body">Every corner of this venue has been designed to hold your celebration beautifully — from the lush reception hall to the boma fires, the ceremony garden, refined cuisine, and elegant accommodation. Scroll to discover it all.</p>
+  </section>
+
+  <!-- ══ SPACES ══ -->
+  <section class="gallery" id="spaces">
+
+    <!-- ── The Venue / Spaces ── -->
+    <div class="gallery-label">
+      <span class="cat-tag">The Venue &amp; Spaces</span>
+    </div>
+
+    <!-- Reception Hall -->
+    <div class="space-intro">
+      <p class="space-tag">Reception Hall</p>
+      <h3 class="space-title">Lush greenery, soft light, and a space that feels alive.</h3>
+      <p class="space-body">A covered, airy space with soft arched walls wrapped in greenery and a curved canvas ceiling that lets the sunlight filter in. Fairy lights transform the space at night, creating magic.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="../images/gallery_img/venue6.png" alt="Reception hall daytime"/>
+        <div class="caption">Reception Hall — Day</div>
+      </div>
+      <div class="gallery-item">
+        <img src="../images/gallery_img/lights.jpeg" alt="Reception hall evening lights"/>
+        <div class="caption">Fairy Lights at Dusk</div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="../images/gallery_img/venue2.png" alt="Reception hall setup"/>
+        <div class="caption">Evening Transformation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="../images/gallery_img/garden1.jpeg" alt="Canopy ceiling detail"/>
+        <div class="caption">Best photographic spot</div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- Gardens & Hidden Spots -->
+    <div class="space-intro">
+      <p class="space-tag">Gardens &amp; Hidden Spots</p>
+      <h3 class="space-title">Wander, discover, and soak in bushveld sunsets.</h3>
+      <p class="space-body">Manicured gardens with winding paths, hidden seating areas, and breathtaking views of the bushveld sunset. Every turn reveals a new corner worth photographing.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../images/gallery_img/venue3.jpeg" alt="Garden winding path"/>
+        <div class="caption">Winding Garden Paths</div>
+      </div>
+      <div class="gallery-item tall">
+        <img src="../images/gallery_img/sunset.jpeg" alt="Bushveld sunset view"/>
+        <div class="caption">Bushveld Sunset View</div>
+      </div>
+      <div class="gallery-item">
+        <img src="../images/gallery_img/venue5.jpeg" alt="Hidden garden seating"/>
+        <div class="caption">Hidden Garden Nook</div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="../images/gallery_img/venue4.jpeg" alt="Manicured gardens"/>
+        <div class="caption">Manicured Gardens</div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- ── Ceremony Garden ── -->
+    <div class="gallery-label">
+      <span class="cat-tag">Ceremony Garden</span>
+    </div>
+
+    <div class="space-intro">
+      <p class="space-tag">Ceremony Garden</p>
+      <h3 class="space-title">Say your vows under towering trees on a sweeping lawn.</h3>
+      <p class="space-body">Exchange your vows under towering trees on a sweeping green lawn. After the ceremony, guests enjoy canapés while exploring secret corners of the garden — a natural, unhurried transition into celebration.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item wide">
+        <img src="../images/gallery_img/ceremony2.webp" alt="Wide ceremony setup under trees"/>
+        <div class="caption">Ceremony Under the Trees</div>
+      </div>
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=900&q=80" alt="Ceremony aisle decor"/>
+        <div class="caption">Aisle in Bloom</div>
+      </div>
+      <div class="gallery-item">
+        <img src="../images/gallery_img/cermony.jpeg" alt="Garden ceremony chairs"/>
+        <div class="caption">Garden Seating</div>
+      </div>
+      <div class="gallery-item">
+        <img src="../images/gallery_img/venue3.jpeg" alt="Canapés in the garden"/>
+        <div class="caption">Post-Ceremony Canapés</div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- ── Food & Culinary Experience ── -->
+    <div class="gallery-label">
+      <span class="cat-tag">Food &amp; Culinary Experience</span>
+    </div>
+
+    <div class="space-intro">
+      <p class="space-tag">Where every bite is a celebration</p>
+      <h3 class="space-title">Expertly crafted cuisine, designed to delight.</h3>
+      <p class="space-body">Food at Kampvuur en Konfetti is an experience. Our two professional chefs, with years of culinary expertise, create dishes that are thoughtful, refined, and delicious. From canapés to main courses and decadent desserts, each plate delights the senses. Menus are fully customisable to fit your style and dietary requirements.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=900&q=80" alt="Canapés in the garden"/>
+        <div class="caption">Garden Canapés</div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80" alt="Elegantly plated main course"/>
+        <div class="caption">Elegantly Plated</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=800&q=80" alt="Decadent dessert table"/>
+        <div class="caption">Decadent Desserts Crafted with Love</div>
+      </div>
+      <div class="gallery-item">
+        <img src="../images/gallery_img/catering1.png" alt="Table setting detail"/>
+        <div class="caption">Table Setting</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80" alt="Wedding cake"/>
+        <div class="caption">Bespoke Celebration Cake</div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- ── Accommodation ── -->
+    <div class="gallery-label">
+      <span class="cat-tag">Accommodation</span>
+    </div>
+
+    <div class="space-intro">
+      <p class="space-tag">Rest, relax, and awaken in the heart of celebration</p>
+      <h3 class="space-title">Farm style comfort just steps from the celebration.</h3>
+      <p class="space-body">Our venue features 8 elegantly appointed bed and breakfast double rooms, each with its own private en-suite bathroom. Designed for comfort, privacy, and a touch of farm style luxury, these rooms provide the perfect retreat for couples and their closest guests.</p>
+      <p class="space-body space-body--gap">Stay on-site to fully immerse yourself in the magic of Kampvuur en Konfetti — from waking up to the sunlit gardens to winding down beside the glow of our boma fires. A delicious farm-style breakfast is included with all overnight stays.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item wide">
+        <img src="../images/gallery_img/acc2.png" alt="Room interior"/>
+        <div class="caption">Private, Elegant &amp; Intimate Retreats</div>
+      </div>
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=900&q=80" alt="Double room"/>
+        <div class="caption">Double Room with En-Suite</div>
+      </div>
+      <div class="gallery-item">
+        <img src="../images/gallery_img/bathroom.png" alt="En-suite bathroom"/>
+        <div class="caption">Private En-Suite Bathroom</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Morning garden view from room"/>
+        <div class="caption">Morning Garden View</div>
+      </div>
+      <div class="gallery-item">
+        <img src="../images/gallery_img/acc1.png" alt="Room exterior morning light"/>
+        <div class="caption">Sunlit Rooms at Dawn</div>
+      </div>
+    </div>
+
+    <div class="gallery-desc">
+      <h3>Every detail is designed to make your celebration effortless and unforgettable.</h3>
+      <p>From arrival to farewell breakfast, your guests are held in warmth and beauty every step of the way.</p>
+    </div>
+
+  <!-- <?php include 'footer.php' ?> -->
+
+</body>
+</html>
