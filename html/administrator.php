@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,13 +16,13 @@
     <?php include 'navbar.php'; ?>
 
     <?php
-      require_once __DIR__ . '/../php/reporting.php';
-      $bookings = fetchBookingReportRows();
+    require_once __DIR__ . '/../php/reporting.php';
+    $bookings = fetchBookingReportRows();
 
-      function safeText($value)
-      {
-          return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
-      }
+    function safeText($value)
+    {
+      return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+    }
     ?>
 
     <section class="containsTable" id="currentBookings">

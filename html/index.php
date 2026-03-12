@@ -1,8 +1,4 @@
-<?php
-session_start();
-include_once '../php/alert.php';
-?>
-
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
