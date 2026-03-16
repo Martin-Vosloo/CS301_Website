@@ -22,6 +22,7 @@ if (!isset($_SESSION['myid'])) {
 $checkin = clean($_POST['checkin'] ?? '');
 $checkout = clean($_POST['checkout'] ?? '');
 $number_of_people = isset($_POST['number_of_people']) ? (int) $_POST['number_of_people'] : 0;
+$preferences = clean($_POST['preferences'] ?? '');
 
 if ($checkin === '' || $checkout === '' || $number_of_people <= 0) {
     $_SESSION['alert'] = [
@@ -61,7 +62,7 @@ $accommodation = isset($_POST['accommodation']) ? 1 : 0;
 
 $package_id = sprintf('C%dP%dA%d', $catering, $photography, $accommodation);
 
-$sql = "INSERT INTO booking (user_id, number_of_people, start_Date, duration, package_id) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO booking (user_id, number_of_people, start_Date, duration, package_id, preferences) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 if (!$stmt) {
     $_SESSION['alert'] = [
@@ -74,7 +75,7 @@ if (!$stmt) {
 
 $user_id = (int) $_SESSION['myid'];
 $startDateStr = $startDate->format('Y-m-d H:i:s');
-$stmt->bind_param("iisis", $user_id, $number_of_people, $startDateStr, $duration, $package_id);
+$stmt->bind_param("iisiss", $user_id, $number_of_people, $startDateStr, $duration, $package_id, $preferences);
 
 if (!$stmt->execute()) {
     $_SESSION['alert'] = [
