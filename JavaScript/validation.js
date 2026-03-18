@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (coupleNames) coupleNames.addEventListener("input", validate_names);
     if (bookingEmail) bookingEmail.addEventListener("input", validate_email);
     if (bookingPhone) bookingPhone.addEventListener("input", validate_phone);
+    if (password) password.addEventListener("input", validate_password_length);
+    if (password && confirmPassword) {
+        password.addEventListener("input", validate_passwords);
+        confirmPassword.addEventListener("input", validate_passwords);
+    }
 
     // Function for couple names validation
     function validate_names() {
