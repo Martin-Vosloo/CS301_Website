@@ -9,36 +9,6 @@ if (!$role) {
   exit;
 }
 ?>
-
-<?php
-  include_once "../php/connection.php";
-  
-  function bookedDates(){
-    global $conn; // Ensure the connection is available
-    $qry = "SELECT start_date, duration FROM booking";
-    $result = mysqli_query($conn, $qry);
-    $bookings = [];
-
-    // Collect all the dates between start_date and end_date
-    while ($row = mysqli_fetch_assoc($result)) {
-      // Ensure start_date and end_date are not null or empty before processing
-      if (!empty($row['start_date']) && !empty($row['duration'])) {
-        $start = new DateTime($row['start_date']);
-        $end = clone $start;
-        $end->modify("+{$row['duration']} days");
-        print_r($end);
-        // Add all dates between start and end date to the booked dates array
-        while ($current->format('Y-m-d') <= $end->format('Y-m-d')) {
-          $bookings[] = $start->format('Y-m-d'); // Store as string in 'Y-m-d' format
-          $start->modify('+1 day');
-        }
-      }
-    }
-    $bookings = array_unique($bookings);
-    return json_encode($bookings); // Return booked dates as JSON
-  }
-?>
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -76,31 +46,14 @@ if (!$role) {
       <div class="date-pair">
         <div class="field">
           <label for="checkin">Check-in</label>
-          <input type="text" id="datePicker" placeholder="Choose a date">
-          
-          <script>
-            // Safely parse JSON from PHP
-            const bookedDates = <?php echo bookedDates(); ?>;
-
-            console.log("Booked Dates:", bookedDates);
-
-            flatpickr("#datePicker", {
-              mode: "range",
-              dateFormat: "Y-m-d",
-              disable: bookedDates.map(date => ({
-                from: date,
-                to: date
-              }))
-            });
-          </script>
+          <input type="date" id="checkin" name="checkin" required >
         </div>
-
-
 
         <div class="field">
           <label for="checkout">Check-out</label>
           <input type="date" id="checkout" name="checkout" required />
         </div>
+
       </div>
     </div>
 
