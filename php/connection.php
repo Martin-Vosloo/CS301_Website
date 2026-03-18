@@ -1,4 +1,11 @@
 <?php
+// Point tot the vendor folder in your root
+require_once  dirname(__DIR__) . '/vendor/autoload.php';
+
+// load the .env file from the root
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+
 $server = 'CS3-DEV.ICT.RU.AC.ZA';
 $user = 'G21M4333';
 $password = 'ModChu21';
@@ -14,4 +21,6 @@ function clean($text)
 {
     return htmlspecialchars(stripslashes(trim($text)), ENT_QUOTES, 'UTF-8');
 }
+
+
 ?>
