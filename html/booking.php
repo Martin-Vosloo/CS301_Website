@@ -9,6 +9,32 @@ if (!$role) {
   exit;
 }
 ?>
+
+<?php
+  include_once "../php/connection.php";
+  
+  function bookedDates(){
+    global $conn; // Ensure the connection is available
+    $qry = "SELECT start_date, end_date FROM booking";
+    $result = mysqli_query($conn, $qry);
+    $bookings = [];
+
+    // Collect all the dates between start_date and end_date
+    while ($row = mysqli_fetch_assoc($result)) {
+      $start = new DateTime($row['start_date']);
+      $end = new DateTime($row['end_date']);
+      
+      // Add all dates between start and end date to the booked dates array
+      while ($start <= $end) {
+        $bookings[] = $start->format('Y-m-d'); // Store as string in 'Y-m-d' format
+        $start->modify('+1 day');
+      }
+    }
+
+    return json_encode($bookings); // Return booked dates as JSON
+  }
+?>
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -43,8 +69,21 @@ if (!$role) {
       <div class="date-pair">
         <div class="field">
           <label for="checkin">Check-in</label>
-          <input type="date" id="checkin" name="checkin" required />
+          <input type="text" id="datePicker" placeholder="Choose a date">
+          
+          <script>
+            // Pass the booked dates from PHP to JavaScript
+            const bookedDates = <?php echo bookedDates(); ?>;
+            console.log(bookedDates);
+            flatpickr("#datePicker", {
+                disable: bookedDates, // Disable all the dates in the bookedDates array
+                dateFormat: "Y-m-d"
+            });
+          </script>
         </div>
+
+
+
         <div class="field">
           <label for="checkout">Check-out</label>
           <input type="date" id="checkout" name="checkout" required />
