@@ -6,16 +6,18 @@
         Authors: <a href="about.php">Contact Details</a>
       </small>
     </p>
-    <article class="navigation-links">
+    <nav>
       <a href="index.php">Home</a>
       <a href="reviews.php">Reviews</a>
       <a href="about.php">About</a>
       <a href="booking.php">Book</a>
       <a href="gallery.php">Gallery</a>
-      <!-- Show admin button if role = admin -->
-      <?php if ($role === 'admin'): ?>
       <a href="administrator.php">Admin</a>
-      <?php endif; ?>
-    </article>
+    </nav>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="tel:+27123456789" class="contact-icon"><i class="fa-solid fa-phone"></i></a>
     </div>
   </footer>
