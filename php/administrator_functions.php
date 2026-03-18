@@ -26,25 +26,35 @@
         //getting the table results 
         const records = <?php echo table() ?>;
         //
+        let clicked_record;
 
 
         //this creates the table 
         function buildTable(records) {
-            let html = "<table border='0'>";
-            records.forEach(row => {
-                html += "<tr>";
+            let html = "<table border='1' id='curTable'>";
+            records.forEach((row, rowIndex) => {
+                html += "<tr data-index='" + rowIndex + "'>";
                 row.forEach(cell => {
-                    html += "<td>" + cell + "</td>";
+                html += "<td>" + cell + "</td>";
                 });
                 html += "</tr>";
             });
-
             html += "</table>";
             return html;
         }
+
+        function renderTable(records) {
+            document.getElementById("curbooking").innerHTML = buildTable(records);
+            document.querySelectorAll("#curTable tr").forEach(tr => {
+                tr.addEventListener("click", clicked_on_table());
+            });
+        }
+
+
+
         //adding dtaa top the table
         function initialTable_onload(){
-            document.getElementById("curbooking").innerhtml = buildTable(records);
+            document.getElementById("curbooking").innerhtml = renderTable(records);
         }
 
 
@@ -55,17 +65,17 @@
 
         //order by date button
         document.getElementById("orderDate").addEventListener("click", function(){
-            document.getElementById("curbooking").innerhtml = buildTable( json_encode(<?php echo table("start_date")?>) );
+            document.getElementById("curbooking").innerhtml = renderTable( json_encode(<?php echo table("start_date")?>) );
         })
 
         //order by name, since the default is first name we will change this to last name
         document.getElementById("orderName").addEventListener("click", function(){
-            document.getElementById("orderName").innerhtml = buildTable(json_encode(<?php echo table("lname")?>));
+            document.getElementById("orderName").innerhtml = renderTable(json_encode(<?php echo table("lname")?>));
         })
 
         //search button
         document.getElementById("seach").addEventListener("click", function(){
-            document.getElementById("search").innerhtml = buildTable(search_result());
+            document.getElementById("search").innerhtml = renderTable(search_result());
         })
 
 
@@ -78,4 +88,20 @@
                     cell.toString().toLowerCase().includes(search_string.toLowerCase())
                 );
             });
+        }
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /*these are for specifically the modifying part of the 
+        */
+
+        //firstly you click on the table and then it bappears on the section
+        function clicked_on_table(){
+            //getting the clicked item
+            const index = this.getAttribute("data-index");
+            clicked_record = records[index];
+            //
+
+                // Show the record in another section for editing
+                document.getElementById("selectedRecord").innerText = record.join(" | ");
         }

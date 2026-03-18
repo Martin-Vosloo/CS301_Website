@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/admin.css" />
   <script src="../JavaScript/tables.js" defer></script>
+  <script src="../php/administrator_functions.php"></script>
 </head>
 <body onload="initialTable_onload();>
   <nav class="navigation-bar">
@@ -38,8 +39,8 @@
     <table class="admin-table" id="curbooking" onload= >
         <!--php will add the table here -->
     </table>
-
-    <input type="text" name="searchString">
+    <br>
+    <input id="searchValue" type="text" name="searchstring">
 
   </section>
 

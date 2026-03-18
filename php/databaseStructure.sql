@@ -16,7 +16,7 @@ create table users(
     #checkinbg the format of the password
     constraint word_length CHECK(char_length(pwrd)>7 and char_length(pwrd)<20),
     #checking if the email is in the correct format
-    constraint email check(email not like'%[^A-Za-z0-9@._-]%' and email like '%@%' and email like '%.%'),
+    constraint email check(email like'%[^A-Za-z0-9@._-]%' and email like '%@%' and email like '%.%'),
     #we are keeping the data not deleting user
 	alive bit default true
 );
