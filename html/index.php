@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once '../php/alert.php';
+$role = $_SESSION['role'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -119,20 +120,28 @@ include_once '../php/alert.php';
       <div id="bFormWrap">
         <form class="bform" onsubmit="formDone(event)">
           <div>
+            <?php if (!$role): ?>
             <label>Your Name</label>
             <input id="couple_names" type="text" placeholder="Anné" required/>
+            <?php endif ?>
           </div>
           <div>
+            <?php if (!$role): ?>
             <label>Partner's Name</label>
             <input id="couple_names" type="text" placeholder="Pieter"/>
+            <?php endif ?>
           </div>
           <div>
+            <?php if (!$role): ?>
             <label>Email</label>
             <input  id="email" type="email" placeholder="you@email.com" required/>
+            <?php endif ?>
           </div>
           <div>
+            <?php if (!$role): ?>
             <label>Phone</label>
             <input id ="phone" type="tel" placeholder="+27 00 000 0000"/>
+            <?php endif ?>
           </div>
           <div>
             <label>Wedding Date</label>
