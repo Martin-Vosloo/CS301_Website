@@ -1,3 +1,9 @@
+<?php
+session_start();
+include_once '../php/alert.php';
+$role = $_SESSION['role'] ?? null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/popups.css" />
   <script src="../JavaScript/popups.js" defer></script>
+  <script src="../JavaScript/validation.js" defer></script>
   <link rel="stylesheet" href="../css/style.css"/>
 
 </head>
@@ -46,7 +53,7 @@
       </h1>
       <div class="venue-rule"></div>
       <p class="venue-tagline">Where fireside warmth meets confetti joy</p>
-      <div class="hero-book"><a href="../html/booking.html">Book Your Date</a></div>
+      <div class="hero-book"><a href="../html/booking.php">Book Your Date</a></div>
     </div>
 
     <button class="arrow arrow-prev" onclick="prevSlide()">&#8249;</button>
@@ -56,25 +63,11 @@
 
   </section>
 
-  <!-- ═══ NAVIGATION BAR ═══ -->
-  <nav class="navigation-bar">
-    <article class="logo-image">
-      <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
-    </article>
-
-    <article class="navigation-links">
-      <a href="index.html">Home</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="about.html">About</a>
-      <a href="booking.html">Book</a>
-      <a href="administrator.php">Admin</a>
-    </article>
-
-    <article class="navigation-btns">
-      <a href="signIn.html" class="nav-btn">Sign In</a>
-      <a href="signUp.html" class="nav-btn">Sign Up</a>
-    </article>
-  </nav>
+  
+  <body class="home-body">
+    
+    <!-- ═══ NAVIGATION BAR ═══ -->
+  <?php include 'navbar.php' ?>
 
   <!-- ═══ ABOUT ═══ -->
 <section class="about rv">
@@ -127,20 +120,28 @@
       <div id="bFormWrap">
         <form class="bform" onsubmit="formDone(event)">
           <div>
+            <?php if (!$role): ?>
             <label>Your Name</label>
-            <input type="text" placeholder="Anné" required/>
+            <input id="couple_names" type="text" placeholder="Anné" required/>
+            <?php endif ?>
           </div>
           <div>
+            <?php if (!$role): ?>
             <label>Partner's Name</label>
-            <input type="text" placeholder="Pieter"/>
+            <input id="couple_names" type="text" placeholder="Pieter"/>
+            <?php endif ?>
           </div>
           <div>
+            <?php if (!$role): ?>
             <label>Email</label>
-            <input type="email" placeholder="you@email.com" required/>
+            <input  id="email" type="email" placeholder="you@email.com" required/>
+            <?php endif ?>
           </div>
           <div>
+            <?php if (!$role): ?>
             <label>Phone</label>
-            <input type="tel" placeholder="+27 00 000 0000"/>
+            <input id ="phone" type="tel" placeholder="+27 00 000 0000"/>
+            <?php endif ?>
           </div>
           <div>
             <label>Wedding Date</label>
@@ -172,29 +173,8 @@
 
   <!-- ═══ FOOTER ═══ -->
 
-  <footer>
-    <p>
-      <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
-      <small>
-        Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze, Nwabisa Malawu<br />
-        Authors: <a href="about.html">Contact Details</a>
-      </small>
-    </p>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="reviews.html">Write a Review</a>
-      <a href="booking.html">Book</a>
-      <a href="administrator.php">Admin</a>
-    </nav>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="tel:+27123456789" class="contact-icon"><i class="fa-solid fa-phone"></i></a>
-    </div>
-  </footer>
+  <!-- FOOTER contained in external file -->
+  <?php include 'footer.php' ?>
 
   <!-- END OF THE FOOTER-->
   <!--<script src="../JavaScript/new_index.js"></script>-->

@@ -1,6 +1,7 @@
 <?php
-    require_once "connection.php";
+require_once "reporting.php";
 
+<<<<<<< HEAD
     //this will return an arrao of 2 dimensions with the records in them and entered as the rows accordingly
     function table($feild = "fname", $order = "ASC", $sign = "<" ){
         $sql = "SELECT fname, lname, start_date, duration 
@@ -105,3 +106,11 @@
                 // Show the record in another section for editing
                 document.getElementById("selectedRecord").innerText = record.join(" | ");
         }
+=======
+// Legacy helper retained for compatibility.
+function table()
+{
+    return fetchBookingReportRows();
+}
+?>
+>>>>>>> 35f966bd709081ca7c438189794926bfff8e8581

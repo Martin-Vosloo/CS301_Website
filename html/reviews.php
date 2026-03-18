@@ -1,3 +1,11 @@
+<?php
+session_start();
+include_once '../php/alert.php';
+$loggedIn = isset($_SESSION['myid']);
+$displayName = $_SESSION['name'] ?? 'Guest';
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,24 +18,9 @@
   <link rel="stylesheet" href="../css/reviews.css" />
 </head>
 <body class="reviews-page">
-  <nav class="navigation-bar">
-    <article class="logo-image">
-      <a href="index.html"><img src="../images/logo/logo1.png" alt="Relationship Advice logo" /></a>
-    </article>
-
-    <article class="navigation-links">
-      <a href="index.html">Home</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="about.html">About</a>
-      <a href="booking.html">Book</a>
-      <a href="administrator.html">Admin</a>
-    </article>
-
-    <article class="navigation-btns">
-      <a href="signIn.html" class="nav-btn">Sign In</a>
-      <a href="signUp.html" class="nav-btn">Sign Up</a>
-    </article>
-  </nav>
+  
+  <!-- NAVBAR contained in external file -->
+  <?php include 'navbar.php' ?>
 
   <div class="page-content">
     <section class="hero-section">
@@ -123,63 +116,65 @@
       </article>
     </section>
 
-    <section class="quote-section">
-      <p class="section-small-title">A moment in time</p>
-      <h2>The best photographs feel like you can hear the laughter.</h2>
-    </section>
-
     <section class="review-form-section" id="reviewForm">
       <p class="section-small-title">Share your experience</p>
       <h2>Leave Us a Review</h2>
-
-
-<!-- FaORM -->
-
+      <?php if ($loggedIn): ?>
+        <p class="mt-2">Signed in as <?php echo htmlspecialchars($displayName); ?>.</p>
+      <?php else: ?>
+        <p class="mt-2">
+          Please <a href="signIn.php?redirect=../html/reviews.php">sign in</a> to submit a review.
+        </p>
+      <?php endif; ?>
 
       <form class="review-form" action="../php/reviews.php" method="post" enctype="multipart/form-data">
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-        </div>
-        <input type="text" name="insta"  placeholder="Instagram / Handle (optional)" />
-        <textarea placeholder="Tell us about your experience..." rows="5" name="review" ></textarea>
-        <div class="rating">
+        <textarea placeholder="Tell us about your experience..." rows="5" name="review" required></textarea>
+        <div class="rating" id="ratingStars">
           <span>Rating:</span>
-          <span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span><span class="star-rev">&#9733;</span>
-        </div><br>
+          <button type="button" class="star-rev" data-value="1">&#9733;</button>
+          <button type="button" class="star-rev" data-value="2">&#9733;</button>
+          <button type="button" class="star-rev" data-value="3">&#9733;</button>
+          <button type="button" class="star-rev" data-value="4">&#9733;</button>
+          <button type="button" class="star-rev" data-value="5">&#9733;</button>
+          <input type="hidden" name="rating" id="rating-value" value="0" required />
+        </div>
 
         <label for="image">Upload Image</label>
-        <input type="file"  name="image">
+        <input type="file" name="image" accept="image/png,image/jpeg" />
 
-        <button type="submit" class="submit-review">Submit Review</button>
+        <button type="submit" class="submit-review" <?php echo $loggedIn ? '' : 'disabled'; ?>>
+          Submit Review
+        </button>
       </form>
     </section>
   </div>
 
-  <footer>
-    <p>
-      <small>&#169; Copyright 2026 <i>Relationship-Advice</i>&trade;</small><br />
-      <small>
-        Authors: Dylan McDonogh, Kago Songo, Martin Vosloo, Chuma Modze, Nwabisa Malawu<br />
-        Authors: <a href="about.html">Contact Details</a>
-      </small>
-    </p>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="reviews.html">Write a Review</a>
-      <a href="booking.html">Book</a>
-      <a href="administrator.html">Admin</a>
-    </nav>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="tel:+27123456789" class="contact-icon"><i class="fa-solid fa-phone"></i></a>
-    </div>
-  </footer>
+  <!-- FOOTER contained in external file -->
+  <?php include 'footer.php' ?>
 
+  <script>
+    (function () {
+      const stars = Array.from(document.querySelectorAll('.star-rev'));
+      const ratingInput = document.getElementById('rating-value');
+      if (!stars.length || !ratingInput) return;
+
+      function setRating(value) {
+        ratingInput.value = value;
+        stars.forEach((star, index) => {
+          star.classList.toggle('selected', index < value);
+        });
+      }
+
+      stars.forEach((star) => {
+        star.addEventListener('click', () => {
+          const value = parseInt(star.getAttribute('data-value'), 10);
+          if (!Number.isNaN(value)) {
+            setRating(value);
+          }
+        });
+      });
+    })();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>

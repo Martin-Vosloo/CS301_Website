@@ -1,13 +1,14 @@
-  // navigation bar function to hide navbar when scrolling down, and show when scrolling up
-  
-  var prevScrollPos = window.pageYOffset;
-  window.onscroll = function () {
-    var currentScrollPos = window.pageYOffset;
+// navigation bar function to hide navbar when scrolling down, and show when scrolling up
+const navBar = document.getElementById("navigation-bar");
+if (navBar) {
+  let prevScrollPos = window.pageYOffset;
+  window.addEventListener('scroll', function () {
+    const currentScrollPos = window.pageYOffset;
     if (prevScrollPos > currentScrollPos) {
-      document.getElementById("navigation-bar").style.top = "0";
+      navBar.style.top = "0";
+    } else {
+      navBar.style.top = "-50px";
     }
-    else {
-      document.getElementById("navigation-bar").style.top = "-50px";
-    }
-   prevScrollPos = currentScrollPos; 
-  }
+    prevScrollPos = currentScrollPos; 
+  });
+}

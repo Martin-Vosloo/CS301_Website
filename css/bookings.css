@@ -1,132 +1,278 @@
-/* Core color palette and typography variables */
-:root {
-  --primary-colour: #a8c0a2;
-  --secondary: #f4c6c6;
-  --tertiary: #444444;
-  --text-color: black;
-  --borders: #444444;
-  --font: 'Garet', 'Lucida Sans', sans-serif;
-}
+/* BOOKING.CSS STYLING
+  - This Booking page is made to be minimal and elegant
+  - not much distractions just booking
+  - there is a color palette is gold, creme and green to give a professional look.
+*/
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Page background with fixed positioning for a parallax effect */
-.booking-page {
-  background: url('../images/venue/reception_table.jpg') no-repeat center center fixed;
-  background-size: cover;
-  min-height: 100vh;
-}
+    :root {
+      --bg: #f8f6f2;
+      --dark: #1a1a18;
+      --muted: #888078;
+      --gold: #a07828;
+      --line: #ddd8ce;
+    }
 
-/* Container for centering the form on the screen */
-.form-wrapper {
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
 
-/* The 'Glass' effect: semi-transparent white with a background blur */
-.glass-form {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1.5px solid var(--borders);
-  border-radius: 1.5rem;
-  padding: 2.5rem;
-  width: 100%;
-  max-width: 40rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin-bottom: 3rem;
-}
+    .wrap {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px 32px 110px;
+    }
 
-/* Secondary headings with an accent underline */
-h2 {
-  font-family: var(--font);
-  color: var(--tertiary);
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--primary-colour);
-  display: inline-block;
-}
+    /* Header */
+    .header {
+      margin-bottom: 72px;
+      animation: fadeUp 0.8s ease both;
+    }
 
-/* Layout for label and input pairs */
-.input-group {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 1.2rem;
-}
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
 
-.input-group label {
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-bottom: 0.4rem;
-}
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 6vw, 56px);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--dark);
+    }
 
-/* Standardized styling for all text-based inputs */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-textarea {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  font-family: inherit;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s ease;
-}
+    h1 em { font-style: italic; color: var(--gold); }
 
-/* Highlight the field when the user clicks/taps it */
-input:focus, textarea:focus {
-  border-color: var(--primary-colour);
-  box-shadow: 0 0 0 3px rgba(168, 192, 162, 0.3);
-}
+    .sub {
+      margin-top: 16px;
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
 
-/* Grid layout for start/end date alignment */
-.date-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
+    /* Section */
+    .section {
+      margin-bottom: 52px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .section:nth-child(2) { animation-delay: 0.08s; }
+    .section:nth-child(3) { animation-delay: 0.16s; }
+    .section:nth-child(4) { animation-delay: 0.24s; }
+    .section:nth-child(5) { animation-delay: 0.32s; }
 
-/* Auto-fitting grid for services checkboxes */
-.checkbox-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.8rem;
-  text-align: left;
-}
+    .section-title {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
 
-.custom-check {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
+    /* Field */
+    .field { margin-bottom: 28px; }
 
-/* Main action button styling with hover lifting effect */
-.submit-btn {
-  background-color: var(--primary-colour);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-family: var(--font);
-  border-radius: 2rem;
-  cursor: pointer;
-  margin-top: 2rem;
-  transition: transform 0.2s ease, background 0.3s ease;
-  width: 100%;
-}
+    .field label {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
 
-.submit-btn:hover {
-  background-color: #8fa889;
-  transform: translateY(-2px);
-}
+    .field input[type="date"],
+    .field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0 12px;
+      font-family: 'Jost', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      appearance: none;
+      -webkit-appearance: none;
+    }
 
-textarea {
-  width: 100%;
-  resize: vertical;
-}
+    .field input[type="date"]:focus,
+    .field textarea:focus { border-bottom-color: var(--gold); }
+
+    .field input[type="date"]::-webkit-calendar-picker-indicator {
+      opacity: 0.3;
+      cursor: pointer;
+    }
+
+    .field textarea {
+      resize: none;
+      min-height: 120px;
+      line-height: 1.8;
+    }
+
+    /* Date pair */
+    .date-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    /* Radio rows */
+    .radio-group { display: flex; flex-direction: column; }
+
+    .radio-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+    }
+    .radio-row:first-child { border-top: 1px solid var(--line); }
+
+    .radio-row input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--line);
+      border-radius: 50%;
+      flex-shrink: 0;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .radio-row input[type="radio"]:checked { border-color: var(--gold); }
+
+    .radio-row input[type="radio"]::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .radio-row input[type="radio"]:checked::after { opacity: 1; }
+
+    .radio-label { font-size: 15px; font-weight: 300; color: var(--dark); flex: 1; }
+    .radio-note  { font-size: 12px; color: var(--muted); }
+
+    /* Checkbox rows */
+    .check-group { display: flex; flex-direction: column; }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+    }
+    .check-row:first-child { border-top: 1px solid var(--line); }
+
+    .check-row input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--line);
+      border-radius: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .check-row input[type="checkbox"]:checked {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .check-row input[type="checkbox"]::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 1.5px;
+      width: 5px;
+      height: 9px;
+      border: 1.5px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .check-row input[type="checkbox"]:checked::after { opacity: 1; }
+
+    .check-label { font-size: 15px; font-weight: 300; color: var(--dark); flex: 1; }
+    .check-tag   { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+    /* Submit */
+    .submit-area {
+      margin-top: 56px;
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+
+    .submit-note {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--dark);
+      color: #e8e0d0;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      border: none;
+      padding: 17px 52px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      border-radius: 1.5rem;
+    }
+
+    .btn:hover { background: #a8c0a8; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    /* Success */
+    .success { display: none; padding: 80px 0; animation: fadeUp 0.6s ease both; }
+    .success.show { display: block; }
+    .success-mark { font-size: 26px; color: var(--gold); margin-bottom: 24px; }
+    .success h2 { font-family: 'Cormorant Garamond', serif; font-size: 34px; 
+        font-weight: 300; color: var(--dark); margin-bottom: 12px; }
+    .success p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 520px) {
+      .wrap { padding: 60px 24px 90px; }
+      .date-pair { grid-template-columns: 1fr; gap: 0; }
+    }
+  /*----------------------------------------------------------------------------------------*/
