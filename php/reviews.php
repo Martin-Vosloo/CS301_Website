@@ -85,7 +85,7 @@ if (!$stmt) {
 }
 
 $user_id = (int) $_SESSION['myid'];
-$stmt->bind_param("issi", $user_id, $review_text, $image_name, $rating);
+                                                                                     $stmt->bind_param("issi", $user_id, $review_text, $image_name, $rating);
 
 if (!$stmt->execute()) {
     $_SESSION['alert'] = [

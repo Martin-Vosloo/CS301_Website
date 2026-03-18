@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const coupleNames = document.getElementById("couple-names");
     const bookingEmail = document.getElementById("email");
     const bookingPhone = document.getElementById("phone");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("password_conf");
 
     if (coupleNames) coupleNames.addEventListener("input", validate_names);
     if (bookingEmail) bookingEmail.addEventListener("input", validate_email);
@@ -21,10 +23,12 @@ document.addEventListener("DOMContentLoaded", function() {
     function validate_names() {
         if (this.value.trim() === "") {
             this.setCustomValidity("Please enter the names of the couple.");
-            this.style.borderColor = "red";
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
         } else {
-            this.setCustomValidity(""); // Clear error
-            this.style.borderColor = "#ccc";
+            this.setCustomValidity("");
+            this.classList.add("is-valid");
+            this.classList.remove("is-invalid");
         }
     }
 
@@ -33,62 +37,70 @@ document.addEventListener("DOMContentLoaded", function() {
         const emailRegex = /^\S+@\S+\.\S+$/;
         if (this.value.trim() === "") {
             this.setCustomValidity("Email address cannot be left blank.");
-            this.style.borderColor = "red";
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
         } else if (!emailRegex.test(this.value)) {
             this.setCustomValidity("Please enter a valid email address.");
-            this.style.borderColor = "red";
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
         } else {
             this.setCustomValidity("");
-            this.style.borderColor = "#ccc";
+            this.classList.add("is-valid");
+            this.classList.remove("is-invalid");
         }
     }
 
     // Function for phone validation
     function validate_phone() {
-        const digitsOnly = this.value.replace(/\D/g, ""); // Remove non-digits
+        const digitsOnly = this.value.replace(/\D/g, "");
         if (this.value.trim() === "") {
             this.setCustomValidity("Phone number cannot be left blank.");
-            this.style.borderColor = "red";
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
         } else if (digitsOnly.length !== 10) {
             this.setCustomValidity("The phone number must be exactly 10 digits.");
-            this.style.borderColor = "red";
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
         } else {
             this.setCustomValidity("");
-            this.style.borderColor = "#ccc";
+            this.classList.add("is-valid");
+            this.classList.remove("is-invalid");
         }
     }
 
-    // --- Sign-Up Password Matching ---
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("password_conf");
-
-    if (password && confirmPassword) {
-        function validate_passwords() {
-            if (password.value !== confirmPassword.value) {
-                confirmPassword.setCustomValidity("Passwords do not match.");
-            } else {
-                confirmPassword.setCustomValidity("");
-            }
+    // Function for password length validation
+    function validate_password_length() {
+        if (this.value.length < 8) {
+            this.setCustomValidity("Password must be at least 8 characters long.");
+            this.classList.add("is-invalid");
+            this.classList.remove("is-valid");
+        } else {
+            this.setCustomValidity("");
+            this.classList.add("is-valid");
+            this.classList.remove("is-invalid");
         }
-        password.addEventListener("input", validate_passwords);
-        confirmPassword.addEventListener("input", validate_passwords);
     }
-    
-    /* A function called togglePassword(): 
-       The function creates an eye icon at the edge of the password box.
-       The user can click it to see their password previously inputted.
-       The function switches between data types changing from the actually password,
-       This is like a show and hide feature.
-    */
+
+    // Function for password matching
+    function validate_passwords() {
+        if (password.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity("Passwords do not match.");
+            confirmPassword.classList.add("is-invalid");
+            confirmPassword.classList.remove("is-valid");
+        } else {
+            confirmPassword.setCustomValidity("");
+            confirmPassword.classList.add("is-valid");
+            confirmPassword.classList.remove("is-invalid");
+        }
+    }
+
+    // Toggle password visibility
     function togglePassword() {
         let passwordField = document.getElementById("password");
-
         if (passwordField.type === "password") {
             passwordField.type = "text";
         } else {
             passwordField.type = "password";
         }
-        }
-
-
+    }
 });

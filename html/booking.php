@@ -9,6 +9,35 @@ if (!$role) {
   exit;
 }
 ?>
+
+<?php
+  include_once "../php/connection.php";
+  
+  function bookedDates(){
+    global $conn; // Ensure the connection is available
+    $qry = "SELECT start_date, duration FROM booking";
+    $result = mysqli_query($conn, $qry);
+    $bookings = [];
+
+    // Collect all the dates between start_date and end_date
+    while ($row = mysqli_fetch_assoc($result)) {
+      // Ensure start_date and end_date are not null or empty before processing
+      if (!empty($row['start_date']) && !empty($row['duration'])) {
+        $end = $start = new DateTime($row['start_date']);
+        $end->modify("+{$row['duration']} days");
+        
+        // Add all dates between start and end date to the booked dates array
+        while ($start <= $end) {
+          $bookings[] = $start->format('Y-m-d'); // Store as string in 'Y-m-d' format
+          $start->modify('+1 day');
+        }
+      }
+    }
+
+    return json_encode($bookings); // Return booked dates as JSON
+  }
+?>
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,6 +48,9 @@ if (!$role) {
     <link rel="stylesheet" href="../css/bookings.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Include flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
   <body class="booking-body" >
     
@@ -43,8 +75,21 @@ if (!$role) {
       <div class="date-pair">
         <div class="field">
           <label for="checkin">Check-in</label>
-          <input type="date" id="checkin" name="checkin" required />
+          <input type="text" id="datePicker" placeholder="Choose a date">
+          
+          <script>
+            // Pass the booked dates from PHP to JavaScript
+            const bookedDates = <?php echo bookedDates(); ?>;
+            console.log(bookedDates);
+            flatpickr("#datePicker", {
+                disable: bookedDates, // Disable all the dates in the bookedDates array
+                dateFormat: "Y-m-d"
+            });
+          </script>
         </div>
+
+
+
         <div class="field">
           <label for="checkout">Check-out</label>
           <input type="date" id="checkout" name="checkout" required />
