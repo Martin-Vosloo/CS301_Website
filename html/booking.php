@@ -23,17 +23,18 @@ if (!$role) {
     while ($row = mysqli_fetch_assoc($result)) {
       // Ensure start_date and end_date are not null or empty before processing
       if (!empty($row['start_date']) && !empty($row['duration'])) {
-        $end = $start = new DateTime($row['start_date']);
+        $start = new DateTime($row['start_date']);
+        $end = clone $start;
         $end->modify("+{$row['duration']} days");
-        
+        print_r($end);
         // Add all dates between start and end date to the booked dates array
-        while ($start <= $end) {
+        while ($current->format('Y-m-d') <= $end->format('Y-m-d')) {
           $bookings[] = $start->format('Y-m-d'); // Store as string in 'Y-m-d' format
           $start->modify('+1 day');
         }
       }
     }
-
+    $bookings = array_unique($bookings);
     return json_encode($bookings); // Return booked dates as JSON
   }
 ?>
@@ -78,12 +79,18 @@ if (!$role) {
           <input type="text" id="datePicker" placeholder="Choose a date">
           
           <script>
-            // Pass the booked dates from PHP to JavaScript
+            // Safely parse JSON from PHP
             const bookedDates = <?php echo bookedDates(); ?>;
-            console.log(bookedDates);
+
+            console.log("Booked Dates:", bookedDates);
+
             flatpickr("#datePicker", {
-                disable: bookedDates, // Disable all the dates in the bookedDates array
-                dateFormat: "Y-m-d"
+              mode: "range",
+              dateFormat: "Y-m-d",
+              disable: bookedDates.map(date => ({
+                from: date,
+                to: date
+              }))
             });
           </script>
         </div>
