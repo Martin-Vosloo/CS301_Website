@@ -21,13 +21,16 @@ if (!$role) {
 
     // Collect all the dates between start_date and end_date
     while ($row = mysqli_fetch_assoc($result)) {
-      $start = new DateTime($row['start_date']);
-      $end = new DateTime($row['end_date']);
-      
-      // Add all dates between start and end date to the booked dates array
-      while ($start <= $end) {
-        $bookings[] = $start->format('Y-m-d'); // Store as string in 'Y-m-d' format
-        $start->modify('+1 day');
+      // Ensure start_date and end_date are not null or empty before processing
+      if (!empty($row['start_date']) && !empty($row['end_date'])) {
+        $start = new DateTime($row['start_date']);
+        $end = new DateTime($row['end_date']);
+        
+        // Add all dates between start and end date to the booked dates array
+        while ($start <= $end) {
+          $bookings[] = $start->format('Y-m-d'); // Store as string in 'Y-m-d' format
+          $start->modify('+1 day');
+        }
       }
     }
 
@@ -45,6 +48,9 @@ if (!$role) {
     <link rel="stylesheet" href="../css/bookings.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Include flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
   <body class="booking-body" >
     
